@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Command line workshop - Command line basics  for genomic analysis at OSC</title>
+<title>Command line workshop ’22 - Command line basics  for genomic analysis at OSC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,20 +67,15 @@ ul.task-list{list-style: none;}
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Command line workshop</span>
+    <span class="navbar-title">Command line workshop ’22</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
-  </li>  
-</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">About</a>
+    <a class="nav-link" href="./schedule.html">Schedule</a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -108,7 +103,7 @@ ul.task-list{list-style: none;}
   </ul></li>
   <li><a href="#sign-up" id="toc-sign-up" class="nav-link" data-scroll-target="#sign-up">Sign up!</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/quarto-dev/quarto-demo/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -132,18 +127,24 @@ ul.task-list{list-style: none;}
 
 <section id="practicalities" class="level2">
 <h2 class="anchored" data-anchor-id="practicalities">Practicalities</h2>
-<p>This workshop will be taught <strong>in-person in Selby 203 at the OSU Wooster Campus</strong> by Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC).</p>
+<p>This workshop will be taught <strong>in-person at the Wooster OSU Campus</strong> by Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC).</p>
 <p>The workshop will be highly hands-on and take place across three afternoons:<br>
 <strong>Wed, Aug 17 - Fri, Aug 19 from 1 pm to 4:30 pm</strong>.</p>
-<p>Otherwise: - Anyone affiliated with The Ohio State University or Wooster USDA is welcome to sign up - Attendance is free - No prior experience with coding or genomic data is required - You will only need to bring a laptop and don’t need to install anything prior to or during the workshop</p>
+<p>Otherwise:</p>
+<ul>
+<li>Anyone affiliated with The Ohio State University or Wooster USDA is welcome to sign up</li>
+<li>Attendance is free</li>
+<li>No prior experience with coding or genomic data is required</li>
+<li>You will only need to bring a laptop and don’t need to install anything prior to or during the workshop</li>
+</ul>
 <p>See below for information about the contents of the workshop and to sign up.<br>
 For questions, please <a href="mailto:poelstra.1@osu.edu">email Jelmer</a>.</p>
 </section>
 <section id="contents-of-the-workshop" class="level2">
 <h2 class="anchored" data-anchor-id="contents-of-the-workshop">Contents of the workshop</h2>
-<p><strong>The workshop is geared towards researchers at any level that would like to get started with analyzing genomic datasets using command-line programs at the Ohio Supercomputer Center (OSC).</strong></p>
-<p>This may sound highly specific but virtually any genomic dataset is best analyzed at least in part using command-line programs and, for researchers in Ohio, by using the computing power that OSC offers.</p>
-<p>The skills you will be taught are foundational and can be applied to working with any kind of (large) dataset. However, on our campus, by far the most common use case for command-line computing at OSC is genomic data – such as from <em>RNAseq</em>, <em>metabarcoding</em>, <em>metagenomic shotgun sequencing</em>, or <em>whole-genome sequencing</em>.</p>
+<p><strong>The workshop is geared towards people who would like to get started</strong> <strong>with analyzing genomic datasets.</strong></p>
+<p>The focus of the workshop is not on any specific data or analysis type but on teaching the general skills you need to be able to analyze almost <em>any</em> genomics dataset. These boil down to the ability to write small scripts that run command-line programs, and submit these scripts to a remote computer – in our case, the Ohio Supercomputer Center (OSC).</p>
+<p>These skills can in fact be applied to working with any kind of (large) dataset. However, on our campus, by far the most common use case for command-line computing at OSC is genomic data – such as from <em>RNAseq</em>, <em>metabarcoding</em>, <em>metagenomic shotgun sequencing</em>, or <em>whole-genome sequencing</em>.</p>
 <section id="modules-of-the-workshop" class="level3">
 <h3 class="anchored" data-anchor-id="modules-of-the-workshop">Modules of the workshop</h3>
 <ul>
@@ -151,18 +152,18 @@ For questions, please <a href="mailto:poelstra.1@osu.edu">email Jelmer</a>.</p>
 <li>Using the <code>VS Code</code> text editor at OSC</li>
 <li>Introduction to the Unix shell (= the terminal / command line)</li>
 <li>Basics of shell scripts</li>
-<li>Data transfer and software at OSC with OSC modules &amp; <code>Conda</code></li>
-<li>Introduction to submitting your scripts with <code>SLURM</code></li>
+<li>Data transfer and software at OSC with <em>modules</em> &amp; <code>Conda</code></li>
+<li>Submitting your scripts using the <code>SLURM</code> scheduler</li>
 <li>Putting it all together: practical examples of running analysis jobs at OSC</li>
 </ul>
-<p>The modules will be a mixture of lectures that include “participatory live-coding” (i.e.&nbsp;with the instructor slowly demonstrating and participants expected to follow along for themselves) and exercises. Thus, the workshop is highly hands-on.</p>
-<p>We will work with example sequence data (mostly <code>FASTQ</code> files) but you are also welcome to bring your own data to put your newly learned skills in practice on the last afternoon.</p>
+<p>The modules will be a mixture of lectures that include “participatory live-coding” (i.e.&nbsp;with the instructor slowly demonstrating and participants expected to follow along for themselves) and exercises.</p>
+<p>We will work with example genomics data but if you have any, you are welcome to bring your own data to put your newly learned skills in practice on the last afternoon.</p>
 </section>
 <section id="some-more-background" class="level3">
 <h3 class="anchored" data-anchor-id="some-more-background">Some more background</h3>
-<p>When doing any kind of large-scale sequencing experiment, you will typically receive the raw sequencing data, often in so-called <code>FASTQ</code> files. Many of the steps to analyze this data, such as those involving quality control, trimming or adapter removal, and assembly or mapping, are best performed using command-line programs. Because of the quantity of data involved <em>and</em> the fact that many steps can be done independently for each sample, it moreover pays off (or may simply be necessary) to run this not on a laptop or desktop, but at a supercomputer like OSC.</p>
-<p>Being able to run your analysis at OSC involves a number of skills that may seem overwhelming at first: working in a terminal (the Unix shell), writing scripts, submitting scripts to a “queue” and managing the resulting compute jobs, accessing if not also installing software, and having some understanding of the supercomputer.</p>
-<p>Fortunately, learning the very basics of these skills does not take a lot of time <em>and</em> is sufficient to really be up-and-running with your own genomic data. These days, excellent programs are available for almost any genomics analysis. Therefore, you do not need to be able to code it all up from scratch: you just need to know how to efficiently run these programs at the command line, which is what this workshop aims to teach you.</p>
+<p>When doing any kind of large-scale sequencing experiment, you will typically receive the raw sequencing data. Many of the steps to analyze this data, such as those involving quality control, trimming or adapter removal, and assembly or mapping, are best performed using command-line programs. Additionally, <em>a lot</em> of data tends to be involved, and many analysis steps can be done independently for each sample. Therefore, it pays off (or may be necessary) to run your analyses not on a laptop or desktop, but at a supercomputer like OSC.</p>
+<p>Being able to run your analysis at OSC involves a number of skills that may seem overwhelming at first: working in a terminal (the Unix shell), writing small scripts to run programs with a command-line interface, submitting scripts to a “queue” and managing the resulting compute jobs, accessing if not also installing software, and having some understanding of the supercomputer.</p>
+<p>Fortunately, learning the basics of these skills does not take a lot of time <em>and</em> is sufficient to really be up-and-running with your own genomic data. These days, excellent programs are available for almost any genomics analysis. Therefore, you do not need to be able to code it all up from scratch: you just need to know how to efficiently run these programs at the command line, which is what this workshop aims to teach you.</p>
 </section>
 </section>
 <section id="sign-up" class="level2">
@@ -359,7 +360,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/">
+    <a class="nav-link" href="https://github.com/mcic-osu/cl-workshop-22">
       <i class="bi bi-github" role="img">
 </i> 
     </a>
