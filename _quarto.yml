@@ -3,26 +3,24 @@ project:
   output-dir: docs
 
 website:
-  title: "Command line workshop"
-  repo-url: https://github.com/quarto-dev/quarto-demo
+  title: "Command line workshop '22"
+  repo-url: https://github.com/mcic-osu/cl-workshop-22
   repo-actions: [issue]
   navbar:
     search: true
-    left:
-      - href: index.qmd
-        text: Home
     right:
-      - about.qmd
+      - href: schedule.qmd
+        text: Schedule
   page-footer:
     left: "2022, Jelmer Poelstra"
     right:
       - icon: github
-        href: https://github.com/
+        href: https://github.com/mcic-osu/cl-workshop-22
 
 format:
   html:
     theme:
-      light: cosmo
+      light: lumen
       dark: darkly
     css: styles.css
     toc: true
