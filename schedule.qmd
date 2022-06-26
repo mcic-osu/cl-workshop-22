@@ -1,0 +1,14 @@
+---
+title: "Schedule"
+editor: visual
+---
+
+| Module                            | Time               |
+|-----------------------------------|--------------------|
+| Introduction to OSC               | Wed 1:00 - 1:45 pm |
+| The `VS Code` text editor         | Wed 1:45 - 2:00 pm |
+| The Unix shell                    | Wed 2:15 - 4:00 pm |
+| Shell scripts                     | Thu 1:00 - 2:30 pm |
+| Data transfer and software at OSC | Thu 2:45 - 4:00 pm |
+| Submitting scripts with `SLURM`   | Fri 1:00 - 2:15 pm |
+| Running example analyses          | Fri 2:30 - 4:00 pm |
