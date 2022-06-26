@@ -1,0 +1,90 @@
+---
+title: "Command line basics <br> for genomic analysis at OSC"
+subtitle: "A workshop by the MCIC on August 17 - 19, 2022."
+---
+
+## Practicalities
+
+This workshop will be taught **in-person in Selby 203 at the OSU Wooster Campus**
+by Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC).
+
+The workshop will be **highly hands-on** and take place across three afternoons:  
+**Wed, Aug 17 - Fri, Aug 19 from 1 pm to 4:30 pm**.
+
+Anyone affiliated with The Ohio State University or the Wooster USDA is welcome to sign up,  
+and attendance is free.
+
+No prior experience with coding or genomic data is required.
+You will only need to bring a laptop and don't need to install anything
+prior to or during the workshop.
+(We'll get you an OSC account prior to the start
+of the workshop or you can use your existing one.)
+
+See below for information about the contents of the workshop and to sign up.  
+For questions, please [email Jelmer](mailto:poelstra.1@osu.edu).
+
+## Contents of the workshop
+
+**The workshop is geared towards researchers at any level that would like to get
+started with analyzing genomic datasets using command-line programs at the
+Ohio Supercomputer Center (OSC).**
+
+This may sound highly specific but in reality, virtually any genomic dataset
+is best analyzed at least in part using command line programs and,
+for researchers in Ohio, by using the computing power that OSC offers.
+
+The skills you will be taught are foundational and can in fact be applied to
+working with any kind of (large) dataset.
+However, on our campus, by far the most common use case for command-line computing
+at OSC is genomic data -- such as from
+RNAseq, metabarcoding, metagenomic shotgun sequencing, or whole-genome sequencing.
+
+### Modules of the workshop
+
+- Introduction to the Ohio Supercomputer Center (OSC)
+- Using the `VS Code` text editor at OSC
+- Introduction to the Unix shell (= the terminal / command line)
+- Basics of shell scripts
+- Data transfer and software at OSC with OSC modules & `Conda`
+- Introduction to submitting your scripts with `SLURM`
+- Putting it all together: practical examples of running analysis jobs at OSC
+
+The modules will be a mixture of lectures that include "participatory live-coding"
+(i.e. with the instructor slowly demonstrating and participants expected to follow
+along for themselves) and exercises. Thus, the workshop is highly hands-on.
+
+We will work with example sequence data (mostly `FASTQ` files)
+but you are also welcome to bring your own data
+to put your newly learned skills in practice on the last afternoon.
+
+### Some more background
+
+When doing any kind of large-scale sequencing experiment,
+you will typically receive the raw sequencing data, often in so-called `FASTQ` files.
+Many of the steps to analyze this data, such as those involving quality control,
+trimming or adapter removal, and assembly or mapping,
+are best performed using command-line programs.
+Because of the quantity of data involved _and_ the fact that many steps
+can be done independently for each sample,
+it moreover pays off (or may simply be necessary)
+to run this not on a laptop or desktop, but at a supercomputer like OSC.
+
+Being able to run your analysis at OSC involves a number of skills that may seem
+overwhelming at first: working in a terminal (the Unix shell), writing scripts,
+submitting scripts to a "queue" and managing the resulting compute jobs,
+accessing if not also installing software,
+and having some understanding of the supercomputer.
+
+Fortunately, learning the very basics of these skills does not take a lot of time
+_and_ is sufficient to really be up-and-running with your own genomic data. 
+These days, excellent tools are available for almost any genomics analysis.
+Therefore, you do not need to be able to code it all up from scratch:
+you just need to know how to efficiently run programs at the command line,
+which is what this workshop aims to teach you.
+
+## Sign up!
+
+To sign up, please fill out the form below:
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScEyRqHKPZXteXE-1nDSz2ahJYK3PwxN47bsIx2XkGSj_wB9A/viewform?embedded=true" width="800" height="1847" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
