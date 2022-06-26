@@ -8,17 +8,15 @@ subtitle: "A workshop by the MCIC on August 17 - 19, 2022."
 This workshop will be taught **in-person in Selby 203 at the OSU Wooster Campus**
 by Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC).
 
-The workshop will be **highly hands-on** and take place across three afternoons:  
+The workshop will be highly hands-on and take place across three afternoons:  
 **Wed, Aug 17 - Fri, Aug 19 from 1 pm to 4:30 pm**.
 
-Anyone affiliated with The Ohio State University or the Wooster USDA is welcome to sign up,  
-and attendance is free.
-
-No prior experience with coding or genomic data is required.
-You will only need to bring a laptop and don't need to install anything
-prior to or during the workshop.
-(We'll get you an OSC account prior to the start
-of the workshop or you can use your existing one.)
+Otherwise:
+- Anyone affiliated with The Ohio State University or Wooster USDA is welcome to sign up
+- Attendance is free
+- No prior experience with coding or genomic data is required
+- You will only need to bring a laptop and don't need to install anything
+  prior to or during the workshop
 
 See below for information about the contents of the workshop and to sign up.  
 For questions, please [email Jelmer](mailto:poelstra.1@osu.edu).
@@ -29,15 +27,15 @@ For questions, please [email Jelmer](mailto:poelstra.1@osu.edu).
 started with analyzing genomic datasets using command-line programs at the
 Ohio Supercomputer Center (OSC).**
 
-This may sound highly specific but in reality, virtually any genomic dataset
-is best analyzed at least in part using command line programs and,
+This may sound highly specific but virtually any genomic dataset
+is best analyzed at least in part using command-line programs and,
 for researchers in Ohio, by using the computing power that OSC offers.
 
-The skills you will be taught are foundational and can in fact be applied to
+The skills you will be taught are foundational and can be applied to
 working with any kind of (large) dataset.
 However, on our campus, by far the most common use case for command-line computing
 at OSC is genomic data -- such as from
-RNAseq, metabarcoding, metagenomic shotgun sequencing, or whole-genome sequencing.
+_RNAseq_, _metabarcoding_, _metagenomic shotgun sequencing_, or _whole-genome sequencing_.
 
 ### Modules of the workshop
 
@@ -77,9 +75,9 @@ and having some understanding of the supercomputer.
 
 Fortunately, learning the very basics of these skills does not take a lot of time
 _and_ is sufficient to really be up-and-running with your own genomic data. 
-These days, excellent tools are available for almost any genomics analysis.
+These days, excellent programs are available for almost any genomics analysis.
 Therefore, you do not need to be able to code it all up from scratch:
-you just need to know how to efficiently run programs at the command line,
+you just need to know how to efficiently run these programs at the command line,
 which is what this workshop aims to teach you.
 
 ## Sign up!
