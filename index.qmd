@@ -1,17 +1,19 @@
 ---
 title: "Command line basics <br> for genomic analysis at OSC"
-subtitle: "A workshop by the MCIC on August 17 - 19, 2022."
+subtitle: "A workshop by the MCIC & CAPS on August 17 - 19, 2022."
 ---
 
 ## Practicalities
 
-This workshop will be taught **in-person at the Wooster OSU Campus**
-by Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC).
+This workshop will be taught in-person with video-linking at the Wooster and
+Columbus Ohio State campuses, and it is also possible to join online through Zoom.
+We will have an instructor at each of the two campuses: 
+Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the
+Wooster campus, and Mike Sovic from the Center for Applied Plant Sciences (CAPS)
+at the Columbus campus.
 
 The workshop will be highly hands-on and take place across three afternoons:  
-**Wed, Aug 17 - Fri, Aug 19 from 1 pm to 4:30 pm**.
-
-Otherwise:
+**Wed, Aug 17 - Fri, Aug 19** (Wed & Fri: 1-4:30 pm, Thu: 12-2:30 pm).
 
 - Anyone affiliated with The Ohio State University or Wooster USDA is welcome to sign up
 - Attendance is free
@@ -27,17 +29,13 @@ For questions, please [email Jelmer](mailto:poelstra.1@osu.edu).
 **The workshop is geared towards people who would like to get started**
 **with analyzing genomic datasets.**
 
-The focus of the workshop is not on any specific data or analysis type but
-on teaching the general skills you need to be able to analyze almost _any_
-genomics dataset.
-These boil down to the ability to write small scripts that run
+The focus of the workshop is not on any specific type of data or analysis,
+but on general skills for analyzing any genomics dataset,
+such as from _RNAseq_, _metabarcoding_, _metagenomic shotgun sequencing_,
+or _whole-genome sequencing_.
+These skills boil down to the ability to write small scripts that run
 command-line programs, and submit these scripts to a remote computer --
 in our case, the Ohio Supercomputer Center (OSC).
-
-These skills can in fact be applied to working with any kind of (large) dataset.
-However, on our campus, by far the most common use case for command-line computing
-at OSC is genomic data -- such as from
-_RNAseq_, _metabarcoding_, _metagenomic shotgun sequencing_, or _whole-genome sequencing_.
 
 ### Modules of the workshop
 
@@ -45,7 +43,7 @@ _RNAseq_, _metabarcoding_, _metagenomic shotgun sequencing_, or _whole-genome se
 - Using the `VS Code` text editor at OSC
 - Introduction to the Unix shell (= the terminal / command line)
 - Basics of shell scripts
-- Data transfer and software at OSC with _modules_ & `Conda`
+- Software at OSC with _modules_ & `Conda`
 - Submitting your scripts using the `SLURM` scheduler
 - Putting it all together: practical examples of running analysis jobs at OSC
 
@@ -54,7 +52,7 @@ The modules will be a mixture of lectures that include "participatory live-codin
 along for themselves) and exercises.
 
 We will work with example genomics data but if you have any,
-you are welcome to bring your own data to put your newly learned skills
+you are also welcome to bring your own data to put your newly learned skills
 in practice on the last afternoon.
 
 ### Some more background
@@ -66,21 +64,23 @@ trimming or adapter removal, and assembly or mapping,
 are best performed using command-line programs.
 Additionally, _a lot_ of data tends to be involved,
 and many analysis steps can be done independently for each sample.
-Therefore, it pays off (or may be necessary) to run your analyses not
+Therefore, it pays off -or may simply be necessary- to run your analyses not
 on a laptop or desktop, but at a supercomputer like OSC.
 
 Being able to run your analysis at OSC involves a number of skills that may seem
-overwhelming at first: working in a terminal (the Unix shell),
-writing small scripts to run programs with a command-line interface,
-submitting scripts to a "queue" and managing the resulting compute jobs,
-accessing if not also installing software,
+overwhelming at first: working in a terminal (the Unix shell);
+writing scripts to run programs with a command-line interface;
+submitting scripts to a "queue" & managing the resulting compute jobs;
+accessing if not also installing software;
 and having some understanding of the supercomputer.
 
-Fortunately, learning the basics of these skills does not take a lot of time
-_and_ is sufficient to really be up-and-running with your own genomic data. 
-These days, excellent programs are available for almost any genomics analysis.
-Therefore, you do not need to be able to code it all up from scratch:
-you just need to know how to efficiently run these programs at the command line,
+Fortunately, learning the basics of these skills,
+so that you can be up-and-running with working on your own genomic data,
+does not take a lot of time.
+Keep in mind that these days,
+excellent programs are available for almost any genomics analysis,
+so you do not need to be able to code it all up from scratch.
+You will just need to know how to efficiently run such programs from the command line,
 which is what this workshop aims to teach you.
 
 ## Sign up!
