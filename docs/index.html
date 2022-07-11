@@ -98,10 +98,10 @@ ul.task-list{list-style: none;}
   <li><a href="#practicalities" id="toc-practicalities" class="nav-link active" data-scroll-target="#practicalities">Practicalities</a></li>
   <li><a href="#contents-of-the-workshop" id="toc-contents-of-the-workshop" class="nav-link" data-scroll-target="#contents-of-the-workshop">Contents of the workshop</a>
   <ul class="collapse">
-  <li><a href="#modules-of-the-workshop" id="toc-modules-of-the-workshop" class="nav-link" data-scroll-target="#modules-of-the-workshop">Modules of the workshop</a></li>
+  <li><a href="#modules" id="toc-modules" class="nav-link" data-scroll-target="#modules">Modules</a></li>
   <li><a href="#some-more-background" id="toc-some-more-background" class="nav-link" data-scroll-target="#some-more-background">Some more background</a></li>
   </ul></li>
-  <li><a href="#sign-up" id="toc-sign-up" class="nav-link" data-scroll-target="#sign-up">Sign up!</a></li>
+  <li><a href="#apply-to-attend" id="toc-apply-to-attend" class="nav-link" data-scroll-target="#apply-to-attend">Apply to attend!</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -127,24 +127,25 @@ ul.task-list{list-style: none;}
 
 <section id="practicalities" class="level2">
 <h2 class="anchored" data-anchor-id="practicalities">Practicalities</h2>
-<p>This workshop will be taught in-person with video-linking at the Wooster and Columbus Ohio State campuses, and it is also possible to join online through Zoom. We will have an instructor at each of the two campuses: Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the Wooster campus, and Mike Sovic from the Center for Applied Plant Sciences (CAPS) at the Columbus campus.</p>
+<p>This workshop is geared towards people who would like to get started with analyzing genomic datasets.</p>
+<p>It will be taught in-person with video-linking at the Wooster and Columbus Ohio State campuses, and it is also possible to join online through Zoom. We will have an instructor at each campus: Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the Wooster campus, and Mike Sovic from the Center for Applied Plant Sciences (CAPS) at the Columbus campus.</p>
 <p>The workshop will be highly hands-on and take place across three afternoons:<br>
 <strong>Wed, Aug 17 - Fri, Aug 19</strong> (Wed &amp; Fri: 1-4:30 pm, Thu: 12-2:30 pm).</p>
 <ul>
 <li>Anyone affiliated with The Ohio State University or Wooster USDA is welcome to sign up</li>
 <li>Attendance is free</li>
 <li>No prior experience with coding or genomic data is required</li>
-<li>You will only need to bring a laptop and don’t need to install anything prior to or during the workshop</li>
+<li>You will need to bring a laptop and don’t need to install anything prior to or during the workshop</li>
+<li>We will work with example genomics data but if you have any, you are also welcome to bring your own data.</li>
 </ul>
 <p>See below for information about the contents of the workshop and to sign up.<br>
 For questions, please <a href="mailto:poelstra.1@osu.edu">email Jelmer</a>.</p>
 </section>
 <section id="contents-of-the-workshop" class="level2">
 <h2 class="anchored" data-anchor-id="contents-of-the-workshop">Contents of the workshop</h2>
-<p><strong>The workshop is geared towards people who would like to get started</strong> <strong>with analyzing genomic datasets.</strong></p>
 <p>The focus of the workshop is not on any specific type of data or analysis, but on general skills for analyzing any genomics dataset, such as from <em>RNAseq</em>, <em>metabarcoding</em>, <em>metagenomic shotgun sequencing</em>, or <em>whole-genome sequencing</em>. These skills boil down to the ability to write small scripts that run command-line programs, and submit these scripts to a remote computer – in our case, the Ohio Supercomputer Center (OSC).</p>
-<section id="modules-of-the-workshop" class="level3">
-<h3 class="anchored" data-anchor-id="modules-of-the-workshop">Modules of the workshop</h3>
+<section id="modules" class="level3">
+<h3 class="anchored" data-anchor-id="modules">Modules</h3>
 <ul>
 <li>Introduction to the Ohio Supercomputer Center (OSC)</li>
 <li>Using the <code>VS Code</code> text editor at OSC</li>
@@ -155,18 +156,17 @@ For questions, please <a href="mailto:poelstra.1@osu.edu">email Jelmer</a>.</p>
 <li>Putting it all together: practical examples of running analysis jobs at OSC</li>
 </ul>
 <p>The modules will be a mixture of lectures that include “participatory live-coding” (i.e.&nbsp;with the instructor slowly demonstrating and participants expected to follow along for themselves) and exercises.</p>
-<p>We will work with example genomics data but if you have any, you are also welcome to bring your own data to put your newly learned skills in practice on the last afternoon.</p>
 </section>
 <section id="some-more-background" class="level3">
 <h3 class="anchored" data-anchor-id="some-more-background">Some more background</h3>
-<p>When doing any kind of large-scale sequencing experiment, you will typically receive the raw sequencing data. Many of the steps to analyze this data, such as those involving quality control, trimming or adapter removal, and assembly or mapping, are best performed using command-line programs. Additionally, <em>a lot</em> of data tends to be involved, and many analysis steps can be done independently for each sample. Therefore, it pays off -or may simply be necessary- to run your analyses not on a laptop or desktop, but at a supercomputer like OSC.</p>
-<p>Being able to run your analysis at OSC involves a number of skills that may seem overwhelming at first: working in a terminal (the Unix shell); writing scripts to run programs with a command-line interface; submitting scripts to a “queue” &amp; managing the resulting compute jobs; accessing if not also installing software; and having some understanding of the supercomputer.</p>
-<p>Fortunately, learning the basics of these skills, so that you can be up-and-running with working on your own genomic data, does not take a lot of time. Keep in mind that these days, excellent programs are available for almost any genomics analysis, so you do not need to be able to code it all up from scratch. You will just need to know how to efficiently run such programs from the command line, which is what this workshop aims to teach you.</p>
+<p>Command-line programs are preferred for many of the steps to analyze genomic sequencing data, such as those involving quality control, trimming or adapter removal, and assembly or mapping. Other features of such datasets are that they tend to contain <em>a lot</em> of data, and that many analysis steps can be done independently for each sample. It therefore pays off -or may be necessary- to run your analyses not on a laptop or desktop, but at a supercomputer like OSC.</p>
+<p>Being able to run your analysis with command-line programs at OSC involves a number of skills that may seem overwhelming at first. Fortunately, learning the basics of these skills does not take a lot of time, and will enable you to be up-and-running with working on your own genomic data! Keep in mind that these days, excellent programs are available for almost any genomics analysis, so you do not need to be able to code it all up from scratch. You will just need to know how to efficiently run such programs, which is what this workshop aims to teach you.</p>
 </section>
 </section>
-<section id="sign-up" class="level2">
-<h2 class="anchored" data-anchor-id="sign-up">Sign up!</h2>
-<p>To sign up, please fill out the form below:</p>
+<section id="apply-to-attend" class="level2">
+<h2 class="anchored" data-anchor-id="apply-to-attend">Apply to attend!</h2>
+<p>To apply to attend the workshop, please fill out the form below. There is no real selection procedure: we accept anyone who is at OSU/USDA and signs up before we have reached the maximum number of participants.</p>
+<p>If we invite you to attend, we will ask you to accept or decline. Before accepting at that point, please make sure you have cleared your calendar for these 3 afternoons – we will likely not be able to accommodate “maybe’s”!</p>
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScEyRqHKPZXteXE-1nDSz2ahJYK3PwxN47bsIx2XkGSj_wB9A/viewform?embedded=true" width="800" height="1847" frameborder="0" marginheight="0" marginwidth="0">
 Loading…
 </iframe>

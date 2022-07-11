@@ -1,24 +1,31 @@
 [
   {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Tentative schedule",
+    "section": "",
+    "text": "Module\nInstructor\nTime\n\n\n\n\nIntroduction to OSC\nMike\nWed 1:00 - 1:45 pm\n\n\nThe VS Code text editor\nJelmer\nWed 1:45 - 2:00 pm\n\n\nThe Unix shell\nMike\nWed 2:15 - 4:30 pm\n\n\nShell scripts\nJelmer\nThu 12:00 - 1:30 pm\n\n\nUsing software at OSC\nJelmer\nThu 1:45 - 2:30 pm\n\n\nSubmitting scripts with SLURM\nJelmer\nFri 1:00 - 2:30 pm\n\n\nRunning example analyses\nMike / Jelmer\nFri 2:45 - 4:30 pm"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Command line basics  for genomic analysis at OSC",
     "section": "",
-    "text": "This workshop will be taught in-person with video-linking at the Wooster and Columbus Ohio State campuses, and it is also possible to join online through Zoom. We will have an instructor at each of the two campuses: Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the Wooster campus, and Mike Sovic from the Center for Applied Plant Sciences (CAPS) at the Columbus campus.\nThe workshop will be highly hands-on and take place across three afternoons:\nWed, Aug 17 - Fri, Aug 19 (Wed & Fri: 1-4:30 pm, Thu: 12-2:30 pm).\n\nAnyone affiliated with The Ohio State University or Wooster USDA is welcome to sign up\nAttendance is free\nNo prior experience with coding or genomic data is required\nYou will only need to bring a laptop and don’t need to install anything prior to or during the workshop\n\nSee below for information about the contents of the workshop and to sign up.\nFor questions, please email Jelmer."
+    "text": "This workshop is geared towards people who would like to get started with analyzing genomic datasets.\nIt will be taught in-person with video-linking at the Wooster and Columbus Ohio State campuses, and it is also possible to join online through Zoom. We will have an instructor at each campus: Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the Wooster campus, and Mike Sovic from the Center for Applied Plant Sciences (CAPS) at the Columbus campus.\nThe workshop will be highly hands-on and take place across three afternoons:\nWed, Aug 17 - Fri, Aug 19 (Wed & Fri: 1-4:30 pm, Thu: 12-2:30 pm).\n\nAnyone affiliated with The Ohio State University or Wooster USDA is welcome to sign up\nAttendance is free\nNo prior experience with coding or genomic data is required\nYou will need to bring a laptop and don’t need to install anything prior to or during the workshop\nWe will work with example genomics data but if you have any, you are also welcome to bring your own data.\n\nSee below for information about the contents of the workshop and to sign up.\nFor questions, please email Jelmer."
   },
   {
     "objectID": "index.html#contents-of-the-workshop",
     "href": "index.html#contents-of-the-workshop",
     "title": "Command line basics  for genomic analysis at OSC",
     "section": "Contents of the workshop",
-    "text": "Contents of the workshop\nThe workshop is geared towards people who would like to get started with analyzing genomic datasets.\nThe focus of the workshop is not on any specific type of data or analysis, but on general skills for analyzing any genomics dataset, such as from RNAseq, metabarcoding, metagenomic shotgun sequencing, or whole-genome sequencing. These skills boil down to the ability to write small scripts that run command-line programs, and submit these scripts to a remote computer – in our case, the Ohio Supercomputer Center (OSC).\n\nModules of the workshop\n\nIntroduction to the Ohio Supercomputer Center (OSC)\nUsing the VS Code text editor at OSC\nIntroduction to the Unix shell (= the terminal / command line)\nBasics of shell scripts\nSoftware at OSC with modules & Conda\nSubmitting your scripts using the SLURM scheduler\nPutting it all together: practical examples of running analysis jobs at OSC\n\nThe modules will be a mixture of lectures that include “participatory live-coding” (i.e. with the instructor slowly demonstrating and participants expected to follow along for themselves) and exercises.\nWe will work with example genomics data but if you have any, you are also welcome to bring your own data to put your newly learned skills in practice on the last afternoon.\n\n\nSome more background\nWhen doing any kind of large-scale sequencing experiment, you will typically receive the raw sequencing data. Many of the steps to analyze this data, such as those involving quality control, trimming or adapter removal, and assembly or mapping, are best performed using command-line programs. Additionally, a lot of data tends to be involved, and many analysis steps can be done independently for each sample. Therefore, it pays off -or may simply be necessary- to run your analyses not on a laptop or desktop, but at a supercomputer like OSC.\nBeing able to run your analysis at OSC involves a number of skills that may seem overwhelming at first: working in a terminal (the Unix shell); writing scripts to run programs with a command-line interface; submitting scripts to a “queue” & managing the resulting compute jobs; accessing if not also installing software; and having some understanding of the supercomputer.\nFortunately, learning the basics of these skills, so that you can be up-and-running with working on your own genomic data, does not take a lot of time. Keep in mind that these days, excellent programs are available for almost any genomics analysis, so you do not need to be able to code it all up from scratch. You will just need to know how to efficiently run such programs from the command line, which is what this workshop aims to teach you."
+    "text": "Contents of the workshop\nThe focus of the workshop is not on any specific type of data or analysis, but on general skills for analyzing any genomics dataset, such as from RNAseq, metabarcoding, metagenomic shotgun sequencing, or whole-genome sequencing. These skills boil down to the ability to write small scripts that run command-line programs, and submit these scripts to a remote computer – in our case, the Ohio Supercomputer Center (OSC).\n\nModules\n\nIntroduction to the Ohio Supercomputer Center (OSC)\nUsing the VS Code text editor at OSC\nIntroduction to the Unix shell (= the terminal / command line)\nBasics of shell scripts\nSoftware at OSC with modules & Conda\nSubmitting your scripts using the SLURM scheduler\nPutting it all together: practical examples of running analysis jobs at OSC\n\nThe modules will be a mixture of lectures that include “participatory live-coding” (i.e. with the instructor slowly demonstrating and participants expected to follow along for themselves) and exercises.\n\n\nSome more background\nCommand-line programs are preferred for many of the steps to analyze genomic sequencing data, such as those involving quality control, trimming or adapter removal, and assembly or mapping. Other features of such datasets are that they tend to contain a lot of data, and that many analysis steps can be done independently for each sample. It therefore pays off -or may be necessary- to run your analyses not on a laptop or desktop, but at a supercomputer like OSC.\nBeing able to run your analysis with command-line programs at OSC involves a number of skills that may seem overwhelming at first. Fortunately, learning the basics of these skills does not take a lot of time, and will enable you to be up-and-running with working on your own genomic data! Keep in mind that these days, excellent programs are available for almost any genomics analysis, so you do not need to be able to code it all up from scratch. You will just need to know how to efficiently run such programs, which is what this workshop aims to teach you."
   },
   {
-    "objectID": "index.html#sign-up",
-    "href": "index.html#sign-up",
+    "objectID": "index.html#apply-to-attend",
+    "href": "index.html#apply-to-attend",
     "title": "Command line basics  for genomic analysis at OSC",
-    "section": "Sign up!",
-    "text": "Sign up!\nTo sign up, please fill out the form below:\n\nLoading…"
+    "section": "Apply to attend!",
+    "text": "Apply to attend!\nTo apply to attend the workshop, please fill out the form below. There is no real selection procedure: we accept anyone who is at OSU/USDA and signs up before we have reached the maximum number of participants.\nIf we invite you to attend, we will ask you to accept or decline. Before accepting at that point, please make sure you have cleared your calendar for these 3 afternoons – we will likely not be able to accommodate “maybe’s”!\n\nLoading…"
   },
   {
     "objectID": "about.html",
@@ -26,12 +33,5 @@
     "title": "About",
     "section": "",
     "text": "Expand To Learn About Collapse\n\n\n\n\n\nThis is an example of a ‘folded’ caution callout that can be expanded by the user. You can use collapse=\"true\" to collapse it by default or collapse=\"false\" to make a collapsible callout that is expanded by default."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Tentative schedule",
-    "section": "",
-    "text": "Module\nInstructor\nTime\n\n\n\n\nIntroduction to OSC\nMike\nWed 1:00 - 1:45 pm\n\n\nThe VS Code text editor\nJelmer\nWed 1:45 - 2:00 pm\n\n\nThe Unix shell\nMike\nWed 2:15 - 4:30 pm\n\n\nShell scripts\nJelmer\nThu 12:00 - 1:30 pm\n\n\nUsing software at OSC\nJelmer\nThu 1:45 - 2:30 pm\n\n\nSubmitting scripts with SLURM\nJelmer\nFri 1:00 - 2:30 pm\n\n\nRunning example analyses\nMike / Jelmer\nFri 2:45 - 4:30 pm"
   }
 ]
