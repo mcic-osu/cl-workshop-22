@@ -1,0 +1,14 @@
+---
+title: "Shell Scripting"
+highlight-style: oblivion
+number-sections: true
+---
+
+```{r knitr_options, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE,
+                      class.output = "bash-out")
+```
+
+-----
+
+## TBA
