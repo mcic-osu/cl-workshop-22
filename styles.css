@@ -1,1 +1,16 @@
 /* css styles */
+
+.bash-out {
+    background-color: #ABA6A5;
+    padding: 5px 5px;
+    border-radius: 0px;
+    border-style: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #030303;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-left-color: #030303;
+    margin: -18px 0px 15px 0px;
+    font-style: italic;
+}
