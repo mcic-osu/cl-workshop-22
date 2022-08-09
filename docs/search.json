@@ -2,16 +2,16 @@
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
-    "title": "Tentative schedule",
+    "title": "Workshop Schedule",
     "section": "",
-    "text": "Module\nInstructor\nTime\n\n\n\n\nIntroduction to OSC\nMike\nWed 1:00 - 1:45 pm\n\n\nThe VS Code text editor\nJelmer\nWed 1:45 - 2:00 pm\n\n\nThe Unix shell\nMike\nWed 2:15 - 4:30 pm\n\n\nShell scripts\nJelmer\nThu 12:00 - 1:30 pm\n\n\nUsing software at OSC\nJelmer\nThu 1:45 - 2:30 pm\n\n\nSubmitting scripts with SLURM\nJelmer\nFri 1:00 - 2:30 pm\n\n\nRunning example analyses\nMike / Jelmer\nFri 2:45 - 4:30 pm"
+    "text": "Day\nModule\nInstructor\nTime\n\n\n\n\nDay-1\nIntroduction to the workshop\nMike / Jelmer\nWed 1:00 - 1:15 pm\n\n\n\nThe Ohio Supercomputer Center\nMike\nWed 1:15 - 1:45 pm\n\n\n\nThe VS Code text editor\nJelmer\nWed 1:45 - 2:00 pm\n\n\n\nThe Unix shell\nMike\nWed 2:15 - 4:30 pm\n\n\nDay-2\nShell scripting\nJelmer\nThu 12:00 - 1:30 pm\n\n\n\nUsing software at OSC\nJelmer\nThu 1:45 - 2:30 pm\n\n\nDay-3\nSubmitting scripts with SLURM\nJelmer\nFri 1:00 - 2:30 pm\n\n\n\nRunning example compute jobs\nMike / Jelmer\nFri 2:45 - 4:30 pm"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Command line basics  for genomic analysis at OSC",
     "section": "",
-    "text": "This workshop is geared towards people who would like to get started with analyzing genomic datasets.\nIt will be taught in-person with video-linking at the Wooster and Columbus Ohio State campuses, and it is also possible to join online through Zoom. We will have an instructor at each campus: Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the Wooster campus (Selby Hall), and Mike Sovic from the Center for Applied Plant Sciences (CAPS) at the Columbus campus (Aronoff Lab).\nThe workshop will be highly hands-on and take place across three afternoons:\nWed, Aug 17 - Fri, Aug 19 (Wed & Fri: 1-4:30 pm; Thu: 12-2:30 pm with lunch provided).\n\nAnyone affiliated with The Ohio State University or Wooster USDA can attend\nAttendance is free\nNo prior experience with coding or genomic data is required\nYou will need to bring a laptop and don’t need to install anything prior to or during the workshop\nWe will work with example genomics data but if you have any, you are also welcome to bring your own data.\n\nSee below for information about the contents of the workshop and to sign up.\nFor questions, please email Jelmer."
+    "text": "Day\nModule\nInstructor\nTime\n\n\n\n\nDay-1\n1. Introduction to the workshop\nMike / Jelmer\nWed 1:00 - 1:15 pm\n\n\n\n2. The Ohio Supercomputer Center\nMike\nWed 1:15 - 1:45 pm\n\n\n\n3. The VS Code text editor\nJelmer\nWed 1:45 - 2:00 pm\n\n\n\n4. The Unix shell\nMike\nWed 2:15 - 4:30 pm\n\n\nDay-2\n5. Variables, loops, and conditionals\nJelmer\nThu 12:00 - 12:45 pm\n\n\n\n6. Shell scripting\nJelmer\nThu 12:45 - 1:30 pm\n\n\n\n7. Using software at OSC\nJelmer\nThu 1:45 - 2:30 pm\n\n\nDay-3\n8. Submitting scripts with SLURM\nJelmer\nFri 1:00 - 2:30 pm\n\n\n\n9. Running example compute jobs\nMike / Jelmer\nFri 2:45 - 4:30 pm"
   },
   {
     "objectID": "index.html#contents-of-the-workshop",
@@ -30,8 +30,204 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Command line basics  for genomic analysis at OSC",
     "section": "",
-    "text": "Expand To Learn About Collapse\n\n\n\n\n\nThis is an example of a ‘folded’ caution callout that can be expanded by the user. You can use collapse=\"true\" to collapse it by default or collapse=\"false\" to make a collapsible callout that is expanded by default."
+    "text": "This workshop is geared towards people who would like to get started with analyzing genomic datasets.\nIt will be taught in-person with video-linking at the Wooster and Columbus Ohio State campuses, and it is also possible to join online through Zoom. We will have an instructor at each campus: Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the Wooster campus (Selby Hall), and Mike Sovic from the Center for Applied Plant Sciences (CAPS) at the Columbus campus (Aronoff Lab).\nThe workshop will be highly hands-on and take place across three afternoons:\nWed, Aug 17 - Fri, Aug 19 (Wed & Fri: 1-4:30 pm; Thu: 12-2:30 pm with lunch provided).\n\nAnyone affiliated with The Ohio State University or Wooster USDA can attend\nAttendance is free\nNo prior experience with coding or genomic data is required\nYou will need to bring a laptop and don’t need to install anything prior to or during the workshop\nWe will work with example genomics data but if you have any, you are also welcome to bring your own data.\n\nSee below for information about the contents of the workshop and to sign up.\nFor questions, please email Jelmer."
+  },
+  {
+    "objectID": "shell-scripting.html#goals",
+    "href": "shell-scripting.html#goals",
+    "title": "Shell Scripting",
+    "section": "Goals",
+    "text": "Goals\n\nLearn how to use variables\nLearn how to use for loops and conditionals\n…"
+  },
+  {
+    "objectID": "shell-scripting.html#before-we-get-started",
+    "href": "shell-scripting.html#before-we-get-started",
+    "title": "Shell Scripting",
+    "section": "Before We Get Started",
+    "text": "Before We Get Started\n\nNotes\n\n\nSetup\n\nLogin to OSC at https://ondemand.osc.edu.\nIn the blue top bar, select Interactive Apps and then Code Server.\nIn the form that appears:\n\nEnter 3 in the box Number of hours\nEnter XXX in the box Working Directory\nClick Launch.\n\nOn the next page, once the top bar of the box has turned green and says Runnning, click Connect to VS Code.\nOpen a terminal by clicking the “hamburger menu” way in the top left, and then Terminal > New Terminal.\nIn the terminal, type Bash and press Enter."
+  },
+  {
+    "objectID": "shell-scripting.html#bla",
+    "href": "shell-scripting.html#bla",
+    "title": "Shell Scripting",
+    "section": "Bla",
+    "text": "Bla\nmodule load python/3.6-conda5.2"
+  },
+  {
+    "objectID": "shell-scripting.html#variables",
+    "href": "shell-scripting.html#variables",
+    "title": "Shell Scripting",
+    "section": "Variables",
+    "text": "Variables\nIn programming, we use variables for things that:\n\nWe refer to repeatedly and/or\nAre subject to change.\n\nThese tend to be settings like the paths to input and output files, and parameter values for programs. (As we’ll see, the use of variables also allows us to pass outside information to a script, so that we can run the same script for different files.)\nTo assign a value to a variable in Bash (in short: to assign a variable), you use the syntax variable=value. Be aware that there can be no spaces around the equal sign =! For example:\n\ntreatment=low\n\nnlines=200\n\nTo reference a variable (i.e., to get its value), you need to put a dollar sign $ in front of its name! We’ll use the echo command to see what values our variables holds:\n\necho $treatment\n\n\n\nlow\n\n\n\necho $nlines\n\n\n\n200\n\n\nConveniently, we can directly use variables in lots of contexts, as if we had just typed their values:\n\nls_options=\"-lh\"\nls $ls_options\n\ntotal 40K\n-rw-rw-r-- 1 jelmer jelmer  322 Jun 25 16:08 about.qmd\n-rw-rw-r-- 1 jelmer jelmer  258 Aug  8 05:22 clws_quarto.Rproj\ndrwxrwxr-x 3 jelmer jelmer 4.0K Aug  8 05:31 docs\n-rw-rw-r-- 1 jelmer jelmer 4.1K Jul 12 10:23 index.qmd\n-rw-rw-r-- 1 jelmer jelmer  497 Jun 26 10:18 _quarto.yml\n-rw-rw-r-- 1 jelmer jelmer  718 Aug  6 10:11 schedule.qmd\n-rw-rw-r-- 1 jelmer jelmer 2.1K Aug  8 05:31 shell-scripting.qmd\n-rw-rw-r-- 1 jelmer jelmer 2.1K Aug  8 05:31 shell-scripting.rmarkdown\n-rw-r--r-- 1 jelmer jelmer   17 Jun 25 15:50 styles.css\n\n\n\ninput_file=about.qmd\nls -lh $input_file \n\n-rw-rw-r-- 1 jelmer jelmer 322 Jun 25 16:08 about.qmd"
+  },
+  {
+    "objectID": "sessions/shell-scripting.html#goals",
+    "href": "sessions/shell-scripting.html#goals",
+    "title": "Shell Scripting",
+    "section": "Goals",
+    "text": "Goals\n\nLearn how to use variables\nLearn how to use for loops and conditionals\n…"
+  },
+  {
+    "objectID": "sessions/shell-scripting.html#before-we-get-started",
+    "href": "sessions/shell-scripting.html#before-we-get-started",
+    "title": "Shell Scripting",
+    "section": "1 Before We Get Started",
+    "text": "1 Before We Get Started\n\n1.1 Goals\n\nLearn how to use variables\nLearn how to use for loops and conditionals\n…\n\n\n\n1.2 Setup\n\nLog in to OSC at https://ondemand.osc.edu.\nIn the blue top bar, select Interactive Apps and then Code Server.\nIn the form that appears:\n\nEnter 3 in the box Number of hours\nEnter XXX in the box Working Directory\nClick Launch.\n\nOn the next page, once the top bar of the box has turned green and says Runnning, click Connect to VS Code.\nOpen a terminal by clicking the “hamburger menu” way in the top left, and then Terminal > New Terminal.\nIn the terminal, type Bash and press Enter."
+  },
+  {
+    "objectID": "sessions/shell-scripting.html#variables",
+    "href": "sessions/shell-scripting.html#variables",
+    "title": "Shell Scripting",
+    "section": "2 Variables",
+    "text": "2 Variables\nIn programming, we use variables for things that:\n\nWe refer to repeatedly and/or\nAre subject to change.\n\nThese tend to be settings like the paths to input and output files, and parameter values for programs. (As we’ll see, the use of variables also allows us to pass outside information to a script, so that we can run the same script for different files.)\n\n2.1 Assigning and referencing variables\nTo assign a value to a variable in Bash (in short: to assign a variable), you use the syntax variable=value. Be aware that there can be no spaces around the equal sign =! For example:\n\ntreatment=low\n\nnlines=200\n\nTo reference a variable (i.e., to access its value), you need to put a dollar sign $ in front of its name! We’ll use the echo command to see what values our variables holds:\n\necho $treatment\n\n\n\nlow\n\n\n\necho $nlines\n\n\n\n200\n\n\nConveniently, we can directly use variables in lots of contexts, as if we had just typed their values:\n\nls_options=\"-lh\"\n\nls $ls_options\n\ntotal 24K\n-rw-rw-r-- 1 jelmer jelmer    0 Aug  9 20:34 18.txt\n-rw-rw-r-- 1 jelmer jelmer    0 Aug  9 20:34 Aug\n-rw-rw-r-- 1 jelmer jelmer    0 Aug  9 20:34 README_2022-08-09.txt\n-rw-rw-r-- 1 jelmer jelmer    0 Aug  9 20:34 README2_Thu,\n-rw-rw-r-- 1 jelmer jelmer    0 Aug  9 20:34 README3_Thu, Aug 18.txt\n-rw-rw-r-- 1 jelmer jelmer 9.8K Aug  9 20:36 shell-scripting.qmd\n-rw-rw-r-- 1 jelmer jelmer 9.9K Aug  9 20:36 shell-scripting.rmarkdown\n\n\n\ninput_file=shell-scripting.qmd\n\nls -lh $input_file \n\n-rw-rw-r-- 1 jelmer jelmer 9.8K Aug  9 20:36 shell-scripting.qmd\n\n\n\n\n2.2 Rules for naming variables\nVariable names:\n\nCan contain letters, numbers, and underscores\nCannot contain spaces, periods, or other special symbols\nCannot start with a number\n\n\n\n2.3 Command substitution\nIf you want to store the result of a command in a variable, you can a construct called “command substitution” by wrapping the command inside $():\n\ntoday=$(date +%F)\n\ntouch README_$today.txt\nls README_*\n\nREADME_2022-08-09.txt\n\n\n\ninput_file=shell-scripting.qmd\n\nnlines=$(wc -l < $input_file)\n\necho \"The file $input_file has $nlines lines\"\n\nThe file shell-scripting.qmd has 414 lines\n\n\nCommand substitution can for instance be useful when you want your script to report some results, or when a next step in the script depends on a result.\n\n\n2.4 Environment variables\nThere are also predefined variables, that is, variables that exist in your environment by default. These so-called “environment variables” are always in all-caps:\n\n# Environment variable $USER contains your username \necho $USER\n\njelmer\n\n\n\n# Environment variable $HOME contains the path to your home directory\necho $HOME\n\n/home/jelmer\n\n\nEnvironment variables can provide useful information. We’ll see them again when we talk about the SLURM compute job scheduler.\n\n\n2.5 Quoting variables\nWhat happens if the value of our variable contains spaces?\nFirst off, when we try to assign the variable without quotes, we get an error:\n\ntoday=Thu, Aug 18\n#> Aug: command not found\n\nBut it works when we quote the entire string that makes up the value:\n\ntoday=\"Thu, Aug 18\"\necho $today\n\nThu, Aug 18\n\n\nNow, let’s try to reference the variable with spaces:\n\ntouch README2_$today.txt\nls README2_*\n\n\n\nREADME2_Thu,\n\n\nOops! The shell performed field splitting on the spaces to split the value into three separate units – as a result, three files were created: README2_Thu, as well as Aug and 18.txt.\nSimilar to what we did when assigning the variable, this can be avoided by quoting the variable when we reference it:\n\ntouch README3_\"$today\".txt\nls README3_*\n\n\n\nREADME3_Thu, Aug 18.txt\n\n\nAnother problem that we can run into when we don’t quote variables is that we can’t explicitly define where a variable name ends within a longer string of text:\n\necho README_$today_final.txt\n\n\n\nREADME_.txt\n\n\n\n\n\n\n\n\nWhat is going wrong here?\n\n\n\n\n\n\nFollowing a $, the shell will stop interpreting characters as being part of the variable name only when it encounters a character that cannot be part of a variable name, such as a space or a period.\nSince variable names can contain underscores, it will look for the variable $today_final, which does not exist.\nImportantly, the shell does not error out when you reference a non-existing variable – it basically ignores it, such that README_$today_final.txt becomes README_.txt, as if we hadn’t referenced any variable.\n\n\n\n\nQuoting solves this issue, too:\n\necho README_\"$today\"_final.txt\n\n\n\nREADME_Thu, Aug 18_final.txt\n\n\n\n\n\n\n\n\nTip\n\n\n\nAll in all, it is good practice to quote your variables: it never hurts and avoids unexpected surprises."
+  },
+  {
+    "objectID": "sessions/shell-scripting.html#for-loops",
+    "href": "sessions/shell-scripting.html#for-loops",
+    "title": "Shell Scripting",
+    "section": "3 For loops",
+    "text": "3 For loops\nLoops are a universal element of programming languages, and are extremely useful to repeat operations, such as when you want to run the same script or command for multiple files.\nHere, we’ll only cover what is by far the most common type of loop: the for loop.\nfor loops iterate over a collection, such as a list of files: that is, they allow you to perform one or more actions for each element in the collection, one element at a time.\n\n3.1 for loop syntax and mechanics\nLet’s see a first example, where our collection is just a list of numbers:\n\nfor a_number in 1 2 3; do\n    echo \"In this iteration of the loop, the number is $a_number\"\n    echo \"--------\"\ndone\n\nIn this iteration of the loop, the number is 1\n--------\nIn this iteration of the loop, the number is 2\n--------\nIn this iteration of the loop, the number is 3\n--------\n\n\nfor loops contain the following mandatory keywords:\n\n\n\n\n\n\n\nKeyword\nPurpose\n\n\n\n\nfor\nAfter for, we set the variable name\n\n\nin\nAfter in, we specify the collection we are looping over\n\n\ndo\nAfter do, we have one ore more lines specifying what to do with each item\n\n\ndone\nTells the shell we are done with the loop\n\n\n\n\n\n\n\n\n\nWhy the semicolon ; before do?\n\n\n\n\n\nA semicolon separates two commands written on a single line – for instance, instead of:\n\nmkdir results\ncd results\n\n…one could do:\n\nmkdir results; cd results\n\nThe ; in the for loop syntax has the same function, and as such, an alternative way to format a for loop is:\n\nfor a_number in 1 2 3\ndo\n    echo \"In this iteration of the loop, the number is $a_number\"\ndone\n\nBut that’s one line longer and a bit awkwardly asymmetric.\n\n\n\nIt is important to realize that the loop runs sequentially for each item in the collection, and will therefore run as many times as there are items in the collection.\nThe aspect that is perhaps most difficult to understand is that in each iteration of the loop, one element in the collection (in the example above, either 1, 2, or 3) is being assigned to the variable specified after for (in the example above, a_number).\nThe following example, where we let the computer sleep for 1 second before printing the date and time with the date command, demonstrates that the loop is being executed sequentially:\n\nfor a_number in 1 2 3; do\n    echo \"In this iteration of the loop, the number is $a_number\"\n    #sleep 1s          # Let the computer sleep for 1 second\n    date              # Print the date and time\n    echo \"--------\"\ndone\n\nIn this iteration of the loop, the number is 1\nTue Aug  9 08:36:12 PM CEST 2022\n--------\nIn this iteration of the loop, the number is 2\nTue Aug  9 08:36:12 PM CEST 2022\n--------\nIn this iteration of the loop, the number is 3\nTue Aug  9 08:36:12 PM CEST 2022\n--------\n\n\nWhen we specify the collection “manually”, like above with the numbers, we separate the elements by a space, as this example also shows:\n\nfor mushroom in morel destroying_angel eyelash_cup; do\n    echo \"$mushroom is an Ohio mushroom\"\ndone\n\nmorel is an Ohio mushroom\ndestroying_angel is an Ohio mushroom\neyelash_cup is an Ohio mushroom\n\n\n\n\n3.2 Looping over files with globbing\nIn practice, we rarely manually list hand the collection of items we want to loop over. Instead, we commonly loop over files directly using globbing:\n\nfor fastq_file in data/raw/*fastq.gz; do\n    echo \"File $fastq_file has $(wc -l < $fastq_file) lines.\"\n    # More processing...\ndone\n\n\n\n\n\n\n\nBonus: Bash arrays and looping over them\n\n\n\n\n\nBash arrays are like lists in Python or vectors in R, and can be created using parentheses ().\n\nCreate an array manually:\n$ sample_names=(zmaysA zmaysB zmaysC)\nCreate an array using command substitution:\n$ sample_files=($(cut -f 3 samples.txt))\n\n$ sample_files=($(cat fastq_files.txt))\nUsing [@], we can access all elements in the array:\n$ echo ${sample_names[@]}  # Print all elements in the array\n#> zmaysA zmaysB zmaysC\nArrays are mostly useful to loop over, and we can also use the [@] notation to loop over the elements:\n$ for sample_name in \"${sample_names[@]}\"; do\n      echo \"$sample_name\"\n    done\n#> zmaysA zmaysB zmaysC\n\n\nfor sample_name in \"${sample_names[@]}\"; do\n    echo \"Processing sample $sample_name\"\n    input_file=\"$sample_name\"_R1.fastq\n    # More processing...\ndone"
+  },
+  {
+    "objectID": "sessions/shell-scripting.html#conditionals",
+    "href": "sessions/shell-scripting.html#conditionals",
+    "title": "Shell Scripting",
+    "section": "4 Conditionals",
+    "text": "4 Conditionals"
+  },
+  {
+    "objectID": "sessions/shell-scripting.html#before-we-get-starteda",
+    "href": "sessions/shell-scripting.html#before-we-get-starteda",
+    "title": "Shell Scripting",
+    "section": "Before We Get Starteda",
+    "text": "Before We Get Starteda\n\nGoals\n\nLearn how to use variables\nLearn how to use for loops and conditionals\n…\n\n\n\nSetup\n\nLog in to OSC at https://ondemand.osc.edu.\nIn the blue top bar, select Interactive Apps and then Code Server.\nIn the form that appears:\n\nEnter 3 in the box Number of hours\nEnter XXX in the box Working Directory\nClick Launch.\n\nOn the next page, once the top bar of the box has turned green and says Runnning, click Connect to VS Code.\nOpen a terminal by clicking the “hamburger menu” way in the top left, and then Terminal > New Terminal.\nIn the terminal, type Bash and press Enter."
+  },
+  {
+    "objectID": "sessions/scripting-prep.html#before-we-get-started",
+    "href": "sessions/scripting-prep.html#before-we-get-started",
+    "title": "Variables, Loops, and Conditionals",
+    "section": "1 Before We Get Started",
+    "text": "1 Before We Get Started\n\n1.1 Goals\n\nLearn how to use variables\nLearn how to use for loops to …\nLearn about “conditionals”: if constructs to …\n\n\n\n1.2 Setup\n\nLog in to OSC at https://ondemand.osc.edu.\nIn the blue top bar, select Interactive Apps and then Code Server.\nIn the form that appears:\n\nEnter 3 in the box Number of hours\nEnter XXX in the box Working Directory\nClick Launch.\n\nOn the next page, once the top bar of the box has turned green and says Runnning, click Connect to VS Code.\nOpen a terminal by clicking the “hamburger menu” way in the top left, and then Terminal > New Terminal.\nIn the terminal, type Bash and press Enter."
+  },
+  {
+    "objectID": "sessions/scripting-prep.html#variables",
+    "href": "sessions/scripting-prep.html#variables",
+    "title": "Variables, Loops, and Conditionals",
+    "section": "2 Variables",
+    "text": "2 Variables\nIn programming, we use variables for things that:\n\nWe refer to repeatedly and/or\nAre subject to change.\n\nThese tend to be settings like the paths to input and output files, and parameter values for programs. (As we’ll see, the use of variables also allows us to pass outside information to a script, so that we can run the same script for different files.)\n\n2.1 Assigning and referencing variables\nTo assign a value to a variable in Bash (in short: to assign a variable), you use the syntax variable=value. Be aware that there can be no spaces around the equal sign =! For example:\n\ntreatment=low\n\nnlines=200\n\nTo reference a variable (i.e., to access its value), you need to put a dollar sign $ in front of its name! We’ll use the echo command to see what values our variables holds:\n\necho $treatment\n\n\n\nlow\n\n\n\necho $nlines\n\n\n\n200\n\n\nConveniently, we can directly use variables in lots of contexts, as if we had just typed their values:\n\nls_options=\"-lh\"\n\nls $ls_options\n\ntotal 56K\n-rw-rw-r-- 1 jelmer jelmer 232 Aug  9 21:42 examples.qmd\n-rw-rw-r-- 1 jelmer jelmer 248 Aug  9 21:42 osc-intro.qmd\n-rw-rw-r-- 1 jelmer jelmer 11K Aug  9 22:00 scripting-prep.qmd\n-rw-rw-r-- 1 jelmer jelmer 11K Aug  9 22:00 scripting-prep.rmarkdown\n-rw-rw-r-- 1 jelmer jelmer 218 Aug  9 21:43 shell-intro.qmd\n-rw-rw-r-- 1 jelmer jelmer 219 Aug  9 21:43 shell-scripting.qmd\n-rw-rw-r-- 1 jelmer jelmer 235 Aug  9 21:44 slurm.qmd\n-rw-rw-r-- 1 jelmer jelmer 225 Aug  9 21:45 software.qmd\n-rw-rw-r-- 1 jelmer jelmer 228 Aug  9 21:45 vscode.qmd\n-rw-rw-r-- 1 jelmer jelmer 232 Aug  9 21:46 workshop-intro.qmd\n\n\n\ninput_file=shell-scripting.qmd\n\nls -lh $input_file \n\n-rw-rw-r-- 1 jelmer jelmer 219 Aug  9 21:43 shell-scripting.qmd\n\n\n\n\n2.2 Rules for naming variables\nVariable names:\n\nCan contain letters, numbers, and underscores\nCannot contain spaces, periods, or other special symbols\nCannot start with a number\n\n\n\n2.3 Command substitution\nIf you want to store the result of a command in a variable, you can use a construct called “command substitution” by wrapping the command inside $():\n\ntoday=$(date +%F)\n\ntouch README_$today.txt\nls README_*\n\nREADME_2022-08-09.txt\n\n\n\ninput_file=shell-scripting.qmd\n\nnlines=$(wc -l < $input_file)\n\necho \"The file $input_file has $nlines lines\"\n\nThe file shell-scripting.qmd has 14 lines\n\n\nCommand substitution can for instance be useful when you want your script to report some results, or when a next step in the script depends on a previous result.\n\n\n2.4 Environment variables\nThere are also predefined variables in the Unix shell: that is, variables that exist in your environment by default. These so-called “environment variables” are always in all-caps:\n\n# Environment variable $USER contains your user name \necho $USER\n\njelmer\n\n\n\n# Environment variable $HOME contains the path to your home directory\necho $HOME\n\n/home/jelmer\n\n\nEnvironment variables can provide useful information. We’ll see them again when we talk about the SLURM compute job scheduler.\n\n\n2.5 Quoting variables\nWhat happens if the value of our variable contains spaces?\nFirst off, when we try to assign the variable without quotes, we get an error:\n\ntoday=Thu, Aug 18\n#> Aug: command not found\n\nBut it works when we quote the entire string that makes up the value:\n\ntoday=\"Thu, Aug 18\"\necho $today\n\nThu, Aug 18\n\n\nNow, let’s try to reference the variable with spaces:\n\ntouch README2_$today.txt\nls README2_*\n\n\n\nREADME2_Thu,\n\n\nOops! The shell performed field splitting on the spaces to split the value into three separate units – as a result, three files were created: README2_Thu, (listed above), as well as Aug and 18.txt (not shown).\nSimilar to what we had to do when assigning the variable, problems can be avoided by quoting the variable when we reference it:\n\ntouch README3_\"$today\".txt\nls README3_*\n\n\n\nREADME3_Thu, Aug 18.txt\n\n\nAnother issue we can run into when we don’t quote variables is that we can’t explicitly define where a variable name ends within a longer string of text:\n\necho README_$today_final.txt\n\n\n\nREADME_.txt\n\n\n\n\n\n\n\n\nWhat is going wrong here?\n\n\n\n\n\n\nFollowing a $, the shell will stop interpreting characters as being part of the variable name only when it encounters a character that cannot be part of a variable name, such as a space or a period.\nSince variable names can contain underscores, it will look for the variable $today_final, which does not exist.\nImportantly, the shell does not error out when you reference a non-existing variable – it basically ignores it, such that README_$today_final.txt becomes README_.txt, as if we hadn’t referenced any variable.\n\n\n\n\nQuoting solves this issue, too:\n\necho README_\"$today\"_final.txt\n\n\n\nREADME_Thu, Aug 18_final.txt\n\n\n\n\n\n\n\n\nTip\n\n\n\nAll in all, it is good practice to quote variables when you reference them: it never hurts and avoids unexpected surprises."
+  },
+  {
+    "objectID": "sessions/scripting-prep.html#for-loops",
+    "href": "sessions/scripting-prep.html#for-loops",
+    "title": "Variables, Loops, and Conditionals",
+    "section": "3 For loops",
+    "text": "3 For loops\nLoops are a universal element of programming languages, and are extremely useful to repeat operations, such as when you want to run the same script or command for multiple files.\nHere, we’ll only cover what is by far the most common type of loop: the for loop.\nfor loops iterate over a collection, such as a list of files: that is, they allow you to perform one or more actions for each element in the collection, one element at a time.\n\n3.1 for loop syntax and mechanics\nLet’s see a first example, where our collection is just a list of numbers:\n\nfor a_number in 1 2 3; do\n    echo \"In this iteration of the loop, the number is $a_number\"\n    echo \"--------\"\ndone\n\nIn this iteration of the loop, the number is 1\n--------\nIn this iteration of the loop, the number is 2\n--------\nIn this iteration of the loop, the number is 3\n--------\n\n\nfor loops contain the following mandatory keywords:\n\n\n\n\n\n\n\nKeyword\nPurpose\n\n\n\n\nfor\nAfter for, we set the variable name\n\n\nin\nAfter in, we specify the collection we are looping over\n\n\ndo\nAfter do, we have one ore more lines specifying what to do with each item\n\n\ndone\nTells the shell we are done with the loop\n\n\n\n\n\n\n\n\n\nWhy the semicolon ; before do?\n\n\n\n\n\nA semicolon separates two commands written on a single line – for instance, instead of:\n\nmkdir results\ncd results\n\n…you could equivalently type:\n\nmkdir results; cd results\n\nThe ; in the for loop syntax has the same function, and as such, an alternative way to format a for loop is:\n\nfor a_number in 1 2 3\ndo\n    echo \"In this iteration of the loop, the number is $a_number\"\ndone\n\nBut that’s one line longer and a bit awkwardly asymmetric.\n\n\n\nIt is important to realize that the loop runs sequentially for each item in the collection, and will therefore run as many times as there are items in the collection.\nThe following example, where we let the computer sleep for 1 second before printing the date and time with the date command, demonstrates that the loop is being executed sequentially:\n\nfor a_number in 1 2 3; do\n    echo \"In this iteration of the loop, the number is $a_number\"\n    sleep 1s          # Let the computer sleep for 1 second\n    date              # Print the date and time\n    echo \"--------\"\ndone\n\nIn this iteration of the loop, the number is 1\nTue Aug  9 10:00:04 PM CEST 2022\n--------\nIn this iteration of the loop, the number is 2\nTue Aug  9 10:00:05 PM CEST 2022\n--------\nIn this iteration of the loop, the number is 3\nTue Aug  9 10:00:06 PM CEST 2022\n--------\n\n\nThe aspect that is perhaps most difficult to understand is that in each iteration of the loop, one element in the collection (in the example above, either 1, 2, or 3) is being assigned to the variable specified after for (in the example above, a_number).\nWhen we specify the collection “manually”, like we did above with numbers, we separate the elements by a space, as this example also shows:\n\nfor mushroom in morel destroying_angel eyelash_cup; do\n    echo \"$mushroom is an Ohio mushroom\"\ndone\n\nmorel is an Ohio mushroom\ndestroying_angel is an Ohio mushroom\neyelash_cup is an Ohio mushroom\n\n\n\n\n3.2 Looping over files with globbing\nIn practice, we rarely manually list the collection of items we want to loop over. Instead, we commonly loop over files directly using globbing:\n\nfor fastq_file in data/raw/*fastq.gz; do\n    echo \"File $fastq_file has $(wc -l < $fastq_file) lines.\"\n    # More processing...\ndone\n\n\n\n\n\n\n\nBonus: Bash arrays and looping over them\n\n\n\n\n\nBash arrays are like lists in Python or vectors in R, and can be created using parentheses ().\n\nCreate an array manually:\n$ sample_names=(zmaysA zmaysB zmaysC)\nCreate an array using command substitution:\n$ sample_files=($(cut -f 3 samples.txt))\n\n$ sample_files=($(cat fastq_files.txt))\nUsing [@], we can access all elements in the array:\n$ echo ${sample_names[@]}  # Print all elements in the array\n#> zmaysA zmaysB zmaysC\nArrays are mostly useful to loop over, and we can also use the [@] notation to loop over the elements:\n$ for sample_name in \"${sample_names[@]}\"; do\n      echo \"$sample_name\"\n    done\n#> zmaysA zmaysB zmaysC\n\n\nfor sample_name in \"${sample_names[@]}\"; do\n    echo \"Processing sample $sample_name\"\n    input_file=\"$sample_name\"_R1.fastq\n    # More processing...\ndone"
+  },
+  {
+    "objectID": "sessions/scripting-prep.html#conditionals",
+    "href": "sessions/scripting-prep.html#conditionals",
+    "title": "Variables, Loops, and Conditionals",
+    "section": "4 Conditionals",
+    "text": "4 Conditionals\nTBA"
+  },
+  {
+    "objectID": "sessions/scripting-prep.html",
+    "href": "sessions/scripting-prep.html",
+    "title": "Variables, Loops, and Conditionals",
+    "section": "",
+    "text": "In this session, we will cover several topics to set the scene for writing and running shell scripts: variables, for loops, and conditionals (if constructs)."
+  },
+  {
+    "objectID": "removed.html",
+    "href": "removed.html",
+    "title": "Command line workshop '22",
+    "section": "",
+    "text": "Note\n\n\n\nThe $variable notation is really a shorthand for the full notation ${variable}. Using this notation, where the variable name is between curly braces, will also make it clear where the variable name begins and ends (but it does not prevent field splitting):\n{bash, eval=FALSE} echo README_${today}_final.txt\n{bash, eval=TRUE, echo=FALSE} today=\"Thu, Aug 18\" echo README_${today}_final.txt"
+  },
+  {
+    "objectID": "about.html#contents-of-the-workshop",
+    "href": "about.html#contents-of-the-workshop",
+    "title": "Command line basics  for genomic analysis at OSC",
+    "section": "Contents of the workshop",
+    "text": "Contents of the workshop\nThe focus of the workshop is on building general skills for analyzing genomics data, such as RNAseq, metabarcoding, metagenomic shotgun sequencing, or whole-genome sequencing. These skills boil down to the ability to write small shell scripts that run command-line programs and submit these scripts to a compute cluster – in our case, at the Ohio Supercomputer Center (OSC).\n\nTopics\n\nIntroduction to the Ohio Supercomputer Center (OSC)\nUsing the VS Code text editor at OSC\nIntroduction to the Unix shell (= the terminal / command line)\nBasics of shell scripts\nSoftware at OSC with modules & Conda\nSubmitting your scripts using the SLURM scheduler\nPutting it all together: practical examples of running analysis jobs at OSC\n\nThe modules will be a mixture of lectures that include “participatory live-coding” (with the instructor slowly demonstrating and participants expected to follow along for themselves) and exercises.\n\n\nSome more background\nCommand-line programs are preferred for many of the steps to analyze genomic sequencing data, such as those involving quality control, trimming or adapter removal, and assembly or mapping. Other features of such datasets are that they tend to contain a lot of data, and that many analysis steps can be done independently for each sample. It therefore pays off -or may be necessary- to run your analyses not on a laptop or desktop, but at a supercomputer like OSC.\nBeing able to run your analysis with command-line programs at OSC involves a number of skills that may seem overwhelming at first. Fortunately, learning the basics of these skills does not take a lot of time, and will enable you to be up-and-running with working on your own genomic data! Keep in mind that these days, excellent programs are available for almost any genomics analysis, so you do not need to be able to code it all up from scratch. You will just need to know how to efficiently run such programs, which is what this workshop aims to teach you."
+  },
+  {
+    "objectID": "about.html#apply-to-attend",
+    "href": "about.html#apply-to-attend",
+    "title": "Command line basics  for genomic analysis at OSC",
+    "section": "Apply to attend!",
+    "text": "Apply to attend!\nTo apply to attend the workshop, please fill out the form below. There is no real selection procedure: we accept anyone who is at OSU/USDA and signs up before we have reached the maximum number of participants.\n\nLoading…"
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Command line basics  for genomic analysis at OSC",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\n\n\nDay\nModule\nInstructor\nTime\n\n\n\n\nDay-1\nIntroduction to the workshop\nMike / Jelmer\nWed 1:00 - 1:15 pm\n\n\n\nThe Ohio Supercomputer Center\nMike\nWed 1:15 - 1:45 pm\n\n\n\nThe VS Code text editor\nJelmer\nWed 1:45 - 2:00 pm\n\n\n\nThe Unix shell\nMike\nWed 2:15 - 4:30 pm\n\n\nDay-2\nShell scripting\nJelmer\nThu 12:00 - 1:30 pm\n\n\n\nUsing software at OSC\nJelmer\nThu 1:45 - 2:30 pm\n\n\nDay-3\nSubmitting scripts with SLURM\nJelmer\nFri 1:00 - 2:30 pm\n\n\n\nRunning example compute jobs\nMike / Jelmer\nFri 2:45 - 4:30 pm"
+  },
+  {
+    "objectID": "index.html#locations",
+    "href": "index.html#locations",
+    "title": "Command line basics  for genomic analysis at OSC",
+    "section": "Locations",
+    "text": "Locations\n\nWooster: Selby Hall 203 (instructor: Jelmer Poelstra)\nColumbus: Aronoff Laboratory 104 (instructor: Mike Sovic)\nZoom: email us for the link!"
+  },
+  {
+    "objectID": "sessions/examples.html#tba",
+    "href": "sessions/examples.html#tba",
+    "title": "Running example compute jobs",
+    "section": "1 TBA",
+    "text": "1 TBA"
+  },
+  {
+    "objectID": "sessions/osc-intro.html#tba",
+    "href": "sessions/osc-intro.html#tba",
+    "title": "Intro to the Ohio Supercomputer Center (OSC)",
+    "section": "1 TBA",
+    "text": "1 TBA"
+  },
+  {
+    "objectID": "sessions/shell-intro.html#tba",
+    "href": "sessions/shell-intro.html#tba",
+    "title": "The Unix Shell",
+    "section": "1 TBA",
+    "text": "1 TBA"
+  },
+  {
+    "objectID": "sessions/shell-scripting.html#tba",
+    "href": "sessions/shell-scripting.html#tba",
+    "title": "Shell Scripting",
+    "section": "1 TBA",
+    "text": "1 TBA"
+  },
+  {
+    "objectID": "sessions/slurm.html#tba",
+    "href": "sessions/slurm.html#tba",
+    "title": "Submitting scripts with SLURM",
+    "section": "1 TBA",
+    "text": "1 TBA"
+  },
+  {
+    "objectID": "sessions/software.html#tba",
+    "href": "sessions/software.html#tba",
+    "title": "Using Software at OSC",
+    "section": "1 TBA",
+    "text": "1 TBA"
+  },
+  {
+    "objectID": "sessions/vscode.html#tba",
+    "href": "sessions/vscode.html#tba",
+    "title": "The VS Code text editor",
+    "section": "1 TBA",
+    "text": "1 TBA"
+  },
+  {
+    "objectID": "sessions/workshop-intro.html#tba",
+    "href": "sessions/workshop-intro.html#tba",
+    "title": "Introduction to the Workshop",
+    "section": "1 TBA",
+    "text": "1 TBA"
   }
 ]

@@ -9,8 +9,33 @@ website:
   navbar:
     search: true
     right:
-      - href: schedule.qmd
-        text: Schedule
+      - href: about.qmd
+        text: About this Workshop
+    left:
+      - text: "Day 1"
+        menu:
+          - href: sessions/workshop-intro.qmd
+            text: 1. Workshop Intro
+          - href: sessions/osc-intro.qmd
+            text: 2. OSC Intro
+          - href: sessions/vscode.qmd
+            text: 3. VS Code
+          - href: sessions/shell-intro.qmd
+            text: 4. The Unix Shell
+      - text: "Day 2"
+        menu:
+          - href: sessions/scripting-prep.qmd
+            text: 5. Variables, Loops and Conditionals
+          - href: sessions/shell-scripting.qmd
+            text: 6. Shell Scripting
+          - href: sessions/software.qmd
+            text: 7. Software at OSC
+      - text: "Day 3"
+        menu:
+          - href: sessions/slurm.qmd
+            text: 8. SLURM
+          - href: sessions/examples.qmd
+            text: 9. Example Compute Jobs
   page-footer:
     left: "2022, Jelmer Poelstra"
     right:

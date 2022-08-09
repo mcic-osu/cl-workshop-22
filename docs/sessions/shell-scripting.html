@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Command line workshop ’22 - Command line basics  for genomic analysis at OSC</title>
+<title>Command line workshop ’22 - Shell Scripting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,24 +18,24 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -57,7 +57,7 @@ ul.task-list{list-style: none;}
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -66,7 +66,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="./index.html">
+      <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Command line workshop ’22</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -78,19 +78,19 @@ ul.task-list{list-style: none;}
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 1</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-1">    
         <li>
-    <a class="dropdown-item" href="./sessions/workshop-intro.html">
+    <a class="dropdown-item" href="../sessions/workshop-intro.html">
  <span class="dropdown-text">1. Workshop Intro</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sessions/osc-intro.html">
+    <a class="dropdown-item" href="../sessions/osc-intro.html">
  <span class="dropdown-text">2. OSC Intro</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sessions/vscode.html">
+    <a class="dropdown-item" href="../sessions/vscode.html">
  <span class="dropdown-text">3. VS Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sessions/shell-intro.html">
+    <a class="dropdown-item" href="../sessions/shell-intro.html">
  <span class="dropdown-text">4. The Unix Shell</span></a>
   </li>  
     </ul>
@@ -99,15 +99,15 @@ ul.task-list{list-style: none;}
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 2</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-2">    
         <li>
-    <a class="dropdown-item" href="./sessions/scripting-prep.html">
+    <a class="dropdown-item" href="../sessions/scripting-prep.html">
  <span class="dropdown-text">5. Variables, Loops and Conditionals</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sessions/shell-scripting.html">
+    <a class="dropdown-item" href="../sessions/shell-scripting.html">
  <span class="dropdown-text">6. Shell Scripting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sessions/software.html">
+    <a class="dropdown-item" href="../sessions/software.html">
  <span class="dropdown-text">7. Software at OSC</span></a>
   </li>  
     </ul>
@@ -116,11 +116,11 @@ ul.task-list{list-style: none;}
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 3</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-3">    
         <li>
-    <a class="dropdown-item" href="./sessions/slurm.html">
+    <a class="dropdown-item" href="../sessions/slurm.html">
  <span class="dropdown-text">8. SLURM</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sessions/examples.html">
+    <a class="dropdown-item" href="../sessions/examples.html">
  <span class="dropdown-text">9. Example Compute Jobs</span></a>
   </li>  
     </ul>
@@ -128,7 +128,7 @@ ul.task-list{list-style: none;}
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">About this Workshop</a>
+    <a class="nav-link" href="../about.html">About this Workshop</a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -148,8 +148,7 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#schedule" id="toc-schedule" class="nav-link active" data-scroll-target="#schedule">Schedule</a></li>
-  <li><a href="#locations" id="toc-locations" class="nav-link" data-scroll-target="#locations">Locations</a></li>
+  <li><a href="#tba" id="toc-tba" class="nav-link active" data-scroll-target="#tba"> <span class="header-section-number">1</span> TBA</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -158,8 +157,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Command line basics <br> for genomic analysis at OSC</h1>
-<p class="subtitle lead">A workshop by the MCIC &amp; CAPS on August 17 - 19, 2022.</p>
+<h1 class="title">Shell Scripting</h1>
 </div>
 
 
@@ -173,88 +171,12 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<table class="table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 36%">
-<col style="width: 20%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Day</th>
-<th>Module</th>
-<th>Instructor</th>
-<th>Time</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Day-1</strong></td>
-<td>1. Introduction to the workshop</td>
-<td>Mike / Jelmer</td>
-<td>Wed 1:00 - 1:15 pm</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>2. The Ohio Supercomputer Center</td>
-<td>Mike</td>
-<td>Wed 1:15 - 1:45 pm</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>3. The <code>VS Code</code> text editor</td>
-<td>Jelmer</td>
-<td>Wed 1:45 - 2:00 pm</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>4. The Unix shell</td>
-<td>Mike</td>
-<td>Wed 2:15 - 4:30 pm</td>
-</tr>
-<tr class="odd">
-<td><strong>Day-2</strong></td>
-<td>5. Variables, loops, and conditionals</td>
-<td>Jelmer</td>
-<td>Thu 12:00 - 12:45 pm</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>6. Shell scripting</td>
-<td>Jelmer</td>
-<td>Thu 12:45 - 1:30 pm</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>7. Using software at OSC</td>
-<td>Jelmer</td>
-<td>Thu 1:45 - 2:30 pm</td>
-</tr>
-<tr class="even">
-<td><strong>Day-3</strong></td>
-<td>8. Submitting scripts with <code>SLURM</code></td>
-<td>Jelmer</td>
-<td>Fri 1:00 - 2:30 pm</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>9. Running example compute jobs</td>
-<td>Mike / Jelmer</td>
-<td>Fri 2:45 - 4:30 pm</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="locations" class="level2">
-<h2 class="anchored" data-anchor-id="locations">Locations</h2>
-<ul>
-<li>Wooster: Selby Hall 203 (instructor: Jelmer Poelstra)</li>
-<li>Columbus: Aronoff Laboratory 104 (instructor: Mike Sovic)</li>
-<li>Zoom: email us for the link!</li>
-</ul>
+<div class="cell">
+
+</div>
+<hr>
+<section id="tba" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="tba"><span class="header-section-number">1</span> TBA</h2>
 
 
 </section>

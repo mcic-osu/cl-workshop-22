@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Command line workshop ’22 - About</title>
+<title>Command line workshop ’22 - Command line basics  for genomic analysis at OSC</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,9 +73,62 @@ ul.task-list{list-style: none;}
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 1</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-day-1">    
+        <li>
+    <a class="dropdown-item" href="./sessions/workshop-intro.html">
+ <span class="dropdown-text">1. Workshop Intro</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sessions/osc-intro.html">
+ <span class="dropdown-text">2. OSC Intro</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sessions/vscode.html">
+ <span class="dropdown-text">3. VS Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sessions/shell-intro.html">
+ <span class="dropdown-text">4. The Unix Shell</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 2</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-day-2">    
+        <li>
+    <a class="dropdown-item" href="./sessions/scripting-prep.html">
+ <span class="dropdown-text">5. Variables, Loops and Conditionals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sessions/shell-scripting.html">
+ <span class="dropdown-text">6. Shell Scripting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sessions/software.html">
+ <span class="dropdown-text">7. Software at OSC</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 3</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-day-3">    
+        <li>
+    <a class="dropdown-item" href="./sessions/slurm.html">
+ <span class="dropdown-text">8. SLURM</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sessions/examples.html">
+ <span class="dropdown-text">9. Example Compute Jobs</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html">Schedule</a>
+    <a class="nav-link active" href="./about.html" aria-current="page">About this Workshop</a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -91,14 +144,27 @@ ul.task-list{list-style: none;}
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#practicalities" id="toc-practicalities" class="nav-link active" data-scroll-target="#practicalities">Practicalities</a></li>
+  <li><a href="#contents-of-the-workshop" id="toc-contents-of-the-workshop" class="nav-link" data-scroll-target="#contents-of-the-workshop">Contents of the workshop</a>
+  <ul class="collapse">
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#some-more-background" id="toc-some-more-background" class="nav-link" data-scroll-target="#some-more-background">Some more background</a></li>
+  </ul></li>
+  <li><a href="#apply-to-attend" id="toc-apply-to-attend" class="nav-link" data-scroll-target="#apply-to-attend">Apply to attend!</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Command line basics <br> for genomic analysis at OSC</h1>
+<p class="subtitle lead">A workshop by the MCIC &amp; CAPS on August 17 - 19, 2022.</p>
 </div>
 
 
@@ -112,24 +178,53 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Expand To Learn About Collapse
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This is an example of a ‘folded’ caution callout that can be expanded by the user. You can use <code>collapse="true"</code> to collapse it by default or <code>collapse="false"</code> to make a collapsible callout that is expanded by default.</p>
-</div>
-</div>
-</div>
+<section id="practicalities" class="level2">
+<h2 class="anchored" data-anchor-id="practicalities">Practicalities</h2>
+<p>This workshop is geared towards people who would like to get started with analyzing genomic datasets.</p>
+<p>It will be taught in-person with video-linking at the Wooster and Columbus Ohio State campuses, and it is also possible to join online through Zoom. We will have an instructor at each campus: Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the Wooster campus (Selby Hall), and Mike Sovic from the Center for Applied Plant Sciences (CAPS) at the Columbus campus (Aronoff Lab).</p>
+<p>The workshop will be highly hands-on and take place across three afternoons:<br>
+<strong>Wed, Aug 17 - Fri, Aug 19</strong> (Wed &amp; Fri: 1-4:30 pm; Thu: 12-2:30 pm with lunch provided).</p>
+<ul>
+<li>Anyone affiliated with The Ohio State University or Wooster USDA can attend</li>
+<li>Attendance is free</li>
+<li>No prior experience with coding or genomic data is required</li>
+<li>You will need to bring a laptop and don’t need to install anything prior to or during the workshop</li>
+<li>We will work with example genomics data but if you have any, you are also welcome to bring your own data.</li>
+</ul>
+<p>See below for information about the contents of the workshop and to sign up.<br>
+For questions, please <a href="mailto:poelstra.1@osu.edu">email Jelmer</a>.</p>
+</section>
+<section id="contents-of-the-workshop" class="level2">
+<h2 class="anchored" data-anchor-id="contents-of-the-workshop">Contents of the workshop</h2>
+<p>The focus of the workshop is on building general skills for analyzing genomics data, such as <em>RNAseq</em>, <em>metabarcoding</em>, <em>metagenomic shotgun sequencing</em>, or <em>whole-genome sequencing</em>. These skills boil down to the ability to write small shell scripts that run command-line programs and submit these scripts to a compute cluster – in our case, at the Ohio Supercomputer Center (OSC).</p>
+<section id="topics" class="level3">
+<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<ul>
+<li>Introduction to the Ohio Supercomputer Center (OSC)</li>
+<li>Using the <code>VS Code</code> text editor at OSC</li>
+<li>Introduction to the Unix shell (= the terminal / command line)</li>
+<li>Basics of shell scripts</li>
+<li>Software at OSC with <em>modules</em> &amp; <code>Conda</code></li>
+<li>Submitting your scripts using the <code>SLURM</code> scheduler</li>
+<li>Putting it all together: practical examples of running analysis jobs at OSC</li>
+</ul>
+<p>The modules will be a mixture of lectures that include “participatory live-coding” (with the instructor slowly demonstrating and participants expected to follow along for themselves) and exercises.</p>
+</section>
+<section id="some-more-background" class="level3">
+<h3 class="anchored" data-anchor-id="some-more-background">Some more background</h3>
+<p>Command-line programs are preferred for many of the steps to analyze genomic sequencing data, such as those involving quality control, trimming or adapter removal, and assembly or mapping. Other features of such datasets are that they tend to contain <em>a lot</em> of data, and that many analysis steps can be done independently for each sample. It therefore pays off -or may be necessary- to run your analyses not on a laptop or desktop, but at a supercomputer like OSC.</p>
+<p>Being able to run your analysis with command-line programs at OSC involves a number of skills that may seem overwhelming at first. Fortunately, learning the basics of these skills does not take a lot of time, and will enable you to be up-and-running with working on your own genomic data! Keep in mind that these days, excellent programs are available for almost any genomics analysis, so you do not need to be able to code it all up from scratch. You will just need to know how to efficiently run such programs, which is what this workshop aims to teach you.</p>
+</section>
+</section>
+<section id="apply-to-attend" class="level2">
+<h2 class="anchored" data-anchor-id="apply-to-attend">Apply to attend!</h2>
+<p>To apply to attend the workshop, please fill out the form below. There is no real selection procedure: we accept anyone who is at OSU/USDA and signs up before we have reached the maximum number of participants.</p>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScEyRqHKPZXteXE-1nDSz2ahJYK3PwxN47bsIx2XkGSj_wB9A/viewform?embedded=true" width="800" height="1847" frameborder="0" marginheight="0" marginwidth="0">
+Loading…
+</iframe>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

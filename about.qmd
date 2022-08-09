@@ -1,10 +1,84 @@
 ---
-title: "About"
+title: "Command line basics <br> for genomic analysis at OSC"
+subtitle: "A workshop by the MCIC & CAPS on August 17 - 19, 2022."
 ---
 
-:::{.callout-caution collapse="true"}
-## Expand To Learn About Collapse
+## Practicalities
 
-This is an example of a 'folded' caution callout that can be expanded by the user. You can use `collapse="true"` to collapse it by default or `collapse="false"` to make a collapsible callout that is expanded by default.
-:::
+This workshop is geared towards people who would like to get started
+with analyzing genomic datasets.
 
+It will be taught in-person with video-linking at the Wooster and
+Columbus Ohio State campuses, and it is also possible to join online through Zoom.
+We will have an instructor at each campus: 
+Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the
+Wooster campus (Selby Hall),
+and Mike Sovic from the Center for Applied Plant Sciences (CAPS)
+at the Columbus campus (Aronoff Lab).
+
+The workshop will be highly hands-on and take place across three afternoons:  
+**Wed, Aug 17 - Fri, Aug 19** (Wed & Fri: 1-4:30 pm; Thu: 12-2:30 pm with
+lunch provided).
+
+- Anyone affiliated with The Ohio State University or Wooster USDA can attend
+- Attendance is free
+- No prior experience with coding or genomic data is required
+- You will need to bring a laptop and don't need to install anything
+  prior to or during the workshop
+- We will work with example genomics data but if you have any,
+  you are also welcome to bring your own data.
+
+See below for information about the contents of the workshop and to sign up.  
+For questions, please [email Jelmer](mailto:poelstra.1@osu.edu).
+
+## Contents of the workshop
+
+The focus of the workshop is on building general skills for analyzing genomics
+data,
+such as _RNAseq_, _metabarcoding_, _metagenomic shotgun sequencing_,
+or _whole-genome sequencing_.
+These skills boil down to the ability to write small shell scripts that run
+command-line programs and submit these scripts to a compute cluster --
+in our case, at the Ohio Supercomputer Center (OSC).
+
+### Topics
+
+- Introduction to the Ohio Supercomputer Center (OSC)
+- Using the `VS Code` text editor at OSC
+- Introduction to the Unix shell (= the terminal / command line)
+- Basics of shell scripts
+- Software at OSC with _modules_ & `Conda`
+- Submitting your scripts using the `SLURM` scheduler
+- Putting it all together: practical examples of running analysis jobs at OSC
+
+The modules will be a mixture of lectures that include "participatory live-coding"
+(with the instructor slowly demonstrating and participants expected to follow
+along for themselves) and exercises.
+
+### Some more background
+
+Command-line programs are preferred for many of the steps to analyze genomic
+sequencing data, such as those involving quality control,
+trimming or adapter removal, and assembly or mapping.
+Other features of such datasets are that they tend to contain _a lot_ of data,
+and that many analysis steps can be done independently for each sample.
+It therefore pays off -or may be necessary- to run your analyses
+not on a laptop or desktop, but at a supercomputer like OSC.
+
+Being able to run your analysis with command-line programs at OSC
+involves a number of skills that may seem overwhelming at first.
+Fortunately, learning the basics of these skills does not take a lot of time,
+and will enable you to be up-and-running with working on your own genomic data!
+Keep in mind that these days,
+excellent programs are available for almost any genomics analysis,
+so you do not need to be able to code it all up from scratch.
+You will just need to know how to efficiently run such programs,
+which is what this workshop aims to teach you.
+
+## Apply to attend!
+
+To apply to attend the workshop, please fill out the form below.
+There is no real selection procedure: we accept anyone who is at OSU/USDA
+and signs up before we have reached the maximum number of participants.
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScEyRqHKPZXteXE-1nDSz2ahJYK3PwxN47bsIx2XkGSj_wB9A/viewform?embedded=true" width="800" height="1847" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
