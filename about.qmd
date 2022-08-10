@@ -1,9 +1,8 @@
 ---
-title: "Command line basics <br> for genomic analysis at OSC"
-subtitle: "A workshop by the MCIC & CAPS on August 17 - 19, 2022."
+title: "General Workshop Info & Signing Up"
 ---
 
-## Practicalities
+## Overview
 
 This workshop is geared towards people who would like to get started
 with analyzing genomic datasets.
@@ -12,13 +11,12 @@ It will be taught in-person with video-linking at the Wooster and
 Columbus Ohio State campuses, and it is also possible to join online through Zoom.
 We will have an instructor at each campus: 
 Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the
-Wooster campus (Selby Hall),
+Wooster campus,
 and Mike Sovic from the Center for Applied Plant Sciences (CAPS)
-at the Columbus campus (Aronoff Lab).
+at the Columbus campus.
 
 The workshop will be highly hands-on and take place across three afternoons:  
-**Wed, Aug 17 - Fri, Aug 19** (Wed & Fri: 1-4:30 pm; Thu: 12-2:30 pm with
-lunch provided).
+_Wed, Aug 17 - Fri, Aug 19, 2022_.
 
 - Anyone affiliated with The Ohio State University or Wooster USDA can attend
 - Attendance is free
@@ -75,7 +73,7 @@ so you do not need to be able to code it all up from scratch.
 You will just need to know how to efficiently run such programs,
 which is what this workshop aims to teach you.
 
-## Apply to attend!
+## Sign up!
 
 To apply to attend the workshop, please fill out the form below.
 There is no real selection procedure: we accept anyone who is at OSU/USDA

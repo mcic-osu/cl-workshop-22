@@ -28,8 +28,9 @@ Because such datasets tend to contain _a lot_ of data,
 it is also preferable to run your analyses not on a laptop or desktop,
 but at a compute cluster like the Ohio Supercomputer Center (OSC).
 
-In combination, this means that you need the following set of skills that you
-may not have been thought during your biology education:
+In combination, these realities mean that in genomics,
+you need the following set of skills
+that you may not have been thought during your biology education:
 
 1. Having a basic understanding of a **supercomputer** (compute cluster)
 
@@ -46,7 +47,7 @@ And being able to:
 We will teach the basics of these skills during this workshop!
 
 It may be useful to point out that given this focus, we will **not** teach you
-much in the way of:
+much if anything about:
 
 - Details of genomic data file types
 - Details of specific (genomic) analyses

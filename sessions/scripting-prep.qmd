@@ -17,8 +17,9 @@ PAGE STILL UNDER CONSTRUCTION
 
 :::
 
-In this session, we will cover several topics to set the scene for
-writing and running shell scripts: variables, `for` loops, and conditionals
+In this module, we will cover several topics you need to know about
+before you can start writing and running shell scripts:
+variables, `for` loops, and conditionals
 (`if` constructs).
 
 <br>
@@ -27,11 +28,25 @@ writing and running shell scripts: variables, `for` loops, and conditionals
 
 ### Goals
 
-- Learn how to use _variables_
-- Learn how to use `for` loops to ...
-- Learn about "conditionals": `if` constructs to ...
+Here is why you will learn the following concepts and constructs,
+and how to use them:
 
+- Using **variables** will allow you to run scripts flexibly,
+  with different input files and settings 
+
+- **`for` loops** will allow you to repeat operations --
+  specifically, we will later use them to submit many scripts at the same time,
+  one per input file or sample.
+  
+- **"conditionals"**, namely the `if` construct,
+  will allow you to perform operations only if a specific condition is met.
+  This can also make your scripts flexible,
+  and help you to test your input and check your output.
+  
 ### Setup
+
+:::{.callout-note collapse="true"}
+## Starting a VS Code session with an active terminal
 
 1. Log in to OSC at <https://ondemand.osc.edu>.
 2. In the blue top bar, select `Interactive Apps` and then `Code Server`.
@@ -44,6 +59,8 @@ writing and running shell scripts: variables, `for` loops, and conditionals
 5. Open a terminal by clicking the "hamburger menu" way in the top left,
    and then `Terminal` > `New Terminal`.
 6. In the terminal, type `Bash` and press <kbd>Enter</kbd>.
+
+:::
 
 -----
 
@@ -58,21 +75,27 @@ In programming, we use **variables** for things that:
 
 These tend to be _settings_ like the paths to input and output files,
 and parameter values for programs.
-(As we'll see, the use of variables also allows us to pass outside information
-to a script, so that we can run the same script for different files.)
 
 ### Assigning and referencing variables
 
 **To _assign_ a value to a variable in Bash** (in short: to assign a variable),
 you use the syntax `variable=value`.
-Be aware that there can be no spaces around the equal sign `=`!
 For example:
 
 ```{bash}
+# Assign the value "low" to the variable "treatment":
 treatment=low
 
+# Assign the value "200" to the variable "nlines":
 nlines=200
 ```
+
+:::{.callout-warning}
+## Space-sensitive
+
+Be aware that there can be no spaces around the equals sign `=`!
+
+:::
 
 **To _reference_ a variable** (i.e., to access its value),
 you need to put a dollar sign `$` in front of its name! 
@@ -116,9 +139,9 @@ ls -lh $input_file
 
 Variable names:
 
-- Can contain letters, numbers, and underscores
-- Cannot contain spaces, periods, or other special symbols
-- Cannot start with a number
+- **Can** contain letters, numbers, and underscores
+- **Cannot** contain spaces, periods, or other special symbols
+- **Cannot start** with a number
 
 ### Command substitution
 
@@ -127,17 +150,25 @@ you can use a construct called "**command substitution**"
 by wrapping the command inside `$()`:
 
 ```{bash, eval=TRUE}
+# (`date +%F` will return the date in YYYY-MM-DD format)
 today=$(date +%F)
 
+# Create a file with our `$today` variable:
 touch README_$today.txt
+
+# Check the name of our newly created file:
 ls README_*
 ```
 
 ```{bash, eval=TRUE}
+# Define a filename that we'll use in the next few commands:
 input_file=shell-scripting.qmd
 
+# `wc -l` will count the number of lines
+# Using `<` (input redirection) is a trick to avoid the filename from being printed 
 nlines=$(wc -l < $input_file)
 
+# We can directly use the variables in our quoted echo statement:
 echo "The file $input_file has $nlines lines"
 ```
 
@@ -173,10 +204,16 @@ we get an error:
 
 ```{bash, eval=FALSE, error=TRUE}
 today=Thu, Aug 18
-#> Aug: command not found
 ```
 
-But it works when we quote the entire string that makes up the value:
+:::{.bash-out}
+
+Aug: command not found
+
+:::
+
+But it works when we quote (with double quotes, `"..."`)
+the entire string that makes up the value:
 
 ```{bash, eval=TRUE}
 today="Thu, Aug 18"
@@ -196,13 +233,26 @@ touch README2_$today.txt
 ls README2_*
 ```
 
-Oops! The shell performed _field splitting_ on the spaces to split the value
-into three separate units &ndash;
+:::{.callout-note collapse="true"}
+## What went wrong here? How many files were created?
+
+The shell performed so-called _field splitting_ using spaces as a separator,
+splitting the value into three separate units &ndash;
 as a result, three files were created:
-`README2_Thu,` (listed above), as well as `Aug` and `18.txt` (not shown).
+`README2_Thu,` (listed above), as well as `Aug` and `18.txt`.
+
+The following code will list all these three files:
+
+```{bash, eval=TRUE}
+# `ls -t` will sort by last-modified date, and `head -n 3` prints the top 3
+# Therefore, this will print the last 3 files that were created/modified
+ls -t | head -n 3
+```
+
+:::
 
 Similar to what we had to do when assigning the variable,
-problems can be avoided by **quoting the variable** when we reference it:
+our problems can be avoided by **quoting the variable** when we reference it:
 
 ```{bash, eval=FALSE}
 touch README3_"$today".txt
@@ -229,7 +279,7 @@ echo README_$today_final.txt
 ```
 
 :::{.callout-note collapse="true"}
-## What is going wrong here?
+## What went wrong here?
 
 - Following a `$`, the shell will stop interpreting characters as being part
   of the variable name only when it encounters a character that cannot be
@@ -256,12 +306,15 @@ today="Thu, Aug 18"
 echo README_"$today"_final.txt
 ```
 
-:::{.callout-tip}
+:::{.callout-note}
+## Quotes
+
+Single vs double quotes -- as an exercise?
+
+:::
 
 All in all, **it is good practice to quote variables** when you reference them:
 it never hurts and avoids unexpected surprises.
-
-:::
 
 <br>
 
@@ -279,7 +332,8 @@ that is, they allow you to perform one or more actions for each element in the c
 
 ### `for` loop syntax and mechanics
 
-Let's see a first example, where our collection is just a list of numbers:
+Let's see a first example, where our collection is just a very short
+list of numbers (1, 2, and 3):
 
 ```{bash, eval=TRUE}
 for a_number in 1 2 3; do
@@ -348,7 +402,7 @@ done
 
 The aspect that is perhaps most difficult to understand is that in each iteration
 of the loop, one element in the collection (in the example above, either `1`,
-`2`, or `3`) _is being assigned_ to the variable specified after `for`
+`2`, or `3`) **is being assigned** to the variable specified after `for`
 (in the example above, `a_number`).
 
 When we specify the collection "manually", like we did above with numbers,
@@ -367,56 +421,64 @@ loop over.
 Instead, we commonly **loop over files** directly using _globbing_: 
 
 ```{bash, eval=FALSE}
+# We make sure we only select gzipped FASTQ files using the `*fastq.gz` glob
 for fastq_file in data/raw/*fastq.gz; do
     echo "File $fastq_file has $(wc -l < $fastq_file) lines."
     # More processing...
 done
 ```
 
-:::{.callout-note collapse="true"}
-## Bonus: Bash arrays and looping over them
-
-Bash arrays are like lists in Python or vectors in R,
-and can be created using parentheses `()`.
-
-- Create an array manually:
-
-  ```sh
-  $ sample_names=(zmaysA zmaysB zmaysC)
-  ```
-
-- Create an array using command substitution:
-
-  ```sh
-  $ sample_files=($(cut -f 3 samples.txt))
-  
-  $ sample_files=($(cat fastq_files.txt))
-  ```
-
-- Using `[@]`, we can access all elements in the array:
-
-  ```sh
-  $ echo ${sample_names[@]}  # Print all elements in the array
-  #> zmaysA zmaysB zmaysC
-  ```
-
-- Arrays are mostly useful to loop over,
-  and we can also use the `[@]` notation to loop over the elements:
-
-  ```sh
-  $ for sample_name in "${sample_names[@]}"; do
-        echo "$sample_name"
-      done
-  #> zmaysA zmaysB zmaysC
-  ```
+If needed,
+you can use your globbing / wild card skills to narrow down the file selection:
 
 ```{bash, eval=FALSE}
-for sample_name in "${sample_names[@]}"; do
-    echo "Processing sample $sample_name"
-    input_file="$sample_name"_R1.fastq
-    # More processing...
+# Perhaps we only want to select R1 files (forward reads): 
+for fastq_file in data/raw/*R1*fastq.gz; do
+    # Some file processing...
+done
+
+# Or only filenames starting with A or B:
+for fastq_file in data/raw/[AB]*fastq.gz; do
+    # Some file processing...
 done
 ```
+
+:::{.callout-note  collapse="true"}
+## Alternatives to looping with a glob
+
+With genomics data,
+the routine of looping over an entire directory of files,
+or selections made with simple globbing patterns,
+should serve you very well.
+
+But in some cases,
+you may want to iterate only over a specific list of filenames
+(or partial filenames such as sample IDs)
+that represent a complex selection.
+
+- If this is a short list, you could directly specify it in the loop:
+
+  ```{bash, eval=FALSE}
+  for sample in A1 B6 D3; do
+      R1=data/fastq/"$sample"_R1.fastq.gz
+      R2=data/fastq/"$sample"_R2.fastq.gz
+      # Some file processing...
+  done
+  ```
+
+- If it is a longer list, you could create a simple text file with one line
+  per sample ID / filename, and use command substitution as follows:
+
+  ```{bash, eval=FALSE}
+  for fastq_file in $(cat file_of_filenames.txt); do
+      # Some file processing...
+  done
+  ```
+
+(In cases like this, _Bash arrays_
+(basically, variables that consist of multiple values, like a vector in R)
+or _`while` loops_ may provide more elegant solutions,
+but those are outside the scope of this introduction.)
 
 :::
 
@@ -424,8 +486,60 @@ done
 
 ## Conditionals
 
-TBA
+With conditionals, we can
+**run one or more commands only if some condition is true**.
+Also, we can run a different set of commands if the condition is _not_ true.
+  
+For instance, we may want to process a file differently depending 
+on its file type.
+ 
+This is the basic syntax of an `if` statement in bash:
 
+```{bash, eval=FALSE}
+if <test>; then
+    # Command(s) if condition is true
+else
+    # Commands(s) if condition is false
+fi
+```
+
+For instance (pseudocode):
+
+```{bash, eval=FALSE}
+if <file is a text file>; then
+    <count the number of lines and columns>
+else
+    <print the file type and file size>
+fi
+```
+
+We can also omit the `else` statement:
+
+```{bash, eval=FALSE}
+if <test>; then
+    # Command(s) if condition is true
+fi
+```
+  
+For example,
+an `if` statement that depends on the file type of the input file:
+
+```{bash, eval=FALSE}
+if [ "$filetype" = "fastq" ]; then
+    echo "Processing fastq file..."
+    # Commands to process fastq file
+else
+    echo "Unknown filetype!"
+fi
+```
+
+Above, we use the `[ ]` syntax to perform the test:
+
+- The square brackets represent a *test statement*.
+
+- The spaces bordering the brackets on the inside are necessary:  
+  `["$filetype" = "fastq"]` would fail!
+  
 ```{bash, eval=TRUE, echo=FALSE}
 rm README* 18.txt Aug
 ```
