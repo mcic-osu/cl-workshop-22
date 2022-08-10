@@ -1,0 +1,68 @@
+---
+title: "Practical Workshop Information"
+highlight-style: oblivion
+---
+
+```{r knitr_options, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE,
+                      class.output = "bash-out")
+```
+
+-----
+
+## Computer Setup
+
+Since we will be working entirely at the Ohio Supercomputer Center (OSC),
+and will be doing so **through our internet browsers**:
+
+- You won't need to install anything
+- Any operating system will work
+- You won't need an especially powerful machine
+  (though browsers, especially in combination with Zoom, can use their fair
+  share of memory).
+
+If you're attending **in person**, you will need to bring a _laptop_.
+You can watch the presentation on a big screen in the room,
+which will make it easier to code along (see below).
+You won't need to connect to the Zoom call.
+
+If you're attending **via Zoom**, we would recommend a _two-monitor setup_.
+This is because much of the time,
+you need to be able to simultaneously see the instructor's screen via Zoom
+as well as your own browser window.
+
+We'll use [this Google Doc](https://docs.google.com/document/d/1M_BSRtnG3QYjntpgxbMENr_ZJGrA35B1e7E0Dn0hK5Q/edit?usp=sharing) for sharing links and code, and for non-urgent questions.
+
+## Miscellaneous info
+
+#### Expect to participate!
+
+The modules will be a mixture of lectures that include "_participatory_
+_live-coding_"
+(also called "code-along"; with the instructor slowly demonstrating and
+participants expected to follow along for themselves)
+and small _single-person exercises_ (we won't be doing breakout rooms / groups).
+Therefore, be prepared to actively participate during much of the workshop!
+
+#### Example data
+
+We will mainly use a set of `FASTQ` files from a
+[published RNAseq experiment](https://www.nature.com/articles/sdata2018290)
+as example data.
+(But it may be worth emphasizing that the exact data type matters relatively little for the purposes of our workshop,
+since we focus on foundational skills and not specific genomic analyses.)
+
+If you have any data yourself, you can bring it along and you should be able 
+to experiment with it a bit in our second session on Friday afternoon.
+If this is a large dataset (say, >10GB),
+uploading it to OSC will take some time.
+You could try to start this after Wednesday's sessions,
+when you've had some background on this.
+Alternatively, you can contact us prior to the workshop.
+  
+## Locations and links
+
+- Wooster: Selby Hall, room 203 (instructor: Jelmer Poelstra)
+- Columbus: Aronoff Laboratory, room 104 (instructor: Mike Sovic)
+- Zoom: email us for the link!
+- [Google Doc for sharing links and code, and for non-urgent questions](https://docs.google.com/document/d/1M_BSRtnG3QYjntpgxbMENr_ZJGrA35B1e7E0Dn0hK5Q/edit?usp=sharing)
