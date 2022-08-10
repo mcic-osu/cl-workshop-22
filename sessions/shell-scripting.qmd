@@ -12,3 +12,17 @@ knitr::opts_chunk$set(eval = FALSE,
 -----
 
 ## TBA
+
+:::{.callout-tip}
+## Keyboard shortcut to run shell commands from the editor
+
+To add a keyboard shortcut that will send code selected in the editor pane
+to the terminal
+(such that you don't have to copy and paste):
+
+- Click the &nbsp; {{< fa cog >}} &nbsp; (bottom-left) => `Keyboard Shortcuts`.
+
+- Find `Terminal: Run Selected Text in Active Terminal`, click on it,
+  then add a shortcut, e.g. <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
+
+:::

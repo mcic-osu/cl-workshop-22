@@ -7,7 +7,7 @@ editor: visual
 ## Schedule
 
 | Day       | Module                                 | Instructor    | Time                 |
-|---------------|--------------------------|---------------|----------------|
+|-----------|----------------------------------------|---------------|----------------------|
 | **Day-1** | 1\. Introduction to the workshop       | Mike / Jelmer | Wed 1:00 - 1:15 pm   |
 |           | 2\. The Ohio Supercomputer Center      | Mike          | Wed 1:15 - 1:45 pm   |
 |           | 3\. The `VS Code` text editor          | Jelmer        | Wed 1:45 - 2:00 pm   |

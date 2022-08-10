@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.622">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -97,8 +97,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -289,7 +289,7 @@ Warning
 <li>In the form that appears:
 <ul>
 <li>Enter <code>3</code> in the box <code>Number of hours</code></li>
-<li>Enter <code>XXX</code> in the box <code>Working Directory</code></li>
+<li>Enter <code>/fs/ess/scratch/PAS2250</code> in the box <code>Working Directory</code></li>
 <li>Click <code>Launch</code>.</li>
 </ul></li>
 <li>On the next page, once the top bar of the box has turned green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</li>
@@ -339,17 +339,21 @@ Warning
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="va">$ls_options</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>total 56K
--rw-rw-r-- 1 jelmer jelmer 232 Aug  9 21:42 examples.qmd
--rw-rw-r-- 1 jelmer jelmer 248 Aug  9 21:42 osc-intro.qmd
--rw-rw-r-- 1 jelmer jelmer 11K Aug  9 22:00 scripting-prep.qmd
--rw-rw-r-- 1 jelmer jelmer 11K Aug  9 22:00 scripting-prep.rmarkdown
--rw-rw-r-- 1 jelmer jelmer 218 Aug  9 21:43 shell-intro.qmd
--rw-rw-r-- 1 jelmer jelmer 219 Aug  9 21:43 shell-scripting.qmd
--rw-rw-r-- 1 jelmer jelmer 235 Aug  9 21:44 slurm.qmd
--rw-rw-r-- 1 jelmer jelmer 225 Aug  9 21:45 software.qmd
--rw-rw-r-- 1 jelmer jelmer 228 Aug  9 21:45 vscode.qmd
--rw-rw-r-- 1 jelmer jelmer 232 Aug  9 21:46 workshop-intro.qmd</code></pre>
+<pre class="bash-out"><code>total 132K
+-rw-rw-r-- 1 jelmer jelmer  232 Aug  9 21:42 examples.qmd
+drwxrwxr-x 2 jelmer jelmer 4.0K Aug 10 15:09 img
+-rw-rw-r-- 1 jelmer jelmer  248 Aug  9 21:42 osc-intro.qmd
+-rw-rw-r-- 1 jelmer jelmer  11K Aug 10 10:27 scripting-prep.qmd
+-rw-rw-r-- 1 jelmer jelmer  11K Aug 10 15:48 scripting-prep.rmarkdown
+-rw-rw-r-- 1 jelmer jelmer  218 Aug  9 21:43 shell-intro.qmd
+-rw-rw-r-- 1 jelmer jelmer  16K Aug 10 15:48 shell-scripting.html
+-rw-rw-r-- 1 jelmer jelmer  654 Aug 10 15:35 shell-scripting.qmd
+-rw-rw-r-- 1 jelmer jelmer  235 Aug  9 21:44 slurm.qmd
+-rw-rw-r-- 1 jelmer jelmer  15K Aug 10 15:48 software.html
+-rw-rw-r-- 1 jelmer jelmer  225 Aug  9 21:45 software.qmd
+-rw-rw-r-- 1 jelmer jelmer  31K Aug 10 15:48 vscode.html
+-rw-rw-r-- 1 jelmer jelmer 9.2K Aug 10 15:35 vscode.qmd
+-rw-rw-r-- 1 jelmer jelmer  232 Aug  9 21:46 workshop-intro.qmd</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -357,7 +361,7 @@ Warning
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="va">$input_file</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>-rw-rw-r-- 1 jelmer jelmer 219 Aug  9 21:43 shell-scripting.qmd</code></pre>
+<pre class="bash-out"><code>-rw-rw-r-- 1 jelmer jelmer 654 Aug 10 15:35 shell-scripting.qmd</code></pre>
 </div>
 </div>
 </section>
@@ -379,7 +383,7 @@ Warning
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README_<span class="va">$today</span>.txt</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> README_<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>README_2022-08-09.txt</code></pre>
+<pre class="bash-out"><code>README_2022-08-10.txt</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -389,7 +393,7 @@ Warning
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"The file </span><span class="va">$input_file</span><span class="st"> has </span><span class="va">$nlines</span><span class="st"> lines"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>The file shell-scripting.qmd has 14 lines</code></pre>
+<pre class="bash-out"><code>The file shell-scripting.qmd has 28 lines</code></pre>
 </div>
 </div>
 <p>Command substitution can for instance be useful when you want your script to report some results, or when a next step in the script depends on a previous result.</p>
@@ -600,13 +604,13 @@ Why the semicolon <code>;</code> before <code>do</code>?
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>In this iteration of the loop, the number is 1
-Tue Aug  9 10:00:04 PM CEST 2022
+Wed Aug 10 03:48:36 PM CEST 2022
 --------
 In this iteration of the loop, the number is 2
-Tue Aug  9 10:00:05 PM CEST 2022
+Wed Aug 10 03:48:37 PM CEST 2022
 --------
 In this iteration of the loop, the number is 3
-Tue Aug  9 10:00:06 PM CEST 2022
+Wed Aug 10 03:48:38 PM CEST 2022
 --------</code></pre>
 </div>
 </div>
@@ -687,6 +691,24 @@ Bonus: Bash arrays and looping over them
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
       const stylesheet = stylesheets[i];
@@ -716,8 +738,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     manageTransitions('#quarto-margin-sidebar .nav-link', false);
     if (alternate) {
       enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
     } else {
       disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
     }
     manageTransitions('#quarto-margin-sidebar .nav-link', true);
     // Switch the toggles
