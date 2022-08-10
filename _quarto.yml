@@ -9,8 +9,12 @@ website:
   navbar:
     search: true
     right:
-      - href: about.qmd
-        text: About this Workshop
+      - text: "Additional info"
+        menu:
+          - href: info/info.qmd
+            text: Practical Workshop Info
+          - href: about.qmd
+            text: General Workshop Info / Signing Up
     left:
       - text: "Day 1"
         menu:

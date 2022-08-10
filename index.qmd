@@ -4,10 +4,10 @@ subtitle: "A workshop by the MCIC & CAPS on August 17 - 19, 2022."
 editor: visual
 ---
 
-## Schedule
+## Approximate Schedule
 
 | Day       | Module                                 | Instructor    | Time                 |
-|-----------|----------------------------------------|---------------|----------------------|
+|---------------|----------------------------|---------------|---------------|
 | **Day-1** | 1\. Introduction to the workshop       | Mike / Jelmer | Wed 1:00 - 1:15 pm   |
 |           | 2\. The Ohio Supercomputer Center      | Mike          | Wed 1:15 - 1:45 pm   |
 |           | 3\. The `VS Code` text editor          | Jelmer        | Wed 1:45 - 2:00 pm   |
@@ -17,9 +17,3 @@ editor: visual
 |           | 7\. Using software at OSC              | Jelmer        | Thu 1:45 - 2:30 pm   |
 | **Day-3** | 8\. Submitting scripts with `SLURM`    | Jelmer        | Fri 1:00 - 2:30 pm   |
 |           | 9\. Running example compute jobs       | Mike / Jelmer | Fri 2:45 - 4:30 pm   |
-
-## Locations
-
--   Wooster: Selby Hall 203 (instructor: Jelmer Poelstra)
--   Columbus: Aronoff Laboratory 104 (instructor: Mike Sovic)
--   Zoom: email us for the link!

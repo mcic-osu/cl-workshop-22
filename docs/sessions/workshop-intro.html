@@ -127,9 +127,19 @@ ul.task-list{list-style: none;}
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../about.html">About this Workshop</a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-additional-info" role="button" data-bs-toggle="dropdown" aria-expanded="false">Additional info</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-additional-info">    
+        <li>
+    <a class="dropdown-item" href="../info/info.html">
+ <span class="dropdown-text">Practical Workshop Info</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../about.html">
+ <span class="dropdown-text">General Workshop Info / Signing Up</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -148,7 +158,13 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tba" id="toc-tba" class="nav-link active" data-scroll-target="#tba"> <span class="header-section-number">1</span> TBA</a></li>
+  <li><a href="#what-you-will-and-wont-learn" id="toc-what-you-will-and-wont-learn" class="nav-link active" data-scroll-target="#what-you-will-and-wont-learn"> <span class="header-section-number">1</span> What you will and won’t learn</a></li>
+  <li><a href="#mechanics-of-a-hybrid-workshop" id="toc-mechanics-of-a-hybrid-workshop" class="nav-link" data-scroll-target="#mechanics-of-a-hybrid-workshop"> <span class="header-section-number">2</span> Mechanics of a hybrid workshop</a></li>
+  <li><a href="#personal-introductions" id="toc-personal-introductions" class="nav-link" data-scroll-target="#personal-introductions"> <span class="header-section-number">3</span> Personal introductions</a>
+  <ul class="collapse">
+  <li><a href="#instructors" id="toc-instructors" class="nav-link" data-scroll-target="#instructors"> <span class="header-section-number">3.1</span> Instructors</a></li>
+  <li><a href="#you" id="toc-you" class="nav-link" data-scroll-target="#you"> <span class="header-section-number">3.2</span> You!</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -174,11 +190,73 @@ ul.task-list{list-style: none;}
 <div class="cell">
 
 </div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PAGE STILL UNDER CONSTRUCTION</p>
+</div>
+</div>
 <hr>
-<section id="tba" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="tba"><span class="header-section-number">1</span> TBA</h2>
+<section id="what-you-will-and-wont-learn" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="what-you-will-and-wont-learn"><span class="header-section-number">1</span> What you will and won’t learn</h2>
+<p>The focus of the workshop is on building some <strong>general skills</strong> for analyzing genomics data.</p>
+<p>Command-line programs are preferred for many of the steps to analyze genomic sequencing data. Because such datasets tend to contain <em>a lot</em> of data, it is also preferable to run your analyses not on a laptop or desktop, but at a compute cluster like the Ohio Supercomputer Center (OSC).</p>
+<p>In combination, this means that you need the following set of skills that you may not have been thought during your biology education:</p>
+<ol type="1">
+<li>Having a basic understanding of a <strong>supercomputer</strong> (compute cluster)</li>
+</ol>
+<p>And being able to:</p>
+<ol start="2" type="1">
+<li>Use the <strong>Unix shell</strong> (work in a terminal)</li>
+<li>Write small <strong>shell scripts</strong></li>
+<li>Activate and probably install <strong>software</strong> in a Linux environment where you don’t have “admin rights”</li>
+<li>Instead of simply executing your scripts, <strong>submitting scripts</strong> to a “queue” and monitor and managing the resulting compute jobs.</li>
+</ol>
+<p>We will teach the basics of these skills during this workshop!</p>
+<p>It may be useful to point out that given this focus, we will <strong>not</strong> teach you much in the way of:</p>
+<ul>
+<li>Details of genomic data file types</li>
+<li>Details of specific (genomic) analyses</li>
+<li>Making biological inferences from your data</li>
+</ul>
+<p><br></p>
+</section>
+<section id="mechanics-of-a-hybrid-workshop" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="mechanics-of-a-hybrid-workshop"><span class="header-section-number">2</span> Mechanics of a hybrid workshop</h2>
+<p>We have a slightly complicated set up with people in-person in Wooster with one instructor, in-person in Columbus with another instructor, and some people via Zoom. Some notes:</p>
+<ul>
+<li><p><strong>This website has all the material</strong> that we will go through during each of the modules! See the links in the schedule as well as under the top bar menus.</p></li>
+<li><p>In-person participants don’t need to connect to the Zoom call (but are of course allowed to connect, if they can better see the instructor’s screen that way).</p></li>
+<li><p>Because we’re not all on Zoom, we’ll use <strong><a href="https://docs.google.com/document/d/1M_BSRtnG3QYjntpgxbMENr_ZJGrA35B1e7E0Dn0hK5Q/edit?usp=sharing">this Google Doc</a></strong> to share links, inpromptu code that is not on the website, and non-urgent question.</p></li>
+<li><p>Whenever you have a <strong>question</strong>, please feel free to interrupt and speak up, both in-person and over Zoom. Only if your question is not urgent and you don’t want to interrupt the flow, put it in the Google Doc or ask about it during a break.</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="personal-introductions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="personal-introductions"><span class="header-section-number">3</span> Personal introductions</h2>
+<section id="instructors" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="instructors"><span class="header-section-number">3.1</span> Instructors</h3>
+<ul>
+<li><strong>Jelmer Poelstra</strong>, Molecular and Cellular Imaging Center (MCIC), Wooster</li>
+<li><strong>Mike Sovic</strong>, Center for Applied Plant Sciences (CAPS), Wooster</li>
+</ul>
+</section>
+<section id="you" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="you"><span class="header-section-number">3.2</span> You!</h3>
+<p>Please very briefly introduce yourself – things you may want to mention include your name, position, department, and why you wanted to go to this workshop.</p>
+<ul>
+<li><em>Add figure(s) showing data types &amp; previous experience</em></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

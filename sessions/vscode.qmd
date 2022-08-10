@@ -9,9 +9,15 @@ knitr::opts_chunk$set(eval = FALSE,
                       class.output = "bash-out")
 ```
 
+:::{.callout-warning}
+
+PAGE STILL UNDER CONSTRUCTION
+
+:::
+
 -----
 
-In this session, we will learn the basics of a fancy text editor called
+In this module, we will learn the basics of a fancy text editor called
 `Visual Studio Code` (`VS Code` for short).
 Conveniently, we can use a version of this editor
 (sometimes referred to as `Code Server`) in our browser via the OSC OnDemand
@@ -50,14 +56,14 @@ the `RStudio` program is another good example of an IDE.
 :::{.callout-caution}
 ## VS Code runs on a login node
 
-In the previous session, we've learned that all serious computation at OSC
+In the previous module, we've learned that all serious computation at OSC
 should not be done on login nodes but on compute nodes.
 
-Starting an RStudio session, for instance, requires filling out a similar
-form, and RStudio will subsequently run on a compute node and your selected
+Starting an `RStudio` session, for instance, requires filling out a similar
+form, and `RStudio` will subsequently run on a compute node and your selected
 OSC project will be charged.
 
-Running VS Code is a slightly peculiar case:
+Running `VS Code` is a slightly peculiar case:
 we do have to fill out a form and reserve a pre-specified number of hours
 (and it will stop working after the allotted time has passed),
 but we're on a login node and are not being charged.
@@ -108,42 +114,39 @@ If you've closed the `Welcome` document but want it back, click
 
 ### Terminal
 
-By default, no terminal is opened in VS Code --
+By default, no terminal is open in `VS Code` --
 to do so, click the
 &nbsp; {{< fa bars >}} &nbsp; ("hamburger menu" icon)
 that is way in the top left, and then `Terminal` => `New Terminal`.
 
-In the terminal, the prompt says `Singularity >`.
+In the terminal, the prompt says `Singularity>`.
 This is because in OSC OnDemand, `VS Code` runs inside a Singularity container
 (for our purposes, it is not important what that means, exactly).
 To break out of the Singularity shell and get a regular Bash Unix shell,
-type `bash` and press <kbd>Enter</kbd>.
+**type `bash` and press <kbd>Enter</kbd>**.
 
-In the next session, Mike will teach us how to use the terminal.
+In the next module, Mike will teach us how to use the terminal.
 
 <p align="center">
 <img src=img/vscode-terminal-editor.png width="100%">
 </p>
 
-:::{.callout-tip}
-## Resizing panes
+## Some tips and tricks
+
+### Making use of your screen's real estate
+
+Since we are using `VS Code` inside a browser window,
+we are unfortunately losing some screen space.
+Make sure to maximize the browser window and if you have a bookmarks bar,
+try to hide it
+(for Chrome: <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>).
+
+### Resizing panes
 
 You can resize panes (the terminal, editor, and wide sidebar) by hovering
 your cursor over the borders and then dragging it. 
   
-:::
-
-:::{.callout-note}
-## Color themes!
-
-To try out different color themes for the entire program,
-press the gear icon <i class="fa fa-cog"></i> and then `Color Theme`.
-(I like "*Quiet Light*".)
-  
-:::
-
-:::{.callout-note}
-## The Command Palette
+### The Command Palette
 
 To access all the menu options that are available in `VS Code`,
 the so-called "Command Palette" can be handy,
@@ -156,7 +159,11 @@ To access the Command Palette, click
 For a quick test, open the Command Palette and start typing "color theme",
 and you'll see the relevant options pop up.
 
-:::
+### Color themes
+
+To try out different color themes for the entire program,
+press the gear icon <i class="fa fa-cog"></i> and then `Color Theme`.
+(I like "*Quiet Light*".)
 
 <br>
 
@@ -180,7 +187,7 @@ which will make navigation and saving files much easier.
 :::{.callout-note}
 ## Switching folders
 
-To switch to a different folder from within the program, click 
+To switch to a different folder from within `VS Code`, click 
 &nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`.
 
 :::
