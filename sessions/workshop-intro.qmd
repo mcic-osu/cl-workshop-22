@@ -9,6 +9,88 @@ knitr::opts_chunk$set(eval = FALSE,
                       class.output = "bash-out")
 ```
 
+:::{.callout-warning}
+
+PAGE STILL UNDER CONSTRUCTION
+
+:::
+
 -----
 
-## TBA
+## What you will and won't learn
+
+The focus of the workshop is on building some **general skills** for analyzing
+genomics data.
+
+Command-line programs are preferred for many of the steps to analyze genomic
+sequencing data.
+Because such datasets tend to contain _a lot_ of data,
+it is also preferable to run your analyses not on a laptop or desktop,
+but at a compute cluster like the Ohio Supercomputer Center (OSC).
+
+In combination, this means that you need the following set of skills that you
+may not have been thought during your biology education:
+
+1. Having a basic understanding of a **supercomputer** (compute cluster)
+
+And being able to:
+
+2. Use the **Unix shell** (work in a terminal)
+3. Write small **shell scripts**
+4. Activate and probably install **software** in a Linux environment where you
+   don't have "admin rights"
+5. Instead of simply executing your scripts,
+   **submitting scripts** to a "queue" and monitor and managing the resulting
+   compute jobs.
+
+We will teach the basics of these skills during this workshop!
+
+It may be useful to point out that given this focus, we will **not** teach you
+much in the way of:
+
+- Details of genomic data file types
+- Details of specific (genomic) analyses
+- Making biological inferences from your data
+
+<br>
+
+## Mechanics of a hybrid workshop
+
+We have a slightly complicated set up with people in-person in Wooster with
+one instructor, in-person in Columbus with another instructor,
+and some people via Zoom. Some notes:
+
+- **This website has all the material** that we will go through during each
+  of the modules!
+  See the links in the schedule as well as under the top bar menus.
+
+- In-person participants don't need to connect to the Zoom call
+  (but are of course allowed to connect,
+  if they can better see the instructor's screen that way).
+
+- Because we're not all on Zoom, we'll use
+  **[this Google Doc](https://docs.google.com/document/d/1M_BSRtnG3QYjntpgxbMENr_ZJGrA35B1e7E0Dn0hK5Q/edit?usp=sharing)**
+  to share links, inpromptu code that is not on the website,
+  and non-urgent question.
+  
+- Whenever you have a **question**,
+  please feel free to interrupt and speak up,
+  both in-person and over Zoom.
+  Only if your question is not urgent and you don't want to interrupt the flow,
+  put it in the Google Doc or ask about it during a break.
+
+<br>
+
+## Personal introductions
+
+### Instructors
+
+- **Jelmer Poelstra**, Molecular and Cellular Imaging Center (MCIC), Wooster
+- **Mike Sovic**, Center for Applied Plant Sciences (CAPS), Wooster
+
+### You!
+
+Please very briefly introduce yourself -- things you may want to mention include
+your name, position, department, and why you wanted to go to this workshop.
+
+- _Add figure(s) showing data types & previous experience_
