@@ -495,7 +495,7 @@ on its file type.
  
 This is the basic syntax of an `if` statement in bash:
 
-```{bash, eval=FALSE}
+```bash
 if <test>; then
     # Command(s) if condition is true
 else
@@ -505,7 +505,7 @@ fi
 
 For instance (pseudocode):
 
-```{bash, eval=FALSE}
+```bash
 if <file is a text file>; then
     <count the number of lines and columns>
 else
@@ -515,7 +515,7 @@ fi
 
 We can also omit the `else` statement:
 
-```{bash, eval=FALSE}
+```bash
 if <test>; then
     # Command(s) if condition is true
 fi

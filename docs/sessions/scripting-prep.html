@@ -380,19 +380,17 @@ Space-sensitive
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="va">$ls_options</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>total 144K
+<pre class="bash-out"><code>total 80K
 -rw-rw-r-- 1 jelmer jelmer  232 Aug  9 21:42 examples.qmd
 drwxrwxr-x 2 jelmer jelmer 4.0K Aug 10 15:09 img
 -rw-rw-r-- 1 jelmer jelmer  248 Aug  9 21:42 osc-intro.qmd
--rw-rw-r-- 1 jelmer jelmer  14K Aug 10 22:37 scripting-prep.qmd
--rw-rw-r-- 1 jelmer jelmer  14K Aug 10 22:46 scripting-prep.rmarkdown
+drwxrwxr-x 3 jelmer jelmer 4.0K Aug 10 22:54 scripting-prep_files
+-rw-rw-r-- 1 jelmer jelmer  14K Aug 10 22:54 scripting-prep.qmd
+-rw-rw-r-- 1 jelmer jelmer  14K Aug 10 22:54 scripting-prep.rmarkdown
 -rw-rw-r-- 1 jelmer jelmer  218 Aug  9 21:43 shell-intro.qmd
--rw-rw-r-- 1 jelmer jelmer  16K Aug 10 22:46 shell-scripting.html
 -rw-rw-r-- 1 jelmer jelmer  654 Aug 10 15:35 shell-scripting.qmd
 -rw-rw-r-- 1 jelmer jelmer  235 Aug  9 21:44 slurm.qmd
--rw-rw-r-- 1 jelmer jelmer  15K Aug 10 22:46 software.html
 -rw-rw-r-- 1 jelmer jelmer  225 Aug  9 21:45 software.qmd
--rw-rw-r-- 1 jelmer jelmer  34K Aug 10 22:46 vscode.html
 -rw-rw-r-- 1 jelmer jelmer 9.5K Aug 10 17:40 vscode.qmd
 -rw-rw-r-- 1 jelmer jelmer 3.0K Aug 10 22:43 workshop-intro.qmd</code></pre>
 </div>
@@ -682,13 +680,13 @@ Why the semicolon <code>;</code> before <code>do</code>?
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>In this iteration of the loop, the number is 1
-Wed Aug 10 10:46:18 PM CEST 2022
+Wed Aug 10 10:54:20 PM CEST 2022
 --------
 In this iteration of the loop, the number is 2
-Wed Aug 10 10:46:19 PM CEST 2022
+Wed Aug 10 10:54:21 PM CEST 2022
 --------
 In this iteration of the loop, the number is 3
-Wed Aug 10 10:46:20 PM CEST 2022
+Wed Aug 10 10:54:22 PM CEST 2022
 --------</code></pre>
 </div>
 </div>
@@ -769,27 +767,21 @@ Alternatives to looping with a glob
 <p>With conditionals, we can <strong>run one or more commands only if some condition is true</strong>. Also, we can run a different set of commands if the condition is <em>not</em> true.</p>
 <p>For instance, we may want to process a file differently depending on its file type.</p>
 <p>This is the basic syntax of an <code>if</code> statement in bash:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">&lt;</span>test<span class="op">&gt;</span><span class="kw">;</span> <span class="cf">then</span></span>
+<div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">&lt;</span>test<span class="op">&gt;</span><span class="kw">;</span> <span class="cf">then</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Command(s) if condition is true</span></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Commands(s) if condition is false</span></span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>For instance (pseudocode):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">&lt;</span>file <span class="ex">is</span> a text file<span class="op">&gt;</span><span class="kw">;</span> <span class="cf">then</span></span>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">&lt;</span>file <span class="ex">is</span> a text file<span class="op">&gt;</span><span class="kw">;</span> <span class="cf">then</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>count <span class="ex">the</span> number of lines and columns<span class="op">&gt;</span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>print <span class="ex">the</span> file type and file size<span class="op">&gt;</span></span>
 <span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>We can also omit the <code>else</code> statement:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">&lt;</span>test<span class="op">&gt;</span><span class="kw">;</span> <span class="cf">then</span></span>
+<div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">&lt;</span>test<span class="op">&gt;</span><span class="kw">;</span> <span class="cf">then</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Command(s) if condition is true</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>For example, an <code>if</code> statement that depends on the file type of the input file:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="st">"</span><span class="va">$filetype</span><span class="st">"</span> <span class="ot">=</span> <span class="st">"fastq"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
