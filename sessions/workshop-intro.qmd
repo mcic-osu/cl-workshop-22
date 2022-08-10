@@ -1,7 +1,6 @@
 ---
 title: "Introduction to the Workshop"
 highlight-style: oblivion
-number-sections: true
 ---
 
 ```{r knitr_options, echo=FALSE}

@@ -71,4 +71,4 @@ If this is a large dataset (say, >10GB),
 uploading it to OSC will take some time.
 You could try to start this after Wednesday's sessions,
 when you've had some background on this.
-Alternatively, you can contact us prior to the workshop.
+Alternatively, you can contact the instructors about this prior to the workshop.
