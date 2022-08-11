@@ -17,19 +17,8 @@ PAGE STILL UNDER CONSTRUCTION
 
 :::
 
-In this module, we will cover several topics you need to know about
-before you can start writing and running shell scripts:
-variables, `for` loops, and conditionals
-(`if` constructs).
-
-<br>
-
-## Before We Get Started
-
-### Goals
-
-Here is why you will learn the following concepts and constructs,
-and how to use them:
+In this module, we will cover several topics that are good to know about
+before you start writing and running shell scripts:
 
 - Using **variables** will allow you to run scripts flexibly,
   with different input files and settings 
@@ -42,11 +31,13 @@ and how to use them:
   will allow you to perform operations only if a specific condition is met.
   This can also make your scripts flexible,
   and help you to test your input and check your output.
-  
-### Setup
+
+<br>
+
+## Setup
 
 :::{.callout-note collapse="true"}
-## Starting a VS Code session with an active terminal
+## Starting a VS Code session with an active terminal (click here)
 
 1. Log in to OSC at <https://ondemand.osc.edu>.
 2. In the blue top bar, select `Interactive Apps` and then `Code Server`.
@@ -61,8 +52,6 @@ and how to use them:
 6. In the terminal, type `Bash` and press <kbd>Enter</kbd>.
 
 :::
-
------
 
 <br>
 
@@ -79,7 +68,7 @@ and parameter values for programs.
 ### Assigning and referencing variables
 
 **To _assign_ a value to a variable in Bash** (in short: to assign a variable),
-you use the syntax `variable=value`.
+use the syntax `variable=value`.
 For example:
 
 ```{bash}
@@ -93,13 +82,13 @@ nlines=200
 :::{.callout-warning}
 ## Space-sensitive
 
-Be aware that there can be no spaces around the equals sign `=`!
+Be aware that there can be no spaces around the equals sign (`=`)!
 
 :::
 
 **To _reference_ a variable** (i.e., to access its value),
-you need to put a dollar sign `$` in front of its name! 
-We'll use the `echo` command to see what values our variables holds:
+you need to put a dollar sign `$` in front of its name.
+We'll use the `echo` command to review the values that our variables contain:
 
 ```{bash, echo=TRUE, eval=FALSE}
 echo $treatment
@@ -121,7 +110,7 @@ echo $nlines
 ```
 
 Conveniently, we can directly use variables in lots of contexts,
-as if we had just typed their _values_:
+**as if we had instead typed their _values_**:
 
 ```{bash, eval=TRUE}
 ls_options="-lh"
@@ -150,10 +139,10 @@ you can use a construct called "**command substitution**"
 by wrapping the command inside `$()`:
 
 ```{bash, eval=TRUE}
-# (`date +%F` will return the date in YYYY-MM-DD format)
+# (date +%F will return the date in YYYY-MM-DD format)
 today=$(date +%F)
 
-# Create a file with our `$today` variable:
+# Create a file with our $today variable:
 touch README_$today.txt
 
 # Check the name of our newly created file:
@@ -178,9 +167,9 @@ or when a next step in the script depends on a previous result.
 
 ### Environment variables
 
-There are also predefined variables in the Unix shell:
+There are also **predefined variables** in the Unix shell:
 that is, variables that exist in your environment by default.
-These so-called "environment variables" are always in all-caps:
+These so-called "environment variables" are always spelled in all-caps:
 
 ```{bash, eval=TRUE}
 # Environment variable $USER contains your user name 
@@ -197,9 +186,10 @@ We'll see them again when we talk about the `SLURM` compute job scheduler.
 
 ### Quoting variables
 
-What happens if the value of our variable contains spaces?
+Above, we learned that a variable name cannot contain spaces.
+But what happens if our variable's _value_ contains spaces?
 
-First off, when we try to _assign_ the variable without quotes,
+First off, when we try to **assign** the variable without quotes,
 we get an error:
 
 ```{bash, eval=FALSE, error=TRUE}
@@ -212,7 +202,7 @@ Aug: command not found
 
 :::
 
-But it works when we quote (with double quotes, `"..."`)
+But it works when we quote (with _double_ quotes, `"..."`)
 the entire string that makes up the value:
 
 ```{bash, eval=TRUE}
@@ -220,7 +210,7 @@ today="Thu, Aug 18"
 echo $today
 ```
 
-Now, let's try to _reference_ the variable with spaces:
+Now, let's try to **reference** this variable:
 
 ```{bash, eval=FALSE}
 touch README2_$today.txt
@@ -233,10 +223,10 @@ touch README2_$today.txt
 ls README2_*
 ```
 
-:::{.callout-note collapse="true"}
+:::{.callout-caution collapse="true"}
 ## What went wrong here? How many files were created?
 
-The shell performed so-called _field splitting_ using spaces as a separator,
+The shell performed so-called _field splitting_ using a space as a separator,
 splitting the value into three separate units &ndash;
 as a result, three files were created:
 `README2_Thu,` (listed above), as well as `Aug` and `18.txt`.
@@ -278,7 +268,7 @@ today="Thu, Aug 18"
 echo README_$today_final.txt
 ```
 
-:::{.callout-note collapse="true"}
+:::{.callout-caution collapse="true"}
 ## What went wrong here?
 
 - Following a `$`, the shell will stop interpreting characters as being part
@@ -306,15 +296,48 @@ today="Thu, Aug 18"
 echo README_"$today"_final.txt
 ```
 
-:::{.callout-note}
-## Quotes
+:::{.callout-note collapse="true"}
+## More on quoting -- and double vs. single quotes
 
-Single vs double quotes -- as an exercise?
+By double-quoting a variable,
+we are essentially escaping (or "turning off")
+the default special meaning of the _space as a separator_,
+and are asking the shell to interpret it as a _literal space_.
+
+Similarly, we are escaping other "special characters",
+such as globbing wildcards, with double quotes. Compare:
+
+```{bash, eval=TRUE}
+echo *
+```
+
+```{bash, eval=TRUE}
+echo "*"
+```
+
+However, as we also saw above,
+double quotes _do not_ turn off the special meaning of `$`
+(i.e., denoting a string as a variable):
+
+```{bash, eval=FALSE, echo=TRUE}
+echo "$today"
+```
+
+```{bash, eval=TRUE, echo=FALSE}
+today="Thu, Aug 18"
+echo "$today"
+```
+
+...but _single quotes_ will:
+
+```{bash, eval=TRUE, echo=TRUE}
+echo '$today'
+```
 
 :::
 
 All in all, **it is good practice to quote variables** when you reference them:
-it never hurts and avoids unexpected surprises.
+it never hurts, and avoids unexpected surprises.
 
 <br>
 
@@ -394,7 +417,7 @@ demonstrates that the loop is being executed sequentially:
 ```{bash, eval=TRUE}
 for a_number in 1 2 3; do
     echo "In this iteration of the loop, the number is $a_number"
-    sleep 1s          # Let the computer sleep for 1 second
+    #sleep 1s          # Let the computer sleep for 1 second
     date              # Print the date and time
     echo "--------"
 done
@@ -489,27 +512,28 @@ but those are outside the scope of this introduction.)
 With conditionals, we can
 **run one or more commands only if some condition is true**.
 Also, we can run a different set of commands if the condition is _not_ true.
-  
 For instance, we may want to process a file differently depending 
 on its file type.
  
-This is the basic syntax of an `if` statement in bash:
+This is the basic syntax of an `if` statement in Bash:
 
 ```bash
-if <test>; then
+if [ <test> ]; then
     # Command(s) if condition is true
 else
     # Commands(s) if condition is false
 fi
 ```
 
+Above, `<test>` is pseudo-code denoting that a logical test
+
 For instance (pseudocode):
 
 ```bash
-if <file is a text file>; then
-    <count the number of lines and columns>
+if [ <file is a text file> ]; then
+    # <count the number of lines and columns>
 else
-    <print the file type and file size>
+    # <print the file type and file size>
 fi
 ```
 

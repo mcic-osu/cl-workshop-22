@@ -218,7 +218,7 @@ Warning
 <hr>
 <p>In this module, we will learn the basics of a fancy text editor called <code>Visual Studio Code</code> (<code>VS Code</code> for short). Conveniently, we can use a version of this editor (sometimes referred to as <code>Code Server</code>) in our browser via the OSC OnDemand website.</p>
 <p><strong>We will use <code>VS Code</code> throughout the workshop as practically a one-stop</strong> <strong>solution for our computing activities at OSC</strong>: accessing the Unix shell and writing scripts. This is also how I use this editor in my daily work.</p>
-<p>To emphasize its additional functionality relative to basic text editors like <code>Notepad</code> and <code>TextEdit</code>, editors like <code>VS Code</code> are also referred to as “IDEs”: <em>Integrated Development Environments</em>. If you’ve ever worked with <code>R</code>, the <code>RStudio</code> program is another good example of an IDE.</p>
+<p>To emphasize the additional functionality relative to basic text editors like <code>Notepad</code> and <code>TextEdit</code>, editors like <code>VS Code</code> are also referred to as “IDEs”: <em>Integrated Development Environments</em>. If you’ve ever worked with <code>R</code>, the <code>RStudio</code> program is another good example of an IDE.</p>
 <p><br></p>
 <section id="starting-vs-code-at-osc" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="starting-vs-code-at-osc"><span class="header-section-number">1</span> Starting VS Code at OSC</h2>
@@ -246,9 +246,9 @@ VS Code runs on a login node
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In the previous module, we’ve learned that all serious computation at OSC should not be done on login nodes but on compute nodes.</p>
+<p>In the previous module, we’ve learned that all serious computation at OSC should be done not on login nodes but on compute nodes.</p>
 <p>Starting an <code>RStudio</code> session, for instance, requires filling out a similar form, and <code>RStudio</code> will subsequently run on a compute node and your selected OSC project will be charged.</p>
-<p>Running <code>VS Code</code> is a slightly peculiar case: we do have to fill out a form and reserve a pre-specified number of hours (and it will stop working after the allotted time has passed), but we’re on a login node and are not being charged.</p>
+<p>Running <code>VS Code</code> is a slightly peculiar case: we do have to fill out a form and reserve a pre-specified number of hours (the session will actually stop working after the allotted time has passed), but <strong>we’re on a login node and are not being charged</strong>.</p>
 </div>
 </div>
 <p><br></p>
@@ -260,13 +260,18 @@ VS Code runs on a login node
 </p>
 <section id="side-bars" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="side-bars"><span class="header-section-number">2.1</span> Side bars</h3>
-<p>The <strong>narrow side bar</strong> serves mainly to switch between different options for the <strong>wide side bar</strong>, which can show:</p>
+<p>The <strong>narrow side bar</strong> on the far left has:</p>
+<ul>
+<li><p>A &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; (“hamburger menu” icon) in the top, which has most of the standard menu items that you often find in a top bar, like <code>File</code>.</p></li>
+<li><p>A &nbsp; <i class="fa-solid fa-cog" aria-hidden="true"></i> &nbsp; (cog wheel icon) in the bottom, through which you can mainly access <em>settings</em>.</p></li>
+<li><p>A bunch of icons in the middle that serve to switch between different options for the <strong>wide side bar</strong> (to the right of the narrow side bar), which can show:</p>
 <ul>
 <li><strong><em>Explorer</em></strong>: File browser (and, e.g., an outline for the active file)</li>
 <li><strong><em>Search</em></strong>: To search recursively across all files in the active folder</li>
-<li><strong><em>Source Control</em></strong>: To work with version control systems like <code>Git</code> (not used in this workshop)</li>
-<li><strong><em>Run and Debug</em></strong>: For debugging your code (not used in this workshop)</li>
-<li><strong><em>Extensions</em></strong>: To install extensions</li>
+<li><em>Source Control</em>: To work with version control systems like <code>Git</code> (not used in this workshop)</li>
+<li><em>Run and Debug</em>: For debugging your code (not used in this workshop)</li>
+<li><strong><em>Extensions</em></strong>: To install extensions (we’ll install one later)</li>
+</ul></li>
 </ul>
 </section>
 <section id="editor-pane-and-welcome-document" class="level3" data-number="2.2">
@@ -289,7 +294,7 @@ Re-open the <code>Welcome</code> document
 </section>
 <section id="terminal" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="terminal"><span class="header-section-number">2.3</span> Terminal</h3>
-<p>By default, no terminal is open in <code>VS Code</code> – to do so, click the &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; (“hamburger menu” icon) that is way in the top left, and then <code>Terminal</code> =&gt; <code>New Terminal</code>.</p>
+<p>By default, no terminal is open in <code>VS Code</code> – to do so, click the &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</p>
 <p>In the terminal, the prompt says <code>Singularity&gt;</code>. This is because in OSC OnDemand, <code>VS Code</code> runs inside a Singularity container (for our purposes, it is not important what that means, exactly). To break out of the Singularity shell and get a regular Bash Unix shell, <strong>type <code>bash</code> and press <kbd>Enter</kbd></strong>.</p>
 <p>In the next module, Mike will teach us how to use the terminal.</p>
 <p align="center">
@@ -310,20 +315,46 @@ Re-open the <code>Welcome</code> document
 <section id="the-command-palette" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="the-command-palette"><span class="header-section-number">3.3</span> The Command Palette</h3>
 <p>To access all the menu options that are available in <code>VS Code</code>, the so-called “Command Palette” can be handy, especially if you know what you are looking for.</p>
-<p>To access the Command Palette, click <i class="fa fa-cog"></i> and then <code>Command Palette</code> or press <kbd>F1</kbd> or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.</p>
+<p>To access the Command Palette, click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then <code>Command Palette</code> or press <kbd>F1</kbd> (or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).</p>
 <p>For a quick test, open the Command Palette and start typing “color theme”, and you’ll see the relevant options pop up.</p>
 </section>
 <section id="color-themes" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="color-themes"><span class="header-section-number">3.4</span> Color themes</h3>
-<p>To try out different color themes for the entire program, press the gear icon <i class="fa fa-cog"></i> and then <code>Color Theme</code>. (I like “<em>Quiet Light</em>”.)</p>
+<p>To try out different color themes for the entire program, click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then <code>Color Theme</code>. (I like “<em>Quiet Light</em>”.)</p>
 <p><br></p>
 </section>
 </section>
 <section id="working-directory" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="working-directory"><span class="header-section-number">4</span> Working directory</h2>
-<p>Setting a “working directory” means that you designate a folder on a computer as the starting point for any operation.</p>
-<p><code>VS Code</code> has a concept of a working directory that is effective in all parts of the program: in the file explorer in the side bar, in the terminal, and when saving or opening files in the editor.</p>
-<p>In this workshop, we’ll exclusively work within the folder <code>/fs/ess/scratch/PAS2250</code>. By opening this folder beforehand (we did this in the form on the OnDemand site), we make sure that <code>VS Code</code> always takes this folder as a starting point, which will make navigation and saving files much easier.</p>
+<p>Setting a “working directory” means that you designate a folder on a computer as the starting point for your operations.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Folder vs.&nbsp;directory
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Folder” and “directory” mean the same thing – the latter is most commonly used in the context of the Unix Shell.</p>
+</div>
+</div>
+<p><code>VS Code</code> has a concept of a working directory that is <strong>effective in all parts of the program</strong>: in the file explorer in the side bar, in the terminal, and when saving or opening files in the editor.</p>
+<p>In this workshop, we’ll exclusively work within the folder <code>/fs/ess/scratch/PAS2250</code> (you’ll make personal folders within there shortly). By opening this folder beforehand (we did this in the form on the OnDemand site), we make sure that <code>VS Code</code> always takes this folder as a starting point, which will make navigation and saving files much easier.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Taking off where you were
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Additionally, when you reopen a folder later, VS Code will to some extent resume where you were before! It will reopen the text files that you had open and if you had an active terminal, it will also open a terminal. This is very convenient, especially when you start working on multiple projects (different folders) in <code>VS Code</code> and switch between those.</p>
+</div>
+</div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -337,24 +368,24 @@ Switching folders
 <p>To switch to a different folder from within <code>VS Code</code>, click &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code>.</p>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<p><br></p>
+</section>
+<section id="addendum-keyboard-shortcuts" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="addendum-keyboard-shortcuts"><span class="header-section-number">5</span> Addendum: keyboard shortcuts</h2>
+<p>Working with keyboard shortcuts (also called “keybindings”) for common operations can be a lot faster than using your mouse. Below are some useful ones for <code>VS Code</code> (for Mac, replace <kbd>Ctrl</kbd> by <kbd>⌘</kbd>).</p>
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Keyboard shortcut cheatsheet
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>“Folder” and “directory” mean the same thing, and the latter is most commonly used in the contect of the Unix Shell.</p>
+<p>For a single-page PDF overview of keyboard shortcuts for your operating system: &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>Help</code> &nbsp; =&gt; &nbsp; <code>Keyboard Shortcut Reference</code>. (Or for direct links to these PDFs: <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> / <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">Mac</a> / <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a>.)</p>
 </div>
 </div>
-<p><br></p>
-</section>
-<section id="addendum-keyboard-shortcuts" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="addendum-keyboard-shortcuts"><span class="header-section-number">5</span> Addendum: keyboard shortcuts</h2>
-<p>Working with keyboard shortcuts (also called “keybindings”) for common operations can be a lot faster than using your mouse. Here are some useful ones for <code>VS Code</code> (if you have a Mac, replace <kbd>Ctrl</kbd> by <kbd>⌘</kbd>):</p>
 <ul>
 <li><p><em>Toggle the wide side bar</em>: <kbd>Ctrl</kbd>+<kbd>B</kbd></p></li>
 <li><p><em>Open a terminal</em>: <kbd>Ctrl</kbd>+<kbd>`</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>.</p></li>
@@ -369,19 +400,6 @@ Tip
 <li><p><em>Toggle line comment</em> (“comment out” code, and removing those comment signs): <kbd>Ctrl</kbd>+<kbd>/</kbd></p></li>
 <li><p><em>Split the editor window vertically</em>: <kbd>Ctrl</kbd>+<kbd>\</kbd> (See also the options in &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; <code>View</code> =&gt; <code>Editor Layout</code>)</p></li>
 </ul>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Keyboard shortcut cheatsheet
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For a single-page PDF overview of keyboard shortcuts for your operating system: &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>Help</code> &nbsp; =&gt; &nbsp; <code>Keyboard Shortcut Reference</code>. (Or for direct links to these PDFs: <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> / <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">Mac</a> / <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a>.)</p>
-</div>
-</div>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

@@ -28,8 +28,9 @@ website.
 accessing the Unix shell and writing scripts.
 This is also how I use this editor in my daily work.
 
-To emphasize its additional functionality relative to basic text editors like
-`Notepad` and `TextEdit`, editors like `VS Code` are also referred to as "IDEs":
+To emphasize the additional functionality relative to basic text editors
+like `Notepad` and `TextEdit`,
+editors like `VS Code` are also referred to as "IDEs":
 _Integrated Development Environments_.
 If you've ever worked with `R`,
 the `RStudio` program is another good example of an IDE.
@@ -57,7 +58,7 @@ the `RStudio` program is another good example of an IDE.
 ## VS Code runs on a login node
 
 In the previous module, we've learned that all serious computation at OSC
-should not be done on login nodes but on compute nodes.
+should be done not on login nodes but on compute nodes.
 
 Starting an `RStudio` session, for instance, requires filling out a similar
 form, and `RStudio` will subsequently run on a compute node and your selected
@@ -65,8 +66,9 @@ OSC project will be charged.
 
 Running `VS Code` is a slightly peculiar case:
 we do have to fill out a form and reserve a pre-specified number of hours
-(and it will stop working after the allotted time has passed),
-but we're on a login node and are not being charged.
+(the session will actually stop working after the allotted time has
+passed),
+but **we're on a login node and are not being charged**.
 
 :::
 
@@ -80,15 +82,25 @@ but we're on a login node and are not being charged.
    
 ### Side bars
 
-The **narrow side bar** serves mainly to switch between different options for
-the **wide side bar**, which can show:
+The **narrow side bar** on the far left has:
 
-- ***Explorer***: File browser (and, e.g., an outline for the active file)
-- ***Search***: To search recursively across all files in the active folder
-- ***Source Control***: To work with version control systems like `Git`
-  (not used in this workshop)
-- ***Run and Debug***: For debugging your code (not used in this workshop)
-- ***Extensions***: To install extensions
+- A &nbsp; {{< fa bars >}} &nbsp; ("hamburger menu" icon) in the top,
+  which has most of the standard menu items that you often find in
+  a top bar, like `File`.
+
+- A &nbsp; {{< fa cog >}} &nbsp; (cog wheel icon) in the bottom,
+  through which you can mainly access _settings_.
+  
+- A bunch of icons in the middle that serve to switch between
+  different options for the **wide side bar** (to the right of the narrow side
+  bar), which can show:
+
+  - **_Explorer_**: File browser (and, e.g., an outline for the active file)
+  - **_Search_**: To search recursively across all files in the active folder
+  - _Source Control_: To work with version control systems like `Git`
+    (not used in this workshop)
+  - _Run and Debug_: For debugging your code (not used in this workshop)
+  - **_Extensions_**: To install extensions (we'll install one later)
 
 ### Editor pane and `Welcome` document
 
@@ -116,8 +128,7 @@ If you've closed the `Welcome` document but want it back, click
 
 By default, no terminal is open in `VS Code` --
 to do so, click the
-&nbsp; {{< fa bars >}} &nbsp; ("hamburger menu" icon)
-that is way in the top left, and then `Terminal` => `New Terminal`.
+&nbsp; {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
 
 In the terminal, the prompt says `Singularity>`.
 This is because in OSC OnDemand, `VS Code` runs inside a Singularity container
@@ -153,8 +164,8 @@ the so-called "Command Palette" can be handy,
 especially if you know what you are looking for.
 
 To access the Command Palette, click
-<i class="fa fa-cog"></i> and then `Command Palette` or press
-<kbd>F1</kbd> or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
+&nbsp; <i class="fa fa-cog"></i> &nbsp; and then `Command Palette` or press
+<kbd>F1</kbd> (or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).
 
 For a quick test, open the Command Palette and start typing "color theme",
 and you'll see the relevant options pop up.
@@ -162,7 +173,7 @@ and you'll see the relevant options pop up.
 ### Color themes
 
 To try out different color themes for the entire program,
-press the gear icon <i class="fa fa-cog"></i> and then `Color Theme`.
+click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then `Color Theme`.
 (I like "*Quiet Light*".)
 
 <br>
@@ -170,19 +181,39 @@ press the gear icon <i class="fa fa-cog"></i> and then `Color Theme`.
 ## Working directory
 
 Setting a "working directory" means that you designate a folder on a computer
-as the starting point for any operation.
+as the starting point for your operations.
 
-`VS Code` has a concept of a working directory that is effective in all parts
-of the program:
+:::{.callout-tip}
+## Folder vs. directory
+
+"Folder" and "directory" mean the same thing --
+the latter is most commonly used in the context of the Unix Shell.
+
+:::
+
+`VS Code` has a concept of a working directory that is
+**effective in all parts of the program**:
 in the file explorer in the side bar, in the terminal,
 and when saving or opening files in the editor.
 
 In this workshop, we'll exclusively work within the folder
-`/fs/ess/scratch/PAS2250`.
+`/fs/ess/scratch/PAS2250` (you'll make personal folders within there shortly).
 By opening this folder beforehand
 (we did this in the form on the OnDemand site),
 we make sure that `VS Code` always takes this folder as a starting point,
 which will make navigation and saving files much easier.
+
+:::{.callout-tip}
+## Taking off where you were
+
+Additionally, when you reopen a folder later,
+VS Code will to some extent resume where you were before!
+It will reopen the text files that you had open and if you had an active terminal,
+it will also open a terminal.
+This is very convenient, especially when you start working on multiple projects
+(different folders) in `VS Code` and switch between those.
+
+:::
 
 :::{.callout-note}
 ## Switching folders
@@ -192,21 +223,27 @@ To switch to a different folder from within `VS Code`, click
 
 :::
 
-:::{.callout-tip}
-
-"Folder" and "directory" mean the same thing,
-and the latter is most commonly used in the contect of the Unix Shell.
-
-:::
-
 <br>
 
 ## Addendum: keyboard shortcuts
 
 Working with keyboard shortcuts (also called "keybindings")
 for common operations can be a lot faster than using your mouse.
-Here are some useful ones for `VS Code`
-(if you have a Mac, replace <kbd>Ctrl</kbd> by <kbd>⌘</kbd>):
+Below are some useful ones for `VS Code`
+(for Mac, replace <kbd>Ctrl</kbd> by <kbd>⌘</kbd>).
+
+:::{.callout-note}
+## Keyboard shortcut cheatsheet
+
+For a single-page PDF overview of keyboard shortcuts for your operating system:
+&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `Help` &nbsp; =>
+&nbsp; `Keyboard Shortcut Reference`.
+(Or for direct links to these PDFs:
+[Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) /
+[Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) /
+[Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf).)
+
+:::
 
 - *Toggle the wide side bar*: <kbd>Ctrl</kbd>+<kbd>B</kbd> 
 
@@ -234,19 +271,6 @@ Here are some useful ones for `VS Code`
 - *Split the editor window vertically*: <kbd>Ctrl</kbd>+<kbd>\\</kbd>
   (See also the options in
    &nbsp; {{< fa bars >}} &nbsp; `View` => `Editor Layout`)
-
-:::{.callout-note}
-## Keyboard shortcut cheatsheet
-
-For a single-page PDF overview of keyboard shortcuts for your operating system:
-&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `Help` &nbsp; =>
-&nbsp; `Keyboard Shortcut Reference`.
-(Or for direct links to these PDFs:
-[Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) /
-[Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf) /
-[Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf).)
-
-:::
 
 :::{.callout-warning}
 ## Browser interference
