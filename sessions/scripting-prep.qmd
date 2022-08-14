@@ -17,7 +17,7 @@ PAGE STILL UNDER CONSTRUCTION
 
 :::
 
-In this module, we will cover several topics that are good to know about
+In this module, we will cover a couple of topics that are good to know about
 before you start writing and running shell scripts:
 
 - Using **variables** will allow you to run scripts flexibly,
@@ -26,11 +26,6 @@ before you start writing and running shell scripts:
 - **`for` loops** will allow you to repeat operations --
   specifically, we will later use them to submit many scripts at the same time,
   one per input file or sample.
-  
-- **"conditionals"**, namely the `if` construct,
-  will allow you to perform operations only if a specific condition is met.
-  This can also make your scripts flexible,
-  and help you to test your input and check your output.
 
 <br>
 
@@ -504,66 +499,3 @@ or _`while` loops_ may provide more elegant solutions,
 but those are outside the scope of this introduction.)
 
 :::
-
-<br>
-
-## Conditionals
-
-With conditionals, we can
-**run one or more commands only if some condition is true**.
-Also, we can run a different set of commands if the condition is _not_ true.
-For instance, we may want to process a file differently depending 
-on its file type.
- 
-This is the basic syntax of an `if` statement in Bash:
-
-```bash
-if [ <test> ]; then
-    # Command(s) if condition is true
-else
-    # Commands(s) if condition is false
-fi
-```
-
-Above, `<test>` is pseudo-code denoting that a logical test
-
-For instance (pseudocode):
-
-```bash
-if [ <file is a text file> ]; then
-    # <count the number of lines and columns>
-else
-    # <print the file type and file size>
-fi
-```
-
-We can also omit the `else` statement:
-
-```bash
-if <test>; then
-    # Command(s) if condition is true
-fi
-```
-  
-For example,
-an `if` statement that depends on the file type of the input file:
-
-```{bash, eval=FALSE}
-if [ "$filetype" = "fastq" ]; then
-    echo "Processing fastq file..."
-    # Commands to process fastq file
-else
-    echo "Unknown filetype!"
-fi
-```
-
-Above, we use the `[ ]` syntax to perform the test:
-
-- The square brackets represent a *test statement*.
-
-- The spaces bordering the brackets on the inside are necessary:  
-  `["$filetype" = "fastq"]` would fail!
-  
-```{bash, eval=TRUE, echo=FALSE}
-rm README* 18.txt Aug
-```

@@ -2,6 +2,9 @@
 title: "Shell Scripting"
 highlight-style: oblivion
 number-sections: true
+knitr:
+  opts_knit:
+    root.dir: "sandbox"
 ---
 
 ```{r knitr_options, echo=FALSE}
@@ -9,9 +12,694 @@ knitr::opts_chunk$set(eval = FALSE,
                       class.output = "bash-out")
 ```
 
+:::{.callout-warning}
+
+PAGE STILL UNDER CONSTRUCTION
+
+:::
+
 -----
 
-## TBA
+Shell scripts (or to be slightly more species, Bash scripts)
+enable us to **run sets of commands non-interactively**.
+This is especially beneficial or necessary when a set of commands:
+
+  - Takes a long time to run and/or
+  - Should be run many times, e.g. for different samples
+
+Scripts form the basis for *analysis pipelines* and if we code things cleverly,
+it should be straightforward to rerun much of our project workflow:
+  
+- After removing or adding a sample
+- For different parameter settings
+- And possibly even for an entirely different dataset. 
+
+<br>
+
+## Setup
+
+:::{.callout-note collapse="true"}
+## Starting a VS Code session with an active terminal (click here)
+
+1. Log in to OSC at <https://ondemand.osc.edu>.
+2. In the blue top bar, select `Interactive Apps` and then `Code Server`.
+3. In the form that appears:
+   - Enter `3` in the box `Number of hours`
+   - Enter `/fs/ess/scratch/PAS2250` in the box `Working Directory`
+   - Click `Launch`.
+4. On the next page, once the top bar of the box has turned green and says `Runnning`,
+   click `Connect to VS Code`.
+5. Open a terminal by clicking the "hamburger menu" way in the top left,
+   and then `Terminal` > `New Terminal`.
+6. In the terminal, type `Bash` and press <kbd>Enter</kbd>.
+
+:::
+
+<br>
+
+## Script header lines and zombie scripts
+
+### Shebang line
+
+Use a so-called "_shebang_" line as the first line of a script
+to **indicate which language your script use**.
+More specifically, this line tell the computer where to find the binary
+(executable) that will run your script.
+  
+Such a line starts with `#!`, basically marking it as a special type of comment. After that, we provide the location to the relevant program:
+in our case Bash, which is always located at `/bin/bash` on Linux and Mac
+computers.
+
+```sh
+#!/bin/bash
+```
+
+Adding a shebang line is good practice and is necessary when we want to submit
+our script to OSC's `SLURM` queue, which we'll do tomorrow.
+
+Another line that is good practice to add to your Bash scripts changes some
+default settings to safer alternatives.
+
+### Bash script settings
+
+Two Bash default settings are bad ideas inside scripts.
+
+_First_, and as we've seen in the previous module,
+Bash does not complain when you
+**reference a variable that does not exist**
+(in other words, it does not consider that an error).
+
+In scripts, this can lead to all sorts of downstream problems,
+because you probably tried to do something with an existing variable
+but made a typo.
+Even more problematically,
+it can lead to potentially very destructive file removal:
+
+```{bash, eval=FALSE}
+# Using a variable, we try to remove some temporary files whose names start with tmp_
+temp_prefix="temp_"
+rm "$tmp_prefix"*     # DON'T TRY THIS!
+```
+  
+```{bash, eval=FALSE}
+# Using a variable, we try to remove a temporary directory
+tempdir=output/tmp
+rm -rf $tmpdir/*      # DON'T TRY THIS!
+```
+  
+:::{.callout-caution collapse="true"}
+## The comments above specified the _intent_ we had. What would have actually happened?
+  
+In the first example, `rm "$tmp_prefix"*` would have been interpreted as
+`rm *`, because the non-existent variable is simply ignored.
+Therefore, we would have removed all files in the current working directory.
+
+Along similar lines, in the second example, `rm -rf $tmpdir/*` would have been interpreted as `rm -rf /*`.
+Horrifyingly, this would attempt to remove the entire filesystem
+(recall that a leading `/` in a path is a computer's root directory).[^1]
+
+[^1]: But note that at OSC,
+you would not be able to remove anything you're not supposed to,
+since you don't have the permissions to do so.
+On your own computer, this could be more genuinely dangerous, though even there,
+you would not be able to remove the operating system without specifically
+requesting  "admin" rights.
+
+:::
+
+----
+
+_Second_, a Bash script **keeps running after encountering errors**.
+That is, if an error is encountered when running line 2 of a script,
+any remaining lines in the script will nevertheless be executed.
+
+In the best case, this is a waste of computer resources,
+and in worse cases, it can lead to all kinds of unintended consequences.
+Additionally, if your script prints a lot of output,
+and much of it _appears_ to be okay,
+you might not notice an error somewhere in the middle;
+but this error which might still have led to completely wrong results downstream.
+
+----
+
+The following three settings will make your Bash scripts more robust and safer.
+With these settings, the script terminates,
+with an appropriate error message, if:
+
+- `set -u` &mdash; An unset variable is referenced.
+- `set -e` &mdash; Almost any error occurs.
+- `set -o pipefail` &mdash; An error occurs in a shell "pipeline"
+  (e.g., `sort | uniq`).
+
+We can change all of these settings in one line in a script:
+
+```{bash, eval=FALSE}
+set -u -e -o pipefail     # (Don't run in the terminal)
+```
+
+Or even more concisely:
+
+```{bash, eval=FALSE}
+set -ueo pipefail         # (Don't run in the terminal)
+```
+
+### Our header lines as a rudimentary script
+
+Let's go ahead and start a script with the header lines that we have so far
+discussed.
+
+- Open a new file in the `VS Code` editor
+  (&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `New File`)
+  and save it as `printname.sh`
+  (shell scripts, including Bash scripts,
+  most commonly have the extension `.sh`).
+- Type the following lines in that script
+  (please actually type instead of copy-pasting):
+  
+```{bash, eval=FALSE}
+#!/bin/bash
+set -ueo pipefail
+
+# (Note: this is a partial script. Don't enter this directly in your terminal.)
+```
+
+Already now, we could _run_ (execute) the script.
+One way of doing this is calling the `bash` command
+followed by the name of the script[^2]:
+
+[^2]: Because our script has a shebang line,
+we could also execute the script without the `bash` command using
+`./printname.sh`.
+However, this would also require us to "make the script executable",
+which is beyond the scope of this workshop.
+
+```{bash, eval=FALSE}
+bash printname.sh
+```
+
+Doing this won't print anything to screen (or file).
+This makes sense because our script doesn't have any output,
+and as we've seen before with Bash, no output can be a good sign because it
+means that no errors were encountered.
+
+<br>
+
+## Command-line arguments for scripts
+
+### Calling a script with arguments
+
+When you call a script, you can pass it command-line arguments,
+such as a file to operate on.
+
+This is much like when you provide commands like `ls` with arguments:
+
+```{bash, eval=FALSE}
+# Run ls without arguments:
+ls
+
+# Pass 1 filename as an argument to ls:
+ls data/sampleA.fastq.gz
+
+# Pass 2 filenames as arguments to ls, separated by spaces:
+ls data/sampleA.fastq.gz data/sampleB.fastq.gz
+```
+
+Let's see the same thing with our `printname.sh` script and a fictional script
+`fastqc.sh`
+(which would probably run the `FastQC` program --
+we'll make such a script later):
+
+```{bash, eval=FALSE}
+# Run scripts without any arguments:
+bash fastqc.sh                          # (Fictional script)
+bash printname.sh
+
+# Run scripts with 1 or 2 arguments:
+bash fastqc.sh data/sampleA.fastq.gz    # 1 argument, a filename
+bash printname.sh John Doe              # 2 arguments, strings representing names
+```
+
+In the next section, we'll see what happens when we pass arguments on the
+command line (in short: command-line arguments) to a script.
+
+### Placeholder variables
+
+_Inside_ the script,
+any command-line arguments are _automatically assigned_ to placeholder variables.
+
+A first argument will be assigned to the variable `$1`,
+any second argument will be assigned to `$2`,
+any third argument will be assigned to `$3`, and so on.
+
+:::{.callout-caution collapse="true"}
+## In the calls to fastqc.sh and printname.sh above, which placeholder variables were created and what were there values? 
+
+In `bash fastqc.sh data/sampleA.fastq.gz`,
+a single argument, `data/sampleA.fastq.gz`, is passed to the script,
+and will be assigned to `$1`.
+
+In `bash printname.sh John Doe`,
+two arguments are passed to the script:
+the first one (`John`) will be stored in `$1`,
+and the second one (`Doe`) in `$2`.
+
+:::
+
+:::{.callout-tip}
+
+Arguments passed to a script are _only_ assigned to placeholder varaibles;
+unless we explicitly include code in the script to _do_ something with those
+variables, nothing else happens. 
+
+:::
+
+Let's add code to our script to "process" any first and last name
+that are passed to the script as command-line arguments.
+First, our small script will simply `echo` the placeholder variables,
+so that we can see what happens.
+We'll add two `echo` commands to our `printname.sh` script,
+such that the script reads:
+
+```{bash, eval=FALSE}
+#!/bin/bash
+set -ueo pipefail
+
+echo "First name: $1"
+echo "Last name: $2"
+
+# (Note: this is a script. Don't enter this directly in your terminal.)
+```
+
+```{bash, eval=TRUE, echo=FALSE}
+cat > printname.sh <<'_EOF'
+#!/bin/bash
+set -ueo pipefail
+
+echo "First name: $1"
+echo "Last name: $2"
+_EOF
+```
+
+Next, we'll _run_ the script, passing the arguments `John` and `Doe`:
+
+```{bash, eval=TRUE}
+bash printname.sh John Doe
+```
+
+:::{.callout-caution collapse="true"}
+## Exercise
+
+In each case below, think about what might happen before you run the script.
+If you didn't make a successful predictions, try to figure out what happened
+instead.
+
+1. Run the script without passing arguments to it.
+
+2. Deactivate ("comment out") the line with `set` settings
+   by inserting a `#` as the first character.
+   Then, run the script again without passing arguments to it.
+
+3. Double-quote `John Doe` when you run the script,
+   i.e. run `bash printname.sh "John Doe"`
+
+4. Remove the `#` you inserted in the script in step 2 above.
+
+:::{.callout-tip collapse="true"}
+## Solutions
+
+1. The script will error out because we are referencing variables that don't
+   exist: since we didn't pass command-line arguments to the script,
+   the `$1` and `$2` have not been set.
+
+```{bash, eval=FALSE}
+bash printname.sh
+```
+
+:::{.bash-out}
+printname.sh: line 4: $1: unbound variable
+:::
+
+2. The script will run in its entirety and not throw any errors,
+   because we are now using default Bash settings such that referencing 
+   non-existent variables does not throw an error.
+   Of course, no names are printed either, since we didn't specify any:
+
+```{bash, eval=TRUE, echo=FALSE}
+cat > printname.sh <<'_EOF'
+#!/bin/bash
+#set -ueo pipefail
+
+echo "First name: $1"
+echo "Last name: $2"
+_EOF
+```
+
+```{bash, eval=TRUE}
+bash printname.sh
+```
+
+The `set` line should read:
+
+```{bash, eval=FALSE}
+#set -ueo pipefail
+```
+
+3. Because we are quoting `"John Doe"`,
+   both names are passed _as a single argument_ and both names end up in `$1`,
+   the "first name":
+
+```{bash, eval=TRUE}
+bash printname.sh "John Doe"
+```
+
+```{bash, eval=TRUE, echo=FALSE}
+cat > printname.sh <<'_EOF'
+#!/bin/bash
+set -ueo pipefail
+
+echo "First name: $1"
+echo "Last name: $2"
+_EOF
+```
+
+:::
+
+:::
+
+### Descriptive variable names
+
+While you can use the `$1`-style placeholder variables throughout your script,
+I find it very useful to copy them to more descriptively named variables
+as follows:
+
+```{bash, eval=FALSE}
+#!/bin/bash
+set -ueo pipefail
+
+first_name=$1
+last_name=$2
+  
+echo "First name: $first_name"
+echo "Last name: $last_name"
+
+# (Note: this is a script. Don't enter this directly in your terminal.)
+```
+
+Using descriptively named variables in your scripts has several advantages.
+It will make your script easier to understand for others and for yourself.
+It will also make it less likely that you make errors in your script
+in which you use the wrong variable in the wrong place.
+
+:::{.callout-note}
+## Other variables that are automatically available inside scripts
+
+- `$0` contains the script's file name
+- `$#` contains the _number_ of command-line arguments passed
+
+:::
+
+:::{.callout-caution collapse="true"}
+## Exercise: a script to print a specific line
+
+Write a script that prints a specific line (identified by line number)
+from a file.
+
+- Save the script as `line.sh`
+- Start with the shebang and `set` lines
+- Your script takes two arguments: a file name (`$1`) and a line number (`$2`) 
+- Copy the `$1` and `$2` variables to descriptively named variables
+- To print a specific line,
+  think how you might combine `head` and `tail` to do this.
+  If you're at a loss, feel free to check out the solution below.
+- Test the script by printing line 4 from `samples.txt`.
+
+:::{.callout-tip collapse="true"}
+## Solution: how to print a specific line number
+
+For example, to print line 37 of `samples.txt` directly:
+
+```{bash, eval=FALSE}
+head -n 37 samples.txt | tail -n 1
+```
+
+In the script, you'll have to use variables instead of `37` and `samples.txt`.
+
+How this command works:
+
+- `head -n 37 samples.txt` will print the first 37 lines of `samples.txt`
+- We pipe those 37 lines into the `tail` command
+- We ask `tail` to just print the last line of its input,
+  which will in this case be line 37 of the original input file.
+
+:::
+
+:::{.callout-tip collapse="true"}
+## Full solution
+
+```{bash, eval=FALSE}
+#!/bin/bash
+set -ueo pipefail
+  
+input_file=$1
+line_nr=$2
+
+head -n "$line_nr" "$input_file" | tail -n 1
+```
+
+To run the script and make it print the 4th line of `samples.txt`:
+
+```{bash, eval=FALSE}
+bash line.sh samples.txt 4
+```
+
+:::
+
+:::
+
+<br>
+
+## Script variations and improvements
+
+### A script to serve as a starting point
+
+We've learned that the `head` command prints the first lines of a file,
+whereas the `tail` command prints the last lines.
+Sometimes it's nice to be able to quickly see both ends of a file,
+so let's write a little script that can do that for us,
+as a starting point for the next few modifications.
+
+Open a new file, save it as `headtail.sh`, and add the following code to it:
+
+```{bash, eval=FALSE}
+#!/bin/bash
+set -ueo pipefail
+
+input_file=$1
+
+head -n 2 "$input_file"
+echo "---"
+tail -n 2 "$input_file"
+
+# (Note: this is a script. Don't enter this directly in your terminal.)
+```
+
+Next, let's run our `headtail.sh` script:
+
+```{bash, eval=FALSE}
+bash headtail.sh samples.txt
+```
+
+### Redirecting output to a file
+
+So far, the output of our scripts was printed to screen, e.g.:
+
+- In `printnames.sh`, we simply `echo`'d, inside sentences,
+  the arguments passed to the script.
+- In `headtail.sh`, we printed the first and last few lines of a file.
+
+All this output was printed to screen because that is the default output
+mode of Unix commands,
+and this works the same way regardless of whether those commands
+are run directly on the command line, or are run inside a script.
+
+Along those same lines, we have already learned that we can "redirect" output
+to a file using `>` (write/overwrite) and `>>` (append) when we run shell commands &mdash; and this, too, works exactly the same way inside a script.
+
+-----
+
+When working with genomics data,
+we commonly have files as input, and new/modified files as output.
+So let's practice with this and modify our `headtail.sh` script so that it
+writes output to a file.
+
+We'll make the following changes:
+
+- We will have the script accept a second argument: the output file name.
+  Of course, we _could_ also simply write the output to a predefined
+  ("hardcoded") file name such as `out.txt`,
+  but in general, it's better practice to keep this flexible via an argument.
+  
+- We will redirect the output of our `head`, `echo`, and `tail` commands to
+  the output file. We'll have to append (`>>`) in the last two cases.
+
+```{bash, eval=FALSE}
+#!/bin/bash
+set -ueo pipefail
+
+input_file=$1
+output_file=$2
+
+head -n 2 "$input_file" > "$output_file"
+echo "---" >> "$output_file"
+tail -n 2 "$input_file" >> "$output_file"
+
+# (Note: this is a script. Don't enter this directly in your terminal.)
+```
+
+Now we run the script again, this time also passing the name of an _output_ file:
+
+```{bash, eval=FALSE}
+bash headtail.sh samples.txt samples_headtail.txt
+```
+
+The script will no longer print any output to screen,
+and our output should instead be in `samples_headtail.txt`:
+
+```{bash, eval=FALSE}
+# Check that the file exists and was just modified:
+ls -lh samples_headtail.txt
+
+# Print the contents of the file to screen
+cat samples_headtail.txt
+```
+
+### Report what's happening
+
+It is often useful to have your scripts "report" or "log" what is going on.
+Let's keep thinking about a script that has file(s) as the main output,
+but instead of having no output printed to screen at all,
+we'll print some logging output to screen.
+For instance: what is the date and time, which arguments were passed to the
+script, what are the output files, and perhaps even summaries of the output.
+All of this can help with troubleshooting.[^3]
+
+Let's try this with our `headtail.sh` script.
+
+[^3]: Additionally, we'll see in the upcoming `SLURM` module that we when
+submit scripts to the OSC queue (rather than running them directly),
+the output of scripts that is normally printed to screen,
+will instead go to a sort of "log" file.
+So, your script's reporting will end up in this file, 
+which will help with your record keeping.
+
+```{bash, eval=FALSE}
+#!/bin/bash
+set -ueo pipefail
+
+## Process command-line arguments
+input_file=$1
+output_file=$2
+
+## Initial logging 
+echo "Starting script $0"           # Print name of script
+date                                # Print date & time
+echo "Input file:   $input_file"
+echo "Output file:  $output_file" 
+echo                                # Print empty line to separate initial & final logging
+
+## Print the first and last two lines to a separate file
+head -n 2 "$input_file" > "$output_file"
+echo "---" >> "$output_file"
+tail -n 2 "$input_file" >> "$output_file"
+
+## Final logging
+echo "Listing the output file:"
+ls -lh "$output_file"
+echo "Done with script $0"
+date
+
+# (Note: this is a script. Don't enter this directly in your terminal.)
+```
+
+A couple of notes about the lines that were added to the script above:
+
+- Printing the `date` at the end of the script as well will allow you to check
+  for how long the script ran, which can be informative for longer-running
+  scripts.
+  
+- Printing the input and output files
+  (and the command-line arguments more generally) can be particularly useful
+  for troubleshooting
+
+- Printing a "marker line" like `Done with script`,
+  indicating that the end of the script was reached,
+  is handy because due to our `set` settings,
+  seeing this line printed means that no errors were encountered.
+
+- Because our script grew so much,
+  I also added some comment headers like "Initial logging" to make the script
+  easier to read, and such comments can be made more extensive to really explain
+  what is being done.
+
+```{bash, eval=TRUE, echo=FALSE}
+cat > headtail.sh <<'_EOF'
+#!/bin/bash
+set -ueo pipefail
+
+## Process command-line arguments
+input_file=$1
+output_file=$2
+
+## Initial logging 
+echo "Starting script $0"
+date # Print date & time to log & time running duration
+echo "Input file:   $input_file"
+echo "Output file:  $output_file"
+echo
+
+## Print the first and last two lines to a separate file
+head -n 2 "$input_file" > "$output_file"
+echo "---" >> "$output_file"
+tail -n 2 "$input_file" >> "$output_file"
+
+## Final logging
+echo "Listing the output file:"
+ls -lh "$output_file"
+echo "Done with script $0"
+date
+_EOF
+```
+
+Let's run the script again:
+
+```{bash, eval=TRUE}
+bash headtail.sh printname.sh tmp.txt
+```
+
+The script printed some details for the output file, but not its contents
+(that would have worked here,
+but is usually not sensible when working with genomics data).
+Let's take a look, though, to make sure the script worked:
+
+```{bash, eval=TRUE}
+cat tmp.txt
+```
+
+:::{.callout-tip}
+
+The reporting (`echo`-ing) may have started to seem silly for our
+litle script, but fairly extensive reporting
+(as well as testing, which is outside the scope of this workshop)
+can be very useful &mdash; and will be eventually a time-saver.
+  
+This is especially true for long-running scripts,
+or scripts that you often reuse and perhaps share with others.
+
+:::
+
+<br> <br>
+
+-----
 
 :::{.callout-tip}
 ## Keyboard shortcut to run shell commands from the editor

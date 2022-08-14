@@ -235,7 +235,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#for-loop-syntax-and-mechanics" id="toc-for-loop-syntax-and-mechanics" class="nav-link" data-scroll-target="#for-loop-syntax-and-mechanics"> <span class="header-section-number">3.1</span> <code>for</code> loop syntax and mechanics</a></li>
   <li><a href="#looping-over-files-with-globbing" id="toc-looping-over-files-with-globbing" class="nav-link" data-scroll-target="#looping-over-files-with-globbing"> <span class="header-section-number">3.2</span> Looping over files with globbing</a></li>
   </ul></li>
-  <li><a href="#conditionals" id="toc-conditionals" class="nav-link" data-scroll-target="#conditionals"> <span class="header-section-number">4</span> Conditionals</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -275,11 +274,10 @@ Warning
 <p>PAGE STILL UNDER CONSTRUCTION</p>
 </div>
 </div>
-<p>In this module, we will cover several topics that are good to know about before you start writing and running shell scripts:</p>
+<p>In this module, we will cover a couple of topics that are good to know about before you start writing and running shell scripts:</p>
 <ul>
 <li><p>Using <strong>variables</strong> will allow you to run scripts flexibly, with different input files and settings</p></li>
 <li><p><strong><code>for</code> loops</strong> will allow you to repeat operations – specifically, we will later use them to submit many scripts at the same time, one per input file or sample.</p></li>
-<li><p><strong>“conditionals”</strong>, namely the <code>if</code> construct, will allow you to perform operations only if a specific condition is met. This can also make your scripts flexible, and help you to test your input and check your output.</p></li>
 </ul>
 <p><br></p>
 <section id="setup" class="level2" data-number="1">
@@ -368,19 +366,18 @@ Space-sensitive
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="va">$ls_options</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>total 144K
+<pre class="bash-out"><code>total 120K
 -rw-rw-r-- 1 jelmer jelmer  232 Aug  9 21:42 examples.qmd
 drwxrwxr-x 2 jelmer jelmer 4.0K Aug 10 15:09 img
 -rw-rw-r-- 1 jelmer jelmer  248 Aug  9 21:42 osc-intro.qmd
--rw-rw-r-- 1 jelmer jelmer  15K Aug 11 12:01 scripting-prep.qmd
--rw-rw-r-- 1 jelmer jelmer  15K Aug 11 13:42 scripting-prep.rmarkdown
+drwxrwxr-x 3 jelmer jelmer 4.0K Aug 14 10:43 scripting-prep_files
+-rw-rw-r-- 1 jelmer jelmer  13K Aug 13 18:33 scripting-prep.qmd
+-rw-rw-r-- 1 jelmer jelmer  13K Aug 14 10:44 scripting-prep.rmarkdown
 -rw-rw-r-- 1 jelmer jelmer  218 Aug  9 21:43 shell-intro.qmd
--rw-rw-r-- 1 jelmer jelmer  16K Aug 11 13:42 shell-scripting.html
--rw-rw-r-- 1 jelmer jelmer  654 Aug 10 15:35 shell-scripting.qmd
+-rw-rw-r-- 1 jelmer jelmer  35K Aug 14 10:43 shell-scripting.html
+-rw-rw-r-- 1 jelmer jelmer 6.4K Aug 14 10:16 shell-scripting.qmd
 -rw-rw-r-- 1 jelmer jelmer  235 Aug  9 21:44 slurm.qmd
--rw-rw-r-- 1 jelmer jelmer  15K Aug 11 13:42 software.html
 -rw-rw-r-- 1 jelmer jelmer  225 Aug  9 21:45 software.qmd
--rw-rw-r-- 1 jelmer jelmer  35K Aug 11 13:42 vscode.html
 -rw-rw-r-- 1 jelmer jelmer  11K Aug 11 10:43 vscode.qmd
 -rw-rw-r-- 1 jelmer jelmer 2.9K Aug 11 10:01 workshop-intro.qmd</code></pre>
 </div>
@@ -390,7 +387,7 @@ drwxrwxr-x 2 jelmer jelmer 4.0K Aug 10 15:09 img
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="va">$input_file</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>-rw-rw-r-- 1 jelmer jelmer 654 Aug 10 15:35 shell-scripting.qmd</code></pre>
+<pre class="bash-out"><code>-rw-rw-r-- 1 jelmer jelmer 6.4K Aug 14 10:16 shell-scripting.qmd</code></pre>
 </div>
 </div>
 </section>
@@ -416,7 +413,7 @@ drwxrwxr-x 2 jelmer jelmer 4.0K Aug 10 15:09 img
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the name of our newly created file:</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> README_<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>README_2022-08-11.txt</code></pre>
+<pre class="bash-out"><code>README_2022-08-14.txt</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -430,7 +427,7 @@ drwxrwxr-x 2 jelmer jelmer 4.0K Aug 10 15:09 img
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We can directly use the variables in our quoted echo statement:</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"The file </span><span class="va">$input_file</span><span class="st"> has </span><span class="va">$nlines</span><span class="st"> lines"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>The file shell-scripting.qmd has 28 lines</code></pre>
+<pre class="bash-out"><code>The file shell-scripting.qmd has 228 lines</code></pre>
 </div>
 </div>
 <p>Command substitution can for instance be useful when you want your script to report some results, or when a next step in the script depends on a previous result.</p>
@@ -574,7 +571,7 @@ More on quoting – and double vs.&nbsp;single quotes
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>18.txt Aug examples.qmd img osc-intro.qmd README_2022-08-11.txt README2_Thu, README3_Thu, Aug 18.txt scripting-prep.qmd scripting-prep.rmarkdown shell-intro.qmd shell-scripting.html shell-scripting.qmd slurm.qmd software.html software.qmd vscode.html vscode.qmd workshop-intro.qmd</code></pre>
+<pre class="bash-out"><code>18.txt Aug examples.qmd img osc-intro.qmd README_2022-08-14.txt README2_Thu, README3_Thu, Aug 18.txt scripting-prep_files scripting-prep.qmd scripting-prep.rmarkdown shell-intro.qmd shell-scripting.html shell-scripting.qmd slurm.qmd software.qmd vscode.qmd workshop-intro.qmd</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -702,13 +699,13 @@ Why the semicolon <code>;</code> before <code>do</code>?
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>In this iteration of the loop, the number is 1
-Thu Aug 11 01:42:25 PM CEST 2022
+Sun Aug 14 10:44:00 AM CEST 2022
 --------
 In this iteration of the loop, the number is 2
-Thu Aug 11 01:42:25 PM CEST 2022
+Sun Aug 14 10:44:00 AM CEST 2022
 --------
 In this iteration of the loop, the number is 3
-Thu Aug 11 01:42:25 PM CEST 2022
+Sun Aug 14 10:44:00 AM CEST 2022
 --------</code></pre>
 </div>
 </div>
@@ -781,49 +778,9 @@ Alternatives to looping with a glob
 </div>
 </div>
 </div>
-<p><br></p>
+
+
 </section>
-</section>
-<section id="conditionals" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="conditionals"><span class="header-section-number">4</span> Conditionals</h2>
-<p>With conditionals, we can <strong>run one or more commands only if some condition is true</strong>. Also, we can run a different set of commands if the condition is <em>not</em> true. For instance, we may want to process a file differently depending on its file type.</p>
-<p>This is the basic syntax of an <code>if</code> statement in Bash:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="er">&lt;</span>test<span class="er">&gt;</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Command(s) if condition is true</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Commands(s) if condition is false</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Above, <code>&lt;test&gt;</code> is pseudo-code denoting that a logical test</p>
-<p>For instance (pseudocode):</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="er">&lt;</span>file is a <span class="er">text</span> <span class="fu">file</span><span class="op">&gt;</span> ]<span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># &lt;count the number of lines and columns&gt;</span></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># &lt;print the file type and file size&gt;</span></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can also omit the <code>else</code> statement:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">&lt;</span>test<span class="op">&gt;</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Command(s) if condition is true</span></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>For example, an <code>if</code> statement that depends on the file type of the input file:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="st">"</span><span class="va">$filetype</span><span class="st">"</span> <span class="ot">=</span> <span class="st">"fastq"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"Processing fastq file..."</span></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Commands to process fastq file</span></span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"Unknown filetype!"</span></span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="cf">fi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Above, we use the <code>[ ]</code> syntax to perform the test:</p>
-<ul>
-<li><p>The square brackets represent a <em>test statement</em>.</p></li>
-<li><p>The spaces bordering the brackets on the inside are necessary:<br>
-<code>["$filetype" = "fastq"]</code> would fail!</p></li>
-</ul>
-<div class="cell">
-
-</div>
-
-
 </section>
 
 </main> <!-- /main -->

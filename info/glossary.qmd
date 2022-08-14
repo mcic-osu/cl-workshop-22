@@ -4,12 +4,16 @@ highlight-style: oblivion
 number-sections: true
 ---
 
+:::{.callout-warning}
+PAGE STILL UNDER CONSTRUCTION
+:::
+
 ```{r knitr_options, echo=FALSE}
 knitr::opts_chunk$set(eval = FALSE,
                       class.output = "bash-out")
 ```
 
-
+-----
 
 - **Directory**
 
@@ -18,3 +22,7 @@ knitr::opts_chunk$set(eval = FALSE,
 - **String**
 
 - **pseudocode**
+
+- **binary** (executable)
+
+- **dependency**

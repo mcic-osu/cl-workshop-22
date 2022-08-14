@@ -15,6 +15,8 @@ website:
             text: Practical Workshop Info
           - href: about.qmd
             text: General Workshop Info / Signing Up
+          - href: info/glossary.qmd
+            text: Glossary
     left:
       - text: "Day 1"
         menu:
@@ -29,7 +31,7 @@ website:
       - text: "Day 2"
         menu:
           - href: sessions/scripting-prep.qmd
-            text: 5. Variables, Loops and Conditionals
+            text: 5. Variables and Loops
           - href: sessions/shell-scripting.qmd
             text: 6. Shell Scripting
           - href: sessions/software.qmd
