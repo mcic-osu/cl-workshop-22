@@ -12,12 +12,14 @@ knitr::opts_chunk$set(eval = FALSE,
 
 ## Locations and links
 
-- **Wooster**: Selby Hall, room 203 (instructor: Jelmer Poelstra)
 - **Columbus**: Aronoff Laboratory, room 104 (instructor: Mike Sovic)
-- **Zoom**: email us for the link!
+- **Wooster**: Selby Hall, room 203 ~~(instructor: Jelmer Poelstra)~~
+- **Zoom**: email us for the link! (instructor: Jelmer Poelstra)
 - [Google Doc for sharing links and code, and for non-urgent questions](https://docs.google.com/document/d/1M_BSRtnG3QYjntpgxbMENr_ZJGrA35B1e7E0Dn0hK5Q/edit?usp=sharing)
 
 ## Computer Setup
+
+#### Your computer
 
 Since we will be working entirely at the Ohio Supercomputer Center (OSC),
 and will be doing so **through our internet browsers**:
@@ -37,6 +39,16 @@ If you're attending **via Zoom**, we would recommend a _two-monitor setup_.
 This is because much of the time,
 you need to be able to simultaneously see the instructor's screen via Zoom
 as well as your own browser window.
+
+#### OSC account and project
+
+To work with OSC resources, we need access to an "OSC project".
+We will be using the project `PAS2250` during the workshop,
+and all participants  will be added to that project.
+If you don't yet have a personal OSC account,
+you will receive an invitation to create one when you've been added to the project.
+
+#### Google Doc
 
 We'll use
 **[this Google Doc](https://docs.google.com/document/d/1M_BSRtnG3QYjntpgxbMENr_ZJGrA35B1e7E0Dn0hK5Q/edit?usp=sharing)**
@@ -75,4 +87,4 @@ Alternatively, you can contact the instructors about this prior to the workshop.
 
 #### Participants
 
-We're expecting up to 14 people in Wooster, 13 in Columbus, and 6 via Zoom.
+We're expecting up to 14 people in Wooster, 14 in Columbus, and 6 via Zoom.
