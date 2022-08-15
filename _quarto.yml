@@ -13,7 +13,7 @@ website:
         menu:
           - href: info/info.qmd
             text: Practical Workshop Info
-          - href: about.qmd
+          - href: info/about.qmd
             text: General Workshop Info / Signing Up
           - href: info/glossary.qmd
             text: Glossary
@@ -39,7 +39,7 @@ website:
       - text: "Day 3"
         menu:
           - href: sessions/slurm.qmd
-            text: 8. SLURM
+            text: 8. Compute Jobs with Slurm
           - href: sessions/examples.qmd
             text: 9. Example Compute Jobs
   page-footer:
