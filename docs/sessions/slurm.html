@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Command line workshop ’22 - Submitting scripts with SLURM</title>
+<title>Command line workshop ’22 - Compute jobs with Slurm</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -100,7 +163,7 @@ ul.task-list{list-style: none;}
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-2">    
         <li>
     <a class="dropdown-item" href="../sessions/scripting-prep.html">
- <span class="dropdown-text">5. Variables, Loops and Conditionals</span></a>
+ <span class="dropdown-text">5. Variables and Loops</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/shell-scripting.html">
@@ -117,7 +180,7 @@ ul.task-list{list-style: none;}
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-3">    
         <li>
     <a class="dropdown-item" href="../sessions/slurm.html">
- <span class="dropdown-text">8. SLURM</span></a>
+ <span class="dropdown-text">8. Compute Jobs with Slurm</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/examples.html">
@@ -137,6 +200,10 @@ ul.task-list{list-style: none;}
         <li>
     <a class="dropdown-item" href="../about.html">
  <span class="dropdown-text">General Workshop Info / Signing Up</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../info/glossary.html">
+ <span class="dropdown-text">Glossary</span></a>
   </li>  
     </ul>
   </li>
@@ -158,7 +225,13 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tba" id="toc-tba" class="nav-link active" data-scroll-target="#tba"> <span class="header-section-number">1</span> TBA</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"> <span class="header-section-number">1</span> Setup</a></li>
+  <li><a href="#interactive-shell-jobs" id="toc-interactive-shell-jobs" class="nav-link" data-scroll-target="#interactive-shell-jobs"> <span class="header-section-number">2</span> Interactive shell jobs</a>
+  <ul class="collapse">
+  <li><a href="#using-srun" id="toc-using-srun" class="nav-link" data-scroll-target="#using-srun"> <span class="header-section-number">2.1</span> Using <code>srun</code></a></li>
+  <li><a href="#compute-job-options" id="toc-compute-job-options" class="nav-link" data-scroll-target="#compute-job-options"> <span class="header-section-number">2.2</span> Compute job options</a></li>
+  </ul></li>
+  <li><a href="#non-interactive-jobs" id="toc-non-interactive-jobs" class="nav-link" data-scroll-target="#non-interactive-jobs"> <span class="header-section-number">3</span> Non-interactive jobs</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -167,7 +240,8 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Submitting scripts with <code>SLURM</code></h1>
+<h1 class="title">Compute jobs with Slurm</h1>
+<p class="subtitle lead">With a focus on submitting shell scripts</p>
 </div>
 
 
@@ -184,14 +258,216 @@ ul.task-list{list-style: none;}
 <div class="cell">
 
 </div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PAGE STILL UNDER CONSTRUCTION</p>
+</div>
+</div>
 <hr>
-<section id="tba" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="tba"><span class="header-section-number">1</span> TBA</h2>
+<p>We have so far been working on <em>login nodes</em> at OSC, but in order to run some actual analyses, you will need access to <strong>compute nodes</strong>.</p>
+<p>Automated scheduling software allows hundreds of people with different requirements to access compute nodes effectively and fairly. For this purpose, OSC uses the <strong>Slurm</strong> scheduler (<strong>S</strong>imple <strong>l</strong>inux <strong>u</strong>tility for <strong>r</strong>esource <strong>m</strong>anagement).</p>
+<p>A temporary reservation of (parts of) a compute node is called a <em>compute job</em>. What are the options to start a compute job at OSC?</p>
+<ol type="1">
+<li>“<strong>Interactive Apps</strong>” — We can start programs with GUIs, such as RStudio or Jupyter Notebook on OnDemand, and they will run in a browser window.</li>
+<li><strong>Interactive shell jobs</strong> — Start a Bash shell on a compute node.</li>
+<li><strong>Non-interactive jobs</strong>: — Run a <em>script</em> on a compute node.</li>
+</ol>
+<p>When running command-line programs for genomics analyses, <em>non-interactive jobs</em> are the most useful and will be the focus of this module. We’ll also touch on <em>interactive shell jobs</em>, which can occasionally be handy and are requested and managed in a very similar way to non-interactive jobs.</p>
+<section id="setup" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="setup"><span class="header-section-number">1</span> Setup</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Starting a VS Code session with an active terminal (click here)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</li>
+<li>In the blue top bar, select <code>Interactive Apps</code> and then <code>Code Server</code>.</li>
+<li>In the form that appears:
+<ul>
+<li>Enter <code>3</code> in the box <code>Number of hours</code></li>
+<li>Enter <code>/fs/ess/scratch/PAS2250</code> in the box <code>Working Directory</code></li>
+<li>Click <code>Launch</code>.</li>
+</ul></li>
+<li>On the next page, once the top bar of the box has turned green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</li>
+<li>Open a terminal by clicking the “hamburger menu” way in the top left, and then <code>Terminal</code> &gt; <code>New Terminal</code>.</li>
+<li>In the terminal, type <code>Bash</code> and press <kbd>Enter</kbd>.</li>
+</ol>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="interactive-shell-jobs" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="interactive-shell-jobs"><span class="header-section-number">2</span> Interactive shell jobs</h2>
+<p>Interactive shell jobs will grant you interactive shell access on a compute node. Working in an interactive shell job is operationally identical to working on a login node as we’ve been doing so far, but <strong>the difference is that it’s now okay to use significant computing resources</strong>. (How much and for how long depends on what you reserve.)</p>
+<section id="using-srun" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="using-srun"><span class="header-section-number">2.1</span> Using <code>srun</code></h3>
+<p>A couple of different commands can be used to start an interactive shell job. I prefer the general <code>srun</code> command<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, which we can use with the <code>--pty /bin/bash</code> option to get an interactive Bash shell.</p>
+<p>However, if we run that command without additional options, we get an error:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">--pty</span> /bin/bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="bash-out">
+<p>srun: error: ERROR: Job invalid: Must specify account for job<br>
+srun: error: Unable to allocate resources: Unspecified error</p>
+</div>
+<p>As the error message <code>Must specify account for job</code> tries to tell us, <strong>we need to indicate which <em>OSC project</em> (or as SLURM puts it, “<em>account</em>”)</strong> <strong>we want to use</strong> for this compute job. This is because an OSC project always has to be charged for the computing resources used during a compute job.</p>
+<p>To specify the project/account, we can use the <code>--account=</code> option followed by the project number:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">srun</span> <span class="at">--account</span><span class="op">=</span>PAS2250 <span class="at">--pty</span> /bin/bash</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="bash-out">
+<p>srun: job 12431932 queued and waiting for resources<br>
+srun: job 12431932 has been allocated resources</p>
+<p>[…regular login info, such as quota, not shown…]</p>
+<p>[jelmer@p0133 PAS2250]$</p>
+</div>
+<p>There we go! First we got some Slurm scheduling info:</p>
+<ul>
+<li>Initially, the job is “queued”: that is, waiting to start.</li>
+<li>Very soon (usually!), the job has been “allocated resources”: that is, computing resources such as a compute node were found and reserved for the job.</li>
+</ul>
+<p>Then:</p>
+<ul>
+<li><p>The job starts and because we’ve reserved an <em>interactive</em> shell job, this means that a new Bash shell is initiated: for that reason, we get to see our regular login info once again.</p></li>
+<li><p>Most importantly, we are no longer on a login node but on a <strong>compute node</strong>, as our prompt hints at: we switched from something like <code>[jelmer@pitzer-login04 PAS2250]$</code> to the <code>[jelmer@p0133 PAS2250]$</code> shown above.</p></li>
+<li><p>Note also that the job has a number (above: <code>job 12431932</code>): every compute job has such a <strong>unique identifier</strong> among all jobs by all users at OSC, and we can use this number to monitor and manage it. All of us will therefore see a different job number pop up.</p></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+OSC projects
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>During this workshop, we can all use the project <code>PAS2250</code>, which is actually a project that OSC has freely given me to introduce people to working at OSC. The project will still be charged but the credits on it were freely awarded.</p>
+<p>To work on your own research project at OSC, you will either have to get your own project (typically, PIs get one for their lab or for a specific research project) or you can become an MCIC member and use the MCIC project.</p>
+</div>
+</div>
+</section>
+<section id="compute-job-options" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="compute-job-options"><span class="header-section-number">2.2</span> Compute job options</h3>
+<p>The <code>--account=</code> option is just one of out of <em>many</em> options we can use when reserving a compute job, but is the only one that <em>always</em> has to be specified (including for non-interactive jobs and for Interactive Apps).</p>
+<p>Defaults exist for all other options, such as the amount of time (1 hour) and the number of cores (1). These options are all specified in the same way for interactive and non-interactive jobs, and we’ll dive into them below.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many SLURM options have a long format (<code>--account=PAS2250</code>) and a short format (<code>-A PAS2250</code>), which can generally be used interchangeably. For clarity, we’ll try to stick to long format options during this workshop.</p>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="non-interactive-jobs" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="non-interactive-jobs"><span class="header-section-number">3</span> Non-interactive jobs</h2>
+<p>When requesting non-interactive jobs, we are asking the Slurm scheduler to <em>run a script</em> on a compute node. For this reason, we can also refer to it as “submitting a script (to the queue)”.</p>
+<p>In contrast to interactive shell jobs, we stay in our current shell on a login node when submitting a script, and cannot really interact with the process on the compute node, other than:</p>
+<ul>
+<li><strong>Output from the script that would normally be printed to screen ends up in</strong> <strong>a file</strong>.</li>
+<li>We can do things like <strong>monitoring</strong> whether the job is still running and <strong>cancelling</strong> the job, which will revoke the compute node reservation and stop the ongoing process.</li>
+</ul>
+<p>Whereas we used Slurm’s <code>srun</code> command to start an interactive shell job, we use its <strong><code>sbatch</code> command to submit a script</strong>.</p>
+<p>Recall from the Bash scripting module that we can run a Bash script as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> printnames.sh Jane Doe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The above command will run the script on our current node, which is typically a login node. To instead submit the script to the Slurm queue, we simply <strong>replace <code>bash</code> by <code>sbatch</code></strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> printnames.sh Jane Doe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Of course we always have to specify the OSC account when submitting a compute job.</p>
+<p>a minimal functional <code>sbatch</code> call would be:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> <span class="at">--account</span><span class="op">=</span>PAS2250 printnames.sh Jane Doe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<code>sbatch</code> options vs.&nbsp;script arguments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> [sbatch-options] myscript.sh [script-arguments]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># No options/arguments for either:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> printnames.sh</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> printnames.sh Jane Doe</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> <span class="at">--account</span><span class="op">=</span>PAS2250 printnames.sh</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> <span class="at">--account</span><span class="op">=</span>PAS2250 printnames.sh Jane Doe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The script that we submit can be in different languages but typically (and in the examples in this workshop), they are shell (Bash) scripts.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both interactive and non-interactive jobs start in the directory that they were submitted from: that is, your working directory will remain the same.</p>
+</div>
+</div>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>Other options: <code>salloc</code> works almost identically to <code>srun</code>, whereas <code>sinteractive</code> is an OSC convenience wrapper but with very limited options.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

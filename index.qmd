@@ -11,7 +11,7 @@ editor: visual
 Start and end times for every day will be respected, but individual modules may take shorter or longer than indicated below.
 
 | Day       | Module                                  | Instructor    | Time                 |
-|-----------|-------------------------------|----------------|-----------------|
+|---------------|--------------------------|---------------|---------------|
 | **Day 1** | 1\. Introduction to the workshop        | Mike / Jelmer | Wed 1:00 - 1:15 pm   |
 |           | 2\. The Ohio Supercomputer Center (OSC) | Mike          | Wed 1:15 - 1:45 pm   |
 |           | 3\. The `VS Code` text editor           | Jelmer        | Wed 1:45 - 2:00 pm   |
@@ -19,5 +19,5 @@ Start and end times for every day will be respected, but individual modules may 
 | **Day 2** | 5\. Variables and loops                 | Jelmer        | Thu 12:00 - 12:45 pm |
 |           | 6\. Shell scripting                     | Jelmer        | Thu 12:45 - 1:30 pm  |
 |           | 7\. Using software at OSC               | Jelmer        | Thu 1:45 - 2:30 pm   |
-| **Day 3** | 8\. Submitting scripts with `SLURM`     | Jelmer        | Fri 1:00 - 2:30 pm   |
+| **Day 3** | 8\. Compute jobs with `Slurm`           | Jelmer        | Fri 1:00 - 2:30 pm   |
 |           | 9\. Running example compute jobs        | Mike / Jelmer | Fri 2:45 - 4:30 pm   |

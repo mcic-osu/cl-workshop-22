@@ -1,5 +1,6 @@
 ---
-title: "Submitting scripts with `SLURM`"
+title: "Compute jobs with Slurm"
+subtitle: "With a focus on submitting shell scripts"
 highlight-style: oblivion
 number-sections: true
 ---
@@ -9,6 +10,236 @@ knitr::opts_chunk$set(eval = FALSE,
                       class.output = "bash-out")
 ```
 
------
+:::{.callout-warning}
+PAGE STILL UNDER CONSTRUCTION
+:::
 
-## TBA
+----
+
+We have so far been working on _login nodes_ at OSC,
+but in order to run some actual analyses,
+you will need access to **compute nodes**.
+  
+Automated scheduling software allows hundreds of people with different
+requirements to access compute nodes effectively and fairly.
+For this purpose, OSC uses the **Slurm** scheduler
+(**S**imple **l**inux **u**tility for **r**esource **m**anagement).
+
+A temporary reservation of (parts of) a compute node is called a _compute job_.
+What are the options to start a compute job at OSC?
+
+1. "**Interactive Apps**" &mdash; We can start programs with GUIs,
+   such as RStudio or Jupyter Notebook on OnDemand,
+   and they will run in a browser window.
+2. **Interactive shell jobs** &mdash; Start a Bash shell on a compute node.
+3. **Non-interactive jobs**: &mdash; Run a _script_ on a compute node.
+
+When running command-line programs for genomics analyses,
+_non-interactive jobs_ are the most useful and will be the focus of this module.
+We'll also touch on _interactive shell jobs_,
+which can occasionally be handy
+and are requested and managed in a very similar way to non-interactive jobs.
+
+## Setup
+
+:::{.callout-note collapse="true"}
+## Starting a VS Code session with an active terminal (click here)
+
+1. Log in to OSC at <https://ondemand.osc.edu>.
+2. In the blue top bar, select `Interactive Apps` and then `Code Server`.
+3. In the form that appears:
+   - Enter `3` in the box `Number of hours`
+   - Enter `/fs/ess/scratch/PAS2250` in the box `Working Directory`
+   - Click `Launch`.
+4. On the next page, once the top bar of the box has turned green and says `Runnning`,
+   click `Connect to VS Code`.
+5. Open a terminal by clicking the "hamburger menu" way in the top left,
+   and then `Terminal` > `New Terminal`.
+6. In the terminal, type `Bash` and press <kbd>Enter</kbd>.
+
+:::
+
+<br>
+
+## Interactive shell jobs
+
+Interactive shell jobs will grant you interactive shell access on a compute node.
+Working in an interactive shell job is operationally identical to working on
+a login node as we've been doing so far, but
+**the difference is that it's now okay to use significant computing resources**.
+(How much and for how long depends on what you reserve.)
+
+### Using `srun`
+
+A couple of different commands can be used to start an interactive shell job.
+I prefer the general `srun` command[^1],
+which we can use with the `--pty /bin/bash` option to get an interactive
+Bash shell.
+
+[^1]: Other options: `salloc` works almost identically to `srun`,
+      whereas `sinteractive` is an OSC convenience wrapper but with very
+      limited options.
+     
+However, if we run that command without additional options, we get an error:
+
+```{bash}
+srun --pty /bin/bash
+```
+
+:::{.bash-out}
+srun: error: ERROR: Job invalid: Must specify account for job  
+srun: error: Unable to allocate resources: Unspecified error
+:::
+
+As the error message `Must specify account for job` tries to tell us,
+**we need to indicate which _OSC project_ (or as SLURM puts it, "_account_")**
+**we want to use** for this compute job.
+This is because an OSC project always has to be charged for the computing
+resources used during a compute job.
+
+To specify the project/account,
+we can use the `--account=` option followed by the project number:
+
+```{bash}
+srun --account=PAS2250 --pty /bin/bash
+```
+
+:::{.bash-out}
+srun: job 12431932 queued and waiting for resources  
+srun: job 12431932 has been allocated resources
+
+[...regular login info, such as quota, not shown...]
+
+[jelmer@p0133 PAS2250]$
+:::
+
+There we go! First we got some Slurm scheduling info:
+
+- Initially, the job is "queued": that is, waiting to start.
+- Very soon (usually!), the job has been "allocated resources": that is,
+  computing resources such as a compute node were found and reserved for the job.
+
+Then:
+
+- The job starts and because we've reserved an _interactive_ shell job,
+  this means that a new Bash shell is initiated:
+  for that reason, we get to see our regular login info once again.
+
+- Most importantly, we are no longer on a login node but on a **compute node**,
+  as our prompt hints at:
+  we switched from something like `[jelmer@pitzer-login04 PAS2250]$` to
+  the `[jelmer@p0133 PAS2250]$` shown above.
+
+- Note also that the job has a number (above: `job 12431932`):
+  every compute job has such a **unique identifier** among all jobs by all users
+  at OSC, and we can use this number to monitor and manage it.
+  All of us will therefore see a different job number pop up.
+
+:::{.callout-note}
+## OSC projects
+
+During this workshop, we can all use the project `PAS2250`,
+which is actually a project that OSC has freely given me to introduce people
+to working at OSC.
+The project will still be charged but the credits on it were freely awarded.
+
+To work on your own research project at OSC,
+you will either have to get your own project
+(typically, PIs get one for their lab or for a specific research project)
+or you can become an MCIC member and use the MCIC project.
+:::
+
+
+### Compute job options
+
+The `--account=` option is just one of out of _many_ options we can use
+when reserving a compute job,
+but is the only one that _always_ has to be specified
+(including for non-interactive jobs and for Interactive Apps).
+
+Defaults exist for all other options,
+such as the amount of time (1 hour) and the number of cores (1).
+These options are all specified in the same way for interactive and
+non-interactive jobs, and we'll dive into them below.
+
+:::{.callout-tip}
+Many SLURM options have a long format (`--account=PAS2250`) and a short
+format (`-A PAS2250`), which can generally be used interchangeably.
+For clarity, we'll try to stick to long format options during this workshop.
+:::
+
+<br>
+
+## Non-interactive jobs
+
+When requesting non-interactive jobs,
+we are asking the Slurm scheduler to _run a script_ on a compute node.
+For this reason,
+we can also refer to it as "submitting a script (to the queue)".
+
+In contrast to interactive shell jobs,
+we stay in our current shell on a login node when submitting a script,
+and cannot really interact with the process on the compute node, other than:
+
+- **Output from the script that would normally be printed to screen ends up in**
+  **a file**.
+- We can do things like **monitoring** whether the job is still running and
+  **cancelling** the job,
+  which will revoke the compute node reservation and stop the ongoing process.
+
+Whereas we used Slurm's `srun` command to start an interactive shell job,
+we use its **`sbatch` command to submit a script**.
+
+Recall from the Bash scripting module that we can run a Bash script as follows:
+
+```{bash}
+bash printnames.sh Jane Doe
+```
+
+The above command will run the script on our current node,
+which is typically a login node.
+To instead submit the script to the Slurm queue,
+we simply **replace `bash` by `sbatch`**:
+
+```{bash}
+sbatch printnames.sh Jane Doe
+```
+
+Of course we always have to specify the OSC account when submitting a compute
+job.
+
+a minimal functional `sbatch` call would be:
+
+```{bash}
+sbatch --account=PAS2250 printnames.sh Jane Doe
+```
+
+:::{.callout-tip}
+## `sbatch` options vs. script arguments
+
+```{bash}
+sbatch [sbatch-options] myscript.sh [script-arguments]
+```
+
+```{bash}
+# No options/arguments for either:
+sbatch printnames.sh
+
+sbatch printnames.sh Jane Doe
+
+sbatch --account=PAS2250 printnames.sh
+
+sbatch --account=PAS2250 printnames.sh Jane Doe
+```
+
+:::
+
+:::{.callout-tip}
+The script that we submit can be in different languages but typically
+(and in the examples in this workshop), they are shell (Bash) scripts.
+:::
+
+:::{.callout-tip}
+Both interactive and non-interactive jobs start in the directory that they were submitted from: that is, your working directory will remain the same.
+:::
+
