@@ -293,7 +293,6 @@ Let's add one to the `printname.sh` script, such that the first few lines read:
 
 ```{bash, eval=FALSE}
 #!/bin/bash
-
 #SBATCH --account=PAS2250
 
 set -ueo pipefail
@@ -312,41 +311,88 @@ Submitted batch job 12431942
 
 :::{.callout-tip}
 ## Running a script with `#SBATCH` in other contexts
-Because the `#SBATCH` lines are special _comment_ lines,
+Because `#SBATCH` lines are special _comment_ lines,
 they will simply be ignored and not throw any errors when you run a script that
 contains them in other contexts: when not running them as a batch job at OSC,
 or even when running them on a computer without Slurm installed.
 :::
 
 :::{.callout-tip}
-Any `sbatch` options provided on the command-line will override the equivalent
-options provided in the script itself.
+## `sbatch` option precedence
+Any `sbatch` option provided on the command line will override the equivalent
+option provided inside the script.
+This is sensible: we can provide "defaults" inside the script,
+and change one or more of those when needed on the command line.
 :::
 
 ### Where does the output go?
 
-:::{.exercise}
+Above, we saw that when we ran the `printname.sh` script directly,
+its output was printed to the screen,
+whereas when we submitted it as a batch job,
+we merely got `Submitted batch job 12431942` printed to screen.
+So where did our output go?
 
-:::{.callout-tip}
-Both interactive and batch jobs start in the directory that they were submitted from: that is, your working directory will remain the same.
+It ended up in a file `slurm-12431942.out` (i.e., `slurm-<job-number>.out`),
+which we might call a **Slurm log file**.
+
+:::{.callout-caution collapse="true"}
+## Any idea why we might not want batch job output printed to screen, even if we could?
+
+The power of submitting batch jobs is that you can submit many at once,
+e.g. one per sample, running the same script.
+If the output from all those scripts ends up on your screen,
+things become a big mess, and you have no lasting record of what happened.
 :::
 
+It's important to conceptually distinguish two broad types of output
+that a script may have:
+
+- Output that is **printed to screen** when we directly run a script,
+  such as what was produced by our `echo` statements,
+  by any errors that may occur,
+  and possibly by a program that we run in the script.[^2]
+  As we saw, this output ends up in the **Slurm log file** when we submit
+  the script as a batch job.
+
+- Output that we redirect to a file (`> myfile.txt`) or that a program that
+  we run in the script writes to file(s).
+  This type of output **will always end up in those very same files**
+  regardless of whether we run the script directly or as a batch job. 
+
+[^2]: Technically, these are two different types of output,
+      as we briefly touch on below: "standard output" and "standard error".
+
+:::{.callout-tip}
+Both interactive and batch jobs start in the directory that they were submitted
+from: that is, your working directory will remain the same.
 :::
 
 <br>
 
-## Other common `sbatch` options
+## Common `sbatch` options
 
-### `--time`: Time limit ("wall time").
+### `--account`: The OSC project
 
-- Your job gets killed as soon as it hits the time limit!
-- Wall time means...
+As seen above. _Always_ specify the project when submitting a batch job.
+
+### `--time`: Time limit ("wall time")
+
+Specify the maximum amount of time your job will run for.
+Wall time is a term meant to distinguish it from, say "core hours":
+if a job runs for 2 hour and used 8 cores,
+the wall time was 2 hours and the number of core hours was 2 x 8 = 16.
+  
+- Your job gets killed as soon as it hits the specified time limit!
 - You will only be charged for the time your job *actually used*.
 - In general, shorter jobs are likely to start running sooner
 - The default is 1 hour. Acceptable time formats include:
   - `minutes`
   - `hours:minutes:seconds`
   - `days-hours`
+- For single-node jobs, up to 168 hours (7 days) can be requested.
+  If that's not enough, you can request access to the `longserial` queue
+  for jobs of up to 336 hours (14 days).
 
 ```{bash}
 #!/bin/bash
@@ -358,10 +404,150 @@ If you are uncertain about the time your job will take,
 ask for (much) more time than you think you will need.
 :::
 
-:::{.callout-info}
-## Walltime limits
-For single-node jobs, up to 168 hours (7 days) can be requested.
-If that's not enough, you can request access to the `longserial` queue for jobs
-of up to 336 hours (14 days).
+### `--mem`: RAM memory
+
+Specify a maximum amount of RAM (Random Access Memory) that your job can use.
+
+- The default unit is MB (MegaBytes) &mdash; use "G" for GB.
+- The default amount is 4 GB per core that you reserve (see below).
+- Like with the time limit, your job gets killed when it hits the memory limit.
+  But this is not that common so I would usually not specify unless the
+  program I'm running reports that it needs a lot of memory,
+  or I got "out-of-memory" errors when trying to run the script before.
+
+```sh
+#!/bin/bash
+#SBATCH --mem=20G
+```
+
+### Cores (& nodes and tasks)
+
+Specify the number of nodes (≈ computers), cores, or "tasks" (processes). 
+These are separate but related options,
+and this is where things can get confusing!
+
+- Slurm for the most part uses "**core**" and "**CPU**" interchangeably[^2].
+  More generally, "**thread**" is *also* commonly used interchangeably 
+  with core/CPU[^3].
+
+[^2]: Even though technically, one CPU often contains multiple cores.
+[^3]: Even though technically, one core often contains multiple threads.
+
+- Running a program that uses multiple threads/cores/CPUs ("multi-threading")
+  is common.
+  In such cases, specify the number of threads/cores/CPUs `n` with
+  `--cpus-per-task=n`
+  (and keep `--nodes` and `--ntasks` at their defaults of 1).
+  
+  The program you're running may have an argument like `--cores` or `--threads`,
+  which you should then set to `n` as well.
+  
+:::{.callout-note}
+## Uncommon cases
+
+- Only ask for **>1 node** when you have explicit parallelization with
+  something like "MPI", which is uncommon in bioinformatics.
+- For jobs with multiple processes (tasks),
+  use `--ntasks=n` or `--ntasks-per-node=n`.
+:::  
+
+| Resource/use                  | short    | long                    | default
+|-------------------------------|----------|-------------------------|:--------:| 
+| Nr. of cores/CPUs/threads (per task)    | `-c 1`   | `--cpus-per-task=1`     | 1
+| Nr. of "tasks" (processes) | `-n 1`   | `--ntasks=1`            | 1
+| Nr. of tasks per node      | -        | `--ntasks-per-node=1`   | 1
+| Nr. of nodes               | `-N 1`   | `--nodes=1`             | 1
+
+```{bash}
+#!/bin/bash
+#SBATCH --cpus-per-task=2
+```
+
+### `--output`: Slurm log files
+
+As we saw above, by default, all output from a script that would normally[^4]
+be printed to screen will end up in Slurm log file when we submit the script
+as a batch job.
+This file will be created in the directory from which you submitted the script,
+and will be called `slurm-<job-number>.out`, e.g. `slurm-12431942.out`.
+
+But it is possible to change the name of this file.
+For instance, it can be useful to include the name of the program that the
+script runs,
+so that it's easier to recognize this file later.
+
+We can do this with the `--output` option,
+e.g. `--output=slurm-fastqc.out` if we were running FastQC.
+
+However,
+you'll generally want to keep the batch job number in the file name too[^5].
+Since we won't know the batch job number in advance,
+we need a trick here and that is to use
+**`%j`, which represents the batch job number**:
+
+```{bash}
+#!/bin/bash
+#SBATCH --output=slurm-fastqc-%j.out
+```
+
+[^4]: That is, when we run the script directly, e.g. `bash myscript.sh`
+[^5]: For instance, we might be running the FastQC script multiple times,
+      and otherwise those would all have the same name and be overwritten.
+      
+:::{.callout-note}
+## `stdout` and `stderr`
+
+By default, two output streams "standard output" (`stdout`) and
+"standard error" (`stderr`) all end up in the same Slurm log file,
+but it is also possible to separate them into two separate files.
+
+Because `stderr`, as you might have guessed, often contains error messages,
+it could be useful to have those in a separate file.
+You can make that happen with the `--error` option,
+e.g. `--error=slurm-fastqc-%j.err`.
+
+However, reality is more messy:
+some programs print their main output not to a file but to standard out,
+and their logging output, errors and regular messages alike, to standard error.
+Yet other programs use `stdout` or `stderr` for _all_ messages.
+I therefore usually only use `--output`.
+
 :::
 
+
+### Other `sbatch` options
+
+Here are some other `sbatch` options that can be useful in certain cases:
+
+| Resource/use                         | long option
+|--------|----------|
+| Job name (displayed in the queue)    |  `--job-name=fastqc`
+| Partition (=queue type)              | `--partition=longserial` (long jobs) <br> `--partition=hugemem` (jobs needing lots of memory)
+| Get email when job starts, ends, fails, <br> or all of the above | `--mail-type=START` <br> `--mail-type=END` <br> `--mail-type=FAIL` <br> `--mail-type=ALL`
+| Let job begin at/after specific time | `--begin=2021-02-01T12:00:00`
+| Let job begin after other job is done | `--dependency=afterany:123456`
+
+
+
+<br>
+
+## Addendum: Table with all discussed `sbatch` options
+
+| Resource/use                  | short      | long                 | default
+|-------------------------------|------------|----------------------|:---------:|
+| Project to be billed          | `-A PAS0471` | `--account=PAS0471`    | _N/A_
+| Time limit                    | `-t 4:00:00` | `--time=4:00:00`      | 1:00:00
+| Nr of nodes                   | `-N 1`       | `--nodes=1`            | 1
+| Nr of cores                   | `-c 1`       | `--cpus-per-task=1`    | 1
+| Nr of "tasks" (processes)     | `-n 1`      | `--ntasks=1`           | 1
+| Nr of tasks per node          | -          | `--ntasks-per-node`   | 1
+| Memory limit per node         | -          | `--mem=4G`             | *(4G)*
+| Log output file (%j = job number)    | `-o`       |  `--output=slurm-fastqc-%j.out`
+| Error output (*stderr*)              | `-e`       | `--error=slurm-fastqc-%j.err`
+| Job name (displayed in the queue)    | -        | `--job-name=fastqc`
+| Partition (=queue type)              | -        | `--partition=longserial` (long jobs) <br> `--partition=hugemem` (jobs needing lots of memory)
+| Get email when job starts, ends, fails, <br> or all of the above | -        | `--mail-type=START` <br> `--mail-type=END` <br> `--mail-type=FAIL` <br> `--mail-type=ALL`
+| Let job begin at/after specific time | -        | `--begin=2021-02-01T12:00:00`
+| Let job begin after other job is done | -      | `--dependency=afterany:123456`
+
+<br>
