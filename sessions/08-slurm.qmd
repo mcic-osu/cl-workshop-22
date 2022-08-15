@@ -1,5 +1,5 @@
 ---
-title: "Compute jobs with Slurm"
+title: "Compute Jobs with Slurm"
 subtitle: "With a focus on submitting shell scripts"
 highlight-style: oblivion
 number-sections: true

@@ -1,5 +1,6 @@
 ---
-title: "Running example compute jobs"
+title: "Example Compute Jobs"
+subtitle: "Practical example of writing shell scripts and running them as compute jobs"
 highlight-style: oblivion
 number-sections: true
 ---

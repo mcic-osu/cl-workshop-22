@@ -1,5 +1,5 @@
 ---
-title: "Variables, Loops, and Conditionals"
+title: "Variables and Loops"
 highlight-style: oblivion
 number-sections: true
 ---
@@ -114,7 +114,7 @@ ls $ls_options
 ```
 
 ```{bash, eval=TRUE}
-input_file=shell-scripting.qmd
+input_file=04-shell.qmd
 
 ls -lh $input_file 
 ```
