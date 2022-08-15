@@ -325,8 +325,12 @@ options provided in the script itself.
 
 ### Where does the output go?
 
+:::{.exercise}
+
 :::{.callout-tip}
 Both interactive and batch jobs start in the directory that they were submitted from: that is, your working directory will remain the same.
+:::
+
 :::
 
 <br>

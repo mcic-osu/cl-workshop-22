@@ -370,17 +370,24 @@ Space-sensitive
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="va">$ls_options</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>total 120K
+<pre class="bash-out"><code>total 376K
+-rw-rw-r-- 1 jelmer jelmer  20K Aug 15 16:33 01-intro.html
 -rw-rw-r-- 1 jelmer jelmer 2.9K Aug 11 10:01 01-intro.qmd
+-rw-rw-r-- 1 jelmer jelmer  16K Aug 15 16:32 02-osc.html
 -rw-rw-r-- 1 jelmer jelmer  248 Aug  9 21:42 02-osc.qmd
 -rw-rw-r-- 1 jelmer jelmer  11K Aug 11 10:43 03-vscode.qmd
+-rw-rw-r-- 1 jelmer jelmer  15K Aug 15 16:32 04-shell.html
 -rw-rw-r-- 1 jelmer jelmer  218 Aug  9 21:43 04-shell.qmd
 -rw-rw-r-- 1 jelmer jelmer  13K Aug 15 13:21 05-vars-loops.qmd
--rw-rw-r-- 1 jelmer jelmer  13K Aug 15 13:21 05-vars-loops.rmarkdown
+-rw-rw-r-- 1 jelmer jelmer  13K Aug 15 16:33 05-vars-loops.rmarkdown
+-rw-rw-r-- 1 jelmer jelmer  74K Aug 15 16:32 06-scripts.html
 -rw-rw-r-- 1 jelmer jelmer  21K Aug 14 16:02 06-scripts.qmd
+-rw-rw-r-- 1 jelmer jelmer  58K Aug 15 16:33 07-software.html
 -rw-rw-r-- 1 jelmer jelmer  17K Aug 14 22:50 07-software.qmd
--rw-rw-r-- 1 jelmer jelmer 7.9K Aug 15 11:43 08-slurm.qmd
--rw-rw-r-- 1 jelmer jelmer  232 Aug  9 21:42 09-examples.qmd
+-rw-rw-r-- 1 jelmer jelmer  46K Aug 15 16:32 08-slurm.html
+-rw-rw-r-- 1 jelmer jelmer  12K Aug 15 16:32 08-slurm.qmd
+-rw-rw-r-- 1 jelmer jelmer  16K Aug 15 16:32 09-examples.html
+-rw-rw-r-- 1 jelmer jelmer  312 Aug 15 13:23 09-examples.qmd
 -rw-rw-r-- 1 jelmer jelmer    0 Aug 15 13:21 18.txt
 -rw-rw-r-- 1 jelmer jelmer    0 Aug 15 13:21 Aug
 drwxrwxr-x 2 jelmer jelmer 4.0K Aug 10 15:09 img
@@ -580,7 +587,7 @@ More on quoting – and double vs.&nbsp;single quotes
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>01-intro.qmd 02-osc.qmd 03-vscode.qmd 04-shell.qmd 05-vars-loops.qmd 05-vars-loops.rmarkdown 06-scripts.qmd 07-software.qmd 08-slurm.qmd 09-examples.qmd 18.txt Aug img README_2022-08-15.txt README2_Thu, README3_Thu, Aug 18.txt sandbox</code></pre>
+<pre class="bash-out"><code>01-intro.html 01-intro.qmd 02-osc.html 02-osc.qmd 03-vscode.qmd 04-shell.html 04-shell.qmd 05-vars-loops.qmd 05-vars-loops.rmarkdown 06-scripts.html 06-scripts.qmd 07-software.html 07-software.qmd 08-slurm.html 08-slurm.qmd 09-examples.html 09-examples.qmd 18.txt Aug img README_2022-08-15.txt README2_Thu, README3_Thu, Aug 18.txt sandbox</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -708,13 +715,13 @@ Why the semicolon <code>;</code> before <code>do</code>?
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>In this iteration of the loop, the number is 1
-Mon Aug 15 01:21:58 PM CEST 2022
+Mon Aug 15 04:33:08 PM CEST 2022
 --------
 In this iteration of the loop, the number is 2
-Mon Aug 15 01:21:58 PM CEST 2022
+Mon Aug 15 04:33:08 PM CEST 2022
 --------
 In this iteration of the loop, the number is 3
-Mon Aug 15 01:21:58 PM CEST 2022
+Mon Aug 15 04:33:08 PM CEST 2022
 --------</code></pre>
 </div>
 </div>
