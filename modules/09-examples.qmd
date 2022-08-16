@@ -1,7 +1,7 @@
 ---
 title: "Example Compute Jobs"
 subtitle: "Practical example of writing shell scripts and running them as compute jobs"
-highlight-style: oblivion
+highlight-style: pygments
 number-sections: true
 ---
 
@@ -11,5 +11,28 @@ knitr::opts_chunk$set(eval = FALSE,
 ```
 
 -----
+
+<br>
+
+## Setup
+
+:::{.callout-note collapse="true"}
+## Starting a VS Code session with an active terminal (click here)
+
+1. Log in to OSC at <https://ondemand.osc.edu>.
+2. In the blue top bar, select `Interactive Apps` and then `Code Server`.
+3. In the form that appears:
+   - Enter `3` in the box `Number of hours`
+   - Enter `/fs/ess/scratch/PAS2250` in the box `Working Directory`
+   - Click `Launch`.
+4. On the next page,
+   once the top bar of the box is green and says `Runnning`,
+   click `Connect to VS Code`.
+5. Open a terminal: {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
+6. In the terminal, type `bash` and press <kbd>Enter</kbd>.
+
+:::
+
+<br>
 
 ## TBA

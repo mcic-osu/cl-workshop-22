@@ -4,15 +4,10 @@ highlight-style: oblivion
 ---
 
 ```{r knitr_options, echo=FALSE}
-knitr::opts_chunk$set(eval = FALSE,
+knitr::opts_chunk$set(eval = TRUE, echo = FALSE,
+                      warning = FALSE, message = FALSE,
                       class.output = "bash-out")
 ```
-
-:::{.callout-warning}
-
-PAGE STILL UNDER CONSTRUCTION
-
-:::
 
 -----
 
@@ -87,6 +82,73 @@ Some notes:
 
 <br>
 
+## Sign-up form responses
+
+```{r}
+source(here::here("scripts/participants-datatypes.R"))
+```
+
+```{r}
+ggplot(dt_df) +
+  aes(y = data_type, x = count) +
+  geom_col(fill = "darkred", color = "grey10") +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.03))) +
+  labs(y = NULL,
+       title = "Data types among participants") +
+  theme(panel.grid.major.y = element_blank())
+```
+
+<br>
+
+```{r}
+## Unix shell
+p_unix <- signup %>%
+  filter(!is.na(experience_unix)) %>%
+  ggplot(aes(y = experience_unix, fill = experience_unix)) +
+  geom_bar(color = "grey20") +
+  scale_fill_brewer(palette = "Greens", direction = -1) +
+  guides(fill = FALSE) +
+  labs(x = NULL, y = NULL, title = "The Unix shell") +
+  theme(panel.grid.major.y = element_blank())
+
+## OSC
+p_osc <- signup %>%
+  filter(!is.na(experience_OSC)) %>%
+  ggplot(aes(y = experience_OSC, fill = experience_OSC)) +
+  geom_bar(color = "grey20") +
+  scale_fill_brewer(palette = "Greens", direction = -1) +
+  guides(fill = FALSE) +
+  labs(x = NULL, y = NULL, title = "OSC") +
+  theme(panel.grid.major.y = element_blank(),
+        axis.text.y = element_blank())
+
+## Coding
+p_coding <- signup %>%
+  filter(!is.na(experience_coding)) %>%
+  ggplot(aes(y = experience_coding, fill = experience_coding)) +
+  geom_bar(color = "grey20") +
+  scale_fill_brewer(palette = "Greens", direction = -1) +
+  guides(fill = FALSE) +
+  labs(y = NULL, title = "Coding") +
+  theme(panel.grid.major.y = element_blank())
+
+## Genomics
+p_genomics <- signup %>%
+  filter(!is.na(experience_genomics)) %>%
+  ggplot(aes(y = experience_genomics, fill = experience_genomics)) +
+  geom_bar(color = "grey20") +
+  scale_fill_brewer(palette = "Greens", direction = -1) +
+  guides(fill = FALSE) +
+  labs(y = NULL, title = "Genomics") +
+  theme(panel.grid.major.y = element_blank(),
+        axis.text.y = element_blank())
+
+(p_unix + p_osc) / (p_coding + p_genomics) +
+   plot_annotation(title = "Participants' experience level with:")
+```
+
+<br>
+
 ## Personal introductions
 
 ### Instructors
@@ -98,5 +160,3 @@ Some notes:
 
 Please very briefly introduce yourself -- 
 include your position, department, and why you wanted to go to this workshop.
-
-- _Add figure(s) showing data types & previous experience_

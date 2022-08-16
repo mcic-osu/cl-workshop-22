@@ -1,6 +1,6 @@
 ---
 title: "Using Software at OSC"
-highlight-style: oblivion
+highlight-style: pygments
 number-sections: true
 ---
 
@@ -35,11 +35,11 @@ We will cover those topics in this module.
    - Enter `3` in the box `Number of hours`
    - Enter `/fs/ess/scratch/PAS2250` in the box `Working Directory`
    - Click `Launch`.
-4. On the next page, once the top bar of the box has turned green and says `Runnning`,
+4. On the next page,
+   once the top bar of the box is green and says `Runnning`,
    click `Connect to VS Code`.
-5. Open a terminal by clicking the "hamburger menu" way in the top left,
-   and then `Terminal` > `New Terminal`.
-6. In the terminal, type `Bash` and press <kbd>Enter</kbd>.
+5. Open a terminal: {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
+6. In the terminal, type `bash` and press <kbd>Enter</kbd>.
 
 :::
 

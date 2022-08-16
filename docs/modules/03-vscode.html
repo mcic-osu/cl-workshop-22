@@ -171,14 +171,14 @@ ul.task-list{list-style: none;}
   <li><a href="#editor-pane-and-welcome-document" id="toc-editor-pane-and-welcome-document" class="nav-link" data-scroll-target="#editor-pane-and-welcome-document"> <span class="header-section-number">2.2</span> Editor pane and <code>Welcome</code> document</a></li>
   <li><a href="#terminal" id="toc-terminal" class="nav-link" data-scroll-target="#terminal"> <span class="header-section-number">2.3</span> Terminal</a></li>
   </ul></li>
-  <li><a href="#some-tips-and-tricks" id="toc-some-tips-and-tricks" class="nav-link" data-scroll-target="#some-tips-and-tricks"> <span class="header-section-number">3</span> Some tips and tricks</a>
+  <li><a href="#some-vs-code-tips-and-tricks" id="toc-some-vs-code-tips-and-tricks" class="nav-link" data-scroll-target="#some-vs-code-tips-and-tricks"> <span class="header-section-number">3</span> Some VS Code tips and tricks</a>
   <ul class="collapse">
   <li><a href="#making-use-of-your-screens-real-estate" id="toc-making-use-of-your-screens-real-estate" class="nav-link" data-scroll-target="#making-use-of-your-screens-real-estate"> <span class="header-section-number">3.1</span> Making use of your screen’s real estate</a></li>
   <li><a href="#resizing-panes" id="toc-resizing-panes" class="nav-link" data-scroll-target="#resizing-panes"> <span class="header-section-number">3.2</span> Resizing panes</a></li>
   <li><a href="#the-command-palette" id="toc-the-command-palette" class="nav-link" data-scroll-target="#the-command-palette"> <span class="header-section-number">3.3</span> The Command Palette</a></li>
   <li><a href="#color-themes" id="toc-color-themes" class="nav-link" data-scroll-target="#color-themes"> <span class="header-section-number">3.4</span> Color themes</a></li>
   </ul></li>
-  <li><a href="#working-directory" id="toc-working-directory" class="nav-link" data-scroll-target="#working-directory"> <span class="header-section-number">4</span> Working directory</a></li>
+  <li><a href="#a-folder-as-a-starting-point" id="toc-a-folder-as-a-starting-point" class="nav-link" data-scroll-target="#a-folder-as-a-starting-point"> <span class="header-section-number">4</span> A folder as a starting point</a></li>
   <li><a href="#addendum-keyboard-shortcuts" id="toc-addendum-keyboard-shortcuts" class="nav-link" data-scroll-target="#addendum-keyboard-shortcuts"> <span class="header-section-number">5</span> Addendum: keyboard shortcuts</a></li>
   <li><a href="#at-home-bonus-local-installation" id="toc-at-home-bonus-local-installation" class="nav-link" data-scroll-target="#at-home-bonus-local-installation"> <span class="header-section-number">6</span> At-home bonus: local installation</a></li>
   </ul>
@@ -206,23 +206,10 @@ ul.task-list{list-style: none;}
 <div class="cell">
 
 </div>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>PAGE STILL UNDER CONSTRUCTION</p>
-</div>
-</div>
 <hr>
-<p>In this module, we will learn the basics of a fancy text editor called <code>Visual Studio Code</code> (<code>VS Code</code> for short). Conveniently, we can use a version of this editor (sometimes referred to as <code>Code Server</code>) in our browser via the OSC OnDemand website.</p>
-<p><strong>We will use <code>VS Code</code> throughout the workshop as practically a one-stop</strong> <strong>solution for our computing activities at OSC</strong>: accessing the Unix shell and writing scripts. This is also how I use this editor in my daily work.</p>
-<p>To emphasize the additional functionality relative to basic text editors like <code>Notepad</code> and <code>TextEdit</code>, editors like <code>VS Code</code> are also referred to as “IDEs”: <em>Integrated Development Environments</em>. If you’ve ever worked with <code>R</code>, the <code>RStudio</code> program is another good example of an IDE.</p>
+<p>In this module, we will learn the basics of a fancy text editor called <em>VS Code</em> (in full, Visual Studio Code). Conveniently, we can use a version of this editor (sometimes referred to as <em>Code Server</em>) in our browser via the OSC OnDemand website.</p>
+<p><strong>We will use VS Code throughout the workshop as practically a one-stop</strong> <strong>solution for our computing activities at OSC</strong>. This is also how I use this editor in my daily work.</p>
+<p>To emphasize the additional functionality relative to basic text editors like Notepad and TextEdit, editors like VS Code are also referred to as “IDEs”: <em>Integrated Development Environments</em>. If you’ve ever worked with R, the RStudio program is another good example of an IDE.</p>
 <p><br></p>
 <section id="starting-vs-code-at-osc" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="starting-vs-code-at-osc"><span class="header-section-number">1</span> Starting VS Code at OSC</h2>
@@ -236,39 +223,26 @@ Warning
 <li>Click <code>Launch</code>.</li>
 </ul></li>
 <li><p>On the next page, once the top bar of the box has turned green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</p>
+<figure class="figure">
 <p align="center">
-</p><p><img src="img/osc-code-launch.png" width="80%"></p>
-<p></p></li>
+</p><p><img src="img/osc-code-launch_ed.png" width="80%" class="figure-img"></p>
+<p></p>
+</figure></li>
 </ol>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-VS Code runs on a login node
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In the previous module, we’ve learned that all serious computation at OSC should be done not on login nodes but on compute nodes.</p>
-<p>Starting an <code>RStudio</code> session, for instance, requires filling out a similar form, and <code>RStudio</code> will subsequently run on a compute node and your selected OSC project will be charged.</p>
-<p>Running <code>VS Code</code> is a slightly peculiar case: we do have to fill out a form and reserve a pre-specified number of hours (the session will actually stop working after the allotted time has passed), but <strong>we’re on a login node and are not being charged</strong>.</p>
-</div>
-</div>
 <p><br></p>
 </section>
 <section id="getting-started-with-vs-code" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="getting-started-with-vs-code"><span class="header-section-number">2</span> Getting started with VS Code</h2>
 <p align="center">
-<img src="img/vscode-welcome.png" width="100%">
+<img src="img/vscode-welcome_ed.png" width="100%">
 </p>
 <section id="side-bars" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="side-bars"><span class="header-section-number">2.1</span> Side bars</h3>
-<p>The <strong>narrow side bar</strong> on the far left has:</p>
+<p>The <strong>“Activity Bar”</strong> (narrow side bar) on the far left has:</p>
 <ul>
 <li><p>A &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; (“hamburger menu” icon) in the top, which has most of the standard menu items that you often find in a top bar, like <code>File</code>.</p></li>
 <li><p>A &nbsp; <i class="fa-solid fa-cog" aria-hidden="true"></i> &nbsp; (cog wheel icon) in the bottom, through which you can mainly access <em>settings</em>.</p></li>
-<li><p>A bunch of icons in the middle that serve to switch between different options for the <strong>wide side bar</strong> (to the right of the narrow side bar), which can show:</p>
+<li><p>A bunch of icons in the middle that serve to switch between different options for the <strong>Primary (wide) side bar</strong>, which can show one of the following:</p>
 <ul>
 <li><strong><em>Explorer</em></strong>: File browser (and, e.g., an outline for the active file)</li>
 <li><strong><em>Search</em></strong>: To search recursively across all files in the active folder</li>
@@ -280,7 +254,7 @@ VS Code runs on a login node
 </section>
 <section id="editor-pane-and-welcome-document" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="editor-pane-and-welcome-document"><span class="header-section-number">2.2</span> Editor pane and <code>Welcome</code> document</h3>
-<p>The main part of the <code>VS Code</code> is the editor pane. Whenever you open <code>VS Code</code>, a tab with a <code>Welcome</code> document is automatically opened. This provides some help for beginners, but also, for example, an overview of recently opened folders.</p>
+<p>The main part of the VS Code is the editor pane. Whenever you open VS Code, a tab with a <code>Welcome</code> document is automatically opened. This provides some help for beginners, but also, for example, an overview of recently opened folders.</p>
 <p>We can also use the <code>Welcome</code> document to open a new text file by clicking <code>New file</code> below <code>Start</code> (alternatively, click &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>New File</code>). We’ll work with files starting tomorrow, but if you want, you could already start a file with notes on the workshop now.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -298,19 +272,20 @@ Re-open the <code>Welcome</code> document
 </section>
 <section id="terminal" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="terminal"><span class="header-section-number">2.3</span> Terminal</h3>
-<p>By default, no terminal is open in <code>VS Code</code> – to do so, click the &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</p>
-<p>In the terminal, the prompt says <code>Singularity&gt;</code>. This is because in OSC OnDemand, <code>VS Code</code> runs inside a Singularity container (for our purposes, it is not important what that means, exactly). To break out of the Singularity shell and get a regular Bash Unix shell, <strong>type <code>bash</code> and press <kbd>Enter</kbd></strong>.</p>
+<p>By default, no terminal is open in VS Code – to do so, click the &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</p>
+<p>In the terminal, the prompt says <code>Singularity&gt;</code>. This is because in OSC OnDemand, VS Code runs inside a Singularity container (for our purposes, it is not important what that means, exactly). To break out of the Singularity shell and get a regular Bash Unix shell, <strong>type <code>bash</code> and press <kbd>Enter</kbd></strong>.</p>
 <p>In the next module, Mike will teach us how to use the terminal.</p>
 <p align="center">
-<img src="img/vscode-terminal-editor.png" width="100%">
+<img src="img/vscode-terminal-editor_ed.png" width="90%">
 </p>
+<p><br></p>
 </section>
 </section>
-<section id="some-tips-and-tricks" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="some-tips-and-tricks"><span class="header-section-number">3</span> Some tips and tricks</h2>
+<section id="some-vs-code-tips-and-tricks" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="some-vs-code-tips-and-tricks"><span class="header-section-number">3</span> Some VS Code tips and tricks</h2>
 <section id="making-use-of-your-screens-real-estate" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="making-use-of-your-screens-real-estate"><span class="header-section-number">3.1</span> Making use of your screen’s real estate</h3>
-<p>Since we are using <code>VS Code</code> inside a browser window, we are unfortunately losing some screen space. Make sure to maximize the browser window and if you have a bookmarks bar, try to hide it (for Chrome: <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>).</p>
+<p>Since we are using VS Code inside a browser window, we are unfortunately losing some screen space. Make sure to maximize the browser window and if you have a bookmarks bar, try to hide it (for Chrome: <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>). You may also opt to hide the side bars using the <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>View</code> &nbsp; =&gt; &nbsp; <code>Appearance</code> menu (or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>B</kbd> for the Primary Side Bar).</p>
 </section>
 <section id="resizing-panes" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="resizing-panes"><span class="header-section-number">3.2</span> Resizing panes</h3>
@@ -318,7 +293,7 @@ Re-open the <code>Welcome</code> document
 </section>
 <section id="the-command-palette" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="the-command-palette"><span class="header-section-number">3.3</span> The Command Palette</h3>
-<p>To access all the menu options that are available in <code>VS Code</code>, the so-called “Command Palette” can be handy, especially if you know what you are looking for.</p>
+<p>To access all the menu options that are available in VS Code, the so-called “Command Palette” can be handy, especially if you know what you are looking for.</p>
 <p>To access the Command Palette, click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then <code>Command Palette</code> or press <kbd>F1</kbd> (or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).</p>
 <p>For a quick test, open the Command Palette and start typing “color theme”, and you’ll see the relevant options pop up.</p>
 </section>
@@ -328,24 +303,11 @@ Re-open the <code>Welcome</code> document
 <p><br></p>
 </section>
 </section>
-<section id="working-directory" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="working-directory"><span class="header-section-number">4</span> Working directory</h2>
-<p>Setting a “working directory” means that you designate a folder on a computer as the starting point for your operations.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Folder vs.&nbsp;directory
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>“Folder” and “directory” mean the same thing – the latter is most commonly used in the context of the Unix Shell.</p>
-</div>
-</div>
-<p><code>VS Code</code> has a concept of a working directory that is <strong>effective in all parts of the program</strong>: in the file explorer in the side bar, in the terminal, and when saving or opening files in the editor.</p>
-<p>In this workshop, we’ll exclusively work within the folder <code>/fs/ess/scratch/PAS2250</code> (you’ll make personal folders within there shortly). By opening this folder beforehand (we did this in the form on the OnDemand site), we make sure that <code>VS Code</code> always takes this folder as a starting point, which will make navigation and saving files much easier.</p>
+<section id="a-folder-as-a-starting-point" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="a-folder-as-a-starting-point"><span class="header-section-number">4</span> A folder as a starting point</h2>
+<p>VS Code takes a specific folder (directory) as a <strong>starting point in all parts of the program</strong>: in the file explorer in the side bar, in the terminal, and when saving or opening files in the editor.</p>
+<p>In this workshop, we’ll work exclusively within the folder <code>/fs/ess/scratch/PAS2250</code>. We selected this folder already in the form on the OnDemand site, but you can also switch folders within VS Code<br>
+(&nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code>)</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -356,27 +318,14 @@ Taking off where you were
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Additionally, when you reopen a folder later, VS Code will to some extent resume where you were before! It will reopen the text files that you had open and if you had an active terminal, it will also open a terminal. This is very convenient, especially when you start working on multiple projects (different folders) in <code>VS Code</code> and switch between those.</p>
-</div>
-</div>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Switching folders
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To switch to a different folder from within <code>VS Code</code>, click &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code>.</p>
+<p>Additionally, when you reopen a folder later, VS Code will to some extent resume where you were before! It will reopen the text files that you had open and if you had an active terminal, it will also open a terminal. This is very convenient, especially when you start working on multiple projects (different folders) in VS Code and switch between those.</p>
 </div>
 </div>
 <p><br></p>
 </section>
 <section id="addendum-keyboard-shortcuts" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="addendum-keyboard-shortcuts"><span class="header-section-number">5</span> Addendum: keyboard shortcuts</h2>
-<p>Working with keyboard shortcuts (also called “keybindings”) for common operations can be a lot faster than using your mouse. Below are some useful ones for <code>VS Code</code> (for Mac, replace <kbd>Ctrl</kbd> by <kbd>⌘</kbd>).</p>
+<p>Working with keyboard shortcuts (also called “keybindings”) for common operations can be a lot faster than using your mouse. Below are some useful ones for VS Code (for Mac, replace <kbd>Ctrl</kbd> by <kbd>⌘</kbd>).</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -391,9 +340,9 @@ Keyboard shortcut cheatsheet
 </div>
 </div>
 <ul>
-<li><p><em>Toggle the wide side bar</em>: <kbd>Ctrl</kbd>+<kbd>B</kbd></p></li>
 <li><p><em>Open a terminal</em>: <kbd>Ctrl</kbd>+<kbd>`</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>.</p></li>
 <li><p><em>Toggle between the terminal and the editor pane</em>: <kbd>Ctrl</kbd>+<kbd>`</kbd> and <kbd>Ctrl</kbd>+<kbd>1</kbd>.</p></li>
+<li><p><em>Toggle the primary (wide) side bar</em>: <kbd>Ctrl</kbd>+<kbd>B</kbd></p></li>
 <li><p><em>Line actions</em>:</p>
 <ul>
 <li><p><kbd>Ctrl</kbd>+<kbd>X</kbd> / <kbd>C</kbd> will <strong>cut/copy the entire line</strong> where the cursor is, when nothing is selected (!)</p></li>
@@ -414,18 +363,19 @@ Browser interference
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Unfortunately, some <code>VS Code</code> <em>and</em> terminal keyboard shortcuts don’t work in this setting where we are using <code>VS Code</code> <em>inside</em> a browser, because existing browser keyboard shortcuts take precedence.</p>
-<p>If you end up using <code>VS Code</code> a lot in your work, it is therefore worth switching to your own installation of the program (see <a href="#at-home-bonus-local-installation">At-home bonus: local installation</a>)</p>
+<p>Unfortunately, some VS Code <em>and</em> terminal keyboard shortcuts don’t work in this setting where we are using VS Code <em>inside</em> a browser, because existing browser keyboard shortcuts take precedence.</p>
+<p>If you end up using VS Code a lot in your work, it is therefore worth switching to your own installation of the program (see <a href="#at-home-bonus-local-installation">At-home bonus: local installation</a>)</p>
 </div>
 </div>
 <p><br></p>
 </section>
 <section id="at-home-bonus-local-installation" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="at-home-bonus-local-installation"><span class="header-section-number">6</span> At-home bonus: local installation</h2>
-<p>Another nice feature of <code>VS Code</code> is that it is freely available for all operating systems (and even though it is made by Microsoft, it is also open source).</p>
+<p>Another nice feature of VS Code is that it is freely available for all operating systems (and even though it is made by Microsoft, it is also open source).</p>
 <p>Therefore, if you like the program, you can also install it on your own computer and do your local text editing / script writing in the same environment at OSC (it is also easy to install on OSU-managed computers, because it is available in the Self Service software installer).</p>
-<p>Even better, the program can be “tunneled into” OSC, so that your working directory for the entire program can be at OSC rather than on your local computer. This gives the same experience as using <code>VS Code</code> through OSC OnDemand, except that you’re not working witin a browser window, which has some advantages (also: no need to fill out a form, or to break out of the Singularity shell).</p>
-<p>For installation and SSH-tunneling setup, see <a href="">this page - TBA</a>.</p>
+<p>Even better, the program can be “tunneled into” OSC, so that your working directory for the entire program can be at OSC rather than on your local computer. This gives the same experience as using VS Code through OSC OnDemand, except that you’re not working witin a browser window, which has some advantages (also: no need to fill out a form, or to break out of the Singularity shell).</p>
+<p>To install VS Code on your own machine, follow these instructions: <a href="https://code.visualstudio.com/docs/setup/windows">Windows</a> / <a href="https://code.visualstudio.com/docs/setup/mac">Mac</a> / <a href="https://code.visualstudio.com/docs/setup/linux">Linux</a>.</p>
+<p>To SSH-tunnel VS Code into OSC, see <a href="https://mcic-osu.github.io/pracs-sp21/w06_UA_ssh.html#set-up-your-local-vs-code-to-ssh-tunnel-into-osc">these instructions</a> (they are a bit rudimentary, ask Jelmer if you get stuck).</p>
 
 
 </section>

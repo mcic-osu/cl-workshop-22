@@ -9,31 +9,25 @@ knitr::opts_chunk$set(eval = FALSE,
                       class.output = "bash-out")
 ```
 
-:::{.callout-warning}
-
-PAGE STILL UNDER CONSTRUCTION
-
-:::
-
 -----
 
 In this module, we will learn the basics of a fancy text editor called
-`Visual Studio Code` (`VS Code` for short).
+_VS Code_ (in full, Visual Studio Code).
 Conveniently, we can use a version of this editor
-(sometimes referred to as `Code Server`) in our browser via the OSC OnDemand
+(sometimes referred to as _Code Server_)
+in our browser via the OSC OnDemand
 website.
 
-**We will use `VS Code` throughout the workshop as practically a one-stop**
-**solution for our computing activities at OSC**:
-accessing the Unix shell and writing scripts.
+**We will use VS Code throughout the workshop as practically a one-stop**
+**solution for our computing activities at OSC**.
 This is also how I use this editor in my daily work.
 
 To emphasize the additional functionality relative to basic text editors
-like `Notepad` and `TextEdit`,
-editors like `VS Code` are also referred to as "IDEs":
+like Notepad and TextEdit,
+editors like VS Code are also referred to as "IDEs":
 _Integrated Development Environments_.
-If you've ever worked with `R`,
-the `RStudio` program is another good example of an IDE.
+If you've ever worked with R,
+the RStudio program is another good example of an IDE.
 
 <br>
 
@@ -49,40 +43,23 @@ the `RStudio` program is another good example of an IDE.
 4. On the next page, once the top bar of the box has turned green
    and says `Runnning`, click `Connect to VS Code`.
    
+   <figure>
    <p align="center">
-   <img src=img/osc-code-launch.png width="80%">
+   <img src=img/osc-code-launch_ed.png width="80%">
    </p>
-
-
-:::{.callout-caution}
-## VS Code runs on a login node
-
-In the previous module, we've learned that all serious computation at OSC
-should be done not on login nodes but on compute nodes.
-
-Starting an `RStudio` session, for instance, requires filling out a similar
-form, and `RStudio` will subsequently run on a compute node and your selected
-OSC project will be charged.
-
-Running `VS Code` is a slightly peculiar case:
-we do have to fill out a form and reserve a pre-specified number of hours
-(the session will actually stop working after the allotted time has
-passed),
-but **we're on a login node and are not being charged**.
-
-:::
+   </figure>
 
 <br>
 
 ## Getting started with VS Code
 
 <p align="center">
-<img src=img/vscode-welcome.png width="100%">
+<img src=img/vscode-welcome_ed.png width="100%">
 </p>
    
 ### Side bars
 
-The **narrow side bar** on the far left has:
+The **"Activity Bar"** (narrow side bar) on the far left has:
 
 - A &nbsp; {{< fa bars >}} &nbsp; ("hamburger menu" icon) in the top,
   which has most of the standard menu items that you often find in
@@ -92,8 +69,8 @@ The **narrow side bar** on the far left has:
   through which you can mainly access _settings_.
   
 - A bunch of icons in the middle that serve to switch between
-  different options for the **wide side bar** (to the right of the narrow side
-  bar), which can show:
+  different options for the **Primary (wide) side bar**,
+  which can show one of the following:
 
   - **_Explorer_**: File browser (and, e.g., an outline for the active file)
   - **_Search_**: To search recursively across all files in the active folder
@@ -104,8 +81,8 @@ The **narrow side bar** on the far left has:
 
 ### Editor pane and `Welcome` document
 
-The main part of the `VS Code` is the editor pane.
-Whenever you open `VS Code`,
+The main part of the VS Code is the editor pane.
+Whenever you open VS Code,
 a tab with a `Welcome` document is automatically opened.
 This provides some help for beginners, but also, for example,
 an overview of recently opened folders.
@@ -126,12 +103,12 @@ If you've closed the `Welcome` document but want it back, click
 
 ### Terminal
 
-By default, no terminal is open in `VS Code` --
+By default, no terminal is open in VS Code --
 to do so, click the
 &nbsp; {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
 
 In the terminal, the prompt says `Singularity>`.
-This is because in OSC OnDemand, `VS Code` runs inside a Singularity container
+This is because in OSC OnDemand, VS Code runs inside a Singularity container
 (for our purposes, it is not important what that means, exactly).
 To break out of the Singularity shell and get a regular Bash Unix shell,
 **type `bash` and press <kbd>Enter</kbd>**.
@@ -139,18 +116,23 @@ To break out of the Singularity shell and get a regular Bash Unix shell,
 In the next module, Mike will teach us how to use the terminal.
 
 <p align="center">
-<img src=img/vscode-terminal-editor.png width="100%">
+<img src=img/vscode-terminal-editor_ed.png width="90%">
 </p>
 
-## Some tips and tricks
+<br>
+
+## Some VS Code tips and tricks
 
 ### Making use of your screen's real estate
 
-Since we are using `VS Code` inside a browser window,
+Since we are using VS Code inside a browser window,
 we are unfortunately losing some screen space.
 Make sure to maximize the browser window and if you have a bookmarks bar,
 try to hide it
 (for Chrome: <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>).
+You may also opt to hide the side bars using the 
+{{< fa bars >}} &nbsp; => &nbsp; `View` &nbsp; => &nbsp; `Appearance` menu
+(or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>B</kbd> for the Primary Side Bar).
 
 ### Resizing panes
 
@@ -159,7 +141,7 @@ your cursor over the borders and then dragging it.
   
 ### The Command Palette
 
-To access all the menu options that are available in `VS Code`,
+To access all the menu options that are available in VS Code,
 the so-called "Command Palette" can be handy,
 especially if you know what you are looking for.
 
@@ -178,30 +160,18 @@ click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then `Color Theme`.
 
 <br>
 
-## Working directory
+## A folder as a starting point  
 
-Setting a "working directory" means that you designate a folder on a computer
-as the starting point for your operations.
-
-:::{.callout-tip}
-## Folder vs. directory
-
-"Folder" and "directory" mean the same thing --
-the latter is most commonly used in the context of the Unix Shell.
-
-:::
-
-`VS Code` has a concept of a working directory that is
-**effective in all parts of the program**:
+VS Code takes a specific folder (directory) as a 
+**starting point in all parts of the program**:
 in the file explorer in the side bar, in the terminal,
 and when saving or opening files in the editor.
 
-In this workshop, we'll exclusively work within the folder
-`/fs/ess/scratch/PAS2250` (you'll make personal folders within there shortly).
-By opening this folder beforehand
-(we did this in the form on the OnDemand site),
-we make sure that `VS Code` always takes this folder as a starting point,
-which will make navigation and saving files much easier.
+In this workshop, we'll work exclusively within the folder
+`/fs/ess/scratch/PAS2250`.
+We selected this folder already in the form on the OnDemand site,
+but you can also switch folders within VS Code  
+(&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`)
 
 :::{.callout-tip}
 ## Taking off where you were
@@ -211,15 +181,7 @@ VS Code will to some extent resume where you were before!
 It will reopen the text files that you had open and if you had an active terminal,
 it will also open a terminal.
 This is very convenient, especially when you start working on multiple projects
-(different folders) in `VS Code` and switch between those.
-
-:::
-
-:::{.callout-note}
-## Switching folders
-
-To switch to a different folder from within `VS Code`, click 
-&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`.
+(different folders) in VS Code and switch between those.
 
 :::
 
@@ -229,7 +191,7 @@ To switch to a different folder from within `VS Code`, click
 
 Working with keyboard shortcuts (also called "keybindings")
 for common operations can be a lot faster than using your mouse.
-Below are some useful ones for `VS Code`
+Below are some useful ones for VS Code
 (for Mac, replace <kbd>Ctrl</kbd> by <kbd>⌘</kbd>).
 
 :::{.callout-note}
@@ -245,13 +207,13 @@ For a single-page PDF overview of keyboard shortcuts for your operating system:
 
 :::
 
-- *Toggle the wide side bar*: <kbd>Ctrl</kbd>+<kbd>B</kbd> 
-
 - *Open a terminal*: <kbd>Ctrl</kbd>+<kbd>\`</kbd> or
   <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>.
 
 - *Toggle between the terminal and the editor pane*:
   <kbd>Ctrl</kbd>+<kbd>`</kbd> and <kbd>Ctrl</kbd>+<kbd>1</kbd>.
+
+- *Toggle the primary (wide) side bar*: <kbd>Ctrl</kbd>+<kbd>B</kbd> 
 
 - *Line actions*:
   
@@ -275,11 +237,11 @@ For a single-page PDF overview of keyboard shortcuts for your operating system:
 :::{.callout-warning}
 ## Browser interference
 
-Unfortunately, some `VS Code` _and_ terminal keyboard shortcuts don't work
-in this setting where we are using `VS Code` _inside_ a browser,
+Unfortunately, some VS Code _and_ terminal keyboard shortcuts don't work
+in this setting where we are using VS Code _inside_ a browser,
 because existing browser keyboard shortcuts take precedence.
 
-If you end up using `VS Code` a lot in your work,
+If you end up using VS Code a lot in your work,
 it is therefore worth switching to your own installation of the program
 (see [At-home bonus: local installation](#at-home-bonus-local-installation))
 
@@ -289,7 +251,7 @@ it is therefore worth switching to your own installation of the program
 
 ## At-home bonus: local installation
 
-Another nice feature of `VS Code` is that it is freely available for all operating
+Another nice feature of VS Code is that it is freely available for all operating
 systems (and even though it is made by Microsoft, it is also open source).
 
 Therefore, if you like the program, you can also install it on your own computer
@@ -300,9 +262,16 @@ because it is available in the Self Service software installer).
 Even better, the program can be "tunneled into" OSC,
 so that your working directory for the entire program can be at OSC
 rather than on your local computer.
-This gives the same experience as using `VS Code` through OSC OnDemand,
+This gives the same experience as using VS Code through OSC OnDemand,
 except that you're not working witin a browser window,
 which has some advantages
 (also: no need to fill out a form, or to break out of the Singularity shell).
 
-For installation and SSH-tunneling setup, see [this page - TBA]().
+To install VS Code on your own machine, follow these instructions:
+[Windows](https://code.visualstudio.com/docs/setup/windows) / 
+[Mac](https://code.visualstudio.com/docs/setup/mac) / 
+[Linux](https://code.visualstudio.com/docs/setup/linux).
+
+To SSH-tunnel VS Code into OSC, see
+[these instructions](https://mcic-osu.github.io/pracs-sp21/w06_UA_ssh.html#set-up-your-local-vs-code-to-ssh-tunnel-into-osc)
+(they are a bit rudimentary, ask Jelmer if you get stuck).

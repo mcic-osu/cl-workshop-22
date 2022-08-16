@@ -1,7 +1,10 @@
 ---
 title: "Variables and Loops"
-highlight-style: oblivion
+highlight-style: pygments
 number-sections: true
+knitr:
+  opts_knit:
+    root.dir: "sandbox"
 ---
 
 ```{r knitr_options, echo=FALSE}
@@ -12,18 +15,16 @@ knitr::opts_chunk$set(eval = FALSE,
 -----
 
 :::{.callout-warning}
-
 PAGE STILL UNDER CONSTRUCTION
-
 :::
 
-In this module, we will cover a couple of topics that are good to know about
+In this module, we will cover two topics that are good to know about
 before you start writing and running shell scripts:
 
 - Using **variables** will allow you to run scripts flexibly,
   with different input files and settings 
 
-- **`for` loops** will allow you to repeat operations --
+- **`for` loops** will allow you to repeat operations &mdash;
   specifically, we will later use them to submit many scripts at the same time,
   one per input file or sample.
 
@@ -40,11 +41,11 @@ before you start writing and running shell scripts:
    - Enter `3` in the box `Number of hours`
    - Enter `/fs/ess/scratch/PAS2250` in the box `Working Directory`
    - Click `Launch`.
-4. On the next page, once the top bar of the box has turned green and says `Runnning`,
+4. On the next page,
+   once the top bar of the box is green and says `Runnning`,
    click `Connect to VS Code`.
-5. Open a terminal by clicking the "hamburger menu" way in the top left,
-   and then `Terminal` > `New Terminal`.
-6. In the terminal, type `Bash` and press <kbd>Enter</kbd>.
+5. Open a terminal: {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
+6. In the terminal, type `bash` and press <kbd>Enter</kbd>.
 
 :::
 
@@ -110,11 +111,11 @@ Conveniently, we can directly use variables in lots of contexts,
 ```{bash, eval=TRUE}
 ls_options="-lh"
 
-ls $ls_options
+ls $ls_options data/meta
 ```
 
 ```{bash, eval=TRUE}
-input_file=04-shell.qmd
+input_file=data/fastq/SRR7609467.fastq.gz
 
 ls -lh $input_file 
 ```
@@ -146,7 +147,7 @@ ls README_*
 
 ```{bash, eval=TRUE}
 # Define a filename that we'll use in the next few commands:
-input_file=shell-scripting.qmd
+input_file=data/meta/meta.tsv
 
 # `wc -l` will count the number of lines
 # Using `<` (input redirection) is a trick to avoid the filename from being printed 
@@ -177,7 +178,7 @@ echo $HOME
 ```
 
 Environment variables can provide useful information.
-We'll see them again when we talk about the `SLURM` compute job scheduler.
+We'll see them again when we talk about the Slurm compute job scheduler.
 
 ### Quoting variables
 
