@@ -1,6 +1,6 @@
 ---
 title: "Compute Jobs with Slurm"
-subtitle: "With a focus on submitting shell scripts"
+subtitle: 'With a focus on submitting shell scripts as "batch jobs"'
 highlight-style: oblivion
 number-sections: true
 knitr:

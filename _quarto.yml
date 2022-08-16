@@ -20,27 +20,27 @@ website:
     left:
       - text: "Day 1"
         menu:
-          - href: sessions/01-intro.qmd
+          - href: modules/01-intro.qmd
             text: 1. Workshop Intro
-          - href: sessions/02-osc.qmd
+          - href: modules/02-osc.qmd
             text: 2. OSC Intro
-          - href: sessions/03-vscode.qmd
+          - href: modules/03-vscode.qmd
             text: 3. VS Code
-          - href: sessions/04-shell.qmd
+          - href: modules/04-shell.qmd
             text: 4. The Unix Shell
       - text: "Day 2"
         menu:
-          - href: sessions/05-vars-loops.qmd
+          - href: modules/05-vars-loops.qmd
             text: 5. Variables and Loops
-          - href: sessions/06-scripts.qmd
+          - href: modules/06-scripts.qmd
             text: 6. Shell Scripting
-          - href: sessions/07-software.qmd
+          - href: modules/07-software.qmd
             text: 7. Software at OSC
       - text: "Day 3"
         menu:
-          - href: sessions/08-slurm.qmd
+          - href: modules/08-slurm.qmd
             text: 8. Compute Jobs with Slurm
-          - href: sessions/09-examples.qmd
+          - href: modules/09-examples.qmd
             text: 9. Example Compute Jobs
   page-footer:
     left: "2022, Jelmer Poelstra"
