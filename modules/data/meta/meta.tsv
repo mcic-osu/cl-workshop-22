@@ -1,0 +1,13 @@
+accession	location	treatment	replicate	nreads_raw	pct_mapped
+SRR7609473	beach	control	1	45285752	76.01
+SRR7609468	beach	control	2	42584931	78.57
+SRR7609471	beach	control	3	40982374	78.70
+SRR7609472	beach	treatment	1	42013548	77.91
+SRR7609477	beach	treatment	2	41437192	75.89
+SRR7609478	beach	treatment	3	45943168	77.27
+SRR7609475	inland	control	1	47420589	77.42
+SRR7609476	inland	control	2	45852012	78.39
+SRR7609469	inland	control	3	53127911	78.81
+SRR7609470	inland	treatment	1	54434413	79.36
+SRR7609467	inland	treatment	2	47303936	79.25
+SRR7609474	inland	treatment	3	55728624	78.80

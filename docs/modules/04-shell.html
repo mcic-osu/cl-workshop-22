@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Command line workshop ’22 - Command line basics  for genomic analysis at OSC</title>
+<title>Command line workshop ’22 - The Unix Shell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,24 +18,24 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -57,7 +57,7 @@ ul.task-list{list-style: none;}
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -66,7 +66,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="./index.html">
+      <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Command line workshop ’22</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -78,19 +78,19 @@ ul.task-list{list-style: none;}
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 1</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-1">    
         <li>
-    <a class="dropdown-item" href="./modules/01-intro.html">
+    <a class="dropdown-item" href="../modules/01-intro.html">
  <span class="dropdown-text">1. Workshop Intro</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/02-osc.html">
+    <a class="dropdown-item" href="../modules/02-osc.html">
  <span class="dropdown-text">2. OSC Intro</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/03-vscode.html">
+    <a class="dropdown-item" href="../modules/03-vscode.html">
  <span class="dropdown-text">3. VS Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/04-shell.html">
+    <a class="dropdown-item" href="../modules/04-shell.html">
  <span class="dropdown-text">4. The Unix Shell</span></a>
   </li>  
     </ul>
@@ -99,15 +99,15 @@ ul.task-list{list-style: none;}
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 2</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-2">    
         <li>
-    <a class="dropdown-item" href="./modules/05-vars-loops.html">
+    <a class="dropdown-item" href="../modules/05-vars-loops.html">
  <span class="dropdown-text">5. Variables and Loops</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/06-scripts.html">
+    <a class="dropdown-item" href="../modules/06-scripts.html">
  <span class="dropdown-text">6. Shell Scripting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/07-software.html">
+    <a class="dropdown-item" href="../modules/07-software.html">
  <span class="dropdown-text">7. Software at OSC</span></a>
   </li>  
     </ul>
@@ -116,11 +116,11 @@ ul.task-list{list-style: none;}
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 3</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-3">    
         <li>
-    <a class="dropdown-item" href="./modules/08-slurm.html">
+    <a class="dropdown-item" href="../modules/08-slurm.html">
  <span class="dropdown-text">8. Compute Jobs with Slurm</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/09-examples.html">
+    <a class="dropdown-item" href="../modules/09-examples.html">
  <span class="dropdown-text">9. Example Compute Jobs</span></a>
   </li>  
     </ul>
@@ -131,15 +131,15 @@ ul.task-list{list-style: none;}
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-additional-info" role="button" data-bs-toggle="dropdown" aria-expanded="false">Additional info</a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-additional-info">    
         <li>
-    <a class="dropdown-item" href="./info/info.html">
+    <a class="dropdown-item" href="../info/info.html">
  <span class="dropdown-text">Practical Workshop Info</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./info/about.html">
+    <a class="dropdown-item" href="../info/about.html">
  <span class="dropdown-text">General Workshop Info / Signing Up</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./info/glossary.html">
+    <a class="dropdown-item" href="../info/glossary.html">
  <span class="dropdown-text">Glossary</span></a>
   </li>  
     </ul>
@@ -162,7 +162,7 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#approximate-schedule" id="toc-approximate-schedule" class="nav-link active" data-scroll-target="#approximate-schedule">Approximate Schedule</a></li>
+  <li><a href="#tba" id="toc-tba" class="nav-link active" data-scroll-target="#tba"> <span class="header-section-number">1</span> TBA</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -171,8 +171,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Command line basics <br> for genomic analysis at OSC</h1>
-<p class="subtitle lead">A workshop by the MCIC &amp; CAPS on August 17 - 19, 2022.</p>
+<h1 class="title">The Unix Shell</h1>
 </div>
 
 
@@ -186,76 +185,12 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p><br></p>
-<section id="approximate-schedule" class="level3">
-<h3 class="anchored" data-anchor-id="approximate-schedule">Approximate Schedule</h3>
-<p>Start and end times for every day will be respected, but individual modules may take shorter or longer than indicated below. The instructors will be available for additional questions from about 15 minutes before we start and for about 30 minutes after we end.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Day</th>
-<th>Module</th>
-<th>Instructor</th>
-<th>Time</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Day 1</strong></td>
-<td>1. <a href="./modules/01-intro.html">Introduction to the Workshop</a></td>
-<td>Mike / Jelmer</td>
-<td>Wed 1:00 - 1:15 pm</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>2. <a href="./modules/02-osc.html">The Ohio Supercomputer Center (OSC)</a></td>
-<td>Mike</td>
-<td>Wed 1:15 - 1:45 pm</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>3. <a href="./modules/03-vscode.html">The VS Code Text Editor</a></td>
-<td>Jelmer</td>
-<td>Wed 1:45 - 2:00 pm</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>4. <a href="./modules/04-shell.html">The Unix Shell</a></td>
-<td>Mike</td>
-<td>Wed 2:15 - 4:30 pm</td>
-</tr>
-<tr class="odd">
-<td><strong>Day 2</strong></td>
-<td>5. <a href="./modules/05-vars-loops.html">Variables and Loops</a></td>
-<td>Jelmer</td>
-<td>Thu 12:00 - 12:45 pm</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>6. <a href="./modules/06-scripts.html">Shell Scripting</a></td>
-<td>Jelmer</td>
-<td>Thu 12:45 - 1:30 pm</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>7. <a href="./modules/07-software.html">Using Software at OSC</a></td>
-<td>Jelmer</td>
-<td>Thu 1:45 - 2:30 pm</td>
-</tr>
-<tr class="even">
-<td><strong>Day 3</strong></td>
-<td>8. <a href="./modules/08-slurm.html">Compute Jobs with Slurm</a></td>
-<td>Jelmer</td>
-<td>Fri 1:00 - 2:30 pm</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>9. <a href="./modules/09-examples.html">Running Example Compute Jobs</a></td>
-<td>Mike / Jelmer</td>
-<td>Fri 2:45 - 4:30 pm</td>
-</tr>
-</tbody>
-</table>
+<div class="cell">
+
+</div>
+<hr>
+<section id="tba" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="tba"><span class="header-section-number">1</span> TBA</h2>
 
 
 </section>
