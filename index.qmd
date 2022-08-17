@@ -9,14 +9,14 @@ toc: false
 
 ### Approximate Schedule
 
-Start and end times for every day will be respected, but individual modules may take shorter or longer than indicated below. The instructors will be available for additional questions from about 15 minutes before we start and for about 30 minutes after we end.
+Start and end times for every day will be respected, but individual modules may take shorter or longer than indicated below. The instructors will be available for additional questions from about 15 minutes before we start and for about 30 minutes after we end each day.
 
 | Day       | Module                                                        | Instructor    | Time                 |
-|----------------|------------------------|----------------|----------------|
+|-----------------|---------------------|-----------------|-----------------|
 | **Day 1** | 1\. [Introduction to the Workshop](modules/01-intro.qmd)      | Mike / Jelmer | Wed 1:00 - 1:15 pm   |
-|           | 2\. [The Ohio Supercomputer Center (OSC)](modules/02-osc.qmd) | Mike          | Wed 1:15 - 1:45 pm   |
-|           | 3\. [The VS Code Text Editor](modules/03-vscode.qmd)          | Jelmer        | Wed 1:45 - 2:00 pm   |
-|           | 4\. [The Unix Shell (& FASTQ files)](modules/04-shell.qmd)    | Mike          | Wed 2:15 - 4:30 pm   |
+|           | 2\. [The Ohio Supercomputer Center (OSC)](modules/02-osc.qmd) | Mike          | Wed 1:15 - 2:00 pm   |
+|           | 3\. [The VS Code Text Editor](modules/03-vscode.qmd)          | Jelmer        | Wed 2:00 - 2:15 pm   |
+|           | 4\. [The Unix Shell (& FASTQ files)](modules/04-shell.qmd)    | Mike          | Wed 2:30 - 4:30 pm   |
 | **Day 2** | 5\. [Variables and Loops](modules/05-vars-loops.qmd)          | Jelmer        | Thu 12:00 - 12:45 pm |
 |           | 6\. [Shell Scripting](modules/06-scripts.qmd)                 | Jelmer        | Thu 12:45 - 1:30 pm  |
 |           | 7\. [Using Software at OSC](modules/07-software.qmd)          | Jelmer        | Thu 1:45 - 2:30 pm   |

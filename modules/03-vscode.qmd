@@ -91,7 +91,7 @@ The **Activity Bar** (narrow side bar) on the far left has:
 
 ### Editor pane and `Welcome` document
 
-The main part of the VS Code is the editor pane.
+The main part of the VS Code is the _editor pane_.
 Whenever you open VS Code,
 a tab with a `Welcome` document is automatically opened.
 This provides some help for beginners, but also, for example,
@@ -99,7 +99,8 @@ a handy overview of recently opened folders.
 
 We can also use the `Welcome` document to open a new text file by clicking
 `New file` below `Start` (alternatively, click
-&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `New File`).
+&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `New File`),
+which open as a second "tab" in the editor pane.
 We'll work with our own text files (scripts) starting tomorrow.
 
 :::{.callout-tip}
@@ -183,7 +184,7 @@ You may also opt to hide the side bars using the
 
 ### Resizing panes
 
-You can resize panes (the terminal, editor, and wide sidebar) by hovering
+You can resize panes (the terminal, editor, and side bar) by hovering
 your cursor over the borders and then dragging it. 
   
 ### The Command Palette / Color themes
@@ -205,15 +206,13 @@ and you'll see the relevant option pop up.
 
 Then, try out a few themes and see what you like!
 
-(Besides via the Command Palette,
-you can also access the Color Themes option via
-click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then `Color Theme`.)
+(You can also access the Color Themes option via
+&nbsp; <i class="fa fa-cog"></i> &nbsp; => `Color Theme`.)
 
-<details><summary>
-"Solution" (click here)
-</summary>
+:::{.callout-tip collapse="true"}
+## "Solution" (click here)
 "*Quiet Light*" is the best one {{< iconify twemoji winking-face >}}
-</details>
+:::
 
 :::
 

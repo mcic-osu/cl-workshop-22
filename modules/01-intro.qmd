@@ -20,7 +20,7 @@ knitr::opts_chunk$set(eval = TRUE, echo = FALSE,
 
 ## What you will learn
 
-The focus of the workshop is on building some **general (foundational) skills**
+The focus of this workshop is building some **general (foundational) skills**
 for analyzing genomics data &mdash;
 specifically, for doing so with command-line programs at the Ohio Supercomputer
 Center (OSC).
@@ -41,8 +41,8 @@ And being able to:
 
 2. Use the **Unix shell** (work in a terminal)
 3. Write small **shell scripts** that **run command-line programs**
-4. **Submit these scripts** to a supercomputer's "queue" and monitor
-   and manage the resulting "batch jobs"
+4. **Submit scripts** to a supercomputer's "queue" &mdash;
+   and monitor & manage the resulting batch jobs
 5. Activate and probably install **software** in a Linux environment where you
    don't have admin rights
   
@@ -61,7 +61,7 @@ if anything, about:
 
 <br>
 
-## Mechanics of a hybrid workshop
+## Practicalities
 
 We have a slightly complicated set up with participants in-person in Wooster
 ~~with an instructor~~ (Jelmer now via Zoom),
@@ -69,16 +69,30 @@ in-person in Columbus with an instructor,
 and directly via Zoom.
 Some notes:
 
-- **This website has all the material** that we will go through during each
-  of the modules!
-  See the links in the schedule as well as in the top bar menus to access it.
+- The workshop consists of a series of **9 modules**:
+  see the [schedule](../index.qmd).
+  We intend to respect the start and end times for every day,
+  but individual modules may take shorter or longer than indicated below.
+  
+- We have one 10-15 minute break between two modules every day,
+  and another impromptu bathroom break in a longer module.
+  
+- The instructors will be available for **additional questions**
+  from about 15 minutes before we start,
+  and for about 30 minutes after we end each day.
+
+- **This website has all the material** that we will go through,
+  with one page for each of module.
+  See the links in the [schedule](../index.qmd) as well as in the top bar menus
+  to access it.
 
 - In-person participants don't need to connect to the Zoom call,
   since Zoom will be broadcast on the large screen
   (but you _can_ of course connect
   if you can better see the instructor's screen that way).
 
-- Because we're not all on Zoom, we'll use
+- Because we're not all on Zoom,
+  we'll try to avoid the Zoom chat and instead use
   **[this Google Doc](https://docs.google.com/document/d/1M_BSRtnG3QYjntpgxbMENr_ZJGrA35B1e7E0Dn0hK5Q/edit?usp=sharing)**
   to share links, inpromptu code that is not on the website,
   and non-urgent questions.
@@ -87,10 +101,10 @@ Some notes:
   please feel free to interrupt and speak up,
   both in-person and on Zoom.
   Because we will mute the in-person rooms on the Zoom call by default,
-  signal to Mike (Columbus) or Menuka (Wooster) tat you have a question,
-  who will unmute.
+  signal to Mike (Columbus) or Menuka (Wooster) when you have a question,
+  who will then unmute the room.
   
-  Only if your question is not urgent and you don't want to interrupt the flow,
+  If your question is not urgent and you don't want to interrupt the flow,
   put it in the Google Doc or ask about it during a break.
 
 <br>
@@ -176,5 +190,5 @@ for a certain question.
 
 ### Participants
 
-Please very briefly introduce yourself -- 
+Please very briefly introduce yourself &mdash;
 include your position, department, and why you wanted to go to this workshop.

@@ -1,7 +1,7 @@
 ---
 title: "Batch Jobs in Practice"
 subtitle: "Practical examples of writing shell scripts and running them as batch jobs at OSC"
-pagetitle: "Example Batch Jobs"
+pagetitle: "Batch Jobs in Practice"
 highlight-style: github
 number-sections: true
 author:
