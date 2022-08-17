@@ -47,8 +47,7 @@ but for the sake of completeness, instructions to do so are also shown below.
 2. In the blue top bar, select `Interactive Apps`
    and then near the bottom of the dropdown menu, click `Code Server`.
 3. In the form that appears on a new page:
-   - Enter `3` in the box `Number of hours`
-   - Enter `/fs/ess/scratch/PAS2250` in the box `Working Directory`
+   - Make sure that `Number of hours` is at least `4`
    - Click `Launch`.
 4. On the next page, once the top bar of the box has turned green
    and says `Runnning`, click `Connect to VS Code`.
@@ -58,15 +57,14 @@ but for the sake of completeness, instructions to do so are also shown below.
    <img src=img/osc-code-launch_ed.png width="80%">
    </p>
    </figure>
-
 :::
 
 <br>
 
 ## Getting started with VS Code
 
-<p align="center">
-<img src=img/vscode-welcome_ed.png width="100%">
+<p align="left">
+<img src=img/vscode-welcome_ed.png width="80%">
 </p>
    
 ### Side bars
@@ -81,7 +79,7 @@ The **Activity Bar** (narrow side bar) on the far left has:
   through which you can mainly access _settings_.
   
 - A bunch of icons in the middle that serve to switch between
-  different options for the **Primary (wide) Side Bar**,
+  different options for the **(wide) Side Bar**,
   which can show one of the following:
 
   - **_Explorer_**: File browser (and, e.g., an outline for the active file)
@@ -102,8 +100,7 @@ a handy overview of recently opened folders.
 We can also use the `Welcome` document to open a new text file by clicking
 `New file` below `Start` (alternatively, click
 &nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `New File`).
-We'll work with files starting tomorrow, but if you want,
-you could already start a file with notes on the workshop.
+We'll work with our own text files (scripts) starting tomorrow.
 
 :::{.callout-tip}
 ## Re-open the `Welcome` document
@@ -115,14 +112,16 @@ If you've closed the `Welcome` document but want it back, click
 
 ### Terminal (with a Unix shell)
 
-By default, no terminal is open in VS Code --
-to do so, click the
+{{< fa user-edit >}} By default, no terminal is open in VS Code --
+open one by clicking
 &nbsp; {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
 
 In the terminal, the prompt says `Singularity>`.
 This is because in OSC OnDemand, VS Code runs inside a Singularity container
 (for our purposes, it is not important what that means, exactly).
-To break out of the Singularity shell and get a regular Bash Unix shell,
+
+{{< fa user-edit >}} Break out of the Singularity shell to get a regular
+Bash Unix shell:
 **type `bash` and press <kbd>Enter</kbd>**.
 
 In the next module, Mike will teach us how to use the Unix shell.
@@ -135,18 +134,23 @@ In the next module, Mike will teach us how to use the Unix shell.
 
 ## A folder as a starting point  
 
-VS Code takes a specific folder (directory) as a 
+Conveniently, VS Code takes a specific folder (directory) as a 
 **starting point in all parts of the program**:
 
 - In the file explorer in the side bar
 - In the terminal
 - When saving files in the editor pane.
 
-In this workshop, we'll work exclusively within the folder
-`/fs/ess/scratch/PAS2250`.
-We selected this folder already in the form on the OnDemand site,
-but you can also switch folders within VS Code  
-(&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`)
+By default, VS Code via OnDemand will **open your Home directory**.
+But in this workshop,
+we'll work within the scratch directory for the `PAS2250` project,
+to which you have all been added, which is `/fs/ess/scratch/PAS2250`.
+
+{{< fa user-edit >}} Let's open that folder.
+Click `Open folder...` in the `Welcome` tab
+(or &nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`).
+
+You'll notice that the program completely reloads. 
 
 :::{.callout-tip}
 ## Taking off where you were
@@ -172,35 +176,38 @@ we are unfortunately losing some screen space.
 Make sure to maximize the browser window and if you have a bookmarks bar,
 try to hide it
 (for Chrome: <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>).
+
 You may also opt to hide the side bars using the 
 {{< fa bars >}} &nbsp; => &nbsp; `View` &nbsp; => &nbsp; `Appearance` menu
-(or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>B</kbd> for the Primary Side Bar).
+(or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>B</kbd> for the (wide) Side Bar).
 
 ### Resizing panes
 
 You can resize panes (the terminal, editor, and wide sidebar) by hovering
 your cursor over the borders and then dragging it. 
   
-### The Command Palette
+### The Command Palette / Color themes
 
 To access all the menu options that are available in VS Code,
 the so-called "Command Palette" can be handy,
 especially if you know what you are looking for.
 
 To access the Command Palette, click
-&nbsp; <i class="fa fa-cog"></i> &nbsp; and then `Command Palette` or press
-<kbd>F1</kbd> (or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).
-
-For a quick test, open the Command Palette and start typing "color theme",
-and you'll see the relevant options pop up.
-
-### Color themes
-
-To try out different color themes for the entire program,
-click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then `Color Theme`.
+&nbsp; <i class="fa fa-cog"></i> &nbsp; and then `Command Palette`
+(or press <kbd>F1</kbd> or
+<kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).
 
 :::{.exercise}
 #### On Your Own: Try a few color themes {-}
+
+Open the Command Palette and start typing "color theme",
+and you'll see the relevant option pop up.
+
+Then, try out a few themes and see what you like!
+
+(Besides via the Command Palette,
+you can also access the Color Themes option via
+click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then `Color Theme`.)
 
 <details><summary>
 "Solution" (click here)
@@ -243,7 +250,7 @@ For a single-page PDF overview of keyboard shortcuts for your operating system:
 - *Toggle between the terminal and the editor pane*:
   <kbd>Ctrl</kbd>+<kbd>`</kbd> and <kbd>Ctrl</kbd>+<kbd>1</kbd>.
 
-- *Toggle the primary (wide) side bar*: <kbd>Ctrl</kbd>+<kbd>B</kbd> 
+- *Toggle the (wide) Side Bar*: <kbd>Ctrl</kbd>+<kbd>B</kbd> 
 
 - *Line actions*:
   
