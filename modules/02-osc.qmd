@@ -1,6 +1,7 @@
 ---
 title: "Intro to the Ohio Supercomputer Center (OSC)"
-highlight-style: oblivion
+pagetitle: "OSC Intro"
+highlight-style: github
 number-sections: true
 ---
 

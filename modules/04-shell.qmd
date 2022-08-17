@@ -1,7 +1,8 @@
 ---
 title: "The Unix Shell"
 subtitle: "And an introduction to our dataset with FASTQ and FASTA files"
-highlight-style: pygments
+pagetitle: "Unix Shell"
+highlight-style: github
 number-sections: true
 ---
 

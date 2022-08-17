@@ -1,7 +1,8 @@
 ---
 title: "Compute Jobs with Slurm"
 subtitle: 'With a focus on submitting shell scripts as "batch jobs"'
-highlight-style: pygments
+pagetitle: "Slurm"
+highlight-style: github
 number-sections: true
 knitr:
   opts_knit:

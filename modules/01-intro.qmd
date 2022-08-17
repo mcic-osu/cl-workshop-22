@@ -1,6 +1,7 @@
 ---
 title: "Introduction to the Workshop"
-highlight-style: oblivion
+pagetitle: "Workshop Intro"
+highlight-style: github
 ---
 
 ```{r knitr_options, echo=FALSE}
@@ -45,7 +46,7 @@ We will teach the basics of these skills during this workshop!
 It may be useful to point out that we will **not** teach you much,
 if anything, about:
 
-- Details of genomic data file types
+- Details of genomic data file types &mdash; except, briefly, FASTQ
 - Details of specific (genomic) analyses
 - Making biological inferences from your data
 :::
@@ -107,7 +108,7 @@ p_unix <- signup %>%
   ggplot(aes(y = experience_unix, fill = experience_unix)) +
   geom_bar(color = "grey20") +
   scale_fill_brewer(palette = "Greens", direction = -1) +
-  guides(fill = FALSE) +
+  guides(fill = "none") +
   labs(x = NULL, y = NULL, title = "The Unix shell") +
   theme(panel.grid.major.y = element_blank())
 
@@ -117,7 +118,7 @@ p_osc <- signup %>%
   ggplot(aes(y = experience_OSC, fill = experience_OSC)) +
   geom_bar(color = "grey20") +
   scale_fill_brewer(palette = "Greens", direction = -1) +
-  guides(fill = FALSE) +
+  guides(fill = "none") +
   labs(x = NULL, y = NULL, title = "OSC") +
   theme(panel.grid.major.y = element_blank(),
         axis.text.y = element_blank())
@@ -128,7 +129,7 @@ p_coding <- signup %>%
   ggplot(aes(y = experience_coding, fill = experience_coding)) +
   geom_bar(color = "grey20") +
   scale_fill_brewer(palette = "Greens", direction = -1) +
-  guides(fill = FALSE) +
+  guides(fill = "none") +
   labs(y = NULL, title = "Coding") +
   theme(panel.grid.major.y = element_blank())
 
@@ -138,7 +139,7 @@ p_genomics <- signup %>%
   ggplot(aes(y = experience_genomics, fill = experience_genomics)) +
   geom_bar(color = "grey20") +
   scale_fill_brewer(palette = "Greens", direction = -1) +
-  guides(fill = FALSE) +
+  guides(fill = "none") +
   labs(y = NULL, title = "Genomics") +
   theme(panel.grid.major.y = element_blank(),
         axis.text.y = element_blank())

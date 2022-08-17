@@ -1,6 +1,7 @@
 ---
 title: "Variables and Loops"
-highlight-style: pygments
+pagetitle: "Variables and Loops"
+highlight-style: github
 number-sections: true
 knitr:
   opts_knit:
@@ -15,6 +16,7 @@ knitr::opts_chunk$set(eval = FALSE,
 -----
 
 :::{.callout-warning}
+## Under Construction
 PAGE STILL UNDER CONSTRUCTION
 :::
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Command line workshop ’22 - Shell Scripting</title>
+<title>Shell Scripting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -797,14 +797,14 @@ Full solution
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> headtail.sh printname.sh tmp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Starting script headtail.sh
-Tue Aug 16 11:41:07 PM CEST 2022
+Wed Aug 17 11:47:01 AM CEST 2022
 Input file:   printname.sh
 Output file:  tmp.txt
 
 Listing the output file:
--rw-rw-r-- 1 jelmer jelmer 77 Aug 16 23:41 tmp.txt
+-rw-rw-r-- 1 jelmer jelmer 77 Aug 17 11:47 tmp.txt
 Done with script headtail.sh
-Tue Aug 16 11:41:07 PM CEST 2022</code></pre>
+Wed Aug 17 11:47:01 AM CEST 2022</code></pre>
 </div>
 </div>
 <p>The script printed some details for the output file, but not its contents (that would have worked here, but is usually not sensible when working with genomics data). Let’s take a look, though, to make sure the script worked:</p>

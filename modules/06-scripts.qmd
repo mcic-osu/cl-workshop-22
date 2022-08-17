@@ -1,6 +1,7 @@
 ---
 title: "Shell Scripting"
-highlight-style: pygments
+pagetitle: "Shell Scripting"
+highlight-style: github
 number-sections: true
 knitr:
   opts_knit:

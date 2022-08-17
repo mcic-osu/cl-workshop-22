@@ -1,6 +1,7 @@
 ---
 title: "The VS Code Text Editor"
-highlight-style: oblivion
+pagetitle: "VS Code"
+highlight-style: github
 number-sections: true
 ---
 

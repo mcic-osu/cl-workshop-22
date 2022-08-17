@@ -1,7 +1,8 @@
 ---
 title: "Example Compute Jobs"
 subtitle: "Practical example of writing shell scripts and running them as compute jobs"
-highlight-style: pygments
+pagetitle: "Example Compute Jobs"
+highlight-style: github
 number-sections: true
 ---
 

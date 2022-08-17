@@ -1,6 +1,7 @@
 ---
 title: "Using Software at OSC"
-highlight-style: pygments
+pagetitle: "Software at OSC"
+highlight-style: github
 number-sections: true
 ---
 
