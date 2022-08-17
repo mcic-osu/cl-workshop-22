@@ -1,5 +1,5 @@
-#!/bin/bash
-set -ueo pipefail
+accession	location	treatment	replicate	nreads_raw	pct_mapped
+SRR7609473	beach	control	1	45285752	76.01
 ---
-echo "First name: $1"
-echo "Last name: $2"
+SRR7609467	inland	treatment	2	47303936	79.25
+SRR7609474	inland	treatment	3	55728624	78.80

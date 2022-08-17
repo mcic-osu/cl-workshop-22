@@ -178,8 +178,7 @@ ul.task-list{list-style: none;}
   <ul class="collapse">
   <li><a href="#making-use-of-your-screens-real-estate" id="toc-making-use-of-your-screens-real-estate" class="nav-link" data-scroll-target="#making-use-of-your-screens-real-estate"> <span class="header-section-number">4.1</span> Making use of your screen’s real estate</a></li>
   <li><a href="#resizing-panes" id="toc-resizing-panes" class="nav-link" data-scroll-target="#resizing-panes"> <span class="header-section-number">4.2</span> Resizing panes</a></li>
-  <li><a href="#the-command-palette" id="toc-the-command-palette" class="nav-link" data-scroll-target="#the-command-palette"> <span class="header-section-number">4.3</span> The Command Palette</a></li>
-  <li><a href="#color-themes" id="toc-color-themes" class="nav-link" data-scroll-target="#color-themes"> <span class="header-section-number">4.4</span> Color themes</a></li>
+  <li><a href="#the-command-palette-color-themes" id="toc-the-command-palette-color-themes" class="nav-link" data-scroll-target="#the-command-palette-color-themes"> <span class="header-section-number">4.3</span> The Command Palette / Color themes</a></li>
   </ul></li>
   <li><a href="#addendum-keyboard-shortcuts" id="toc-addendum-keyboard-shortcuts" class="nav-link" data-scroll-target="#addendum-keyboard-shortcuts">Addendum: keyboard shortcuts</a></li>
   <li><a href="#at-home-bonus-local-installation" id="toc-at-home-bonus-local-installation" class="nav-link" data-scroll-target="#at-home-bonus-local-installation">At-home bonus: local installation</a></li>
@@ -240,8 +239,7 @@ Starting VS Code at OSC
 <li><p>In the blue top bar, select <code>Interactive Apps</code> and then near the bottom of the dropdown menu, click <code>Code Server</code>.</p></li>
 <li><p>In the form that appears on a new page:</p>
 <ul>
-<li>Enter <code>3</code> in the box <code>Number of hours</code></li>
-<li>Enter <code>/fs/ess/scratch/PAS2250</code> in the box <code>Working Directory</code></li>
+<li>Make sure that <code>Number of hours</code> is at least <code>4</code></li>
 <li>Click <code>Launch</code>.</li>
 </ul></li>
 <li><p>On the next page, once the top bar of the box has turned green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</p>
@@ -258,8 +256,8 @@ Starting VS Code at OSC
 </section>
 <section id="getting-started-with-vs-code" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="getting-started-with-vs-code"><span class="header-section-number">2</span> Getting started with VS Code</h2>
-<p align="center">
-<img src="img/vscode-welcome_ed.png" width="100%">
+<p align="left">
+<img src="img/vscode-welcome_ed.png" width="80%">
 </p>
 <section id="side-bars" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="side-bars"><span class="header-section-number">2.1</span> Side bars</h3>
@@ -267,7 +265,7 @@ Starting VS Code at OSC
 <ul>
 <li><p>A &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; (“hamburger menu” icon) in the top, which has most of the standard menu items that you often find in a top bar, like <code>File</code>.</p></li>
 <li><p>A &nbsp; <i class="fa-solid fa-cog" aria-hidden="true"></i> &nbsp; (cog wheel icon) in the bottom, through which you can mainly access <em>settings</em>.</p></li>
-<li><p>A bunch of icons in the middle that serve to switch between different options for the <strong>Primary (wide) Side Bar</strong>, which can show one of the following:</p>
+<li><p>A bunch of icons in the middle that serve to switch between different options for the <strong>(wide) Side Bar</strong>, which can show one of the following:</p>
 <ul>
 <li><strong><em>Explorer</em></strong>: File browser (and, e.g., an outline for the active file)</li>
 <li><strong><em>Search</em></strong>: To search recursively across all files in the active folder</li>
@@ -280,7 +278,7 @@ Starting VS Code at OSC
 <section id="editor-pane-and-welcome-document" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="editor-pane-and-welcome-document"><span class="header-section-number">2.2</span> Editor pane and <code>Welcome</code> document</h3>
 <p>The main part of the VS Code is the editor pane. Whenever you open VS Code, a tab with a <code>Welcome</code> document is automatically opened. This provides some help for beginners, but also, for example, a handy overview of recently opened folders.</p>
-<p>We can also use the <code>Welcome</code> document to open a new text file by clicking <code>New file</code> below <code>Start</code> (alternatively, click &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>New File</code>). We’ll work with files starting tomorrow, but if you want, you could already start a file with notes on the workshop.</p>
+<p>We can also use the <code>Welcome</code> document to open a new text file by clicking <code>New file</code> below <code>Start</code> (alternatively, click &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>New File</code>). We’ll work with our own text files (scripts) starting tomorrow.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -297,8 +295,9 @@ Re-open the <code>Welcome</code> document
 </section>
 <section id="terminal-with-a-unix-shell" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="terminal-with-a-unix-shell"><span class="header-section-number">2.3</span> Terminal (with a Unix shell)</h3>
-<p>By default, no terminal is open in VS Code – to do so, click the &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</p>
-<p>In the terminal, the prompt says <code>Singularity&gt;</code>. This is because in OSC OnDemand, VS Code runs inside a Singularity container (for our purposes, it is not important what that means, exactly). To break out of the Singularity shell and get a regular Bash Unix shell, <strong>type <code>bash</code> and press <kbd>Enter</kbd></strong>.</p>
+<p><i class="fa-solid fa-user-edit" aria-hidden="true"></i> By default, no terminal is open in VS Code – open one by clicking &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</p>
+<p>In the terminal, the prompt says <code>Singularity&gt;</code>. This is because in OSC OnDemand, VS Code runs inside a Singularity container (for our purposes, it is not important what that means, exactly).</p>
+<p><i class="fa-solid fa-user-edit" aria-hidden="true"></i> Break out of the Singularity shell to get a regular Bash Unix shell: <strong>type <code>bash</code> and press <kbd>Enter</kbd></strong>.</p>
 <p>In the next module, Mike will teach us how to use the Unix shell.</p>
 <p align="center">
 <img src="img/vscode-terminal-editor_ed.png" width="90%">
@@ -308,14 +307,15 @@ Re-open the <code>Welcome</code> document
 </section>
 <section id="a-folder-as-a-starting-point" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="a-folder-as-a-starting-point"><span class="header-section-number">3</span> A folder as a starting point</h2>
-<p>VS Code takes a specific folder (directory) as a <strong>starting point in all parts of the program</strong>:</p>
+<p>Conveniently, VS Code takes a specific folder (directory) as a <strong>starting point in all parts of the program</strong>:</p>
 <ul>
 <li>In the file explorer in the side bar</li>
 <li>In the terminal</li>
 <li>When saving files in the editor pane.</li>
 </ul>
-<p>In this workshop, we’ll work exclusively within the folder <code>/fs/ess/scratch/PAS2250</code>. We selected this folder already in the form on the OnDemand site, but you can also switch folders within VS Code<br>
-(&nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code>)</p>
+<p>By default, VS Code via OnDemand will <strong>open your Home directory</strong>. But in this workshop, we’ll work within the scratch directory for the <code>PAS2250</code> project, to which you have all been added, which is <code>/fs/ess/scratch/PAS2250</code>.</p>
+<p><i class="fa-solid fa-user-edit" aria-hidden="true"></i> Let’s open that folder. Click <code>Open folder...</code> in the <code>Welcome</code> tab (or &nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code>).</p>
+<p>You’ll notice that the program completely reloads.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -336,23 +336,22 @@ Taking off where you were
 <h2 data-number="4" class="anchored" data-anchor-id="some-vs-code-tips-and-tricks"><span class="header-section-number">4</span> Some VS Code tips and tricks</h2>
 <section id="making-use-of-your-screens-real-estate" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="making-use-of-your-screens-real-estate"><span class="header-section-number">4.1</span> Making use of your screen’s real estate</h3>
-<p>Since we are using VS Code inside a browser window, we are unfortunately losing some screen space. Make sure to maximize the browser window and if you have a bookmarks bar, try to hide it (for Chrome: <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>). You may also opt to hide the side bars using the <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>View</code> &nbsp; =&gt; &nbsp; <code>Appearance</code> menu (or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>B</kbd> for the Primary Side Bar).</p>
+<p>Since we are using VS Code inside a browser window, we are unfortunately losing some screen space. Make sure to maximize the browser window and if you have a bookmarks bar, try to hide it (for Chrome: <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>).</p>
+<p>You may also opt to hide the side bars using the <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>View</code> &nbsp; =&gt; &nbsp; <code>Appearance</code> menu (or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>B</kbd> for the (wide) Side Bar).</p>
 </section>
 <section id="resizing-panes" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="resizing-panes"><span class="header-section-number">4.2</span> Resizing panes</h3>
 <p>You can resize panes (the terminal, editor, and wide sidebar) by hovering your cursor over the borders and then dragging it.</p>
 </section>
-<section id="the-command-palette" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="the-command-palette"><span class="header-section-number">4.3</span> The Command Palette</h3>
+<section id="the-command-palette-color-themes" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="the-command-palette-color-themes"><span class="header-section-number">4.3</span> The Command Palette / Color themes</h3>
 <p>To access all the menu options that are available in VS Code, the so-called “Command Palette” can be handy, especially if you know what you are looking for.</p>
-<p>To access the Command Palette, click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then <code>Command Palette</code> or press <kbd>F1</kbd> (or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).</p>
-<p>For a quick test, open the Command Palette and start typing “color theme”, and you’ll see the relevant options pop up.</p>
-</section>
-<section id="color-themes" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="color-themes"><span class="header-section-number">4.4</span> Color themes</h3>
-<p>To try out different color themes for the entire program, click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then <code>Color Theme</code>.</p>
+<p>To access the Command Palette, click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then <code>Command Palette</code> (or press <kbd>F1</kbd> or <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).</p>
 <section id="on-your-own-try-a-few-color-themes" class="level4 unnumbered exercise">
 <h4 class="unnumbered anchored" data-anchor-id="on-your-own-try-a-few-color-themes">On Your Own: Try a few color themes</h4>
+<p>Open the Command Palette and start typing “color theme”, and you’ll see the relevant option pop up.</p>
+<p>Then, try out a few themes and see what you like!</p>
+<p>(Besides via the Command Palette, you can also access the Color Themes option via click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then <code>Color Theme</code>.)</p>
 <details>
 <summary>
 “Solution” (click here)
@@ -384,7 +383,7 @@ Keyboard shortcut cheatsheet
 <ul>
 <li><p><em>Open a terminal</em>: <kbd>Ctrl</kbd>+<kbd>`</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>.</p></li>
 <li><p><em>Toggle between the terminal and the editor pane</em>: <kbd>Ctrl</kbd>+<kbd>`</kbd> and <kbd>Ctrl</kbd>+<kbd>1</kbd>.</p></li>
-<li><p><em>Toggle the primary (wide) side bar</em>: <kbd>Ctrl</kbd>+<kbd>B</kbd></p></li>
+<li><p><em>Toggle the (wide) Side Bar</em>: <kbd>Ctrl</kbd>+<kbd>B</kbd></p></li>
 <li><p><em>Line actions</em>:</p>
 <ul>
 <li><p><kbd>Ctrl</kbd>+<kbd>X</kbd> / <kbd>C</kbd> will <strong>cut/copy the entire line</strong> where the cursor is, when nothing is selected (!)</p></li>

@@ -16,13 +16,6 @@ knitr::opts_chunk$set(eval = FALSE,
 
 -----
 
-<br>
-
-:::{.callout-warning}
-## Under Construction
-PAGE STILL UNDER CONSTRUCTION
-:::
-
 In this module, we will cover two topics that are good to know about
 before you start writing and running shell scripts:
 
@@ -37,22 +30,26 @@ before you start writing and running shell scripts:
 
 ## Setup
 
-:::{.callout-note collapse="true"}
-## Starting a VS Code session with an active terminal (click here)
+**Starting a VS Code session with an active terminal:**
 
 1. Log in to OSC at <https://ondemand.osc.edu>.
 2. In the blue top bar, select `Interactive Apps` and then `Code Server`.
 3. In the form that appears:
-   - Enter `3` in the box `Number of hours`
-   - Enter `/fs/ess/scratch/PAS2250` in the box `Working Directory`
+   - Enter `4` or more in the box `Number of hours`
+   - **To avoid having to switch folders within VS Code**,
+     enter `/fs/ess/scratch/PAS2250/participants/<your-folder>` in the box `Working Directory`
+     (replace `<your-folder>` by the actual name of your folder).
    - Click `Launch`.
 4. On the next page,
    once the top bar of the box is green and says `Runnning`,
    click `Connect to VS Code`.
 5. Open a terminal: {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
 6. In the terminal, type `bash` and press <kbd>Enter</kbd>.
-
-:::
+7. Type `pwd` to check you are in `/fs/ess/scratch/PAS2250`.
+   If not, click
+   {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`
+   and enter `/fs/ess/scratch/PAS2250/<your-folder>`
+   (replace `<your-folder>` by the actual name of your folder).
 
 <br>
 
@@ -143,10 +140,21 @@ by wrapping the command inside `$()`:
 # (date +%F will return the date in YYYY-MM-DD format)
 today=$(date +%F)
 
+## Let's check:
+echo $today
+```
+
+```{bash, eval=FALSE}
 # Create a file with our $today variable:
 touch README_$today.txt
 
 # Check the name of our newly created file:
+ls README_*
+```
+
+```{bash, eval=TRUE, echo=FALSE}
+today=$(date +%F)
+touch README_$today.txt
 ls README_*
 ```
 
@@ -162,8 +170,8 @@ nlines=$(wc -l < $input_file)
 echo "The file $input_file has $nlines lines"
 ```
 
-Command substitution can for instance be useful when you want your script
-to report some results,
+Among many other uses,
+command substitution is handy when you want your script to report some results,
 or when a next step in the script depends on a previous result.
 
 ### Environment variables
@@ -177,10 +185,14 @@ These so-called "environment variables" are always spelled in all-caps:
 echo $USER
 ```
 
-```{bash, eval=TRUE}
+```{bash, eval=FALSE}
 # Environment variable $HOME contains the path to your home directory
 echo $HOME
 ```
+
+:::{.bash-out}
+/users/PAS0471/jelmer
+:::
 
 Environment variables can provide useful information.
 We'll see them again when we talk about the Slurm compute job scheduler.
@@ -190,17 +202,24 @@ We'll see them again when we talk about the Slurm compute job scheduler.
 Above, we learned that a variable name cannot contain spaces.
 But what happens if our variable's _value_ contains spaces?
 
-First off, when we try to **assign** the variable without quotes,
+First off, when we try to **assign** the variable without using quotes,
 we get an error:
 
-```{bash, eval=FALSE, error=TRUE}
+```{bash, eval=FALSE}
 today=Thu, Aug 18
 ```
 
 :::{.bash-out}
-
 Aug: command not found
+:::
 
+:::{.callout-caution collapse="true"}
+## Why do you think we got this error?
+
+Bash tried assign everything up to the first space (i.e., `Thu,`)
+to `today`.
+After that, since we used a space,
+it assumed the next word (`Aug`) was another command.
 :::
 
 But it works when we quote (with _double_ quotes, `"..."`)
@@ -211,7 +230,7 @@ today="Thu, Aug 18"
 echo $today
 ```
 
-Now, let's try to **reference** this variable:
+Now, let's try to **reference** this variable in another context:
 
 ```{bash, eval=FALSE}
 touch README2_$today.txt
@@ -242,7 +261,7 @@ ls -t | head -n 3
 
 :::
 
-Similar to what we had to do when assigning the variable,
+Like with assignment,
 our problems can be avoided by **quoting the variable** when we reference it:
 
 ```{bash, eval=FALSE}
@@ -255,6 +274,8 @@ today="Thu, Aug 18"
 touch README3_"$today".txt
 ls README3_*
 ```
+
+----
 
 Another issue we can run into when we don't quote variables
 is that we can't explicitly define where a variable name ends
@@ -270,7 +291,7 @@ echo README_$today_final.txt
 ```
 
 :::{.callout-caution collapse="true"}
-## What went wrong here?
+## What went wrong here? (Hint: check the coloring highlighting above)
 
 - Following a `$`, the shell will stop interpreting characters as being part
   of the variable name only when it encounters a character that cannot be
@@ -297,8 +318,13 @@ today="Thu, Aug 18"
 echo README_"$today"_final.txt
 ```
 
+----
+
+All in all, **it is good practice to quote variables** when you reference them:
+it never hurts, and avoids unexpected surprises.
+
 :::{.callout-note collapse="true"}
-## More on quoting -- and double vs. single quotes
+## Bonus: More on quoting -- and double vs. single quotes
 
 By double-quoting a variable,
 we are essentially escaping (or "turning off")
@@ -337,9 +363,6 @@ echo '$today'
 
 :::
 
-All in all, **it is good practice to quote variables** when you reference them:
-it never hurts, and avoids unexpected surprises.
-
 <br>
 
 ## For loops
@@ -376,7 +399,7 @@ done
 | `done`	  | Tells the shell we are done with the loop
 
 
-:::{.callout-note collapse="true"}
+:::{.callout-caution collapse="true"}
 ## Why the semicolon `;` before `do`?
 
 A semicolon separates two commands written on a single line --
@@ -452,6 +475,11 @@ for fastq_file in data/raw/*fastq.gz; do
 done
 ```
 
+**This technique is extremely useful**, and I use it all the time.
+Take a moment to realize that we're not doing a separate `ls` and storing
+the results:
+as mentioned, we can _directly_ use a globbing pattern to select our files.
+
 If needed,
 you can use your globbing / wild card skills to narrow down the file selection:
 
@@ -468,7 +496,7 @@ done
 ```
 
 :::{.callout-note  collapse="true"}
-## Alternatives to looping with a glob
+## Bonus: Alternatives to looping with a glob
 
 With genomics data,
 the routine of looping over an entire directory of files,
@@ -480,7 +508,7 @@ you may want to iterate only over a specific list of filenames
 (or partial filenames such as sample IDs)
 that represent a complex selection.
 
-- If this is a short list, you could directly specify it in the loop:
+- If this is a **short list**, you could directly specify it in the loop:
 
   ```{bash, eval=FALSE}
   for sample in A1 B6 D3; do
@@ -490,8 +518,9 @@ that represent a complex selection.
   done
   ```
 
-- If it is a longer list, you could create a simple text file with one line
-  per sample ID / filename, and use command substitution as follows:
+- If it is a **longer list**,
+  you could create a simple text file with one line per sample ID / filename,
+  and use command substitution as follows:
 
   ```{bash, eval=FALSE}
   for fastq_file in $(cat file_of_filenames.txt); do
@@ -499,9 +528,13 @@ that represent a complex selection.
   done
   ```
 
-(In cases like this, _Bash arrays_
+In cases like this, _Bash arrays_
 (basically, variables that consist of multiple values, like a vector in R)
 or _`while` loops_ may provide more elegant solutions,
-but those are outside the scope of this introduction.)
+but those are outside the scope of this introduction.
 
 :::
+
+```{bash, eval=TRUE, echo=FALSE, error=FALSE}
+rm -f Aug README* *txt
+```

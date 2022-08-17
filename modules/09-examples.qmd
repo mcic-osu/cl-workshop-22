@@ -26,17 +26,39 @@ knitr::opts_chunk$set(eval = FALSE,
 1. Log in to OSC at <https://ondemand.osc.edu>.
 2. In the blue top bar, select `Interactive Apps` and then `Code Server`.
 3. In the form that appears:
-   - Enter `3` in the box `Number of hours`
-   - Enter `/fs/ess/scratch/PAS2250` in the box `Working Directory`
+   - Enter `4` or more in the box `Number of hours`
+   - **To avoid having to switch folders within VS Code**,
+     enter `/fs/ess/scratch/PAS2250/participants/<your-folder>` in the box `Working Directory`
+     (replace `<your-folder>` by the actual name of your folder).
    - Click `Launch`.
 4. On the next page,
    once the top bar of the box is green and says `Runnning`,
    click `Connect to VS Code`.
 5. Open a terminal: {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
 6. In the terminal, type `bash` and press <kbd>Enter</kbd>.
+7. Type `pwd` to check you are in `/fs/ess/scratch/PAS2250`.
+   If not, click
+   {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`
+   and enter `/fs/ess/scratch/PAS2250/<your-folder>`
+   (replace `<your-folder>` by the actual name of your folder).
 
 :::
 
 <br>
 
 ## TBA
+
+
+:::{.callout-tip}
+## Keyboard shortcut to run shell commands from the editor
+
+To add a keyboard shortcut that will send code selected in the editor pane
+to the terminal
+(such that you don't have to copy and paste):
+
+- Click the &nbsp; {{< fa cog >}} &nbsp; (bottom-left) => `Keyboard Shortcuts`.
+
+- Find `Terminal: Run Selected Text in Active Terminal`, click on it,
+  then add a shortcut, e.g. <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
+
+:::
