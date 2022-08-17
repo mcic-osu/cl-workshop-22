@@ -229,9 +229,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#the-unix-shellcommand-line-computing" id="toc-the-unix-shellcommand-line-computing" class="nav-link active" data-scroll-target="#the-unix-shellcommand-line-computing"> <span class="header-section-number">1</span> The Unix Shell/Command Line Computing</a></li>
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"> <span class="header-section-number">2</span> Overview</a>
   <ul class="collapse">
-  <li><a href="#advantages-to-command-line-computing" id="toc-advantages-to-command-line-computing" class="nav-link" data-scroll-target="#advantages-to-command-line-computing"> <span class="header-section-number">2.1</span> Advantages to Command Line Computing</a></li>
-  <li><a href="#structure-of-command-line-expressions" id="toc-structure-of-command-line-expressions" class="nav-link" data-scroll-target="#structure-of-command-line-expressions"> <span class="header-section-number">2.2</span> Structure Of Command Line Expressions</a></li>
-  <li><a href="#commonly-used-commands" id="toc-commonly-used-commands" class="nav-link" data-scroll-target="#commonly-used-commands"> <span class="header-section-number">2.3</span> Commonly-Used Commands</a></li>
+  <li><a href="#some-terminology" id="toc-some-terminology" class="nav-link" data-scroll-target="#some-terminology"> <span class="header-section-number">2.1</span> Some Terminology</a></li>
+  <li><a href="#advantages-to-command-line-computing" id="toc-advantages-to-command-line-computing" class="nav-link" data-scroll-target="#advantages-to-command-line-computing"> <span class="header-section-number">2.2</span> Advantages to Command Line Computing</a></li>
+  <li><a href="#structure-of-command-line-expressions" id="toc-structure-of-command-line-expressions" class="nav-link" data-scroll-target="#structure-of-command-line-expressions"> <span class="header-section-number">2.3</span> Structure Of Command Line Expressions</a></li>
+  <li><a href="#commonly-used-commands" id="toc-commonly-used-commands" class="nav-link" data-scroll-target="#commonly-used-commands"> <span class="header-section-number">2.4</span> Commonly-Used Commands</a></li>
   </ul></li>
   <li><a href="#practice-with-common-commands" id="toc-practice-with-common-commands" class="nav-link" data-scroll-target="#practice-with-common-commands"> <span class="header-section-number">3</span> Practice with Common Commands</a>
   <ul class="collapse">
@@ -299,8 +300,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="overview" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="overview"><span class="header-section-number">2</span> Overview</h2>
 <p>Working effectively on a remote supercomputer requires doing command-line computing. But there are more advantages to doing command line computing than just allowing you to work on a supercomputer.</p>
-<section id="advantages-to-command-line-computing" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="advantages-to-command-line-computing"><span class="header-section-number">2.1</span> Advantages to Command Line Computing</h3>
+<section id="some-terminology" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="some-terminology"><span class="header-section-number">2.1</span> Some Terminology</h3>
+<p>We’re going to focus on the practice of doing command line computing here, and not get too bogged down in to details of terminology, but let’s highlight a few terms you’re likely to run across (and hear during the workshop).</p>
+<ul>
+<li>Command Line</li>
+<li>Shell</li>
+<li>Terminal</li>
+<li>Console</li>
+<li>Bash</li>
+</ul>
+<p>While it might not fly for a computer science class, for day-to-day bioinformatics, you’ll probably hear all these terms used somewhat interchangably. Basically, we’re talking about the process of interacting with your computer by giving it commands as opposed to the point-and-click way you’re likely more familiar with.</p>
+</section>
+<section id="advantages-to-command-line-computing" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="advantages-to-command-line-computing"><span class="header-section-number">2.2</span> Advantages to Command Line Computing</h3>
 <ul>
 <li>Interact with a remote computer</li>
 <li>Work efficiently with large files</li>
@@ -308,16 +321,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Perform general computing tasks more efficiently</li>
 </ul>
 </section>
-<section id="structure-of-command-line-expressions" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="structure-of-command-line-expressions"><span class="header-section-number">2.2</span> Structure Of Command Line Expressions</h3>
+<section id="structure-of-command-line-expressions" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="structure-of-command-line-expressions"><span class="header-section-number">2.3</span> Structure Of Command Line Expressions</h3>
 <p>We’ll think of command line expressions as having 3 main parts. Don’t worry about following along here - there will be plenty of chances to try this out shortly. For now, just treat this as a demonstration and focus on these 3 components…</p>
 <ul>
 <li>Commands</li>
 <li>Options or Arguments</li>
 <li>Output</li>
 </ul>
-<section id="command-line-commands" class="level4" data-number="2.2.1">
-<h4 data-number="2.2.1" class="anchored" data-anchor-id="command-line-commands"><span class="header-section-number">2.2.1</span> Command Line Commands</h4>
+<section id="command-line-commands" class="level4" data-number="2.3.1">
+<h4 data-number="2.3.1" class="anchored" data-anchor-id="command-line-commands"><span class="header-section-number">2.3.1</span> Command Line Commands</h4>
 <p>The prompt indicates the shell is ready for a command.</p>
 <p align="left">
 <img src="img/prompt1.png" width="100%">
@@ -348,47 +361,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Can you pick out what <code>-h</code> did to modify the output? Note the difference in the format of the column reporting the sizes of the items listed.</p>
 </section>
 </section>
-<section id="commonly-used-commands" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="commonly-used-commands"><span class="header-section-number">2.3</span> Commonly-Used Commands</h3>
+<section id="commonly-used-commands" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="commonly-used-commands"><span class="header-section-number">2.4</span> Commonly-Used Commands</h3>
 <p>Below are some commands I find myself using quite a bit, grouped into some general categories based on their primary function…</p>
 <ul>
 <li><strong>Getting Info About a Command</strong>
 <ul>
-<li><code>man</code></li>
+<li><code>man</code>: get help (manual) for a command</li>
 </ul></li>
 <li><strong>Navigating in the Terminal</strong>
 <ul>
-<li><code>pwd</code></li>
-<li><code>cd</code></li>
+<li><code>pwd</code>: returns (prints) your working directory</li>
+<li><code>cd</code>: change working directory</li>
 </ul></li>
 <li><strong>Viewing Files</strong>
 <ul>
-<li><code>less</code></li>
-<li><code>head</code></li>
-<li><code>tail</code></li>
-<li><code>cat</code></li>
+<li><code>less</code>: view contents of a file</li>
+<li><code>head</code>: preview contents of a file</li>
+<li><code>tail</code>: print the last lines of a file</li>
+<li><code>cat</code>: print contents of file to screen</li>
 </ul></li>
 <li><strong>Managing/Organizing Files</strong>
 <ul>
-<li><code>ls</code></li>
-<li><code>mkdir</code></li>
-<li><code>rm</code></li>
-<li><code>cp</code></li>
-<li><code>mv</code></li>
+<li><code>ls</code>: list contents of directory</li>
+<li><code>mkdir</code>: create a new directory</li>
+<li><code>rm</code>: remove/delete a file or directory</li>
+<li><code>cp</code>: copy files/directories to a new location</li>
+<li><code>mv</code>: move files/directories to a new location</li>
 </ul></li>
 <li><strong>Working With Compressed Files</strong>
 <ul>
-<li><code>gzip</code></li>
-<li><code>gunzip</code></li>
-<li><code>zcat</code>/<code>gzcat</code></li>
-<li><code>unzip</code></li>
+<li><code>gzip</code>: compress a file with gzip compression</li>
+<li><code>gunzip</code>: uncompress a gzip file</li>
+<li><code>zcat</code>/<code>gzcat</code>: print the uncompressed contents of a compressed file to the screen</li>
+<li><code>unzip</code>: uncompress a zip file</li>
 </ul></li>
 <li><strong>Assessing Files</strong>
 <ul>
-<li><code>diff</code></li>
-<li><code>md5</code></li>
-<li><code>grep</code></li>
-<li><code>wc</code></li>
+<li><code>diff</code>: print differences in two text files</li>
+<li><code>md5</code>: get and md5 checksum for a file</li>
+<li><code>grep</code>: search a text file for lines containing a pattern of text</li>
+<li><code>wc</code>: return number of lines, words, characters in a file</li>
 </ul></li>
 <li><strong>Editing Files</strong>
 <ul>
@@ -400,9 +413,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><strong>Obtaining/Sharing Files</strong>
 <ul>
-<li><code>curl</code></li>
-<li><code>sftp</code></li>
-<li><code>wget</code></li>
+<li><code>curl</code>: download a file from online</li>
+<li><code>sftp</code>: transfer files between a local and remote computer</li>
+<li><code>wget</code>: download a file from online</li>
 </ul></li>
 <li><strong>Features</strong>
 <ul>
