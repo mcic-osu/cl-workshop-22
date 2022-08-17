@@ -19,18 +19,40 @@
 }
 
 .exercise {
-  padding: 1em;
-  margin: 1em 0;
-  padding-left: 80px;
-  background-size: 60px;
+  padding: 0.5em;
+  margin: 2em;
+  padding-left: 65px;
+  background-size: 45px;
   background-repeat: no-repeat;
   background-position: 10px center;
-  min-height: 120px;
+  min-height: 80px;
   color: #1f5386;
-  background-color: #bed3ec;
-  border: solid 5px #dfedff;
+  background-color: #E6D9F1;
+  border: solid 3px #DCCFDE;
+  border-radius: 25px;
 }
 
 .exercise {
   background-image: url("img/puzzle-div.png");
+}
+
+/* --------------------------------------------------------------------------/*
+/* details sections */
+details > summary {
+  padding: 10px 10px;
+  background-color: #ECE8F0;
+  border: none;
+  border-radius: 25px;
+  /*box-shadow: 3px 3px 4px black;*/
+}
+
+details {
+  border-radius: 25px;
+  background-color: #E6D9F1;
+  padding: 5px 5px;
+  margin-left: 5px;
+  border-left-width: 0px;
+  border-left-style: solid;
+  border-left-color: #DCCFDE;
+  border-radius: 0px;
 }
