@@ -20,7 +20,11 @@ The Ohio Supercomputer Center is a resource provided by the State of Ohio (not T
 We'll get you introduced to OSC in this session, and of course, you'll get experience working with OSC resources as we go though the workshop, but we can't cover everything here. The good news though is that OSC has lots of good support/training materials online. You can find them at [the OSC website](https://www.osc.edu/).
 
   <p align="center">
+<<<<<<< HEAD
   <img src=img/osc_logo.svg width="70%">
+=======
+  <img src=img/osc_logo.png width="90%">
+>>>>>>> 98969bc998e763691cec1be642d5e20ecf001ee7
   </p>
 
 ## What is a supercomputer?
