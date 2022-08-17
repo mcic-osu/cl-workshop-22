@@ -100,31 +100,31 @@ Can you pick out what `-h` did to modify the output? Note the difference in the 
 Below are some commands I find myself using quite a bit, grouped into some general categories based on their primary function...
 
   - **Getting Info About a Command**
-    - `man`
+    - `man`: get help (manual) for a command
   - **Navigating in the Terminal**
-    - `pwd`
-    - `cd`
+    - `pwd`: returns (prints) your working directory
+    - `cd`: change working directory
   - **Viewing Files**
-    - `less`
-    - `head`
-    - `tail`
-    - `cat`
+    - `less`: view contents of a file
+    - `head`: preview contents of a file
+    - `tail`: print the last lines of a file
+    - `cat`: print contents of file to screen
   - **Managing/Organizing Files**
-    - `ls`
-    - `mkdir`
-    - `rm`
-    - `cp`
-    - `mv`
+    - `ls`: list contents of directory
+    - `mkdir`: create a new directory
+    - `rm`: remove/delete a file or directory
+    - `cp`: copy files/directories to a new location
+    - `mv`: move files/directories to a new location
   - **Working With Compressed Files**
-    - `gzip`
-    - `gunzip`
-    - `zcat`/`gzcat`
-    - `unzip`
+    - `gzip`: compress a file with gzip compression
+    - `gunzip`: uncompress a gzip file
+    - `zcat`/`gzcat`: print the uncompressed contents of a compressed file to the screen
+    - `unzip`: uncompress a zip file
   - **Assessing Files**
-    - `diff`
-    - `md5`
-    - `grep`
-    - `wc`
+    - `diff`: print differences in two text files
+    - `md5`: get and md5 checksum for a file
+    - `grep`: search a text file for lines containing a pattern of text
+    - `wc`: return number of lines, words, characters in a file
   - **Editing Files**
     - `sed`
     - `awk`
@@ -132,9 +132,9 @@ Below are some commands I find myself using quite a bit, grouped into some gener
     - `tr`
     - `uniq`
   - **Obtaining/Sharing Files**
-    - `curl`
-    - `sftp`
-    - `wget`
+    - `curl`: download a file from online
+    - `sftp`: transfer files between a local and remote computer
+    - `wget`: download a file from online
   - **Features**
     - Tab completion
     - Command History (up arrow)
