@@ -4,6 +4,7 @@ subtitle: "And an introduction to our dataset with FASTQ and FASTA files"
 pagetitle: "Unix Shell"
 highlight-style: github
 number-sections: true
+author: Mike Sovic
 ---
 
 ```{r knitr_options, echo=FALSE}
@@ -12,6 +13,8 @@ knitr::opts_chunk$set(eval = FALSE,
 ```
 
 -----
+
+<br>
 
 ## The Unix Shell/Command Line Computing
 
@@ -238,8 +241,7 @@ Two more directories this time. Try viewing the contents of the `fastq` director
 
 Try to list the contents of the `fastq` directory we just saw.
 
-<details>
-<summary>
+<details><summary>
 Solutions (click here)
 </summary>
   
@@ -260,7 +262,6 @@ ls
 
 Let's check to make sure we're still in the `/fs/ess/scratch/PAS2250` directory,
 and also remind ourselves exactly what's in there...
-
 
   <p align="left">
   <img src=img/pwd2.png width="100%">
@@ -378,7 +379,7 @@ Now let's start to explore our FASTQ files a bit. In preparation, it's a good ch
 
 :::{.exercise}
 
-### On Your Own: Explore the Files {-}
+#### On Your Own: Explore the Files {-}
 
 Set your working directory to the `data/fastq` directory inside the folder you created for yourself. Then list the contents of that `fastq` directory. How many files are in there? See if you can get the sizes of each file.
 
@@ -488,8 +489,7 @@ Since each read in a FASTQ file is represented by 4 lines, we should expect the 
   </p>  
   
 :::{.exercise}
-
-### On Your Own: Finding a Sequence {-}
+#### On Your Own: Finding a Sequence {-}
 
 How many sequences in sample SRR7609467 contain the sequence "CCAGTA"?
 
@@ -523,9 +523,8 @@ zcat SRR7609467.fastq.gz | grep -c 'CCAGTA'
 
 At command line, you can't just open a web browser and download a file you might want. But of course, there are commands to do that. As we move toward starting to analyze our example RNAseq dataset, one thing we'll need is the reference genome for the species these sequences came from -- in this case, *Phaseolus vulgaris*. Before we get that, it's another good time to practice some of those common commands...
 
-### On Your Own
-
 :::{.exercise}
+#### On Your Own: Create a Directory {-}
 
 Create a new (empty) directory named `reference` that will later store the reference genome for our analyses. Put it in your own directory inside `participants`. Then make this `reference` directory your working directory.
 
@@ -581,8 +580,7 @@ https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/499/845/GCF_000499845.1_PhaVulg
   </p>  
 
 :::{.exercise}
-
-### On Your Own: Preview a FASTA file
+#### On Your Own: Preview a FASTA file {-}
 
 Try previewing the contents of the reference genome file you just downloaded.
 
