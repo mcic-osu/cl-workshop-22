@@ -1,6 +1,7 @@
 ---
 title: "The Unix Shell"
-highlight-style: oblivion
+subtitle: "And an introduction to our dataset with FASTQ and FASTA files"
+highlight-style: pygments
 number-sections: true
 ---
 
@@ -42,7 +43,7 @@ The prompt indicates the shell is ready for a command.
   <img src=img/prompt1.png width="100%">
   </p>
 
-Let's start with `ls`.
+Let's start with the `ls` command.
 
   <p align="left">
   <img src=img/ls.png width="100%">
@@ -52,9 +53,9 @@ Let's start with `ls`.
   <img src=img/ls_output.png width="100%">
   </p>
 
-Here, we've given a command, `ls`, and the shell has returned some output - in this case, listing the contents of the current directory. It has also returned another prompt, meaning it's ready for another command.
+Here, we've given a **command, `ls`**, and the shell has returned some output -- in this case, listing the contents of the current directory. It has also returned another prompt, meaning it's ready for another command.
 
-Now we'll run the same command again, but this time we'll add in an option `-l` (dash, lowercase L). Options allow you to slightly modify the behavior of a command.
+Now we'll run the same command again, but this time we'll add in an **option `-l`** (a dash followed by a lowercase L). Options allow you to modify the behavior of a command.
   
   <p align="left">
   <img src=img/ls_long.png width="100%">
@@ -64,9 +65,9 @@ Now we'll run the same command again, but this time we'll add in an option `-l` 
   <img src=img/ls_long_out.png width="100%">
   </p>
   
-Notice that in the case, the same four items are returned, but this time, they're printed in a different format, and additional information is included. 
+Notice that the same four items are returned, but this time, they're printed in a different format, and additional information is included. 
 
-Let's try adding one more option/argument - `-h`.
+Let's try adding one more option/argument -- `-h`.
 
   <p align="left">
   <img src=img/ls_lh.png width="100%">
@@ -82,75 +83,77 @@ Can you pick out what `-h` did to modify the output? Note the difference in the 
 
 Below are some commands I find myself using quite a bit, grouped into some general categories based on their primary function...
 
-  - Getting Info About A Command
-    - man
-  - Navigating In The Terminal
-    - pwd
-    - cd
-  - Viewing Files
-    - less
-    - head
-    - tail
-    - cat
-  - Managing/Organizing Files
-    - ls
-    - mkdir
-    - rm
-    - cp
-    - mv
-  - Working With Compressed Files
-    - gzip
-    - gunzip
-    - zcat/gzcat
-    - unzip
-  - Assessing Files
-    - diff
-    - md5
-    - grep
-    - wc
-  - Editing Files
-    - sed
-    - awk
-    - sort
-    - tr
-    - uniq
-  - Obtaining/Sharing Files
-    - curl
-    - sftp
-    - wget
-  - Features
+  - **Getting Info About a Command**
+    - `man`
+  - **Navigating in the Terminal**
+    - `pwd`
+    - `cd`
+  - **Viewing Files**
+    - `less`
+    - `head`
+    - `tail`
+    - `cat`
+  - **Managing/Organizing Files**
+    - `ls`
+    - `mkdir`
+    - `rm`
+    - `cp`
+    - `mv`
+  - **Working With Compressed Files**
+    - `gzip`
+    - `gunzip`
+    - `zcat`/`gzcat`
+    - `unzip`
+  - **Assessing Files**
+    - `diff`
+    - `md5`
+    - `grep`
+    - `wc`
+  - **Editing Files**
+    - `sed`
+    - `awk`
+    - `sort`
+    - `tr`
+    - `uniq`
+  - **Obtaining/Sharing Files**
+    - `curl`
+    - `sftp`
+    - `wget`
+  - **Features**
     - Tab completion
     - Command History (up arrow)
-    - Ctrl-r
-    - Ctrl-c
-  - Special Notation
-    - \|
-    - ~
-    - .
-    - ..
-    - $PATH
-    - $HOME
-  - Wildcards
-    - \*
-    - ?
-    - []
-    - ^
+    - <kbd>Ctrl</kbd>+<kbd>r</kbd>
+    - <kbd>Ctrl</kbd>+<kbd>c</kbd>
+  - **Special Notation**
+    - `|`
+    - `~`
+    - `.`
+    - `..`
+    - `$PATH`
+    - `$HOME`
+  - **Wildcards**
+    - `*`
+    - `?`
+    - `[]`
+    - `^`
 
 While it's not an exhaustive list, getting a grasp on some of the commands and features above will go a long way in allowing you to start to work at command line. We won't get to all of them in this session, but we'll explore quite a few on this list.
 
-## Initial Practice
-    
+## Practice with Common Commands
+
 Here we'll start practicing with some common command-line commands.
 
-### Working Directories
+:::{.callout-note}
+## Working Directories
 
-Before we start with our first command, we should talk about directory paths and working directories. All the files on a computer exist within a hierarchical system of directories (folders). When working at command line, you are always "in" one of these directories. The directory you're "in" at any given time is referred to as your **working directory**. It's useful to know what this is at any given time, and there's a command that tells you: `pwd`. This brings us to our first command.
+Before we start with our first command, we should talk about directory paths and working directories. All the files on a computer exist within a hierarchical system of directories (folders). When working at command line, you are always "in" one of these directories. The directory you're "in" at any given time is referred to as your **working directory**.
 
-### Common Commands
+It's useful to know what this is at any given time, and there's a command that tells you: `pwd`. This brings us to our first command.
+:::
 
-#### `pwd`
+### `pwd`
 
-The `pwd` command prints the full path of your current working directory. 
+The `pwd` command prints the absolute path of your current working directory. 
 
   <p align="left">
   <img src=img/pwd.png width="100%">
@@ -163,7 +166,7 @@ The `pwd` command prints the full path of your current working directory.
 The default working directory when you log on to OSC is your HOME directory. You'll likely make lots of use of this directory if you work at OSC, but for the workshop, we're all going to work in the scratch directory associated with the project set up for the workshop. So we'll move to that directory next.
 
 
-#### `cd`
+### `cd`
 
 `cd` allows you to change your working directory to any directory you have permission to access on the computer you're working on. And this is a great place to introduce **Tab Completion**, which you really should get in the habit of using...
 
@@ -187,13 +190,18 @@ The default working directory when you log on to OSC is your HOME directory. You
   <img src=img/cd5.png width="100%">
   </p>
 
-##### Full Paths vs Relative Paths
+:::{.callout-note}
+## Absolute Paths vs Relative Paths
 
-What we've used here is a **full path**. If you want to change directories, the `cd` command needs to know where you want to move to. As we just saw, we can give it that information by providing the **full path** to the directory on the computer we want to move to (starting with the root directory, which is indicated by the first '/' in the path "/fs/ess/scratch/PAS2250" above). Providing full paths will always work, but it's often a bit more typing than we need (or want) to do. An alternative is to work with **relative paths**. These work by assuming you're staring in your current working directory, and then, by default, looking forward in the directory structure (or down if you like to think from top to bottom). We'll come back to **relative paths** shortly.
+What we've used here is an **absolute (full) path**. If you want to change directories, the `cd` command needs to know where you want to move to. As we just saw, we can give it that information by providing the **absolute path** to the directory on the computer we want to move to (starting with the root directory, which is indicated by the first `/` in the path `/fs/ess/scratch/PAS2250` above).
+
+Providing absolute paths will always work, but it's often a bit more typing than we need (or want) to do. An alternative is to work with **relative paths**. These work by assuming you're staring in your current working directory, and then, by default, looking forward in the directory structure (or down if you like to think from top to bottom). We'll come back to **relative paths** shortly.
+
+:::
 
 OK, we made it to a directory created specifically for this workshop. Let's see what's in there.
 
-#### `ls`
+### `ls`
 
 The `ls` command lists everything inside the current directory.
 
@@ -206,9 +214,9 @@ The `ls` command lists everything inside the current directory.
   <img src=img/ls2_out.png width="100%">
   </p>
   
-Here we see 3 directories - 'data', 'jelmer', and 'participants'.
+Here we see 3 directories -- `data`, `jelmer`, and `participants`.
 
-Let's see what's inside the 'data' directory (and another good chance to try **Tab Completion**)...
+Let's see what's inside the `data` directory (and another good chance to try **Tab Completion**)...
 
   <p align="left">
   <img src=img/ls3.png width="100%">
@@ -222,45 +230,44 @@ Let's see what's inside the 'data' directory (and another good chance to try **T
   <img src=img/ls5.png width="100%">
   </p>
   
-Two more directories this time. Try viewing the contents of the fastq directory yourself...
-
-##### On Your Own
+Two more directories this time. Try viewing the contents of the `fastq` directory yourself...
 
 :::{.exercise}
-<div class="puzzle">
-<div>
+#### On Your Own: list the contents of a directory {-}
 
-Try to list the contents of the 'fastq' directory we just saw.
+Try to list the contents of the `fastq` directory we just saw.
 
-  <details>
-   <summary>
-   Solutions (click here)
-   </summary>
-   
-  ls data/fastq/ 
+<details>
+<summary>
+Solutions (click here)
+</summary>
   
-  **OR**
+```{bash}
+ls data/fastq/
+```
+
+**OR**
   
-  cd data/fastq/
-  
-  ls
+```{bash}
+cd data/fastq/
+ls
+```
+
+</details>
     
-  </details>
-    
-</div>
-</div>   
-:::    
+:::
 
-Let's check to make sure we're still in the /fs/ess/scratch/PAS2250 directory, and also remind ourselves exactly what's in there...
+Let's check to make sure we're still in the `/fs/ess/scratch/PAS2250` directory,
+and also remind ourselves exactly what's in there...
 
 
   <p align="left">
   <img src=img/pwd2.png width="100%">
   </p>
   
-If you're not in the PAS2250 directory for some reason, you can use `cd` to get back there. You should see 'data', 'jelmer', and 'participants' when listing the contents of your current directory.
+If you're not in the `PAS2250` directory for some reason, you can use `cd` to get back there. You should see `data`, `jelmer`, and `participants` when listing the contents of your current directory.
 
-Now let's move our working directory again - this time we'll go in to `participants`. We could use `cd` with the full path  - similar to what we did before. However, we'll save ourselves some typing and use a **relative path**. Keep using **Tab Completion**.
+Now let's move our working directory again -- this time we'll go in to `participants`. We could use `cd` with the absolute path -- similar to what we did before. However, we'll save ourselves some typing and use a **relative path**. Keep using **Tab Completion**.
 
   <p align="left">
   <img src=img/relative1.png width="100%">
@@ -279,9 +286,9 @@ Now let's move our working directory again - this time we'll go in to `participa
   </p>
 
 
-#### `mkdir`
+### `mkdir`
 
-The `mkdir` command allows you to create a new directory. Create one for yourself in the current directory (participants) according to this example (replace 'mikes_dir' with a name for your folder - avoid spaces and special characters in the name)...
+The `mkdir` command allows you to create a new directory. Create one for yourself in the current directory (`participants`) according to this example (replace `mikes_dir` with a name for your folder -- avoid spaces and special characters in the name)...
 
 
   <p align="left">
@@ -293,14 +300,14 @@ The `mkdir` command allows you to create a new directory. Create one for yoursel
   </p>
   
 
-#### Summary Thus Far
+### Summary Thus Far
 
 So far, we've used...
 
- - pwd (print working directory)
- - cd (change directory)
- - ls (list)
- - mkdir (make new directory)
+ - `pwd` (print working directory)
+ - `cd` (change directory)
+ - `ls` (list)
+ - `mkdir` (make new directory)
  - Tab Completion (not really a command, but a useful feature)
  
 We also have a directory structure that looks like...
@@ -309,16 +316,18 @@ We also have a directory structure that looks like...
   <img src=img/dir_structure.png width="80%">
   </p>
  
-The data files in the 'data/fastq' directory are fastq formatted files from an RNA experiment, and are what we'll be analyzing as we go through the workshop. We'll talk more about them soon, but for now, let's make sure everyone has a copy of the data. We'll copy the 'data' directory and its contents into the new directory you just made. 
+The data files in the `data/fastq` directory are FASTQ formatted files from an RNA experiment, and are what we'll be analyzing as we go through the workshop. We'll talk more about them soon, but for now, let's make sure everyone has a copy of the data. We'll copy the `data` directory and its contents into the new directory you just made. 
 
   <p align="left">
   <img src=img/cp_diagram.png width="80%">
   </p>
 
 
-#### `cp`
+### `cp`
 
-The `cp` command allows you to copy files or directories from one location to another. It has 2 required arguments - what you want to copy, and where you want to copy it to. Let's start with what we want to copy. It's the 'data' directory and all of its contents. Notice in the diagram above that 'data' is at the same level in the directory structure as our current working directory, participants. This means using 'data' as a **relative path** won't work, because the computer looks down the directory structure (it will see the contents of 'participants'). But there's a way to deal with that. We can use `..` to move us up a level in the directory structure.
+The `cp` command allows you to copy files or directories from one location to another. It has 2 required arguments -- what you want to copy, and where you want to copy it to.
+
+Let's start with what we want to copy. It's the `data` directory and all of its contents. Notice in the diagram above that `data` is at the same level in the directory structure as our current working directory, participants. This means using `data` as a **relative path** won't work, because the computer looks down the directory structure (it will see the contents of 'participants'). But there's a way to deal with that. We can use `..` to move us up a level in the directory structure.
 
   <p align="left">
   <img src=img/cp1.png width="80%">
@@ -328,7 +337,7 @@ The `cp` command allows you to copy files or directories from one location to an
   <img src=img/cp2.png width="80%">
   </p>
   
-Notice we get a message that it omitted copying the directory 'data' (which is what we wanted to copy). Indeed, the copy didn't work (you can `ls` the contents of the target directory to check - it will still be empty). `cp` works in this simplest form with individual files, but not with directories that have contents inside them. If you want to copy a directory and all of its contents, we need one of those options that modify the behavior of the `cp` command. In this case, `-r`, which tells it to copy in a recursive manner.
+Notice we get a message that it omitted copying the directory `data` (which is what we wanted to copy). Indeed, the copy didn't work (you can `ls` the contents of the target directory to check -- it will still be empty). `cp` works in this simplest form with individual files, but not with directories that have contents inside them. If you want to copy a directory and all of its contents, we need one of those options that modify the behavior of the `cp` command. In this case, `-r`, which tells it to copy in a recursive manner.
 
 And this is a good spot to introduce the **Command History**. At the prompt, try hitting the up arrow. A record of all your previous commands is kept, so you can scroll back through them. Use this to get the previous `cp` command, and then add the `-r` argument.
 
@@ -346,7 +355,7 @@ And we can check to make sure the copy worked...
   <img src=img/cp5.png width="80%">
   </p>
   
-#### `man`
+### `man`
 
 We haven't talked about `man` yet. This stands for manual, and is a great way to get details on any command. For example, we can check out the man page for `cp`...
 
@@ -358,61 +367,66 @@ We haven't talked about `man` yet. This stands for manual, and is a great way to
   <img src=img/man2.png width="80%">
   </p>
 
-If you scroll down, you'll see information on the `-r` option we just used (among others). As it says at the bottom of the page, type 'q' to quit and get back to your command line prompt.
+If you scroll down, you'll see information on the `-r` option we just used (among others). As it says at the bottom of the page, type <kbd>q</kbd> to quit and get back to your command line prompt.
 
-## Working With Text Files At Command Line
+<br>
 
-Now let's start to explore our fastq files a bit. In preparation, it's a good chance to practice a few of the commands we've seen so far.
+## Working With Text Files
 
-##### On Your Own
+Now let's start to explore our FASTQ files a bit. In preparation, it's a good chance to practice a few of the commands we've seen so far.
 
 :::{.exercise}
-<div class="puzzle">
-<div>
 
-Set your working directory to the 'data/fastq' directory inside the folder you created for yourself. Then list the contents of that 'fastq' directory. How many files are in there? See if you can get the sizes of each file.
+### On Your Own: Explore the Files {-}
 
-  <details>
-   <summary>
-   Hint (click here)
-  </summary>
-   Use `cd` and a relative path (*your_dir*/data/fastq/) to change you working directory.
-   Once you're there, use `ls` to list the contents of the current directory.
-   Check out the `man` page for `ls` to see if you can find an option that will give you more detailed information about each file.
-  </details>
-  
-  <details>
-   <summary>
-   Solutions (click here)
-   </summary>
+Set your working directory to the `data/fastq` directory inside the folder you created for yourself. Then list the contents of that `fastq` directory. How many files are in there? See if you can get the sizes of each file.
+
+<details><summary>
+Hint (click here)
+</summary>
+
+Use `cd` and a relative path (`<your_dir>/data/fastq/`) to change you working directory.
    
-  `cd *your_dir*/data`
+Once you're there, use `ls` to list the contents of the current directory.
+Recall the option that we used above to give more detailed information about each file, or  check out the `man` page for `ls`.
+   
+</details>
+
+<details><summary>
+Solutions (click here)
+</summary>
+
+```{bash} 
+cd <your_dir>/data
+
+ls
+
+ls -l
+```
   
-  `ls`
-  
-  `ls -l`
-  </details>
-    
-</div>
-</div>   
+</details>
 ::: 
 
 ### Compressed Files
 
-You might have noticed these files all have a '.gz' extension, indicating they are 'gz-compressed'. This is a common type of compression for large genomic-scale files. The fact that they're compressed means we can't just open them up and look inside - we need to uncompress them first. The `gunzip` command would allow us to do this - it uncompresses the file it's given and writes the uncompressed version to a new file. We could do this, but there's another approach. Fastq files can get big, and sometimes it helps to be able to keep them compressed as much as possible. It's a good time for us to explore the pipe.
+You might have noticed these files all have a `.gz` extension, indicating they are 'gzip-compressed'. This is a common type of compression for large genomic-scale files. The fact that they're compressed means we can't just open them up and look inside -- we need to uncompress them first. The `gunzip` command would allow us to do this -- it uncompresses the file it's given and writes the uncompressed version to a new file.
 
-#### `|`
+We could do this, but there's another approach. FASTQ files can get big, and sometimes it helps to be able to keep them compressed as much as possible. It's a good time for us to explore the pipe.
 
-We talked earlier about command line expressions having 3 parts - the command itself, options, and output. By default, any output is printed to the screen. That's what we've seen so far. But you can also redirect the output, and there are two primary ways to redirect it...
+### `|` (pipe)
 
-  - the '>', which is followed by the name of a new text file the output will be written to
-  - the '|' (pipe), which takes the output of one command and "pipes" it in as input for a subsequent command.
+We talked earlier about command line expressions having 3 parts -- the command itself, options and arguments, and output. By default, any output is printed to the screen. That's what we've seen so far. But you can also **redirect the output**, and there are three primary ways to redirect it...
+
+  - With `>`, which is followed by the name of a text file the output will be written to
+  - With  `>>`, which is simlar to `>` but will **append** the output
+    (that is, it won't overwrite any existing content like `>`)
+  - With  `|` (pipe), which takes the output of one command and "pipes" it as input for a subsequent command.
   
 Let's try to preview the contents of one of the compressed files. 
 
-#### `head`
+### `head`
 
-The `head` command is a great way to preview the contents of a text file. By default, `head` prints the first 10 lines of a file. Since these are fastq files, let's print 8 lines (a multiple of 4 - it will become clear why shortly). We can use the `-n` argument to specify the number of lines that  will be returned.
+The `head` command is a great way to preview the contents of a text file. By default, `head` prints the first 10 lines of a file. Since these are FASTQ files, let's print 8 lines (a multiple of 4 -- it will become clear why shortly). We can use the `-n` argument to specify the number of lines that  will be returned.
 
   <p align="left">
   <img src=img/head1.png width="80%">
@@ -422,11 +436,11 @@ The `head` command is a great way to preview the contents of a text file. By def
   <img src=img/head2.png width="80%">
   </p>
 
-This isn't what we want - we're seeing the first 8 lines of the compressed files - not helpful. 
+This isn't what we want -- we're seeing the first 8 lines of the compressed files - not helpful. 
 
-#### `zcat`
+### `zcat`
 
-The `zcat` function prints human-readable contents of a gz-compressed file to the screen. We can try running it on the file, but remember the file is pretty big - there are lots of lines of text in there that will all get printed to the screen. Instead, we can pipe the output of `zcat` to the `head` command.
+The `zcat` function prints human-readable contents of a gzip-compressed file to the screen. We can try running it on the file, but remember the file is pretty big -- there are lots of lines of text in there that will all get printed to the screen. Instead, we can pipe the output of `zcat` to the `head` command.
 
   <p align="left">
   <img src=img/head3.png width="80%">
@@ -436,22 +450,20 @@ The `zcat` function prints human-readable contents of a gz-compressed file to th
   <img src=img/head4.png width="80%">
   </p>
 
-Much better - this is what the raw RANseq data look like!
+Much better -- this is what the raw RNAseq data look like!
 
+### FASTQ Format
 
-## Fastq Format
+If you're not familiar with it, FASTQ is a very common format for genomic data files. The raw data produced by a high-throughput sequencer will almost certainly be returned to you in this format. These are plain text files, and each sequence that is read by the sequencer is represented by 4 lines:
 
-If you're not familiar with it, fastq is a very common format for genomic data files. The raw data produced by a high-throughput sequencer will almost certainly be returned to you in this format. These are plain text files, and each sequence that is read by the sequencer is represented by 4 lines:
-
-  - a name line
+  - a name (header) line
   - the sequence itself
   - a plus sign
   - quality scores corresponding to each base position in the sequence
 
-  
-#### `wc`
+### `wc`
 
-Since each read in a fastq file is represented by 4 lines, we should expect the number of lines in each of the fastq files to be a multiple of 4. Let's check one. The `wc` command stands for word count, but by default, it returns the number of words, lines, and characters in a file. The `-l` option tells it to return just the number of lines, so we'll use it since that's all we're interested in right now. And remember, we'll want to do this on the uncompressed data.
+Since each read in a FASTQ file is represented by 4 lines, we should expect the number of lines in each of the FASTQ files to be a multiple of 4. Let's check one. The `wc` command stands for word count, but by default, it returns the number of words, lines, and characters in a file. The `-l` option tells it to return just the number of lines, so we'll use it since that's all we're interested in right now. And remember, we'll want to do this on the uncompressed data.
 
 
   <p align="left">
@@ -462,9 +474,9 @@ Since each read in a fastq file is represented by 4 lines, we should expect the 
   <img src=img/wc2.png width="80%">
   </p>  
 
-#### `grep`
+### `grep`
 
-`grep` allows you to search through a file for specific patterns of text and returns the matching lines. For example, let's say we wanted to see what sequences in sample SRR7609467 contain the sequence 'ACCGATACG'
+`grep` allows you to search through a file for specific patterns of text and returns the matching lines. For example, let's say we wanted to see what sequences in sample SRR7609467 contain the sequence "ACCGATACG":
 
   <p align="left">
   <img src=img/grep1.png width="80%">
@@ -474,82 +486,90 @@ Since each read in a fastq file is represented by 4 lines, we should expect the 
   <img src=img/grep2.png width="80%">
   </p>  
   
-  
-##### On Your Own
-
 :::{.exercise}
-<div class="puzzle">
-<div>
 
-How many sequences in sample SRR7609467 contain the sequence 'CCAGTA'
+### On Your Own: Finding a Sequence {-}
 
-  <details>
-   <summary>
-   Hint (click here)
-  </summary>
-   Pipe the results of the grep to `wc -l`. Alternatively, check out the `-c` option to grep in the `man` page.
-  </details>
+How many sequences in sample SRR7609467 contain the sequence "CCAGTA"?
+
+<details><summary>
+Hint (click here)
+</summary>
+
+Pipe the results of the grep to `wc -l`. Alternatively, check out the `-c` option to grep in the `man` page.
+</details>
   
-  <details>
-   <summary>
-   Solutions (click here)
-   </summary>
-   
-  `zcat SRR7609467.fastq.gz | grep 'CCAGTA' | wc -l `
+<details><summary>
+Solutions (click here)
+</summary>
+
+```{bash}
+zcat SRR7609467.fastq.gz | grep 'CCAGTA' | wc -l
+```
+
+**OR**
   
-  **OR**
-  
-  `zcat SRR7609467.fastq.gz | grep -c 'CCAGTA'`
-  </details>
-    
-</div>
-</div>   
+```{bash}
+zcat SRR7609467.fastq.gz | grep -c 'CCAGTA'
+```
+
+</details>
 :::   
-  
-## Downloading Files From Online
 
-At command line, you can't just open a web browser and download a file you might want. But of course there are commands to do that. As we move toward starting to analyze our example RNAseq dataset, one thing we'll need is the reference genome for the species these sequences came from - in this case, *Phaseolus vulgaris*. Before we get that, it's another good time to practice some of those common commands...
+<br>
 
-##### On Your Own
+## Downloading Files from the Web
+
+At command line, you can't just open a web browser and download a file you might want. But of course, there are commands to do that. As we move toward starting to analyze our example RNAseq dataset, one thing we'll need is the reference genome for the species these sequences came from -- in this case, *Phaseolus vulgaris*. Before we get that, it's another good time to practice some of those common commands...
+
+### On Your Own
 
 :::{.exercise}
-<div class="puzzle">
-<div>
 
-Create a new (empty) directory named 'reference' that will later store the reference genome for our analyses. Put it in your own directory inside 'participants'. Then make this 'reference/' directory your working directory.
+Create a new (empty) directory named `reference` that will later store the reference genome for our analyses. Put it in your own directory inside `participants`. Then make this `reference` directory your working directory.
 
-  <details>
-   <summary>
-   Hint (click here)
-  </summary>
-   Use the 'mkdir' command (and `cd` as necessary). Remember that `..` moves you up/back one directory, and these can be combined. For example, `../../../` would move you up/back 3 directories.
-  </details>
+<details><summary>
+Hint (click here)
+</summary>
+
+Use the `mkdir` command (and `cd` as necessary). Remember that `..` moves you up/back one directory, and these can be combined. For example, `../../../` would move you up/back 3 directories.
+
+</details>
   
-  <details>
-   <summary>
-   Solution (click here)
-   </summary>
-   mkdir ../../reference
-   
-   cd ../../reference
-   
-   **OR**
+<details><summary>
+Solution (click here)
+</summary>
+
+```{bash}
+mkdir ../../reference
   
-   cd ../../
+cd ../../reference
+```
+
+**OR**
+
+```{bash}  
+cd ../../
   
-   mkdir reference
+mkdir reference
    
-   cd reference
-   
-   </details>
-    
-</div>
-</div>   
+cd reference
+```
+
+</details>
 :::
 
-#### `curl`
+### `curl`
 
-`curl` is one command that allows you to download files from online (`wget` is another). Technically, all you need for `curl` is the name of the command and the web address for what you want to download. However, remember that the default is to print the downloaded contents to the screen. This usually isn't what we want. Instead, we want to save them to a file. One option would be to redirect the output to a text file with '>'. But `curl` also has a built-in option to write the contents to a file: `-o`, so we'll use that. Since the file that gets downloaded is a gz-compressed, fasta-formatted text file, we'll give the name of the file a '.fa.gz' extension. The reference genome for *Phaseolus vulgaris* is available at https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/499/845/GCF_000499845.1_PhaVulg1_0/GCF_000499845.1_PhaVulg1_0_genomic.fna.gz. 
+`curl` is one command that allows you to download files from online (`wget` is another). Technically, all you need for `curl` is the name of the command and the web address for what you want to download.
+
+However, the default for `curl` is to print the downloaded contents to the screen. This usually isn't what we want. Instead, we want to save them to a file. One option would be to redirect the output to a text file with `>`. But `curl` also has a built-in option to write the contents to a file: `-o`, so we'll use that.
+
+Since the file that gets downloaded is a gzip-compressed, FASTA-formatted text file, we'll give the name of the file a `.fa.gz` extension. The reference genome for *Phaseolus vulgaris* is available at:
+
+```{bash}
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/499/845/GCF_000499845.1_PhaVulg1_0/GCF_000499845.1_PhaVulg1_0_genomic.fna.gz
+```
 
   <p align="left">
   <img src=img/curl1.png width="80%">
@@ -559,39 +579,34 @@ Create a new (empty) directory named 'reference' that will later store the refer
   <img src=img/curl2.png width="80%">
   </p>  
 
-
-##### On Your Own
-
 :::{.exercise}
-<div class="puzzle">
-<div>
+
+### On Your Own: Preview a FASTA file
 
 Try previewing the contents of the reference genome file you just downloaded.
 
-  <details>
-   <summary>
-   Hint (click here)
-  </summary>
-   Remember the file is gz-compressed. Use `zcat` and pipe the results to `head`.
-  </details>
+<details><summary>
+Hint (click here)
+</summary>
+Remember the file is gzip-compressed. Use `zcat` and pipe the results to `head`.
+</details>
   
-  <details>
-   <summary>
-   Solution (click here)
-   </summary>
-   zcat Pvulg.fa.gz | head
-   
-   </details>
-    
-</div>
-</div>   
+<details><summary>
+Solution (click here)
+</summary>
+
+```{bash}
+zcat Pvulg.fa.gz | head
+```
+
+</details>
 :::
 
-OK, now we've got our raw data (fastq) and our reference genome (fasta). This is a good start in terms of getting ready to start analyzing the data. One more thing we can do now is try to understand a little bit about the samples themselves. There is a tab-separated text file named 'meta.tsv' in the 'data/meta' directory. Let's take a look at its contents...
+OK, now we've got our raw data (FASTQ) and our reference genome (FASTA). This is a good start in terms of getting ready to start analyzing the data. One more thing we can do now is try to understand a little bit about the samples themselves. There is a tab-separated text file named `meta.tsv` in the `data/meta` directory. Let's take a look at its contents...
 
-#### `less`
+### `less`
 
-`less` is a command that opens up a text file within your shell. Once you're finished viewing the file, type 'q' to quit and return to your prompt.
+`less` is a command that opens up a text file within your shell. Once you're finished viewing the file, type <kbd>q</kbd> to quit and return to your prompt.
 
 
   <p align="left">
@@ -605,7 +620,3 @@ OK, now we've got our raw data (fastq) and our reference genome (fasta). This is
   <p align="left">
   <img src=img/meta3.png width="80%">
   </p>  
-  
-
-
-

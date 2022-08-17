@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -169,17 +232,35 @@ ul.task-list{list-style: none;}
   <li><a href="#structure-of-command-line-expressions" id="toc-structure-of-command-line-expressions" class="nav-link" data-scroll-target="#structure-of-command-line-expressions"> <span class="header-section-number">2.2</span> Structure Of Command Line Expressions</a></li>
   <li><a href="#commonly-used-commands" id="toc-commonly-used-commands" class="nav-link" data-scroll-target="#commonly-used-commands"> <span class="header-section-number">2.3</span> Commonly-Used Commands</a></li>
   </ul></li>
-  <li><a href="#initial-practice" id="toc-initial-practice" class="nav-link" data-scroll-target="#initial-practice"> <span class="header-section-number">3</span> Initial Practice</a>
+  <li><a href="#practice-with-common-commands" id="toc-practice-with-common-commands" class="nav-link" data-scroll-target="#practice-with-common-commands"> <span class="header-section-number">3</span> Practice with Common Commands</a>
   <ul class="collapse">
-  <li><a href="#working-directories" id="toc-working-directories" class="nav-link" data-scroll-target="#working-directories"> <span class="header-section-number">3.1</span> Working Directories</a></li>
-  <li><a href="#common-commands" id="toc-common-commands" class="nav-link" data-scroll-target="#common-commands"> <span class="header-section-number">3.2</span> Common Commands</a></li>
+  <li><a href="#pwd" id="toc-pwd" class="nav-link" data-scroll-target="#pwd"> <span class="header-section-number">3.1</span> <code>pwd</code></a></li>
+  <li><a href="#cd" id="toc-cd" class="nav-link" data-scroll-target="#cd"> <span class="header-section-number">3.2</span> <code>cd</code></a></li>
+  <li><a href="#ls" id="toc-ls" class="nav-link" data-scroll-target="#ls"> <span class="header-section-number">3.3</span> <code>ls</code></a></li>
+  <li><a href="#mkdir" id="toc-mkdir" class="nav-link" data-scroll-target="#mkdir"> <span class="header-section-number">3.4</span> <code>mkdir</code></a></li>
+  <li><a href="#summary-thus-far" id="toc-summary-thus-far" class="nav-link" data-scroll-target="#summary-thus-far"> <span class="header-section-number">3.5</span> Summary Thus Far</a></li>
+  <li><a href="#cp" id="toc-cp" class="nav-link" data-scroll-target="#cp"> <span class="header-section-number">3.6</span> <code>cp</code></a></li>
+  <li><a href="#man" id="toc-man" class="nav-link" data-scroll-target="#man"> <span class="header-section-number">3.7</span> <code>man</code></a></li>
   </ul></li>
-  <li><a href="#working-with-text-files-at-command-line" id="toc-working-with-text-files-at-command-line" class="nav-link" data-scroll-target="#working-with-text-files-at-command-line"> <span class="header-section-number">4</span> Working With Text Files At Command Line</a>
+  <li><a href="#working-with-text-files" id="toc-working-with-text-files" class="nav-link" data-scroll-target="#working-with-text-files"> <span class="header-section-number">4</span> Working With Text Files</a>
   <ul class="collapse">
+  <li><a href="#on-your-own-explore-the-files" id="toc-on-your-own-explore-the-files" class="nav-link" data-scroll-target="#on-your-own-explore-the-files">On Your Own: Explore the Files</a></li>
   <li><a href="#compressed-files" id="toc-compressed-files" class="nav-link" data-scroll-target="#compressed-files"> <span class="header-section-number">4.1</span> Compressed Files</a></li>
+  <li><a href="#pipe" id="toc-pipe" class="nav-link" data-scroll-target="#pipe"> <span class="header-section-number">4.2</span> <code>|</code> (pipe)</a></li>
+  <li><a href="#head" id="toc-head" class="nav-link" data-scroll-target="#head"> <span class="header-section-number">4.3</span> <code>head</code></a></li>
+  <li><a href="#zcat" id="toc-zcat" class="nav-link" data-scroll-target="#zcat"> <span class="header-section-number">4.4</span> <code>zcat</code></a></li>
+  <li><a href="#fastq-format" id="toc-fastq-format" class="nav-link" data-scroll-target="#fastq-format"> <span class="header-section-number">4.5</span> FASTQ Format</a></li>
+  <li><a href="#wc" id="toc-wc" class="nav-link" data-scroll-target="#wc"> <span class="header-section-number">4.6</span> <code>wc</code></a></li>
+  <li><a href="#grep" id="toc-grep" class="nav-link" data-scroll-target="#grep"> <span class="header-section-number">4.7</span> <code>grep</code></a></li>
+  <li><a href="#on-your-own-finding-a-sequence" id="toc-on-your-own-finding-a-sequence" class="nav-link" data-scroll-target="#on-your-own-finding-a-sequence">On Your Own: Finding a Sequence</a></li>
   </ul></li>
-  <li><a href="#fastq-format" id="toc-fastq-format" class="nav-link" data-scroll-target="#fastq-format"> <span class="header-section-number">5</span> Fastq Format</a></li>
-  <li><a href="#downloading-files-from-online" id="toc-downloading-files-from-online" class="nav-link" data-scroll-target="#downloading-files-from-online"> <span class="header-section-number">6</span> Downloading Files From Online</a></li>
+  <li><a href="#downloading-files-from-the-web" id="toc-downloading-files-from-the-web" class="nav-link" data-scroll-target="#downloading-files-from-the-web"> <span class="header-section-number">5</span> Downloading Files from the Web</a>
+  <ul class="collapse">
+  <li><a href="#on-your-own" id="toc-on-your-own" class="nav-link" data-scroll-target="#on-your-own"> <span class="header-section-number">5.1</span> On Your Own</a></li>
+  <li><a href="#curl" id="toc-curl" class="nav-link" data-scroll-target="#curl"> <span class="header-section-number">5.2</span> <code>curl</code></a></li>
+  <li><a href="#on-your-own-preview-a-fasta-file" id="toc-on-your-own-preview-a-fasta-file" class="nav-link" data-scroll-target="#on-your-own-preview-a-fasta-file"> <span class="header-section-number">5.3</span> On Your Own: Preview a FASTA file</a></li>
+  <li><a href="#less" id="toc-less" class="nav-link" data-scroll-target="#less"> <span class="header-section-number">5.4</span> <code>less</code></a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -189,6 +270,7 @@ ul.task-list{list-style: none;}
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">The Unix Shell</h1>
+<p class="subtitle lead">And an introduction to our dataset with FASTQ and FASTA files</p>
 </div>
 
 
@@ -236,23 +318,23 @@ ul.task-list{list-style: none;}
 <p align="left">
 <img src="img/prompt1.png" width="100%">
 </p>
-<p>Let’s start with <code>ls</code>.</p>
+<p>Let’s start with the <code>ls</code> command.</p>
 <p align="left">
 <img src="img/ls.png" width="100%">
 </p>
 <p align="left">
 <img src="img/ls_output.png" width="100%">
 </p>
-<p>Here, we’ve given a command, <code>ls</code>, and the shell has returned some output - in this case, listing the contents of the current directory. It has also returned another prompt, meaning it’s ready for another command.</p>
-<p>Now we’ll run the same command again, but this time we’ll add in an option <code>-l</code> (dash, lowercase L). Options allow you to slightly modify the behavior of a command.</p>
+<p>Here, we’ve given a <strong>command, <code>ls</code></strong>, and the shell has returned some output – in this case, listing the contents of the current directory. It has also returned another prompt, meaning it’s ready for another command.</p>
+<p>Now we’ll run the same command again, but this time we’ll add in an <strong>option <code>-l</code></strong> (a dash followed by a lowercase L). Options allow you to modify the behavior of a command.</p>
 <p align="left">
 <img src="img/ls_long.png" width="100%">
 </p>
 <p align="left">
 <img src="img/ls_long_out.png" width="100%">
 </p>
-<p>Notice that in the case, the same four items are returned, but this time, they’re printed in a different format, and additional information is included.</p>
-<p>Let’s try adding one more option/argument - <code>-h</code>.</p>
+<p>Notice that the same four items are returned, but this time, they’re printed in a different format, and additional information is included.</p>
+<p>Let’s try adding one more option/argument – <code>-h</code>.</p>
 <p align="left">
 <img src="img/ls_lh.png" width="100%">
 </p>
@@ -266,97 +348,105 @@ ul.task-list{list-style: none;}
 <h3 data-number="2.3" class="anchored" data-anchor-id="commonly-used-commands"><span class="header-section-number">2.3</span> Commonly-Used Commands</h3>
 <p>Below are some commands I find myself using quite a bit, grouped into some general categories based on their primary function…</p>
 <ul>
-<li>Getting Info About A Command
+<li><strong>Getting Info About a Command</strong>
 <ul>
-<li>man</li>
+<li><code>man</code></li>
 </ul></li>
-<li>Navigating In The Terminal
+<li><strong>Navigating in the Terminal</strong>
 <ul>
-<li>pwd</li>
-<li>cd</li>
+<li><code>pwd</code></li>
+<li><code>cd</code></li>
 </ul></li>
-<li>Viewing Files
+<li><strong>Viewing Files</strong>
 <ul>
-<li>less</li>
-<li>head</li>
-<li>tail</li>
-<li>cat</li>
+<li><code>less</code></li>
+<li><code>head</code></li>
+<li><code>tail</code></li>
+<li><code>cat</code></li>
 </ul></li>
-<li>Managing/Organizing Files
+<li><strong>Managing/Organizing Files</strong>
 <ul>
-<li>ls</li>
-<li>mkdir</li>
-<li>rm</li>
-<li>cp</li>
-<li>mv</li>
+<li><code>ls</code></li>
+<li><code>mkdir</code></li>
+<li><code>rm</code></li>
+<li><code>cp</code></li>
+<li><code>mv</code></li>
 </ul></li>
-<li>Working With Compressed Files
+<li><strong>Working With Compressed Files</strong>
 <ul>
-<li>gzip</li>
-<li>gunzip</li>
-<li>zcat/gzcat</li>
-<li>unzip</li>
+<li><code>gzip</code></li>
+<li><code>gunzip</code></li>
+<li><code>zcat</code>/<code>gzcat</code></li>
+<li><code>unzip</code></li>
 </ul></li>
-<li>Assessing Files
+<li><strong>Assessing Files</strong>
 <ul>
-<li>diff</li>
-<li>md5</li>
-<li>grep</li>
-<li>wc</li>
+<li><code>diff</code></li>
+<li><code>md5</code></li>
+<li><code>grep</code></li>
+<li><code>wc</code></li>
 </ul></li>
-<li>Editing Files
+<li><strong>Editing Files</strong>
 <ul>
-<li>sed</li>
-<li>awk</li>
-<li>sort</li>
-<li>tr</li>
-<li>uniq</li>
+<li><code>sed</code></li>
+<li><code>awk</code></li>
+<li><code>sort</code></li>
+<li><code>tr</code></li>
+<li><code>uniq</code></li>
 </ul></li>
-<li>Obtaining/Sharing Files
+<li><strong>Obtaining/Sharing Files</strong>
 <ul>
-<li>curl</li>
-<li>sftp</li>
-<li>wget</li>
+<li><code>curl</code></li>
+<li><code>sftp</code></li>
+<li><code>wget</code></li>
 </ul></li>
-<li>Features
+<li><strong>Features</strong>
 <ul>
 <li>Tab completion</li>
 <li>Command History (up arrow)</li>
-<li>Ctrl-r</li>
-<li>Ctrl-c</li>
+<li><kbd>Ctrl</kbd>+<kbd>r</kbd></li>
+<li><kbd>Ctrl</kbd>+<kbd>c</kbd></li>
 </ul></li>
-<li>Special Notation
+<li><strong>Special Notation</strong>
 <ul>
-<li>|</li>
-<li>~</li>
-<li>.</li>
-<li>..</li>
-<li>$PATH</li>
-<li>$HOME</li>
+<li><code>|</code></li>
+<li><code>~</code></li>
+<li><code>.</code></li>
+<li><code>..</code></li>
+<li><code>$PATH</code></li>
+<li><code>$HOME</code></li>
 </ul></li>
-<li>Wildcards
+<li><strong>Wildcards</strong>
 <ul>
-<li>*</li>
-<li>?</li>
-<li>[]</li>
-<li>^</li>
+<li><code>*</code></li>
+<li><code>?</code></li>
+<li><code>[]</code></li>
+<li><code>^</code></li>
 </ul></li>
 </ul>
 <p>While it’s not an exhaustive list, getting a grasp on some of the commands and features above will go a long way in allowing you to start to work at command line. We won’t get to all of them in this session, but we’ll explore quite a few on this list.</p>
 </section>
 </section>
-<section id="initial-practice" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="initial-practice"><span class="header-section-number">3</span> Initial Practice</h2>
+<section id="practice-with-common-commands" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="practice-with-common-commands"><span class="header-section-number">3</span> Practice with Common Commands</h2>
 <p>Here we’ll start practicing with some common command-line commands.</p>
-<section id="working-directories" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="working-directories"><span class="header-section-number">3.1</span> Working Directories</h3>
-<p>Before we start with our first command, we should talk about directory paths and working directories. All the files on a computer exist within a hierarchical system of directories (folders). When working at command line, you are always “in” one of these directories. The directory you’re “in” at any given time is referred to as your <strong>working directory</strong>. It’s useful to know what this is at any given time, and there’s a command that tells you: <code>pwd</code>. This brings us to our first command.</p>
-</section>
-<section id="common-commands" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="common-commands"><span class="header-section-number">3.2</span> Common Commands</h3>
-<section id="pwd" class="level4" data-number="3.2.1">
-<h4 data-number="3.2.1" class="anchored" data-anchor-id="pwd"><span class="header-section-number">3.2.1</span> <code>pwd</code></h4>
-<p>The <code>pwd</code> command prints the full path of your current working directory.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Working Directories
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before we start with our first command, we should talk about directory paths and working directories. All the files on a computer exist within a hierarchical system of directories (folders). When working at command line, you are always “in” one of these directories. The directory you’re “in” at any given time is referred to as your <strong>working directory</strong>.</p>
+<p>It’s useful to know what this is at any given time, and there’s a command that tells you: <code>pwd</code>. This brings us to our first command.</p>
+</div>
+</div>
+<section id="pwd" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="pwd"><span class="header-section-number">3.1</span> <code>pwd</code></h3>
+<p>The <code>pwd</code> command prints the absolute path of your current working directory.</p>
 <p align="left">
 <img src="img/pwd.png" width="100%">
 </p>
@@ -365,8 +455,8 @@ ul.task-list{list-style: none;}
 </p>
 <p>The default working directory when you log on to OSC is your HOME directory. You’ll likely make lots of use of this directory if you work at OSC, but for the workshop, we’re all going to work in the scratch directory associated with the project set up for the workshop. So we’ll move to that directory next.</p>
 </section>
-<section id="cd" class="level4" data-number="3.2.2">
-<h4 data-number="3.2.2" class="anchored" data-anchor-id="cd"><span class="header-section-number">3.2.2</span> <code>cd</code></h4>
+<section id="cd" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="cd"><span class="header-section-number">3.2</span> <code>cd</code></h3>
 <p><code>cd</code> allows you to change your working directory to any directory you have permission to access on the computer you’re working on. And this is a great place to introduce <strong>Tab Completion</strong>, which you really should get in the habit of using…</p>
 <p align="left">
 <img src="img/cd1.png" width="100%">
@@ -383,14 +473,24 @@ ul.task-list{list-style: none;}
 <p align="left">
 <img src="img/cd5.png" width="100%">
 </p>
-<section id="full-paths-vs-relative-paths" class="level5" data-number="3.2.2.1">
-<h5 data-number="3.2.2.1" class="anchored" data-anchor-id="full-paths-vs-relative-paths"><span class="header-section-number">3.2.2.1</span> Full Paths vs Relative Paths</h5>
-<p>What we’ve used here is a <strong>full path</strong>. If you want to change directories, the <code>cd</code> command needs to know where you want to move to. As we just saw, we can give it that information by providing the <strong>full path</strong> to the directory on the computer we want to move to (starting with the root directory, which is indicated by the first ‘/’ in the path “/fs/ess/scratch/PAS2250” above). Providing full paths will always work, but it’s often a bit more typing than we need (or want) to do. An alternative is to work with <strong>relative paths</strong>. These work by assuming you’re staring in your current working directory, and then, by default, looking forward in the directory structure (or down if you like to think from top to bottom). We’ll come back to <strong>relative paths</strong> shortly.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Absolute Paths vs Relative Paths
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What we’ve used here is an <strong>absolute (full) path</strong>. If you want to change directories, the <code>cd</code> command needs to know where you want to move to. As we just saw, we can give it that information by providing the <strong>absolute path</strong> to the directory on the computer we want to move to (starting with the root directory, which is indicated by the first <code>/</code> in the path <code>/fs/ess/scratch/PAS2250</code> above).</p>
+<p>Providing absolute paths will always work, but it’s often a bit more typing than we need (or want) to do. An alternative is to work with <strong>relative paths</strong>. These work by assuming you’re staring in your current working directory, and then, by default, looking forward in the directory structure (or down if you like to think from top to bottom). We’ll come back to <strong>relative paths</strong> shortly.</p>
+</div>
+</div>
 <p>OK, we made it to a directory created specifically for this workshop. Let’s see what’s in there.</p>
 </section>
-</section>
-<section id="ls" class="level4" data-number="3.2.3">
-<h4 data-number="3.2.3" class="anchored" data-anchor-id="ls"><span class="header-section-number">3.2.3</span> <code>ls</code></h4>
+<section id="ls" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="ls"><span class="header-section-number">3.3</span> <code>ls</code></h3>
 <p>The <code>ls</code> command lists everything inside the current directory.</p>
 <p align="left">
 <img src="img/ls2.png" width="100%">
@@ -398,8 +498,8 @@ ul.task-list{list-style: none;}
 <p align="left">
 <img src="img/ls2_out.png" width="100%">
 </p>
-<p>Here we see 3 directories - ‘data’, ‘jelmer’, and ‘participants’.</p>
-<p>Let’s see what’s inside the ‘data’ directory (and another good chance to try <strong>Tab Completion</strong>)…</p>
+<p>Here we see 3 directories – <code>data</code>, <code>jelmer</code>, and <code>participants</code>.</p>
+<p>Let’s see what’s inside the <code>data</code> directory (and another good chance to try <strong>Tab Completion</strong>)…</p>
 <p align="left">
 <img src="img/ls3.png" width="100%">
 </p>
@@ -409,31 +509,30 @@ ul.task-list{list-style: none;}
 <p align="left">
 <img src="img/ls5.png" width="100%">
 </p>
-<p>Two more directories this time. Try viewing the contents of the fastq directory yourself…</p>
-<section id="on-your-own" class="level5" data-number="3.2.3.1">
-<h5 data-number="3.2.3.1" class="anchored" data-anchor-id="on-your-own"><span class="header-section-number">3.2.3.1</span> On Your Own</h5>
-<div class="exercise">
-<div class="puzzle">
-<div>
-<p>Try to list the contents of the ‘fastq’ directory we just saw.</p>
+<p>Two more directories this time. Try viewing the contents of the <code>fastq</code> directory yourself…</p>
+<section id="on-your-own-list-the-contents-of-a-directory" class="level4 unnumbered exercise">
+<h4 class="unnumbered anchored" data-anchor-id="on-your-own-list-the-contents-of-a-directory">On Your Own: list the contents of a directory</h4>
+<p>Try to list the contents of the <code>fastq</code> directory we just saw.</p>
 <details>
 <summary>
 Solutions (click here)
 </summary>
-<p>ls data/fastq/</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> data/fastq/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><strong>OR</strong></p>
-<p>cd data/fastq/</p>
-<p>ls</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data/fastq/</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </details>
-</div>
-</div>
-</div>
-<p>Let’s check to make sure we’re still in the /fs/ess/scratch/PAS2250 directory, and also remind ourselves exactly what’s in there…</p>
+</section>
+<p>Let’s check to make sure we’re still in the <code>/fs/ess/scratch/PAS2250</code> directory, and also remind ourselves exactly what’s in there…</p>
 <p align="left">
 <img src="img/pwd2.png" width="100%">
 </p>
-<p>If you’re not in the PAS2250 directory for some reason, you can use <code>cd</code> to get back there. You should see ‘data’, ‘jelmer’, and ‘participants’ when listing the contents of your current directory.</p>
-<p>Now let’s move our working directory again - this time we’ll go in to <code>participants</code>. We could use <code>cd</code> with the full path - similar to what we did before. However, we’ll save ourselves some typing and use a <strong>relative path</strong>. Keep using <strong>Tab Completion</strong>.</p>
+<p>If you’re not in the <code>PAS2250</code> directory for some reason, you can use <code>cd</code> to get back there. You should see <code>data</code>, <code>jelmer</code>, and <code>participants</code> when listing the contents of your current directory.</p>
+<p>Now let’s move our working directory again – this time we’ll go in to <code>participants</code>. We could use <code>cd</code> with the absolute path – similar to what we did before. However, we’ll save ourselves some typing and use a <strong>relative path</strong>. Keep using <strong>Tab Completion</strong>.</p>
 <p align="left">
 <img src="img/relative1.png" width="100%">
 </p>
@@ -447,10 +546,9 @@ Solutions (click here)
 <img src="img/relative4.png" width="100%">
 </p>
 </section>
-</section>
-<section id="mkdir" class="level4" data-number="3.2.4">
-<h4 data-number="3.2.4" class="anchored" data-anchor-id="mkdir"><span class="header-section-number">3.2.4</span> <code>mkdir</code></h4>
-<p>The <code>mkdir</code> command allows you to create a new directory. Create one for yourself in the current directory (participants) according to this example (replace ‘mikes_dir’ with a name for your folder - avoid spaces and special characters in the name)…</p>
+<section id="mkdir" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="mkdir"><span class="header-section-number">3.4</span> <code>mkdir</code></h3>
+<p>The <code>mkdir</code> command allows you to create a new directory. Create one for yourself in the current directory (<code>participants</code>) according to this example (replace <code>mikes_dir</code> with a name for your folder – avoid spaces and special characters in the name)…</p>
 <p align="left">
 <img src="img/mkdir1.png" width="100%">
 </p>
@@ -458,35 +556,36 @@ Solutions (click here)
 <img src="img/mkdir2.png" width="100%">
 </p>
 </section>
-<section id="summary-thus-far" class="level4" data-number="3.2.5">
-<h4 data-number="3.2.5" class="anchored" data-anchor-id="summary-thus-far"><span class="header-section-number">3.2.5</span> Summary Thus Far</h4>
+<section id="summary-thus-far" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="summary-thus-far"><span class="header-section-number">3.5</span> Summary Thus Far</h3>
 <p>So far, we’ve used…</p>
 <ul>
-<li>pwd (print working directory)</li>
-<li>cd (change directory)</li>
-<li>ls (list)</li>
-<li>mkdir (make new directory)</li>
+<li><code>pwd</code> (print working directory)</li>
+<li><code>cd</code> (change directory)</li>
+<li><code>ls</code> (list)</li>
+<li><code>mkdir</code> (make new directory)</li>
 <li>Tab Completion (not really a command, but a useful feature)</li>
 </ul>
 <p>We also have a directory structure that looks like…</p>
 <p align="left">
 <img src="img/dir_structure.png" width="80%">
 </p>
-<p>The data files in the ‘data/fastq’ directory are fastq formatted files from an RNA experiment, and are what we’ll be analyzing as we go through the workshop. We’ll talk more about them soon, but for now, let’s make sure everyone has a copy of the data. We’ll copy the ‘data’ directory and its contents into the new directory you just made.</p>
+<p>The data files in the <code>data/fastq</code> directory are FASTQ formatted files from an RNA experiment, and are what we’ll be analyzing as we go through the workshop. We’ll talk more about them soon, but for now, let’s make sure everyone has a copy of the data. We’ll copy the <code>data</code> directory and its contents into the new directory you just made.</p>
 <p align="left">
 <img src="img/cp_diagram.png" width="80%">
 </p>
 </section>
-<section id="cp" class="level4" data-number="3.2.6">
-<h4 data-number="3.2.6" class="anchored" data-anchor-id="cp"><span class="header-section-number">3.2.6</span> <code>cp</code></h4>
-<p>The <code>cp</code> command allows you to copy files or directories from one location to another. It has 2 required arguments - what you want to copy, and where you want to copy it to. Let’s start with what we want to copy. It’s the ‘data’ directory and all of its contents. Notice in the diagram above that ‘data’ is at the same level in the directory structure as our current working directory, participants. This means using ‘data’ as a <strong>relative path</strong> won’t work, because the computer looks down the directory structure (it will see the contents of ‘participants’). But there’s a way to deal with that. We can use <code>..</code> to move us up a level in the directory structure.</p>
+<section id="cp" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="cp"><span class="header-section-number">3.6</span> <code>cp</code></h3>
+<p>The <code>cp</code> command allows you to copy files or directories from one location to another. It has 2 required arguments – what you want to copy, and where you want to copy it to.</p>
+<p>Let’s start with what we want to copy. It’s the <code>data</code> directory and all of its contents. Notice in the diagram above that <code>data</code> is at the same level in the directory structure as our current working directory, participants. This means using <code>data</code> as a <strong>relative path</strong> won’t work, because the computer looks down the directory structure (it will see the contents of ‘participants’). But there’s a way to deal with that. We can use <code>..</code> to move us up a level in the directory structure.</p>
 <p align="left">
 <img src="img/cp1.png" width="80%">
 </p>
 <p align="left">
 <img src="img/cp2.png" width="80%">
 </p>
-<p>Notice we get a message that it omitted copying the directory ‘data’ (which is what we wanted to copy). Indeed, the copy didn’t work (you can <code>ls</code> the contents of the target directory to check - it will still be empty). <code>cp</code> works in this simplest form with individual files, but not with directories that have contents inside them. If you want to copy a directory and all of its contents, we need one of those options that modify the behavior of the <code>cp</code> command. In this case, <code>-r</code>, which tells it to copy in a recursive manner.</p>
+<p>Notice we get a message that it omitted copying the directory <code>data</code> (which is what we wanted to copy). Indeed, the copy didn’t work (you can <code>ls</code> the contents of the target directory to check – it will still be empty). <code>cp</code> works in this simplest form with individual files, but not with directories that have contents inside them. If you want to copy a directory and all of its contents, we need one of those options that modify the behavior of the <code>cp</code> command. In this case, <code>-r</code>, which tells it to copy in a recursive manner.</p>
 <p>And this is a good spot to introduce the <strong>Command History</strong>. At the prompt, try hitting the up arrow. A record of all your previous commands is kept, so you can scroll back through them. Use this to get the previous <code>cp</code> command, and then add the <code>-r</code> argument.</p>
 <p align="left">
 <img src="img/cp3.png" width="80%">
@@ -499,8 +598,8 @@ Solutions (click here)
 <img src="img/cp5.png" width="80%">
 </p>
 </section>
-<section id="man" class="level4" data-number="3.2.7">
-<h4 data-number="3.2.7" class="anchored" data-anchor-id="man"><span class="header-section-number">3.2.7</span> <code>man</code></h4>
+<section id="man" class="level3" data-number="3.7">
+<h3 data-number="3.7" class="anchored" data-anchor-id="man"><span class="header-section-number">3.7</span> <code>man</code></h3>
 <p>We haven’t talked about <code>man</code> yet. This stands for manual, and is a great way to get details on any command. For example, we can check out the man page for <code>cp</code>…</p>
 <p align="left">
 <img src="img/man1.png" width="80%">
@@ -508,85 +607,86 @@ Solutions (click here)
 <p align="left">
 <img src="img/man2.png" width="80%">
 </p>
-<p>If you scroll down, you’ll see information on the <code>-r</code> option we just used (among others). As it says at the bottom of the page, type ‘q’ to quit and get back to your command line prompt.</p>
+<p>If you scroll down, you’ll see information on the <code>-r</code> option we just used (among others). As it says at the bottom of the page, type <kbd>q</kbd> to quit and get back to your command line prompt.</p>
+<p><br></p>
 </section>
 </section>
-</section>
-<section id="working-with-text-files-at-command-line" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="working-with-text-files-at-command-line"><span class="header-section-number">4</span> Working With Text Files At Command Line</h2>
-<p>Now let’s start to explore our fastq files a bit. In preparation, it’s a good chance to practice a few of the commands we’ve seen so far.</p>
-<section id="on-your-own-1" class="level5" data-number="4.0.0.1">
-<h5 data-number="4.0.0.1" class="anchored" data-anchor-id="on-your-own-1"><span class="header-section-number">4.0.0.1</span> On Your Own</h5>
-<div class="exercise">
-<div class="puzzle">
-<div>
-<p>Set your working directory to the ‘data/fastq’ directory inside the folder you created for yourself. Then list the contents of that ‘fastq’ directory. How many files are in there? See if you can get the sizes of each file.</p>
+<section id="working-with-text-files" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="working-with-text-files"><span class="header-section-number">4</span> Working With Text Files</h2>
+<p>Now let’s start to explore our FASTQ files a bit. In preparation, it’s a good chance to practice a few of the commands we’ve seen so far.</p>
+<section id="on-your-own-explore-the-files" class="level3 unnumbered exercise">
+<h3 class="unnumbered anchored" data-anchor-id="on-your-own-explore-the-files">On Your Own: Explore the Files</h3>
+<p>Set your working directory to the <code>data/fastq</code> directory inside the folder you created for yourself. Then list the contents of that <code>fastq</code> directory. How many files are in there? See if you can get the sizes of each file.</p>
 <details>
 <summary>
 Hint (click here)
 </summary>
-Use <code>cd</code> and a relative path (<em>your_dir</em>/data/fastq/) to change you working directory. Once you’re there, use <code>ls</code> to list the contents of the current directory. Check out the <code>man</code> page for <code>ls</code> to see if you can find an option that will give you more detailed information about each file.
+<p>Use <code>cd</code> and a relative path (<code>&lt;your_dir&gt;/data/fastq/</code>) to change you working directory.</p>
+<p>Once you’re there, use <code>ls</code> to list the contents of the current directory. Recall the option that we used above to give more detailed information about each file, or check out the <code>man</code> page for <code>ls</code>.</p>
 </details>
 <details>
 <summary>
 Solutions (click here)
 </summary>
-<p><code>cd *your_dir*/data</code></p>
-<p><code>ls</code></p>
-<code>ls -l</code>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>your_dir<span class="op">&gt;</span>/data</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </details>
-</div>
-</div>
-</div>
 </section>
 <section id="compressed-files" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="compressed-files"><span class="header-section-number">4.1</span> Compressed Files</h3>
-<p>You might have noticed these files all have a ‘.gz’ extension, indicating they are ‘gz-compressed’. This is a common type of compression for large genomic-scale files. The fact that they’re compressed means we can’t just open them up and look inside - we need to uncompress them first. The <code>gunzip</code> command would allow us to do this - it uncompresses the file it’s given and writes the uncompressed version to a new file. We could do this, but there’s another approach. Fastq files can get big, and sometimes it helps to be able to keep them compressed as much as possible. It’s a good time for us to explore the pipe.</p>
-<section id="section" class="level4" data-number="4.1.1">
-<h4 data-number="4.1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">4.1.1</span> <code>|</code></h4>
-<p>We talked earlier about command line expressions having 3 parts - the command itself, options, and output. By default, any output is printed to the screen. That’s what we’ve seen so far. But you can also redirect the output, and there are two primary ways to redirect it…</p>
+<p>You might have noticed these files all have a <code>.gz</code> extension, indicating they are ‘gzip-compressed’. This is a common type of compression for large genomic-scale files. The fact that they’re compressed means we can’t just open them up and look inside – we need to uncompress them first. The <code>gunzip</code> command would allow us to do this – it uncompresses the file it’s given and writes the uncompressed version to a new file.</p>
+<p>We could do this, but there’s another approach. FASTQ files can get big, and sometimes it helps to be able to keep them compressed as much as possible. It’s a good time for us to explore the pipe.</p>
+</section>
+<section id="pipe" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="pipe"><span class="header-section-number">4.2</span> <code>|</code> (pipe)</h3>
+<p>We talked earlier about command line expressions having 3 parts – the command itself, options and arguments, and output. By default, any output is printed to the screen. That’s what we’ve seen so far. But you can also <strong>redirect the output</strong>, and there are three primary ways to redirect it…</p>
 <ul>
-<li>the ‘&gt;’, which is followed by the name of a new text file the output will be written to</li>
-<li>the ‘|’ (pipe), which takes the output of one command and “pipes” it in as input for a subsequent command.</li>
+<li>With <code>&gt;</code>, which is followed by the name of a text file the output will be written to</li>
+<li>With <code>&gt;&gt;</code>, which is simlar to <code>&gt;</code> but will <strong>append</strong> the output (that is, it won’t overwrite any existing content like <code>&gt;</code>)</li>
+<li>With <code>|</code> (pipe), which takes the output of one command and “pipes” it as input for a subsequent command.</li>
 </ul>
 <p>Let’s try to preview the contents of one of the compressed files.</p>
 </section>
-<section id="head" class="level4" data-number="4.1.2">
-<h4 data-number="4.1.2" class="anchored" data-anchor-id="head"><span class="header-section-number">4.1.2</span> <code>head</code></h4>
-<p>The <code>head</code> command is a great way to preview the contents of a text file. By default, <code>head</code> prints the first 10 lines of a file. Since these are fastq files, let’s print 8 lines (a multiple of 4 - it will become clear why shortly). We can use the <code>-n</code> argument to specify the number of lines that will be returned.</p>
+<section id="head" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="head"><span class="header-section-number">4.3</span> <code>head</code></h3>
+<p>The <code>head</code> command is a great way to preview the contents of a text file. By default, <code>head</code> prints the first 10 lines of a file. Since these are FASTQ files, let’s print 8 lines (a multiple of 4 – it will become clear why shortly). We can use the <code>-n</code> argument to specify the number of lines that will be returned.</p>
 <p align="left">
 <img src="img/head1.png" width="80%">
 </p>
 <p align="left">
 <img src="img/head2.png" width="80%">
 </p>
-<p>This isn’t what we want - we’re seeing the first 8 lines of the compressed files - not helpful.</p>
+<p>This isn’t what we want – we’re seeing the first 8 lines of the compressed files - not helpful.</p>
 </section>
-<section id="zcat" class="level4" data-number="4.1.3">
-<h4 data-number="4.1.3" class="anchored" data-anchor-id="zcat"><span class="header-section-number">4.1.3</span> <code>zcat</code></h4>
-<p>The <code>zcat</code> function prints human-readable contents of a gz-compressed file to the screen. We can try running it on the file, but remember the file is pretty big - there are lots of lines of text in there that will all get printed to the screen. Instead, we can pipe the output of <code>zcat</code> to the <code>head</code> command.</p>
+<section id="zcat" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="zcat"><span class="header-section-number">4.4</span> <code>zcat</code></h3>
+<p>The <code>zcat</code> function prints human-readable contents of a gzip-compressed file to the screen. We can try running it on the file, but remember the file is pretty big – there are lots of lines of text in there that will all get printed to the screen. Instead, we can pipe the output of <code>zcat</code> to the <code>head</code> command.</p>
 <p align="left">
 <img src="img/head3.png" width="80%">
 </p>
 <p align="left">
 <img src="img/head4.png" width="80%">
 </p>
-<p>Much better - this is what the raw RANseq data look like!</p>
+<p>Much better – this is what the raw RNAseq data look like!</p>
 </section>
-</section>
-</section>
-<section id="fastq-format" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="fastq-format"><span class="header-section-number">5</span> Fastq Format</h2>
-<p>If you’re not familiar with it, fastq is a very common format for genomic data files. The raw data produced by a high-throughput sequencer will almost certainly be returned to you in this format. These are plain text files, and each sequence that is read by the sequencer is represented by 4 lines:</p>
+<section id="fastq-format" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="fastq-format"><span class="header-section-number">4.5</span> FASTQ Format</h3>
+<p>If you’re not familiar with it, FASTQ is a very common format for genomic data files. The raw data produced by a high-throughput sequencer will almost certainly be returned to you in this format. These are plain text files, and each sequence that is read by the sequencer is represented by 4 lines:</p>
 <ul>
-<li>a name line</li>
+<li>a name (header) line</li>
 <li>the sequence itself</li>
 <li>a plus sign</li>
 <li>quality scores corresponding to each base position in the sequence</li>
 </ul>
-<section id="wc" class="level4" data-number="5.0.1">
-<h4 data-number="5.0.1" class="anchored" data-anchor-id="wc"><span class="header-section-number">5.0.1</span> <code>wc</code></h4>
-<p>Since each read in a fastq file is represented by 4 lines, we should expect the number of lines in each of the fastq files to be a multiple of 4. Let’s check one. The <code>wc</code> command stands for word count, but by default, it returns the number of words, lines, and characters in a file. The <code>-l</code> option tells it to return just the number of lines, so we’ll use it since that’s all we’re interested in right now. And remember, we’ll want to do this on the uncompressed data.</p>
+</section>
+<section id="wc" class="level3" data-number="4.6">
+<h3 data-number="4.6" class="anchored" data-anchor-id="wc"><span class="header-section-number">4.6</span> <code>wc</code></h3>
+<p>Since each read in a FASTQ file is represented by 4 lines, we should expect the number of lines in each of the FASTQ files to be a multiple of 4. Let’s check one. The <code>wc</code> command stands for word count, but by default, it returns the number of words, lines, and characters in a file. The <code>-l</code> option tells it to return just the number of lines, so we’ll use it since that’s all we’re interested in right now. And remember, we’ll want to do this on the uncompressed data.</p>
 <p align="left">
 <img src="img/wc1.png" width="80%">
 </p>
@@ -594,21 +694,19 @@ Solutions (click here)
 <img src="img/wc2.png" width="80%">
 </p>
 </section>
-<section id="grep" class="level4" data-number="5.0.2">
-<h4 data-number="5.0.2" class="anchored" data-anchor-id="grep"><span class="header-section-number">5.0.2</span> <code>grep</code></h4>
-<p><code>grep</code> allows you to search through a file for specific patterns of text and returns the matching lines. For example, let’s say we wanted to see what sequences in sample SRR7609467 contain the sequence ‘ACCGATACG’</p>
+<section id="grep" class="level3" data-number="4.7">
+<h3 data-number="4.7" class="anchored" data-anchor-id="grep"><span class="header-section-number">4.7</span> <code>grep</code></h3>
+<p><code>grep</code> allows you to search through a file for specific patterns of text and returns the matching lines. For example, let’s say we wanted to see what sequences in sample SRR7609467 contain the sequence “ACCGATACG”:</p>
 <p align="left">
 <img src="img/grep1.png" width="80%">
 </p>
 <p align="left">
 <img src="img/grep2.png" width="80%">
 </p>
-<section id="on-your-own-2" class="level5" data-number="5.0.2.1">
-<h5 data-number="5.0.2.1" class="anchored" data-anchor-id="on-your-own-2"><span class="header-section-number">5.0.2.1</span> On Your Own</h5>
-<div class="exercise">
-<div class="puzzle">
-<div>
-<p>How many sequences in sample SRR7609467 contain the sequence ‘CCAGTA’</p>
+</section>
+<section id="on-your-own-finding-a-sequence" class="level3 unnumbered exercise">
+<h3 class="unnumbered anchored" data-anchor-id="on-your-own-finding-a-sequence">On Your Own: Finding a Sequence</h3>
+<p>How many sequences in sample SRR7609467 contain the sequence “CCAGTA”?</p>
 <details>
 <summary>
 Hint (click here)
@@ -619,82 +717,87 @@ Pipe the results of the grep to <code>wc -l</code>. Alternatively, check out the
 <summary>
 Solutions (click here)
 </summary>
-<p><code>zcat SRR7609467.fastq.gz | grep 'CCAGTA' | wc -l</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zcat</span> SRR7609467.fastq.gz <span class="kw">|</span> <span class="fu">grep</span> <span class="st">'CCAGTA'</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><strong>OR</strong></p>
-<code>zcat SRR7609467.fastq.gz | grep -c 'CCAGTA'</code>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zcat</span> SRR7609467.fastq.gz <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-c</span> <span class="st">'CCAGTA'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </details>
-</div>
-</div>
-</div>
 </section>
+<p><br></p>
 </section>
-</section>
-<section id="downloading-files-from-online" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="downloading-files-from-online"><span class="header-section-number">6</span> Downloading Files From Online</h2>
-<p>At command line, you can’t just open a web browser and download a file you might want. But of course there are commands to do that. As we move toward starting to analyze our example RNAseq dataset, one thing we’ll need is the reference genome for the species these sequences came from - in this case, <em>Phaseolus vulgaris</em>. Before we get that, it’s another good time to practice some of those common commands…</p>
-<section id="on-your-own-3" class="level5" data-number="6.0.0.1">
-<h5 data-number="6.0.0.1" class="anchored" data-anchor-id="on-your-own-3"><span class="header-section-number">6.0.0.1</span> On Your Own</h5>
+<section id="downloading-files-from-the-web" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="downloading-files-from-the-web"><span class="header-section-number">5</span> Downloading Files from the Web</h2>
+<p>At command line, you can’t just open a web browser and download a file you might want. But of course, there are commands to do that. As we move toward starting to analyze our example RNAseq dataset, one thing we’ll need is the reference genome for the species these sequences came from – in this case, <em>Phaseolus vulgaris</em>. Before we get that, it’s another good time to practice some of those common commands…</p>
+<section id="on-your-own" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="on-your-own"><span class="header-section-number">5.1</span> On Your Own</h3>
 <div class="exercise">
-<div class="puzzle">
-<div>
-<p>Create a new (empty) directory named ‘reference’ that will later store the reference genome for our analyses. Put it in your own directory inside ‘participants’. Then make this ‘reference/’ directory your working directory.</p>
+<p>Create a new (empty) directory named <code>reference</code> that will later store the reference genome for our analyses. Put it in your own directory inside <code>participants</code>. Then make this <code>reference</code> directory your working directory.</p>
 <details>
 <summary>
 Hint (click here)
 </summary>
-Use the ‘mkdir’ command (and <code>cd</code> as necessary). Remember that <code>..</code> moves you up/back one directory, and these can be combined. For example, <code>../../../</code> would move you up/back 3 directories.
+<p>Use the <code>mkdir</code> command (and <code>cd</code> as necessary). Remember that <code>..</code> moves you up/back one directory, and these can be combined. For example, <code>../../../</code> would move you up/back 3 directories.</p>
 </details>
 <details>
 <summary>
 Solution (click here)
 </summary>
-<p>mkdir ../../reference</p>
-<p>cd ../../reference</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> ../../reference</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../../reference</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><strong>OR</strong></p>
-<p>cd ../../</p>
-<p>mkdir reference</p>
-<p>cd reference</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../../</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> reference</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> reference</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </details>
 </div>
-</div>
-</div>
 </section>
-<section id="curl" class="level4" data-number="6.0.1">
-<h4 data-number="6.0.1" class="anchored" data-anchor-id="curl"><span class="header-section-number">6.0.1</span> <code>curl</code></h4>
-<p><code>curl</code> is one command that allows you to download files from online (<code>wget</code> is another). Technically, all you need for <code>curl</code> is the name of the command and the web address for what you want to download. However, remember that the default is to print the downloaded contents to the screen. This usually isn’t what we want. Instead, we want to save them to a file. One option would be to redirect the output to a text file with ‘&gt;’. But <code>curl</code> also has a built-in option to write the contents to a file: <code>-o</code>, so we’ll use that. Since the file that gets downloaded is a gz-compressed, fasta-formatted text file, we’ll give the name of the file a ‘.fa.gz’ extension. The reference genome for <em>Phaseolus vulgaris</em> is available at https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/499/845/GCF_000499845.1_PhaVulg1_0/GCF_000499845.1_PhaVulg1_0_genomic.fna.gz.</p>
+<section id="curl" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="curl"><span class="header-section-number">5.2</span> <code>curl</code></h3>
+<p><code>curl</code> is one command that allows you to download files from online (<code>wget</code> is another). Technically, all you need for <code>curl</code> is the name of the command and the web address for what you want to download.</p>
+<p>However, the default for <code>curl</code> is to print the downloaded contents to the screen. This usually isn’t what we want. Instead, we want to save them to a file. One option would be to redirect the output to a text file with <code>&gt;</code>. But <code>curl</code> also has a built-in option to write the contents to a file: <code>-o</code>, so we’ll use that.</p>
+<p>Since the file that gets downloaded is a gzip-compressed, FASTA-formatted text file, we’ll give the name of the file a <code>.fa.gz</code> extension. The reference genome for <em>Phaseolus vulgaris</em> is available at:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/499/845/GCF_000499845.1_PhaVulg1_0/GCF_000499845.1_PhaVulg1_0_genomic.fna.gz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p align="left">
 <img src="img/curl1.png" width="80%">
 </p>
 <p align="left">
 <img src="img/curl2.png" width="80%">
 </p>
-<section id="on-your-own-4" class="level5" data-number="6.0.1.1">
-<h5 data-number="6.0.1.1" class="anchored" data-anchor-id="on-your-own-4"><span class="header-section-number">6.0.1.1</span> On Your Own</h5>
-<div class="exercise">
-<div class="puzzle">
-<div>
+</section>
+<section id="on-your-own-preview-a-fasta-file" class="level3 exercise" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="on-your-own-preview-a-fasta-file"><span class="header-section-number">5.3</span> On Your Own: Preview a FASTA file</h3>
 <p>Try previewing the contents of the reference genome file you just downloaded.</p>
 <details>
 <summary>
 Hint (click here)
 </summary>
-Remember the file is gz-compressed. Use <code>zcat</code> and pipe the results to <code>head</code>.
+Remember the file is gzip-compressed. Use <code>zcat</code> and pipe the results to <code>head</code>.
 </details>
 <details>
 <summary>
 Solution (click here)
 </summary>
-<p>zcat Pvulg.fa.gz | head</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zcat</span> Pvulg.fa.gz <span class="kw">|</span> <span class="fu">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </details>
-</div>
-</div>
-</div>
-<p>OK, now we’ve got our raw data (fastq) and our reference genome (fasta). This is a good start in terms of getting ready to start analyzing the data. One more thing we can do now is try to understand a little bit about the samples themselves. There is a tab-separated text file named ‘meta.tsv’ in the ‘data/meta’ directory. Let’s take a look at its contents…</p>
 </section>
-</section>
-<section id="less" class="level4" data-number="6.0.2">
-<h4 data-number="6.0.2" class="anchored" data-anchor-id="less"><span class="header-section-number">6.0.2</span> <code>less</code></h4>
-<p><code>less</code> is a command that opens up a text file within your shell. Once you’re finished viewing the file, type ‘q’ to quit and return to your prompt.</p>
+<p>OK, now we’ve got our raw data (FASTQ) and our reference genome (FASTA). This is a good start in terms of getting ready to start analyzing the data. One more thing we can do now is try to understand a little bit about the samples themselves. There is a tab-separated text file named <code>meta.tsv</code> in the <code>data/meta</code> directory. Let’s take a look at its contents…</p>
+<section id="less" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="less"><span class="header-section-number">5.4</span> <code>less</code></h3>
+<p><code>less</code> is a command that opens up a text file within your shell. Once you’re finished viewing the file, type <kbd>q</kbd> to quit and return to your prompt.</p>
 <p align="left">
 <img src="img/meta1.png" width="80%">
 </p>
