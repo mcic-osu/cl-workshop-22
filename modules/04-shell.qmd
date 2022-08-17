@@ -24,6 +24,18 @@ Many of the things you typically do by pointing and clicking can alternatively b
 
 Working effectively on a remote supercomputer requires doing command-line computing. But there are more advantages to doing command line computing than just allowing you to work on a supercomputer.
 
+### Some Terminology
+
+We're going to focus on the practice of doing command line computing here, and not get too bogged down in to details of terminology, but let's highlight a few terms you're likely to run across (and hear during the workshop). 
+
+  - Command Line
+  - Shell
+  - Terminal
+  - Console
+  - Bash
+  
+While it might not fly for a computer science class, for day-to-day bioinformatics, you'll probably hear all these terms used somewhat interchangably. Basically, we're talking about the process of interacting with your computer by giving it commands as opposed to the point-and-click way you're likely more familiar with.
+
 ### Advantages to Command Line Computing
 
   - Interact with a remote computer
