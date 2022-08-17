@@ -162,7 +162,20 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tba" id="toc-tba" class="nav-link active" data-scroll-target="#tba"> <span class="header-section-number">1</span> TBA</a></li>
+  <li><a href="#the-ohio-supercomputer-center-osc" id="toc-the-ohio-supercomputer-center-osc" class="nav-link active" data-scroll-target="#the-ohio-supercomputer-center-osc"> <span class="header-section-number">1</span> The Ohio Supercomputer Center (OSC)</a></li>
+  <li><a href="#what-is-a-supercomputer" id="toc-what-is-a-supercomputer" class="nav-link" data-scroll-target="#what-is-a-supercomputer"> <span class="header-section-number">2</span> What is a supercomputer?</a></li>
+  <li><a href="#some-terminology" id="toc-some-terminology" class="nav-link" data-scroll-target="#some-terminology"> <span class="header-section-number">3</span> Some Terminology</a></li>
+  <li><a href="#the-structure-of-a-supercomputer" id="toc-the-structure-of-a-supercomputer" class="nav-link" data-scroll-target="#the-structure-of-a-supercomputer"> <span class="header-section-number">4</span> The Structure Of A Supercomputer</a>
+  <ul class="collapse">
+  <li><a href="#file-storage" id="toc-file-storage" class="nav-link" data-scroll-target="#file-storage"> <span class="header-section-number">4.1</span> File Storage</a></li>
+  <li><a href="#login-nodes" id="toc-login-nodes" class="nav-link" data-scroll-target="#login-nodes"> <span class="header-section-number">4.2</span> Login Nodes</a></li>
+  <li><a href="#compute-cluster" id="toc-compute-cluster" class="nav-link" data-scroll-target="#compute-cluster"> <span class="header-section-number">4.3</span> Compute Cluster</a></li>
+  </ul></li>
+  <li><a href="#supercomputers-at-osc" id="toc-supercomputers-at-osc" class="nav-link" data-scroll-target="#supercomputers-at-osc"> <span class="header-section-number">5</span> Supercomputers at OSC</a></li>
+  <li><a href="#connecting-to-a-supercomputer" id="toc-connecting-to-a-supercomputer" class="nav-link" data-scroll-target="#connecting-to-a-supercomputer"> <span class="header-section-number">6</span> Connecting to a Supercomputer</a>
+  <ul class="collapse">
+  <li><a href="#ssh" id="toc-ssh" class="nav-link" data-scroll-target="#ssh"> <span class="header-section-number">6.1</span> ssh</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -189,10 +202,169 @@ ul.task-list{list-style: none;}
 
 </div>
 <hr>
-<section id="tba" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="tba"><span class="header-section-number">1</span> TBA</h2>
+<section id="the-ohio-supercomputer-center-osc" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="the-ohio-supercomputer-center-osc"><span class="header-section-number">1</span> The Ohio Supercomputer Center (OSC)</h2>
+<p>The Ohio Supercomputer Center is a resource provided by the State of Ohio (not The Ohio State University), so it’s available for use by any person/entity in Ohio including anyone at OSU. Further, academic folks like us are able to use it at heavily subsidized (=cheap!) rates. Physically, it’s located in Columbus - not on campus, but close by.</p>
+<p>We’ll get you introduced to OSC in this session, and of course, you’ll get experience working with OSC resources as we go though the workshop, but we can’t cover everything here. The good news though is that OSC has lots of good support/training materials online. You can find them at <a href="https://www.osc.edu/">the OSC website</a>.</p>
+<p align="center">
+<img src="img/osc_logo.svg" width="90%">
+</p>
+</section>
+<section id="what-is-a-supercomputer" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="what-is-a-supercomputer"><span class="header-section-number">2</span> What is a supercomputer?</h2>
+<p>We’ll start with the basics here - for our purposes, a supercomputer is basically a bunch of smaller computers connected together, allowing for computing jobs that require more resources than any one of the individual computers can alone provide.</p>
+</section>
+<section id="some-terminology" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="some-terminology"><span class="header-section-number">3</span> Some Terminology</h2>
+<p>There are some terms that you’ll almost certainly hear (and maybe have used before yourself) when working with a supercomputer - either at OSC or elsewhere. Let’s think about how these terms relate to each other…</p>
+<ul>
+<li>Supercomputer</li>
+<li>Node</li>
+<li>Cluster</li>
+<li>Core</li>
+<li>Processor</li>
+</ul>
+<p align="center">
+<img src="img/terminology.png" width="95%">
+</p>
+<p>There’s flexibility when using a supercomputer at OSC - the smallest job you can run would use a single processor, or core. Or you could run a slightly bigger job that uses say 10 cores that are all within one physical node. Or you could run an even bigger job that uses 100 cores that exist across 4 nodes by connecting those nodes together so their resources are shared (no single node at OSC has 100 cores).</p>
+</section>
+<section id="the-structure-of-a-supercomputer" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-structure-of-a-supercomputer"><span class="header-section-number">4</span> The Structure Of A Supercomputer</h2>
+<p>We’re going to think about a supercomputer has having three main parts…</p>
+<ul>
+<li>Login Node(s)</li>
+<li>Compute Nodes</li>
+<li>File Storage System</li>
+</ul>
+<p align="center">
+<img src="img/supercomputer_parts.png" width="95%">
+</p>
+<section id="file-storage" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="file-storage"><span class="header-section-number">4.1</span> File Storage</h3>
+<p>There are 3 main areas/file systems where you can store files at OSC…</p>
+<ul>
+<li><strong>Home Directories:</strong> /users/</li>
+<li><strong>Project Directories:</strong> /fs/project/ OR /fs/ess/project/</li>
+<li><strong>Scratch Directories:</strong> /fs/scratch/ OR /fs/ess/scratch/</li>
+</ul>
+<p align="center">
+<img src="img/storage_osc.png" width="95%">
+</p>
+<section id="home-directory" class="level4" data-number="4.1.1">
+<h4 data-number="4.1.1" class="anchored" data-anchor-id="home-directory"><span class="header-section-number">4.1.1</span> Home Directory</h4>
+<p>When you initially get an account with OSC, a HOME directory is created for you, named with your OSC username. This directory will always be within <code>/users/</code>. What subfolder it exists in depends on what project you were initially associated with. For example, the first project I was associated with at OSC was <code>PAS0656</code>. I don’t work on that project anymore, but the location of my HOME directory remains <code>/users/PAS0656/osu6672</code> (note <code>osu6672</code> is my OSC username).</p>
+<p>This HOME directory provides you with up to 500 GB of storage (or up to 1,000,000 files). This is considered permanent storage, so it is well backed-up.</p>
+</section>
+<section id="project-directories" class="level4" data-number="4.1.2">
+<h4 data-number="4.1.2" class="anchored" data-anchor-id="project-directories"><span class="header-section-number">4.1.2</span> Project Directories</h4>
+<p>Project directories can’t be set up by just anyone, as the storage there has to be paid for. Typically, here at the University, Project directories are set up by PI’s. Project directories offer flexibility in terms of the amount of storage available (requested at the time of set-up, and then easily adjustable after that), and also in terms of who can access files in the directory.</p>
+<p>Unlike your HOME directory, where typically only you will have access to the files it contains, Projects are meant to be available to a specified group of people - say the members of a lab all working on a project. Like HOME directories, these are also backed up routinely. Project directories are located inside either <code>/fs/project/</code> or <code>/fs/ess/</code>.</p>
+</section>
+<section id="scratch-storage" class="level4" data-number="4.1.3">
+<h4 data-number="4.1.3" class="anchored" data-anchor-id="scratch-storage"><span class="header-section-number">4.1.3</span> Scratch Storage</h4>
+<p>The Scratch file system is meant to provide temporary storage space. Every Project directory has a corresponding Scratch directory. One advantage to Scratch space is that it is effectively unlimited. However, it’s not backed up, and files that are unmodified for a specific amount of time are automatically deleted.</p>
+</section>
+</section>
+<section id="login-nodes" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="login-nodes"><span class="header-section-number">4.2</span> Login Nodes</h3>
+<p align="center">
+<img src="img/login_osc.png" width="95%">
+</p>
+<p>Login nodes are set aside as an initial landing spot for everyone who logs in to a supercomputer. These are meant to be used to do things like organize your files, create scripts that specify future compute jobs, etc.</p>
+<p>They are NOT meant for doing any serious computing on. Resources on the login nodes are limited and shared by everyone who logs in. Attempting large computing efforts on these nodes risks taxing the resources (i.e.&nbsp;RAM) and bogging things down for everyone. There are checks built in that limit what you are able to do on the login nodes (i.e.&nbsp;jobs running for longer than 20 min will be killed), but it’s best to just not push it at all. Any bigger computing jobs are better sent to the compute cluster.</p>
+</section>
+<section id="compute-cluster" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="compute-cluster"><span class="header-section-number">4.3</span> Compute Cluster</h3>
+<p align="center">
+<img src="img/compute_osc.png" width="95%">
+</p>
+<p>The compute cluster is really the powerhouse of the supercomputer, and is where you run your compute jobs. The details in terms of the size of the compute cluster itself, and the sizes of individual nodes contributing to the cluster (i.e.&nbsp;number of cores available on each node, amount of RAM available, etc) depends on which supercomputer you’re connected to, but regardless, you’ll have access to much more computing power than you’ll get on your local system.</p>
+<p>Each time you send a compute job to the compute cluster, you also make a request for the number of resources the job will need - specifically, the number of nodes, cores, and how long the job will run. As there are jobs being sent by different users all the time, there is software called a <em>job scheduler</em> that considers each request and assigns the necessary resources to the job as they are available. We’ll talk about that more later in the workshop.</p>
+<p>All these parts are connected together to create a supercomputer…</p>
+<p align="center">
+<img src="img/supercomputer.png" width="95%">
+</p>
+</section>
+</section>
+<section id="supercomputers-at-osc" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="supercomputers-at-osc"><span class="header-section-number">5</span> Supercomputers at OSC</h2>
+<p>OSC technially has 3 separate supercomputers…</p>
+<ul>
+<li>Ruby</li>
+<li>Owens</li>
+<li>Pitzer</li>
+</ul>
+<p>Ruby is reserved for specific uses, so the two you’ll interact with are Owens and Pitzer. This is what Owens looks like (and Pitzer is similar)…</p>
+<p align="center">
+<img src="img/owens.jpg" width="70%">
+</p>
+</section>
+<section id="connecting-to-a-supercomputer" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="connecting-to-a-supercomputer"><span class="header-section-number">6</span> Connecting to a Supercomputer</h2>
+<p>Whether you’re working on a supercomputer at OSC or elsewhere, you’ll connect to it via a connection between your personal computer and the remote computer. Sometimes this connection is a one-way connection, in which you’re working exclusively on the remote computer, and in other cases it can be a two-way connection. The two-way connection scenario allows you to transfer files between your local computer and the remote system (supercomputer).</p>
+<section id="ssh" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="ssh"><span class="header-section-number">6.1</span> ssh</h3>
+<p>A one-way connection that allows you to connect to and work on a remote supercomputer is usually achieved through secure shell - often abbreviated and referred to as <em>ssh</em>.</p>
+<p align="center">
+<img src="img/ssh_osc.png" width="90%">
+</p>
+<p>The two most common ways of connecting to OSC by way of <em>ssh</em> are though a Terminal or the OnDemand system.</p>
+<section id="terminal" class="level4" data-number="6.1.1">
+<h4 data-number="6.1.1" class="anchored" data-anchor-id="terminal"><span class="header-section-number">6.1.1</span> Terminal</h4>
+<p>Traditionally if you’re on a Unix-based system (Mac or Linux), you can open the Terminal application and connect through <em>ssh</em> with something like this…</p>
+<p align="center">
+<img src="img/ssh_terminal.png" width="70%">
+</p>
+<p>Unfortunately, while this can also be done on a Windows-based system, it requires an extra piece of software (an ssh client - typically one called putty), as the <em>ssh</em> command isn’t available by default in Windows like it is on Unix-based systems.</p>
+<p>The good news for us is that OSC provides an alternative way to interact with their supercomputers: the OnDemand system.</p>
+</section>
+<section id="ondemand" class="level4" data-number="6.1.2">
+<h4 data-number="6.1.2" class="anchored" data-anchor-id="ondemand"><span class="header-section-number">6.1.2</span> OnDemand</h4>
+<p>OnDemand allows you to access OSC resources through a web browser - it not only provides <em>ssh</em> access, but other forms of access too, including the ability to upload and download files between the remote and local computer. The OSC OnDemand starting point can be accessed at <a href="https://ondemand.osc.edu">https://ondemand.osc.edu</a>. After logging in, you should see a page similar to the one below:</p>
+<p align="center">
+<img src="img/ondemand_home.png" width="90%">
+</p>
+<p>We’re going to focus on some of the options in the blue bar along the top. Let’s start with <strong>Files</strong>. Hovering over this gives a list of directories you have access to. If you’re account is new, you might only have one or two. I’m associated with quite a few different projects, so I have a bunch. I’ll select my HOME directory.</p>
+<p align="center">
+<img src="img/ondemand_files.png" width="90%">
+</p>
+<p>Here I can see a list of directories and files that are in my HOME directory.</p>
+<p align="center">
+<img src="img/ondemand_home_dir.png" width="90%">
+</p>
+<p>There are also a series of useful buttons across the top. One note about the Upload/Download buttons here - these are great in many cases, but likely won’t be a good option for especially large files. Other options, such as Globus, are available for these (more info on Globus <a href="https://www.osc.edu/resources/getting_started/howto/howto_transfer_files_using_globus_connect">here</a>).</p>
+<p>More generally, this general interface is somewhat unique at OSC. Not all supercomputers will have this convenient GUI interface (the OnDemand system) that allows you to perform tasks like creating new folders, moving files, etc. in a point-and-click manner.</p>
+<p>Having these is certainly nice, but they only go so far. Using a supercomputer effectively is likely to require interacting with the system through a command line approach as opposed to a point-and-click interface. One option available for doing that is under the <strong>Clusters</strong> option in the blue top bar:</p>
+<p align="center">
+<img src="img/ondemand_cluster.png" width="90%">
+</p>
+<p>Here I’m selecting shell access to the Pitzer supercomputer, which will open a new browser tab looking like this:</p>
+<p align="center">
+<img src="img/ondemand_shell.png" width="90%">
+</p>
+<p>This shell system works just like the Terminal program we briefly came across earlier. Basically, there’s a prompt (at the bottom of the image above) where you can enter a command for the supercomputer to execute. This is a common way to interact with the supercomputer.</p>
+<p>However, we’re going to check out one more option - a program called VS Code, which gives us the same basic shell access, but also includes some additional features that we might find useful later on. We can access VS Code by selecting <em>Code Server</em> under the <strong>Interactive Apps</strong> option on the OnDemand homepage (near the bottom of the list).</p>
+<p align="center">
+<img src="img/ondemand_codeserver.png" width="90%">
+</p>
+<p>In this case, we need to provide a maximum time to keep the App open. The default is 6 hours. That will be fine for our purposes - you could even go a bit less, but remember that if you select 2 hours, you’ll be kicked off at the 2-hour mark, so usually better to err on the side of overestimating here.</p>
+<p align="center">
+<img src="img/code_server_request.png" width="90%">
+</p>
+<p>Click on <strong>Launch</strong> at the bottom and this will send your request to run the App for a maximum of the number of hours you chose. Once it’s ready, you’ll get a screen that looks like…</p>
+<p align="center">
+<img src="img/code_server_connect.png" width="90%">
+</p>
+<p>When it’s available, click on the blue <strong>Connect to VS Code</strong> button and you should see the following Welcome screen…</p>
+<p align="center">
+<img src="img/code_server_welcome.png" width="90%">
+</p>
+<p>Jelmer will talk about VS Code in the next section.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
