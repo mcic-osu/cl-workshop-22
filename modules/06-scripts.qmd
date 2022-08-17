@@ -18,10 +18,6 @@ knitr::opts_chunk$set(eval = FALSE,
 mkdir -p scripts sandbox
 ```
 
-:::{.callout-warning}
-PAGE STILL UNDER CONSTRUCTION
-:::
-
 -----
 
 Shell scripts (or to be slightly more precise, Bash scripts)
@@ -329,7 +325,7 @@ bash scripts/printname.sh John Doe
 ```
 
 :::{.exercise}
-#### On Your Own: Command-line arguments  {-}
+#### On Your Own: Command-line arguments {-}
 
 In each case below, think about what might happen before you run the script.
 If you didn't make a successful predictions, try to figure out what happened
@@ -442,7 +438,7 @@ in which you use the wrong variable in the wrong place.
 
 :::{.exercise}
 
-#### On Your Own: A script to print a specific line
+#### On Your Own: A script to print a specific line {-}
 
 Write a script that prints a specific line (identified by line number)
 from a file.
@@ -508,9 +504,7 @@ To run the script and make it print the 4th line of `meta.tsv`:
 ```{bash, eval=TRUE}
 bash scripts/printline.sh data/meta/meta.tsv 4
 ```
-
 :::
-
 :::
 
 <br>
@@ -541,9 +535,22 @@ tail -n 2 "$input_file"
 # (Note: this is a script. Don't enter this directly in your terminal.)
 ```
 
+```{bash, eval=TRUE, echo=FALSE}
+cat > scripts/headtail.sh <<'_EOF'
+#!/bin/bash
+set -ueo pipefail
+
+input_file=$1
+
+head -n 2 "$input_file"
+echo "---"
+tail -n 2 "$input_file"
+_EOF
+```
+
 Next, let's run our `headtail.sh` script:
 
-```{bash, eval=FALSE}
+```{bash, eval=TRUE}
 bash scripts/headtail.sh data/meta/meta.tsv
 ```
 
@@ -594,19 +601,36 @@ tail -n 2 "$input_file" >> "$output_file"
 # (Note: this is a script. Don't enter this directly in your terminal.)
 ```
 
+
+```{bash, eval=TRUE, echo=FALSE}
+cat > scripts/headtail.sh <<'_EOF'
+#!/bin/bash
+set -ueo pipefail
+
+input_file=$1
+output_file=$2
+
+head -n 2 "$input_file" > "$output_file"
+echo "---" >> "$output_file"
+tail -n 2 "$input_file" >> "$output_file"
+_EOF
+```
+
 Now we run the script again, this time also passing the name of an _output_ file:
 
-```{bash, eval=FALSE}
+```{bash, eval=TRUE}
 bash scripts/headtail.sh data/meta/meta.tsv sandbox/samples_headtail.txt
 ```
 
 The script will no longer print any output to screen,
 and our output should instead be in `sandbox/samples_headtail.txt`:
 
-```{bash, eval=FALSE}
+```{bash, eval=TRUE}
 # Check that the file exists and was just modified:
 ls -lh sandbox/samples_headtail.txt
+```
 
+```{bash, eval=TRUE}
 # Print the contents of the file to screen
 cat sandbox/samples_headtail.txt
 ```

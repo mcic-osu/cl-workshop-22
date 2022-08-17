@@ -69,7 +69,7 @@ instructing it to process the `FASTQ` file `sampleA.fastq.gz`
 with default options:
 
 ```{bash, eval=FALSE}
-fastqc sampleA.fastq.gz
+fastqc sampleA.fastq.gz       # Don't run
 ```
 
 So, what we have learned in the previous modules can easily be applied to run
@@ -144,7 +144,7 @@ python/2.7-conda5.2 &nbsp; &nbsp; &nbsp; &nbsp; python/3.6-conda5.2 (D) &nbsp; &
 :::
 
 :::{.callout-tip}
-
+## `(D)` = default version
 The `(D)` in the output above marks the default version of the program;
 that is, the version of the program that would be loaded if we don't specify
 a version (see examples below).
@@ -200,12 +200,13 @@ bash: fastqc: command not found
 :::{.callout-tip}
 ## Help!
 A solid majority of command-line programs can be run with with a `--help`
-(and/or `-h`) flag, and this is perfect to try first,
+(and/or `-h`) flag, and this is often a good thing to try first,
 since it will tell use whether we can use the program, and if we can,
 we immediately get some usage information.
 :::
 
-Next, let's check whether it is available at OSC, and if so, in which versions:
+Next, let's check whether FastQC is available at OSC,
+and if so, in which versions:
 
 ```{bash, eval=FALSE}
 module avail fastqc
@@ -220,7 +221,7 @@ which means that `module load fastqc` and `module load fastqc/0.11.8` would
 each load that same version.
 
 :::{.callout-caution collapse="true"}
-## What might still be an argument to specify the version when we load the software?
+## What might still be an argument to specify the version when we load FastQC?
 
 When we use it inside a script:
 
@@ -321,7 +322,7 @@ conda package.
 
 ## Using conda
 
-Conda creates so-called environments in which you can install one or more
+Conda creates so-called **environments** in which you can install one or more
 software packages.
 As mentioned above, these environments are activated and deactivated
 in a similar manner as with the `Lmod` system --
@@ -534,6 +535,9 @@ errors.
 :::
 
 <br>
+
+-----
+-----
 
 ## Addendum: a few other useful conda commands
 

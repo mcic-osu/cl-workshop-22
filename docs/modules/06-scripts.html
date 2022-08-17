@@ -281,19 +281,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>PAGE STILL UNDER CONSTRUCTION</p>
-</div>
-</div>
 <hr>
 <p>Shell scripts (or to be slightly more precise, Bash scripts) enable us to <strong>run sets of commands non-interactively</strong>. This is especially beneficial or necessary when a set of commands:</p>
 <ul>
@@ -310,7 +297,7 @@ Warning
 <section id="setup" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="setup"><span class="header-section-number">1</span> Setup</h2>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -319,7 +306,7 @@ Starting a VS Code session with an active terminal (click here)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</li>
@@ -365,7 +352,7 @@ Starting a VS Code session with an active terminal (click here)
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> <span class="va">$tmpdir</span>/<span class="pp">*</span>      <span class="co"># DON'T TRY THIS!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -374,7 +361,7 @@ The comments above specified the <em>intent</em> we had. What would have actuall
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In both examples, there is a similar typo: <code>temp</code> vs.&nbsp;<code>tmp</code>, which means that we are referencing a (likely) non-existent variable.</p>
 <p><em>In the first example</em>, <code>rm "$tmp_prefix"*</code> would have been interpreted as <code>rm *</code>, because the non-existent variable is simply ignored. Therefore, we would have <strong>removed all files in the current working directory</strong>.</p>
@@ -469,7 +456,7 @@ Shell scripts, including Bash scripts, most commonly have the extension <code>.s
 <p>Inside the script, any command-line arguments are <em>automatically available</em> in placeholder variables.</p>
 <p>A first argument will be assigned to the variable <strong><code>$1</code></strong>, any second argument will be assigned to <strong><code>$2</code></strong>, any third argument will be assigned to <strong><code>$3</code></strong>, and so on.</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -478,7 +465,7 @@ In the calls to fastqc.sh and printname.sh above, what are the placeholder varia
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In <code>bash fastqc.sh data/sampleA.fastq.gz</code>, a single argument, <code>data/sampleA.fastq.gz</code>, is passed to the script, and will be assigned to <code>$1</code>.</p>
 <p>In <code>bash scripts/printname.sh John Doe</code>, two arguments are passed to the script: the first one (<code>John</code>) will be stored in <code>$1</code>, and the second one (<code>Doe</code>) in <code>$2</code>.</p>
@@ -529,7 +516,7 @@ Last name: Doe</code></pre>
 <li><p>Remove the <code>#</code> you inserted in the script in step 2 above.</p></li>
 </ol>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -538,7 +525,7 @@ Solutions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>The script will error out because we are referencing variables that don’t exist: since we didn’t pass command-line arguments to the script, the <code>$1</code> and <code>$2</code> have not been set.</li>
@@ -616,8 +603,8 @@ Other variables that are automatically available inside scripts
 </ul>
 </div>
 </div>
-<section id="on-your-own-a-script-to-print-a-specific-line" class="level4 exercise" data-number="3.3.1">
-<h4 data-number="3.3.1" class="anchored" data-anchor-id="on-your-own-a-script-to-print-a-specific-line"><span class="header-section-number">3.3.1</span> On Your Own: A script to print a specific line</h4>
+<section id="on-your-own-a-script-to-print-a-specific-line" class="level4 unnumbered exercise">
+<h4 class="unnumbered anchored" data-anchor-id="on-your-own-a-script-to-print-a-specific-line">On Your Own: A script to print a specific line</h4>
 <p>Write a script that prints a specific line (identified by line number) from a file.</p>
 <ul>
 <li>Save the script as <code>scripts/printline.sh</code></li>
@@ -628,7 +615,7 @@ Other variables that are automatically available inside scripts
 <li>Test the script by printing line 4 from <code>data/meta/meta.tsv</code>.</li>
 </ul>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -637,7 +624,7 @@ Solution: how to print a specific line number
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For example, to print line 4 of <code>data/meta/meta.tsv</code> directly:</p>
 <div class="cell">
@@ -654,7 +641,7 @@ Solution: how to print a specific line number
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -663,7 +650,7 @@ Full solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
@@ -709,9 +696,19 @@ Full solution
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># (Note: this is a script. Don't enter this directly in your terminal.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+
+</div>
 <p>Next, let’s run our <code>headtail.sh</code> script:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/headtail.sh data/meta/meta.tsv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>accession   location    treatment   replicate   nreads_raw  pct_mapped
+SRR7609473  beach   control 1   45285752    76.01
+---
+SRR7609467  inland  treatment   2   47303936    79.25
+SRR7609474  inland  treatment   3   55728624    78.80</code></pre>
+</div>
 </div>
 </section>
 <section id="redirecting-output-to-a-file" class="level3" data-number="4.2">
@@ -731,29 +728,43 @@ Full solution
 <li><p>We will redirect the output of our <code>head</code>, <code>echo</code>, and <code>tail</code> commands to the output file. We’ll have to append (<code>&gt;&gt;</code>) in the last two cases.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span><span class="va">$1</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="va">output_file</span><span class="op">=</span><span class="va">$2</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 2 <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span> <span class="op">&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"---"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 2 <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co"># (Note: this is a script. Don't enter this directly in your terminal.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span><span class="va">$1</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="va">output_file</span><span class="op">=</span><span class="va">$2</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 2 <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span> <span class="op">&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"---"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 2 <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># (Note: this is a script. Don't enter this directly in your terminal.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+
 </div>
 <p>Now we run the script again, this time also passing the name of an <em>output</em> file:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/headtail.sh data/meta/meta.tsv sandbox/samples_headtail.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/headtail.sh data/meta/meta.tsv sandbox/samples_headtail.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The script will no longer print any output to screen, and our output should instead be in <code>sandbox/samples_headtail.txt</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that the file exists and was just modified:</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> sandbox/samples_headtail.txt</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the contents of the file to screen</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> sandbox/samples_headtail.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that the file exists and was just modified:</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> sandbox/samples_headtail.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>-rw-rw-r-- 1 jelmer jelmer 197 Aug 17 16:51 sandbox/samples_headtail.txt</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the contents of the file to screen</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> sandbox/samples_headtail.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>accession   location    treatment   replicate   nreads_raw  pct_mapped
+SRR7609473  beach   control 1   45285752    76.01
+---
+SRR7609467  inland  treatment   2   47303936    79.25
+SRR7609474  inland  treatment   3   55728624    78.80</code></pre>
+</div>
 </div>
 </section>
 <section id="report-whats-happening" class="level3" data-number="4.3">
@@ -761,32 +772,32 @@ Full solution
 <p>It is often useful to have your scripts “report” or “log” what is going on. Let’s keep thinking about a script that has file(s) as the main output, but instead of having no output printed to screen at all, we’ll print some logging output to screen. For instance: what is the date and time, which arguments were passed to the script, what are the output files, and perhaps even summaries of the output. All of this can help with troubleshooting.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <p>Let’s try this with our <code>headtail.sh</code> script.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Process command-line arguments</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span><span class="va">$1</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="va">output_file</span><span class="op">=</span><span class="va">$2</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Initial logging </span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Starting script </span><span class="va">$0</span><span class="st">"</span>           <span class="co"># Print name of script</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span>                                <span class="co"># Print date &amp; time</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Input file:   </span><span class="va">$input_file</span><span class="st">"</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Output file:  </span><span class="va">$output_file</span><span class="st">"</span> </span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span>                                <span class="co"># Print empty line to separate initial &amp; final logging</span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co">## Print the first and last two lines to a separate file</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 2 <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span> <span class="op">&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"---"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 2 <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="co">## Final logging</span></span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Listing the output file:"</span></span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Done with script </span><span class="va">$0</span><span class="st">"</span></span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a><span class="co"># (Note: this is a script. Don't enter this directly in your terminal.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Process command-line arguments</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span><span class="va">$1</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="va">output_file</span><span class="op">=</span><span class="va">$2</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">## Initial logging </span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Starting script </span><span class="va">$0</span><span class="st">"</span>           <span class="co"># Print name of script</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span>                                <span class="co"># Print date &amp; time</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Input file:   </span><span class="va">$input_file</span><span class="st">"</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Output file:  </span><span class="va">$output_file</span><span class="st">"</span> </span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span>                                <span class="co"># Print empty line to separate initial &amp; final logging</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="co">## Print the first and last two lines to a separate file</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 2 <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span> <span class="op">&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"---"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 2 <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span> <span class="op">&gt;&gt;</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co">## Final logging</span></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Listing the output file:"</span></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="st">"</span><span class="va">$output_file</span><span class="st">"</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Done with script </span><span class="va">$0</span><span class="st">"</span></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="co"># (Note: this is a script. Don't enter this directly in your terminal.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>A couple of notes about the lines that were added to the script above:</p>
 <ul>
@@ -800,22 +811,22 @@ Full solution
 </div>
 <p>Let’s run the script again:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/headtail.sh data/meta/meta.tsv sandbox/tmp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/headtail.sh data/meta/meta.tsv sandbox/tmp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Starting script scripts/headtail.sh
-Wed Aug 17 04:43:17 PM CEST 2022
+Wed Aug 17 04:51:54 PM CEST 2022
 Input file:   data/meta/meta.tsv
 Output file:  sandbox/tmp.txt
 
 Listing the output file:
--rw-rw-r-- 1 jelmer jelmer 197 Aug 17 16:43 sandbox/tmp.txt
+-rw-rw-r-- 1 jelmer jelmer 197 Aug 17 16:51 sandbox/tmp.txt
 Done with script scripts/headtail.sh
-Wed Aug 17 04:43:17 PM CEST 2022</code></pre>
+Wed Aug 17 04:51:54 PM CEST 2022</code></pre>
 </div>
 </div>
 <p>The script printed some details for the output file, but not its contents (that would have worked here, but is usually not sensible when working with genomics data). Let’s take a look, though, to make sure the script worked:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> sandbox/tmp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> sandbox/tmp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>accession   location    treatment   replicate   nreads_raw  pct_mapped
 SRR7609473  beach   control 1   45285752    76.01

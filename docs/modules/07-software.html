@@ -246,7 +246,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#activating-conda-environments" id="toc-activating-conda-environments" class="nav-link" data-scroll-target="#activating-conda-environments"> <span class="header-section-number">5.5</span> Activating conda environments</a></li>
   <li><a href="#lines-to-add-to-your-scripts" id="toc-lines-to-add-to-your-scripts" class="nav-link" data-scroll-target="#lines-to-add-to-your-scripts"> <span class="header-section-number">5.6</span> Lines to add to your scripts</a></li>
   </ul></li>
-  <li><a href="#addendum-a-few-other-useful-conda-commands" id="toc-addendum-a-few-other-useful-conda-commands" class="nav-link" data-scroll-target="#addendum-a-few-other-useful-conda-commands"> <span class="header-section-number">6</span> Addendum: a few other useful conda commands</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"> <span class="header-section-number">6</span> —–</a></li>
+  <li><a href="#addendum-a-few-other-useful-conda-commands" id="toc-addendum-a-few-other-useful-conda-commands" class="nav-link" data-scroll-target="#addendum-a-few-other-useful-conda-commands"> <span class="header-section-number">7</span> Addendum: a few other useful conda commands</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -332,7 +333,7 @@ Starting a VS Code session with an active terminal (click here)
 <p>As pointed out in the introduction to the workshop, bioinformatics software (programs) that we use to analyze genomic data are typically run from the command line. That is, they have “command-line interfaces” (<em>CLI</em>s) rather than “graphical user interfaces” (<em>GUI</em>s), and are run using commands that are structurally very similar to how we’ve been using basic Unix commands.</p>
 <p>For instance, we can run the program <code>FastQC</code> as follows, instructing it to process the <code>FASTQ</code> file <code>sampleA.fastq.gz</code> with default options:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> sampleA.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> sampleA.fastq.gz       <span class="co"># Don't run</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>So, what we have learned in the previous modules can easily be applied to run command-line programs. But, we first need to load and/or install these programs.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -395,7 +396,7 @@ Running inside a script or interactively
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+<code>(D)</code> = default version
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -443,10 +444,10 @@ Help!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A solid majority of command-line programs can be run with with a <code>--help</code> (and/or <code>-h</code>) flag, and this is perfect to try first, since it will tell use whether we can use the program, and if we can, we immediately get some usage information.</p>
+<p>A solid majority of command-line programs can be run with with a <code>--help</code> (and/or <code>-h</code>) flag, and this is often a good thing to try first, since it will tell use whether we can use the program, and if we can, we immediately get some usage information.</p>
 </div>
 </div>
-<p>Next, let’s check whether it is available at OSC, and if so, in which versions:</p>
+<p>Next, let’s check whether FastQC is available at OSC, and if so, in which versions:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail fastqc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -460,7 +461,7 @@ Help!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-What might still be an argument to specify the version when we load the software?
+What might still be an argument to specify the version when we load FastQC?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -526,7 +527,7 @@ When to use containers instead of Conda
 </section>
 <section id="using-conda" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="using-conda"><span class="header-section-number">5</span> Using conda</h2>
-<p>Conda creates so-called environments in which you can install one or more software packages. As mentioned above, these environments are activated and deactivated in a similar manner as with the <code>Lmod</code> system – but the key difference is that we can create and manage these environments ourselves.</p>
+<p>Conda creates so-called <strong>environments</strong> in which you can install one or more software packages. As mentioned above, these environments are activated and deactivated in a similar manner as with the <code>Lmod</code> system – but the key difference is that we can create and manage these environments ourselves.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -690,8 +691,11 @@ Install once, load always
 <p><br></p>
 </section>
 </section>
-<section id="addendum-a-few-other-useful-conda-commands" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="addendum-a-few-other-useful-conda-commands"><span class="header-section-number">6</span> Addendum: a few other useful conda commands</h2>
+<section id="section" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="section"><span class="header-section-number">6</span> —–</h2>
+</section>
+<section id="addendum-a-few-other-useful-conda-commands" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="addendum-a-few-other-useful-conda-commands"><span class="header-section-number">7</span> Addendum: a few other useful conda commands</h2>
 <ul>
 <li><p>Deactivate the currently active conda environment:</p>
 <div class="cell">
