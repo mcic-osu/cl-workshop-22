@@ -3,6 +3,7 @@ title: "Intro to the Ohio Supercomputer Center (OSC)"
 pagetitle: "OSC Intro"
 highlight-style: github
 number-sections: true
+author: Mike Sovic
 ---
 
 ```{r knitr_options, echo=FALSE}

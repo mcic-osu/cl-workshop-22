@@ -1,9 +1,12 @@
 ---
-title: "Example Compute Jobs"
-subtitle: "Practical example of writing shell scripts and running them as compute jobs"
-pagetitle: "Example Compute Jobs"
+title: "Batch Jobs in Practice"
+subtitle: "Practical examples of writing shell scripts and running them as batch jobs at OSC"
+pagetitle: "Example Batch Jobs"
 highlight-style: github
 number-sections: true
+author:
+  - Jelmer Poelstra
+  - Mike Sovic
 ---
 
 ```{r knitr_options, echo=FALSE}

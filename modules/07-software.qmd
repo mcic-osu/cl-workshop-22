@@ -3,6 +3,7 @@ title: "Using Software at OSC"
 pagetitle: "Software at OSC"
 highlight-style: github
 number-sections: true
+author: Jelmer Poelstra
 ---
 
 ```{r knitr_options, echo=FALSE}
@@ -15,6 +16,8 @@ PAGE STILL UNDER CONSTRUCTION
 :::
 
 -----
+
+<br>
 
 So far, we have only used commands that are available in any Unix shell. 
 But to actually analyze genomics data sets, we also need to use specialized

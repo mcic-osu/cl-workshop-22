@@ -2,6 +2,7 @@
 title: "Command line basics <br> for genomic analysis at OSC"
 subtitle: "A workshop by the MCIC & CAPS on August 17 - 19, 2022."
 editor: visual
+toc: false
 ---
 
 <br>
@@ -10,14 +11,14 @@ editor: visual
 
 Start and end times for every day will be respected, but individual modules may take shorter or longer than indicated below. The instructors will be available for additional questions from about 15 minutes before we start and for about 30 minutes after we end.
 
-| Day       | Module                                                         | Instructor    | Time                 |
-|---------------|--------------------------|---------------|---------------|
+| Day       | Module                                                        | Instructor    | Time                 |
+|----------------|------------------------|----------------|----------------|
 | **Day 1** | 1\. [Introduction to the Workshop](modules/01-intro.qmd)      | Mike / Jelmer | Wed 1:00 - 1:15 pm   |
 |           | 2\. [The Ohio Supercomputer Center (OSC)](modules/02-osc.qmd) | Mike          | Wed 1:15 - 1:45 pm   |
 |           | 3\. [The VS Code Text Editor](modules/03-vscode.qmd)          | Jelmer        | Wed 1:45 - 2:00 pm   |
-|           | 4\. [The Unix Shell](modules/04-shell.qmd)                    | Mike          | Wed 2:15 - 4:30 pm   |
+|           | 4\. [The Unix Shell (& FASTQ files)](modules/04-shell.qmd)    | Mike          | Wed 2:15 - 4:30 pm   |
 | **Day 2** | 5\. [Variables and Loops](modules/05-vars-loops.qmd)          | Jelmer        | Thu 12:00 - 12:45 pm |
 |           | 6\. [Shell Scripting](modules/06-scripts.qmd)                 | Jelmer        | Thu 12:45 - 1:30 pm  |
 |           | 7\. [Using Software at OSC](modules/07-software.qmd)          | Jelmer        | Thu 1:45 - 2:30 pm   |
 | **Day 3** | 8\. [Compute Jobs with Slurm](modules/08-slurm.qmd)           | Jelmer        | Fri 1:00 - 2:30 pm   |
-|           | 9\. [Running Example Compute Jobs](modules/09-examples.qmd)   | Mike / Jelmer | Fri 2:45 - 4:30 pm   |
+|           | 9\. [Batch Jobs in Practice](modules/09-examples.qmd)         | Mike / Jelmer | Fri 2:45 - 4:30 pm   |

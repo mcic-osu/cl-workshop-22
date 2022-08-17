@@ -3,6 +3,7 @@ title: "The VS Code Text Editor"
 pagetitle: "VS Code"
 highlight-style: github
 number-sections: true
+author: Jelmer Poelstra
 ---
 
 ```{r knitr_options, echo=FALSE}
@@ -11,6 +12,8 @@ knitr::opts_chunk$set(eval = FALSE,
 ```
 
 -----
+
+<br>
 
 In this module, we will learn the basics of a fancy text editor called
 _VS Code_ (in full, Visual Studio Code).
@@ -34,6 +37,12 @@ the RStudio program is another good example of an IDE.
 
 ## Starting VS Code at OSC
 
+In the previous module,
+Mike already guided us through starting a VS Code session via OnDemand,
+but for the sake of completeness, instructions to do so are also shown below. 
+
+:::{.callout-note collapse="true"}
+## Starting VS Code at OSC
 1. Log in to OSC's OnDemand portal at <https://ondemand.osc.edu>.
 2. In the blue top bar, select `Interactive Apps`
    and then near the bottom of the dropdown menu, click `Code Server`.
@@ -50,6 +59,8 @@ the RStudio program is another good example of an IDE.
    </p>
    </figure>
 
+:::
+
 <br>
 
 ## Getting started with VS Code
@@ -60,7 +71,7 @@ the RStudio program is another good example of an IDE.
    
 ### Side bars
 
-The **"Activity Bar"** (narrow side bar) on the far left has:
+The **Activity Bar** (narrow side bar) on the far left has:
 
 - A &nbsp; {{< fa bars >}} &nbsp; ("hamburger menu" icon) in the top,
   which has most of the standard menu items that you often find in
@@ -70,7 +81,7 @@ The **"Activity Bar"** (narrow side bar) on the far left has:
   through which you can mainly access _settings_.
   
 - A bunch of icons in the middle that serve to switch between
-  different options for the **Primary (wide) side bar**,
+  different options for the **Primary (wide) Side Bar**,
   which can show one of the following:
 
   - **_Explorer_**: File browser (and, e.g., an outline for the active file)
@@ -86,13 +97,13 @@ The main part of the VS Code is the editor pane.
 Whenever you open VS Code,
 a tab with a `Welcome` document is automatically opened.
 This provides some help for beginners, but also, for example,
-an overview of recently opened folders.
+a handy overview of recently opened folders.
 
 We can also use the `Welcome` document to open a new text file by clicking
 `New file` below `Start` (alternatively, click
 &nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `New File`).
 We'll work with files starting tomorrow, but if you want,
-you could already start a file with notes on the workshop now.
+you could already start a file with notes on the workshop.
 
 :::{.callout-tip}
 ## Re-open the `Welcome` document
@@ -102,7 +113,7 @@ If you've closed the `Welcome` document but want it back, click
 
 :::
 
-### Terminal
+### Terminal (with a Unix shell)
 
 By default, no terminal is open in VS Code --
 to do so, click the
@@ -114,11 +125,41 @@ This is because in OSC OnDemand, VS Code runs inside a Singularity container
 To break out of the Singularity shell and get a regular Bash Unix shell,
 **type `bash` and press <kbd>Enter</kbd>**.
 
-In the next module, Mike will teach us how to use the terminal.
+In the next module, Mike will teach us how to use the Unix shell.
 
 <p align="center">
 <img src=img/vscode-terminal-editor_ed.png width="90%">
 </p>
+
+<br>
+
+## A folder as a starting point  
+
+VS Code takes a specific folder (directory) as a 
+**starting point in all parts of the program**:
+
+- In the file explorer in the side bar
+- In the terminal
+- When saving files in the editor pane.
+
+In this workshop, we'll work exclusively within the folder
+`/fs/ess/scratch/PAS2250`.
+We selected this folder already in the form on the OnDemand site,
+but you can also switch folders within VS Code  
+(&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`)
+
+:::{.callout-tip}
+## Taking off where you were
+
+Additionally, when you reopen a folder later,
+VS Code will to some extent resume where you were before!
+
+It will reopen any files you had open, and if you had an active terminal,
+it will re-open a terminal.
+This is very convenient, especially when you start working on multiple projects
+(different folders) in VS Code and frequently switch between those.
+
+:::
 
 <br>
 
@@ -157,43 +198,31 @@ and you'll see the relevant options pop up.
 
 To try out different color themes for the entire program,
 click &nbsp; <i class="fa fa-cog"></i> &nbsp; and then `Color Theme`.
-(I like "*Quiet Light*".)
 
-<br>
+:::{.exercise}
+#### On Your Own: Try a few color themes {-}
 
-## A folder as a starting point  
-
-VS Code takes a specific folder (directory) as a 
-**starting point in all parts of the program**:
-in the file explorer in the side bar, in the terminal,
-and when saving or opening files in the editor.
-
-In this workshop, we'll work exclusively within the folder
-`/fs/ess/scratch/PAS2250`.
-We selected this folder already in the form on the OnDemand site,
-but you can also switch folders within VS Code  
-(&nbsp; {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`)
-
-:::{.callout-tip}
-## Taking off where you were
-
-Additionally, when you reopen a folder later,
-VS Code will to some extent resume where you were before!
-It will reopen the text files that you had open and if you had an active terminal,
-it will also open a terminal.
-This is very convenient, especially when you start working on multiple projects
-(different folders) in VS Code and switch between those.
+<details><summary>
+"Solution" (click here)
+</summary>
+"*Quiet Light*" is the best one {{< iconify twemoji winking-face >}}
+</details>
 
 :::
 
 <br>
+<br>
 
-## Addendum: keyboard shortcuts
+-----
+
+-----
+
+## Addendum: keyboard shortcuts {-}
 
 Working with keyboard shortcuts (also called "keybindings")
 for common operations can be a lot faster than using your mouse.
 Below are some useful ones for VS Code
-(for Mac, replace <kbd>Ctrl</kbd> by <kbd>⌘</kbd>).
+(for Mac, replace <kbd>Ctrl</kbd> with <kbd>⌘</kbd>).
 
 :::{.callout-note}
 ## Keyboard shortcut cheatsheet
@@ -250,7 +279,7 @@ it is therefore worth switching to your own installation of the program
 
 <br>
 
-## At-home bonus: local installation
+## At-home bonus: local installation {-}
 
 Another nice feature of VS Code is that it is freely available for all operating
 systems (and even though it is made by Microsoft, it is also open source).

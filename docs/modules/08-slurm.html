@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jelmer Poelstra">
 
 <title>Slurm</title>
 <style>
@@ -186,7 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/09-examples.html">
- <span class="dropdown-text">9. Example Compute Jobs</span></a>
+ <span class="dropdown-text">9. Batch Jobs in Practice</span></a>
   </li>  
     </ul>
   </li>
@@ -265,6 +266,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jelmer Poelstra </p>
+          </div>
+  </div>
     
     
   </div>
@@ -289,6 +296,7 @@ Warning
 </div>
 </div>
 <hr>
+<p><br></p>
 <p>We have so far been working on <em>login nodes</em> at OSC, but in order to run some actual analyses, you will need access to <strong>compute nodes</strong>.</p>
 <p>Automated scheduling software allows hundreds of people with different requirements to access compute nodes effectively and fairly. For this purpose, OSC uses the <strong>Slurm</strong> scheduler (<strong>S</strong>imple <strong>l</strong>inux <strong>u</strong>tility for <strong>r</strong>esource <strong>m</strong>anagement).</p>
 <p>A temporary reservation of (parts of) a compute node is called a <em>compute job</em>. What are the options to start a compute job at OSC?</p>

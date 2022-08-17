@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Mike Sovic">
 
 <title>Unix Shell</title>
 <style>
@@ -184,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/09-examples.html">
- <span class="dropdown-text">9. Example Compute Jobs</span></a>
+ <span class="dropdown-text">9. Batch Jobs in Practice</span></a>
   </li>  
     </ul>
   </li>
@@ -244,7 +245,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#working-with-text-files" id="toc-working-with-text-files" class="nav-link" data-scroll-target="#working-with-text-files"> <span class="header-section-number">4</span> Working With Text Files</a>
   <ul class="collapse">
-  <li><a href="#on-your-own-explore-the-files" id="toc-on-your-own-explore-the-files" class="nav-link" data-scroll-target="#on-your-own-explore-the-files">On Your Own: Explore the Files</a></li>
   <li><a href="#compressed-files" id="toc-compressed-files" class="nav-link" data-scroll-target="#compressed-files"> <span class="header-section-number">4.1</span> Compressed Files</a></li>
   <li><a href="#pipe" id="toc-pipe" class="nav-link" data-scroll-target="#pipe"> <span class="header-section-number">4.2</span> <code>|</code> (pipe)</a></li>
   <li><a href="#head" id="toc-head" class="nav-link" data-scroll-target="#head"> <span class="header-section-number">4.3</span> <code>head</code></a></li>
@@ -252,14 +252,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#fastq-format" id="toc-fastq-format" class="nav-link" data-scroll-target="#fastq-format"> <span class="header-section-number">4.5</span> FASTQ Format</a></li>
   <li><a href="#wc" id="toc-wc" class="nav-link" data-scroll-target="#wc"> <span class="header-section-number">4.6</span> <code>wc</code></a></li>
   <li><a href="#grep" id="toc-grep" class="nav-link" data-scroll-target="#grep"> <span class="header-section-number">4.7</span> <code>grep</code></a></li>
-  <li><a href="#on-your-own-finding-a-sequence" id="toc-on-your-own-finding-a-sequence" class="nav-link" data-scroll-target="#on-your-own-finding-a-sequence">On Your Own: Finding a Sequence</a></li>
   </ul></li>
   <li><a href="#downloading-files-from-the-web" id="toc-downloading-files-from-the-web" class="nav-link" data-scroll-target="#downloading-files-from-the-web"> <span class="header-section-number">5</span> Downloading Files from the Web</a>
   <ul class="collapse">
-  <li><a href="#on-your-own" id="toc-on-your-own" class="nav-link" data-scroll-target="#on-your-own"> <span class="header-section-number">5.1</span> On Your Own</a></li>
-  <li><a href="#curl" id="toc-curl" class="nav-link" data-scroll-target="#curl"> <span class="header-section-number">5.2</span> <code>curl</code></a></li>
-  <li><a href="#on-your-own-preview-a-fasta-file" id="toc-on-your-own-preview-a-fasta-file" class="nav-link" data-scroll-target="#on-your-own-preview-a-fasta-file"> <span class="header-section-number">5.3</span> On Your Own: Preview a FASTA file</a></li>
-  <li><a href="#less" id="toc-less" class="nav-link" data-scroll-target="#less"> <span class="header-section-number">5.4</span> <code>less</code></a></li>
+  <li><a href="#curl" id="toc-curl" class="nav-link" data-scroll-target="#curl"> <span class="header-section-number">5.1</span> <code>curl</code></a></li>
+  <li><a href="#less" id="toc-less" class="nav-link" data-scroll-target="#less"> <span class="header-section-number">5.2</span> <code>less</code></a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -277,6 +274,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mike Sovic </p>
+          </div>
+  </div>
     
     
   </div>
@@ -288,6 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </div>
 <hr>
+<p><br></p>
 <section id="the-unix-shellcommand-line-computing" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="the-unix-shellcommand-line-computing"><span class="header-section-number">1</span> The Unix Shell/Command Line Computing</h2>
 <p>Many of the things you typically do by pointing and clicking can alternatively be done with command line approaches. The Unix shell allows you to interact with the supercomputer in a command-line environment. The <strong>Code Server/VS Code</strong> software Jelmer just introduced is one of several methods available for accessing the Unix shell, and the one we’ll use through the workshop. Now that we have the platform for interacting with the supercomputer, we’ll dive into command line computing.</p>
@@ -614,8 +618,8 @@ Solutions (click here)
 <section id="working-with-text-files" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="working-with-text-files"><span class="header-section-number">4</span> Working With Text Files</h2>
 <p>Now let’s start to explore our FASTQ files a bit. In preparation, it’s a good chance to practice a few of the commands we’ve seen so far.</p>
-<section id="on-your-own-explore-the-files" class="level3 unnumbered exercise">
-<h3 class="unnumbered anchored" data-anchor-id="on-your-own-explore-the-files">On Your Own: Explore the Files</h3>
+<section id="on-your-own-explore-the-files" class="level4 unnumbered exercise">
+<h4 class="unnumbered anchored" data-anchor-id="on-your-own-explore-the-files">On Your Own: Explore the Files</h4>
 <p>Set your working directory to the <code>data/fastq</code> directory inside the folder you created for yourself. Then list the contents of that <code>fastq</code> directory. How many files are in there? See if you can get the sizes of each file.</p>
 <details>
 <summary>
@@ -703,9 +707,8 @@ Solutions (click here)
 <p align="left">
 <img src="img/grep2.png" width="80%">
 </p>
-</section>
-<section id="on-your-own-finding-a-sequence" class="level3 unnumbered exercise">
-<h3 class="unnumbered anchored" data-anchor-id="on-your-own-finding-a-sequence">On Your Own: Finding a Sequence</h3>
+<section id="on-your-own-finding-a-sequence" class="level4 unnumbered exercise">
+<h4 class="unnumbered anchored" data-anchor-id="on-your-own-finding-a-sequence">On Your Own: Finding a Sequence</h4>
 <p>How many sequences in sample SRR7609467 contain the sequence “CCAGTA”?</p>
 <details>
 <summary>
@@ -728,12 +731,12 @@ Solutions (click here)
 </section>
 <p><br></p>
 </section>
+</section>
 <section id="downloading-files-from-the-web" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="downloading-files-from-the-web"><span class="header-section-number">5</span> Downloading Files from the Web</h2>
 <p>At command line, you can’t just open a web browser and download a file you might want. But of course, there are commands to do that. As we move toward starting to analyze our example RNAseq dataset, one thing we’ll need is the reference genome for the species these sequences came from – in this case, <em>Phaseolus vulgaris</em>. Before we get that, it’s another good time to practice some of those common commands…</p>
-<section id="on-your-own" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="on-your-own"><span class="header-section-number">5.1</span> On Your Own</h3>
-<div class="exercise">
+<section id="on-your-own-create-a-directory" class="level4 unnumbered exercise">
+<h4 class="unnumbered anchored" data-anchor-id="on-your-own-create-a-directory">On Your Own: Create a Directory</h4>
 <p>Create a new (empty) directory named <code>reference</code> that will later store the reference genome for our analyses. Put it in your own directory inside <code>participants</code>. Then make this <code>reference</code> directory your working directory.</p>
 <details>
 <summary>
@@ -759,10 +762,9 @@ Solution (click here)
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> reference</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
-</div>
 </section>
-<section id="curl" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="curl"><span class="header-section-number">5.2</span> <code>curl</code></h3>
+<section id="curl" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="curl"><span class="header-section-number">5.1</span> <code>curl</code></h3>
 <p><code>curl</code> is one command that allows you to download files from online (<code>wget</code> is another). Technically, all you need for <code>curl</code> is the name of the command and the web address for what you want to download.</p>
 <p>However, the default for <code>curl</code> is to print the downloaded contents to the screen. This usually isn’t what we want. Instead, we want to save them to a file. One option would be to redirect the output to a text file with <code>&gt;</code>. But <code>curl</code> also has a built-in option to write the contents to a file: <code>-o</code>, so we’ll use that.</p>
 <p>Since the file that gets downloaded is a gzip-compressed, FASTA-formatted text file, we’ll give the name of the file a <code>.fa.gz</code> extension. The reference genome for <em>Phaseolus vulgaris</em> is available at:</p>
@@ -775,9 +777,8 @@ Solution (click here)
 <p align="left">
 <img src="img/curl2.png" width="80%">
 </p>
-</section>
-<section id="on-your-own-preview-a-fasta-file" class="level3 exercise" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="on-your-own-preview-a-fasta-file"><span class="header-section-number">5.3</span> On Your Own: Preview a FASTA file</h3>
+<section id="on-your-own-preview-a-fasta-file" class="level4 unnumbered exercise">
+<h4 class="unnumbered anchored" data-anchor-id="on-your-own-preview-a-fasta-file">On Your Own: Preview a FASTA file</h4>
 <p>Try previewing the contents of the reference genome file you just downloaded.</p>
 <details>
 <summary>
@@ -795,8 +796,9 @@ Solution (click here)
 </details>
 </section>
 <p>OK, now we’ve got our raw data (FASTQ) and our reference genome (FASTA). This is a good start in terms of getting ready to start analyzing the data. One more thing we can do now is try to understand a little bit about the samples themselves. There is a tab-separated text file named <code>meta.tsv</code> in the <code>data/meta</code> directory. Let’s take a look at its contents…</p>
-<section id="less" class="level3" data-number="5.4">
-<h3 data-number="5.4" class="anchored" data-anchor-id="less"><span class="header-section-number">5.4</span> <code>less</code></h3>
+</section>
+<section id="less" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="less"><span class="header-section-number">5.2</span> <code>less</code></h3>
 <p><code>less</code> is a command that opens up a text file within your shell. Once you’re finished viewing the file, type <kbd>q</kbd> to quit and return to your prompt.</p>
 <p align="left">
 <img src="img/meta1.png" width="80%">

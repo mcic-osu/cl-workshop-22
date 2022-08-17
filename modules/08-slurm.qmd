@@ -7,6 +7,7 @@ number-sections: true
 knitr:
   opts_knit:
     root.dir: "sandbox"
+author: Jelmer Poelstra
 ---
 
 ```{r knitr_options, echo=FALSE}
@@ -19,6 +20,8 @@ PAGE STILL UNDER CONSTRUCTION
 :::
 
 ----
+
+<br>
 
 We have so far been working on _login nodes_ at OSC,
 but in order to run some actual analyses,

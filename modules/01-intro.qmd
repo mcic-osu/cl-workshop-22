@@ -2,6 +2,10 @@
 title: "Introduction to the Workshop"
 pagetitle: "Workshop Intro"
 highlight-style: github
+freeze: true
+author:
+  - Jelmer Poelstra
+  - Mike Sovic
 ---
 
 ```{r knitr_options, echo=FALSE}
@@ -12,31 +16,35 @@ knitr::opts_chunk$set(eval = TRUE, echo = FALSE,
 
 -----
 
+<br>
+
 ## What you will learn
 
 The focus of the workshop is on building some **general (foundational) skills**
-for analyzing genomics data.
+for analyzing genomics data &mdash;
+specifically, for doing so with command-line programs at the Ohio Supercomputer
+Center (OSC).
 
 Command-line programs are preferred for many of the steps to analyze genomic
 sequencing data.
 Because such datasets tend to contain _a lot_ of data,
 it is also preferable to run your analyses not on a laptop or desktop,
-but at a compute cluster like the Ohio Supercomputer Center (OSC).
+but at a supercomputer like OSC.
 
 These realities mean that in the field of genomics,
 you need the following set of skills
-that you may not have been thought during your biology education:
+that you may not have been taught previously:
 
-1. Having a basic understanding of a **compute cluster** (supercomputer)
+1. Having a basic understanding of a **supercomputer**
 
 And being able to:
 
 2. Use the **Unix shell** (work in a terminal)
-3. Write small **shell scripts**
-4. **Submit scripts** to a cluster's "queue" and monitor and manage the
-   resulting compute jobs
+3. Write small **shell scripts** that **run command-line programs**
+4. **Submit these scripts** to a supercomputer's "queue" and monitor
+   and manage the resulting "batch jobs"
 5. Activate and probably install **software** in a Linux environment where you
-   don't have "admin rights"
+   don't have admin rights
   
 We will teach the basics of these skills during this workshop!
 
@@ -78,6 +86,10 @@ Some notes:
 - Whenever you have a **question**,
   please feel free to interrupt and speak up,
   both in-person and on Zoom.
+  Because we will mute the in-person rooms on the Zoom call by default,
+  signal to Mike (Columbus) or Menuka (Wooster) tat you have a question,
+  who will unmute.
+  
   Only if your question is not urgent and you don't want to interrupt the flow,
   put it in the Google Doc or ask about it during a break.
 
@@ -157,7 +169,12 @@ p_genomics <- signup %>%
 - **Jelmer Poelstra**, Molecular and Cellular Imaging Center (MCIC), Wooster
 - **Mike Sovic**, Center for Applied Plant Sciences (CAPS), Wooster
 
-### You!
+A special mention goes out to _Menuka Bhandari_ who is managing the Selby
+in-person room. Menuka is also knowledgeable about the workshop material
+and may be able to help you if you need/prefer someone in the room itself
+for a certain question.
+
+### Participants
 
 Please very briefly introduce yourself -- 
 include your position, department, and why you wanted to go to this workshop.

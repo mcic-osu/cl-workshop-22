@@ -41,7 +41,7 @@ website:
           - href: modules/08-slurm.qmd
             text: 8. Compute Jobs with Slurm
           - href: modules/09-examples.qmd
-            text: 9. Example Compute Jobs
+            text: 9. Batch Jobs in Practice
   page-footer:
     left: "2022, Jelmer Poelstra"
     right:

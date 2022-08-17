@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jelmer Poelstra">
 
 <title>Shell Scripting</title>
 <style>
@@ -186,7 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/09-examples.html">
- <span class="dropdown-text">9. Example Compute Jobs</span></a>
+ <span class="dropdown-text">9. Batch Jobs in Practice</span></a>
   </li>  
     </ul>
   </li>
@@ -261,6 +262,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jelmer Poelstra </p>
+          </div>
+  </div>
     
     
   </div>
@@ -285,6 +292,7 @@ Warning
 </div>
 </div>
 <hr>
+<p><br></p>
 <p>Shell scripts (or to be slightly more species, Bash scripts) enable us to <strong>run sets of commands non-interactively</strong>. This is especially beneficial or necessary when a set of commands:</p>
 <ul>
 <li>Takes a long time to run and/or</li>
@@ -797,14 +805,14 @@ Full solution
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> headtail.sh printname.sh tmp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Starting script headtail.sh
-Wed Aug 17 11:47:01 AM CEST 2022
+Wed Aug 17 12:36:21 PM CEST 2022
 Input file:   printname.sh
 Output file:  tmp.txt
 
 Listing the output file:
--rw-rw-r-- 1 jelmer jelmer 77 Aug 17 11:47 tmp.txt
+-rw-rw-r-- 1 jelmer jelmer 77 Aug 17 12:36 tmp.txt
 Done with script headtail.sh
-Wed Aug 17 11:47:01 AM CEST 2022</code></pre>
+Wed Aug 17 12:36:21 PM CEST 2022</code></pre>
 </div>
 </div>
 <p>The script printed some details for the output file, but not its contents (that would have worked here, but is usually not sensible when working with genomics data). Let’s take a look, though, to make sure the script worked:</p>

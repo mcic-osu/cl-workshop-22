@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jelmer Poelstra">
+<meta name="author" content="Mike Sovic">
 
 <title>Workshop Intro</title>
 <style>
@@ -121,7 +123,7 @@ ul.task-list{list-style: none;}
   </li>  
         <li>
     <a class="dropdown-item" href="../modules/09-examples.html">
- <span class="dropdown-text">9. Example Compute Jobs</span></a>
+ <span class="dropdown-text">9. Batch Jobs in Practice</span></a>
   </li>  
     </ul>
   </li>
@@ -168,7 +170,7 @@ ul.task-list{list-style: none;}
   <li><a href="#personal-introductions" id="toc-personal-introductions" class="nav-link" data-scroll-target="#personal-introductions">Personal introductions</a>
   <ul class="collapse">
   <li><a href="#instructors" id="toc-instructors" class="nav-link" data-scroll-target="#instructors">Instructors</a></li>
-  <li><a href="#you" id="toc-you" class="nav-link" data-scroll-target="#you">You!</a></li>
+  <li><a href="#participants" id="toc-participants" class="nav-link" data-scroll-target="#participants">Participants</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -185,6 +187,13 @@ ul.task-list{list-style: none;}
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jelmer Poelstra </p>
+             <p>Mike Sovic </p>
+          </div>
+  </div>
     
     
   </div>
@@ -196,20 +205,21 @@ ul.task-list{list-style: none;}
 
 </div>
 <hr>
+<p><br></p>
 <section id="what-you-will-learn" class="level2">
 <h2 class="anchored" data-anchor-id="what-you-will-learn">What you will learn</h2>
-<p>The focus of the workshop is on building some <strong>general (foundational) skills</strong> for analyzing genomics data.</p>
-<p>Command-line programs are preferred for many of the steps to analyze genomic sequencing data. Because such datasets tend to contain <em>a lot</em> of data, it is also preferable to run your analyses not on a laptop or desktop, but at a compute cluster like the Ohio Supercomputer Center (OSC).</p>
-<p>These realities mean that in the field of genomics, you need the following set of skills that you may not have been thought during your biology education:</p>
+<p>The focus of the workshop is on building some <strong>general (foundational) skills</strong> for analyzing genomics data — specifically, for doing so with command-line programs at the Ohio Supercomputer Center (OSC).</p>
+<p>Command-line programs are preferred for many of the steps to analyze genomic sequencing data. Because such datasets tend to contain <em>a lot</em> of data, it is also preferable to run your analyses not on a laptop or desktop, but at a supercomputer like OSC.</p>
+<p>These realities mean that in the field of genomics, you need the following set of skills that you may not have been taught previously:</p>
 <ol type="1">
-<li>Having a basic understanding of a <strong>compute cluster</strong> (supercomputer)</li>
+<li>Having a basic understanding of a <strong>supercomputer</strong></li>
 </ol>
 <p>And being able to:</p>
 <ol start="2" type="1">
 <li>Use the <strong>Unix shell</strong> (work in a terminal)</li>
-<li>Write small <strong>shell scripts</strong></li>
-<li><strong>Submit scripts</strong> to a cluster’s “queue” and monitor and manage the resulting compute jobs</li>
-<li>Activate and probably install <strong>software</strong> in a Linux environment where you don’t have “admin rights”</li>
+<li>Write small <strong>shell scripts</strong> that <strong>run command-line programs</strong></li>
+<li><strong>Submit these scripts</strong> to a supercomputer’s “queue” and monitor and manage the resulting “batch jobs”</li>
+<li>Activate and probably install <strong>software</strong> in a Linux environment where you don’t have admin rights</li>
 </ol>
 <p>We will teach the basics of these skills during this workshop!</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
@@ -239,7 +249,8 @@ What you won’t learn
 <li><p><strong>This website has all the material</strong> that we will go through during each of the modules! See the links in the schedule as well as in the top bar menus to access it.</p></li>
 <li><p>In-person participants don’t need to connect to the Zoom call, since Zoom will be broadcast on the large screen (but you <em>can</em> of course connect if you can better see the instructor’s screen that way).</p></li>
 <li><p>Because we’re not all on Zoom, we’ll use <strong><a href="https://docs.google.com/document/d/1M_BSRtnG3QYjntpgxbMENr_ZJGrA35B1e7E0Dn0hK5Q/edit?usp=sharing">this Google Doc</a></strong> to share links, inpromptu code that is not on the website, and non-urgent questions.</p></li>
-<li><p>Whenever you have a <strong>question</strong>, please feel free to interrupt and speak up, both in-person and on Zoom. Only if your question is not urgent and you don’t want to interrupt the flow, put it in the Google Doc or ask about it during a break.</p></li>
+<li><p>Whenever you have a <strong>question</strong>, please feel free to interrupt and speak up, both in-person and on Zoom. Because we will mute the in-person rooms on the Zoom call by default, signal to Mike (Columbus) or Menuka (Wooster) tat you have a question, who will unmute.</p>
+<p>Only if your question is not urgent and you don’t want to interrupt the flow, put it in the Google Doc or ask about it during a break.</p></li>
 </ul>
 <p><br></p>
 </section>
@@ -269,9 +280,10 @@ What you won’t learn
 <li><strong>Jelmer Poelstra</strong>, Molecular and Cellular Imaging Center (MCIC), Wooster</li>
 <li><strong>Mike Sovic</strong>, Center for Applied Plant Sciences (CAPS), Wooster</li>
 </ul>
+<p>A special mention goes out to <em>Menuka Bhandari</em> who is managing the Selby in-person room. Menuka is also knowledgeable about the workshop material and may be able to help you if you need/prefer someone in the room itself for a certain question.</p>
 </section>
-<section id="you" class="level3">
-<h3 class="anchored" data-anchor-id="you">You!</h3>
+<section id="participants" class="level3">
+<h3 class="anchored" data-anchor-id="participants">Participants</h3>
 <p>Please very briefly introduce yourself – include your position, department, and why you wanted to go to this workshop.</p>
 
 
