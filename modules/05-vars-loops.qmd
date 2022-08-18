@@ -20,11 +20,13 @@ In this module, we will cover two topics that are good to know about
 before you start writing and running shell scripts:
 
 - Using **variables** will allow you to run scripts flexibly,
-  with different input files and settings 
+  with different input files and settings.
 
 - **`for` loops** will allow you to repeat operations &mdash;
   specifically, we will later use them to submit many scripts at the same time,
   one per input file or sample.
+
+More generally, these are fundamental and ubiquitous programming concepts.
 
 <br>
 
@@ -45,11 +47,11 @@ before you start writing and running shell scripts:
    click `Connect to VS Code`.
 5. Open a terminal: {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
 6. In the terminal, type `bash` and press <kbd>Enter</kbd>.
-7. Type `pwd` to check you are in `/fs/ess/scratch/PAS2250`.
+7. Type `pwd` in the termain to check you are in `/fs/ess/scratch/PAS2250`.
+   
    If not, click
    {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`
-   and enter `/fs/ess/scratch/PAS2250/<your-folder>`
-   (replace `<your-folder>` by the actual name of your folder).
+   and enter `/fs/ess/scratch/PAS2250/<your-folder>`.
 
 <br>
 
@@ -63,25 +65,24 @@ In programming, we use **variables** for things that:
 These tend to be _settings_ like the paths to input and output files,
 and parameter values for programs.
 
+Using variables makes it easier to change such settings.
+We also need to understand variables to work with loops and with scripts.
+
 ### Assigning and referencing variables
 
 **To _assign_ a value to a variable in Bash** (in short: to assign a variable),
-use the syntax `variable=value`.
-For example:
+use the syntax `variable=value`:
 
 ```{bash}
 # Assign the value "low" to the variable "treatment":
-treatment=low
+location=beach
 
 # Assign the value "200" to the variable "nlines":
 nlines=200
 ```
 
 :::{.callout-warning}
-## Space-sensitive
-
-Be aware that there can be no spaces around the equals sign (`=`)!
-
+## Be aware that there can be no spaces around the equals sign (`=`)!
 :::
 
 **To _reference_ a variable** (i.e., to access its value),
@@ -111,18 +112,20 @@ Conveniently, we can directly use variables in lots of contexts,
 **as if we had instead typed their _values_**:
 
 ```{bash, eval=TRUE}
-ls_options="-lh"
-
-ls $ls_options data/meta
-```
-
-```{bash, eval=TRUE}
 input_file=data/fastq/SRR7609467.fastq.gz
 
 ls -lh $input_file 
 ```
 
-### Rules for naming variables
+```{bash, eval=TRUE}
+ls_options="-lh"            # (We'll talk about the quotes that are used here later)
+
+ls $ls_options data/meta
+```
+
+<br>
+
+### Rules and tips for naming variables
 
 Variable names:
 
@@ -130,49 +133,14 @@ Variable names:
 - **Cannot** contain spaces, periods, or other special symbols
 - **Cannot start** with a number
 
-### Command substitution
+Try to make your variable names descriptive,
+like `$input_file` and `$ls_options` above, as opposed to say `$x` and `$bla`.
 
-If you want to store the result of a command in a variable,
-you can use a construct called "**command substitution**"
-by wrapping the command inside `$()`:
+There are multiple ways of distinguishing words in the absence of spaces,
+such as `$inputFile` and `$input_file`:
+I prefer the latter, which is called "snake case", and I always use lowercase.
 
-```{bash, eval=TRUE}
-# (date +%F will return the date in YYYY-MM-DD format)
-today=$(date +%F)
-
-## Let's check:
-echo $today
-```
-
-```{bash, eval=FALSE}
-# Create a file with our $today variable:
-touch README_$today.txt
-
-# Check the name of our newly created file:
-ls README_*
-```
-
-```{bash, eval=TRUE, echo=FALSE}
-today=$(date +%F)
-touch README_$today.txt
-ls README_*
-```
-
-```{bash, eval=TRUE}
-# Define a filename that we'll use in the next few commands:
-input_file=data/meta/meta.tsv
-
-# `wc -l` will count the number of lines
-# Using `<` (input redirection) is a trick to avoid the filename from being printed 
-nlines=$(wc -l < $input_file)
-
-# We can directly use the variables in our quoted echo statement:
-echo "The file $input_file has $nlines lines"
-```
-
-Among many other uses,
-command substitution is handy when you want your script to report some results,
-or when a next step in the script depends on a previous result.
+<br>
 
 ### Environment variables
 
@@ -197,11 +165,12 @@ echo $HOME
 Environment variables can provide useful information.
 We'll see them again when we talk about the Slurm compute job scheduler.
 
+<br>
+
 ### Quoting variables
 
 Above, we learned that a variable name cannot contain spaces.
 But what happens if our variable's _value_ contains spaces?
-
 First off, when we try to **assign** the variable without using quotes,
 we get an error:
 
@@ -219,7 +188,8 @@ Aug: command not found
 Bash tried assign everything up to the first space (i.e., `Thu,`)
 to `today`.
 After that, since we used a space,
-it assumed the next word (`Aug`) was another command.
+it assumed the next word (`Aug`) was something else:
+specifically, another command.
 :::
 
 But it works when we quote (with _double_ quotes, `"..."`)
@@ -230,52 +200,59 @@ today="Thu, Aug 18"
 echo $today
 ```
 
-Now, let's try to **reference** this variable in another context:
+----
 
-```{bash, eval=FALSE}
-touch README2_$today.txt
-ls README2_*
-```
+Now, let's try to **reference** this variable in another context.
+Note that the **`touch`** command can create new files,
+e.g. `touch a.txt` creates the file `a.txt`.
+So let's try make a new file with today's date:
 
 ```{bash, eval=TRUE, echo=FALSE}
 today="Thu, Aug 18"
-touch README2_$today.txt
-ls README2_*
+touch README_$today.txt
 ```
+
+```{bash, eval=FALSE}
+touch README_$today.txt
+ls
+```
+
+:::{.bash-out}
+18.txt  
+Aug  
+README_Thu,
+::::
 
 :::{.callout-caution collapse="true"}
-## What went wrong here? How many files were created?
+## What went wrong here?
 
-The shell performed so-called _field splitting_ using a space as a separator,
+The shell performed so-called _field splitting_ using spaces as a separator,
 splitting the value into three separate units &ndash;
-as a result, three files were created:
-`README2_Thu,` (listed above), as well as `Aug` and `18.txt`.
-
-The following code will list all these three files:
-
-```{bash, eval=TRUE}
-# `ls -t` will sort by last-modified date, and `head -n 3` prints the top 3
-# Therefore, this will print the last 3 files that were created/modified
-ls -t | head -n 3
-```
+as a result, three files were created.
 
 :::
 
 Like with assignment,
-our problems can be avoided by **quoting the variable** when we reference it:
+our problems can be avoided by **quoting a variable** when we reference it:
 
 ```{bash, eval=FALSE}
-touch README3_"$today".txt
-ls README3_*
+touch README_"$today".txt
+
+# This will list the most recently modified file (ls -t sorts by last modified date):
+ls -t | head -n 1
 ```
 
 ```{bash, eval=TRUE, echo=FALSE}
 today="Thu, Aug 18"
-touch README3_"$today".txt
-ls README3_*
+touch README_"$today".txt
+ls -t | head -n 1
 ```
 
-----
+**It is good practice to quote variables** when you reference them:
+it never hurts, and avoids unexpected surprises.
+
+:::{.callout-note collapse="true"}
+## Bonus: Where does a variable name end?
 
 Another issue we can run into when we don't quote variables
 is that we can't explicitly define where a variable name ends
@@ -318,13 +295,10 @@ today="Thu, Aug 18"
 echo README_"$today"_final.txt
 ```
 
-----
-
-All in all, **it is good practice to quote variables** when you reference them:
-it never hurts, and avoids unexpected surprises.
+:::
 
 :::{.callout-note collapse="true"}
-## Bonus: More on quoting -- and double vs. single quotes
+## Bonus: Quoting as "escaping" special meaning -- and double vs. single quotes
 
 By double-quoting a variable,
 we are essentially escaping (or "turning off")
@@ -335,16 +309,16 @@ Similarly, we are escaping other "special characters",
 such as globbing wildcards, with double quotes. Compare:
 
 ```{bash, eval=TRUE}
-echo *
+echo *     # This will echo/list all files in the current working dir (!)
 ```
 
 ```{bash, eval=TRUE}
-echo "*"
+echo "*"   # This will simply print the "*" character 
 ```
 
-However, as we also saw above,
+However, as we saw above,
 double quotes _do not_ turn off the special meaning of `$`
-(i.e., denoting a string as a variable):
+(denoting a string as a variable):
 
 ```{bash, eval=FALSE, echo=TRUE}
 echo "$today"
@@ -355,12 +329,121 @@ today="Thu, Aug 18"
 echo "$today"
 ```
 
-...but _single quotes_ will:
+...but **_single quotes_** will:
 
 ```{bash, eval=TRUE, echo=TRUE}
 echo '$today'
 ```
 
+:::
+
+<br>
+
+### Command substitution
+
+If you want to store the result of a command in a variable,
+you can use a construct called "**command substitution**"
+by wrapping the command inside `$()`.
+
+Let's see an example.
+The `date` command will print the current date and time:
+
+```{bash, eval=TRUE}
+date
+```
+
+If we try to store the date in a variable directly, it doesn't work:
+the literal string "date" is stored, not the output of the command:
+
+```{bash, eval=TRUE}
+today=date
+echo "$today"
+```
+
+That's why we need command substitution with `$()`:
+
+```{bash, eval=TRUE}
+today=$(date)
+echo "$today"
+```
+
+----
+
+In practice, you might use command substitution with `date` to include the
+current date in files.
+To do so, first, note that we can use `date +%F` to 
+print the date in `YYYY-MM-DD` format, and omit the time:
+
+```{bash, eval=TRUE}
+date +%F
+```
+
+Let's use that in a command substitution &mdash; but a bit differently than before:
+we use the command substitution `$(date +%F)` _directly_ in our
+`touch` command, rather than first assigning it to a variable:
+
+```{bash, eval=FALSE}
+# Create a file with our $today variable:
+touch README_"$(date +%F)".txt
+
+# Check the name of our newly created file:
+ls -t | head -n 1
+```
+
+```{bash, eval=TRUE, echo=FALSE}
+today=$(date +%F)
+touch README_"$today".txt
+ls -t | head -n 1
+```
+
+Among many other uses,
+command substitution is handy when you want your script to report some results,
+or when a next step in the script depends on a previous result.
+
+:::{.exercise}
+
+### On Your Own: Command substitution {-}
+
+Say we wanted to store and report the number of lines in a file,
+which can be a good QC measure for FASTQ and other genomic data files.
+
+`wc -l` gets you the number of lines,
+and you can use a trick to omit the filename:
+
+```{bash, eval=TRUE}
+wc -l data/fastq/SRR7609472.fastq.gz
+```
+
+```{bash, eval=TRUE}
+# Use `<` (input redirection) to omit the filename:
+wc -l < data/fastq/SRR7609472.fastq.gz
+```
+
+**Use command substitution to store the output of the last command in a variable,**
+**and then use an `echo` command to print:**
+
+```{bash-out}
+The file has 30387 lines
+```
+
+:::{.callout-tip collapse="true"}
+## Solution
+
+```{bash, eval=TRUE}
+nlines=$(wc -l < data/fastq/SRR7609472.fastq.gz)
+
+echo "The file $nlines lines"
+```
+
+:::
+:::
+
+:::{.callout-warning}
+## Let's clean up our mess!
+
+````{bash, eval=FALSE}
+rm README_* Aug 18.txt
+```
 :::
 
 <br>
@@ -379,8 +462,8 @@ that is, they allow you to perform one or more actions for each element in the c
 
 ### `for` loop syntax and mechanics
 
-Let's see a first example, where our collection is just a very short
-list of numbers (1, 2, and 3):
+Let's see a first example,
+where our "collection" is just a very short list of numbers (`1`, `2`, and `3`):
 
 ```{bash, eval=TRUE}
 for a_number in 1 2 3; do
@@ -400,7 +483,7 @@ done
 
 
 :::{.callout-caution collapse="true"}
-## Why the semicolon `;` before `do`?
+## A semicolon `;` (as used before `do`) separates two commands on a single line
 
 A semicolon separates two commands written on a single line --
 for instance, instead of:
@@ -430,9 +513,16 @@ But that's one line longer and a bit awkwardly asymmetric.
 
 :::
 
-It is important to realize that the loop runs sequentially for each item
-in the collection, and will therefore run as many times as there are items
-in the collection.
+The aspect that is perhaps most difficult to understand is that in each iteration
+of the loop, one element in the collection (in the example above, either `1`,
+`2`, or `3`) **is being assigned** to the variable specified after `for`
+(in the example above, `a_number`).
+
+----
+
+It is also important to realize that
+**the loop runs sequentially for each item in the collection**,
+and will run exactly as many times as there are items in the collection.
 
 The following example, where we let the computer sleep for 1 second
 before printing the date and time with the `date` command,
@@ -441,25 +531,48 @@ demonstrates that the loop is being executed sequentially:
 ```{bash, eval=TRUE}
 for a_number in 1 2 3; do
     echo "In this iteration of the loop, the number is $a_number"
-    #sleep 1s          # Let the computer sleep for 1 second
+    sleep 1s          # Let the computer sleep for 1 second
     date              # Print the date and time
     echo "--------"
 done
 ```
 
-The aspect that is perhaps most difficult to understand is that in each iteration
-of the loop, one element in the collection (in the example above, either `1`,
-`2`, or `3`) **is being assigned** to the variable specified after `for`
-(in the example above, `a_number`).
+:::{.exercise}
 
-When we specify the collection "manually", like we did above with numbers,
-we separate the elements by a space, as this example also shows:
+### On Your Own: A simple loop {-}
+
+Create a loop that will print:
+
+```{bash-out}
+morel is an Ohio mushroom  
+destroying_angel is an Ohio mushroom  
+eyelash_cup is an Ohio mushroom
+```
+
+:::{.callout-tip collapse="true"}
+## Hints
+
+- Just like we looped over 3 numbers above (`1`, `2`, and `3`),
+  you want to loop over the three mushroom names,
+  `morel`, `destroying_angel`, and `eyelash_cup`.
+
+- Notice that when we specify the collection "manually",
+  like we did above with numbers, the elements are simply separated by a space.
+:::
+
+:::{.callout-tip collapse="true"}
+## Solution
 
 ```{bash, eval=TRUE}
 for mushroom in morel destroying_angel eyelash_cup; do
     echo "$mushroom is an Ohio mushroom"
 done
 ```
+
+:::
+:::
+
+<br>
 
 ### Looping over files with globbing
 

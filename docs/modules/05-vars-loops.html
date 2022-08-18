@@ -232,14 +232,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"> <span class="header-section-number">2</span> Variables</a>
   <ul class="collapse">
   <li><a href="#assigning-and-referencing-variables" id="toc-assigning-and-referencing-variables" class="nav-link" data-scroll-target="#assigning-and-referencing-variables"> <span class="header-section-number">2.1</span> Assigning and referencing variables</a></li>
-  <li><a href="#rules-for-naming-variables" id="toc-rules-for-naming-variables" class="nav-link" data-scroll-target="#rules-for-naming-variables"> <span class="header-section-number">2.2</span> Rules for naming variables</a></li>
-  <li><a href="#command-substitution" id="toc-command-substitution" class="nav-link" data-scroll-target="#command-substitution"> <span class="header-section-number">2.3</span> Command substitution</a></li>
-  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables"> <span class="header-section-number">2.4</span> Environment variables</a></li>
-  <li><a href="#quoting-variables" id="toc-quoting-variables" class="nav-link" data-scroll-target="#quoting-variables"> <span class="header-section-number">2.5</span> Quoting variables</a></li>
+  <li><a href="#rules-and-tips-for-naming-variables" id="toc-rules-and-tips-for-naming-variables" class="nav-link" data-scroll-target="#rules-and-tips-for-naming-variables"> <span class="header-section-number">2.2</span> Rules and tips for naming variables</a></li>
+  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables"> <span class="header-section-number">2.3</span> Environment variables</a></li>
+  <li><a href="#quoting-variables" id="toc-quoting-variables" class="nav-link" data-scroll-target="#quoting-variables"> <span class="header-section-number">2.4</span> Quoting variables</a></li>
+  <li><a href="#command-substitution" id="toc-command-substitution" class="nav-link" data-scroll-target="#command-substitution"> <span class="header-section-number">2.5</span> Command substitution</a></li>
+  <li><a href="#on-your-own-command-substitution" id="toc-on-your-own-command-substitution" class="nav-link" data-scroll-target="#on-your-own-command-substitution">On Your Own: Command substitution</a></li>
   </ul></li>
   <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops"> <span class="header-section-number">3</span> For loops</a>
   <ul class="collapse">
   <li><a href="#for-loop-syntax-and-mechanics" id="toc-for-loop-syntax-and-mechanics" class="nav-link" data-scroll-target="#for-loop-syntax-and-mechanics"> <span class="header-section-number">3.1</span> <code>for</code> loop syntax and mechanics</a></li>
+  <li><a href="#on-your-own-a-simple-loop" id="toc-on-your-own-a-simple-loop" class="nav-link" data-scroll-target="#on-your-own-a-simple-loop">On Your Own: A simple loop</a></li>
   <li><a href="#looping-over-files-with-globbing" id="toc-looping-over-files-with-globbing" class="nav-link" data-scroll-target="#looping-over-files-with-globbing"> <span class="header-section-number">3.2</span> Looping over files with globbing</a></li>
   </ul></li>
   </ul>
@@ -276,26 +278,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr>
 <p>In this module, we will cover two topics that are good to know about before you start writing and running shell scripts:</p>
 <ul>
-<li><p>Using <strong>variables</strong> will allow you to run scripts flexibly, with different input files and settings</p></li>
+<li><p>Using <strong>variables</strong> will allow you to run scripts flexibly, with different input files and settings.</p></li>
 <li><p><strong><code>for</code> loops</strong> will allow you to repeat operations — specifically, we will later use them to submit many scripts at the same time, one per input file or sample.</p></li>
 </ul>
+<p>More generally, these are fundamental and ubiquitous programming concepts.</p>
 <p><br></p>
 <section id="setup" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="setup"><span class="header-section-number">1</span> Setup</h2>
 <p><strong>Starting a VS Code session with an active terminal:</strong></p>
 <ol type="1">
-<li>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</li>
-<li>In the blue top bar, select <code>Interactive Apps</code> and then <code>Code Server</code>.</li>
-<li>In the form that appears:
+<li><p>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</p></li>
+<li><p>In the blue top bar, select <code>Interactive Apps</code> and then <code>Code Server</code>.</p></li>
+<li><p>In the form that appears:</p>
 <ul>
 <li>Enter <code>4</code> or more in the box <code>Number of hours</code></li>
 <li><strong>To avoid having to switch folders within VS Code</strong>, enter <code>/fs/ess/scratch/PAS2250/participants/&lt;your-folder&gt;</code> in the box <code>Working Directory</code> (replace <code>&lt;your-folder&gt;</code> by the actual name of your folder).</li>
 <li>Click <code>Launch</code>.</li>
 </ul></li>
-<li>On the next page, once the top bar of the box is green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</li>
-<li>Open a terminal: <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</li>
-<li>In the terminal, type <code>bash</code> and press <kbd>Enter</kbd>.</li>
-<li>Type <code>pwd</code> to check you are in <code>/fs/ess/scratch/PAS2250</code>. If not, click <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code> and enter <code>/fs/ess/scratch/PAS2250/&lt;your-folder&gt;</code> (replace <code>&lt;your-folder&gt;</code> by the actual name of your folder).</li>
+<li><p>On the next page, once the top bar of the box is green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</p></li>
+<li><p>Open a terminal: <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</p></li>
+<li><p>In the terminal, type <code>bash</code> and press <kbd>Enter</kbd>.</p></li>
+<li><p>Type <code>pwd</code> in the termain to check you are in <code>/fs/ess/scratch/PAS2250</code>.</p>
+<p>If not, click <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code> and enter <code>/fs/ess/scratch/PAS2250/&lt;your-folder&gt;</code>.</p></li>
 </ol>
 <p><br></p>
 </section>
@@ -307,12 +311,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Are subject to change.</li>
 </ul>
 <p>These tend to be <em>settings</em> like the paths to input and output files, and parameter values for programs.</p>
+<p>Using variables makes it easier to change such settings. We also need to understand variables to work with loops and with scripts.</p>
 <section id="assigning-and-referencing-variables" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="assigning-and-referencing-variables"><span class="header-section-number">2.1</span> Assigning and referencing variables</h3>
-<p><strong>To <em>assign</em> a value to a variable in Bash</strong> (in short: to assign a variable), use the syntax <code>variable=value</code>. For example:</p>
+<p><strong>To <em>assign</em> a value to a variable in Bash</strong> (in short: to assign a variable), use the syntax <code>variable=value</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the value "low" to the variable "treatment":</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">treatment</span><span class="op">=</span>low</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">location</span><span class="op">=</span>beach</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the value "200" to the variable "nlines":</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">nlines</span><span class="op">=</span>200</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -323,11 +328,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Space-sensitive
+Be aware that there can be no spaces around the equals sign (<code>=</code>)!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Be aware that there can be no spaces around the equals sign (<code>=</code>)!</p>
+
 </div>
 </div>
 <p><strong>To <em>reference</em> a variable</strong> (i.e., to access its value), you need to put a dollar sign <code>$</code> in front of its name. We’ll use the <code>echo</code> command to review the values that our variables contain:</p>
@@ -349,98 +354,61 @@ Space-sensitive
 </div>
 <p>Conveniently, we can directly use variables in lots of contexts, <strong>as if we had instead typed their <em>values</em></strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">ls_options</span><span class="op">=</span><span class="st">"-lh"</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span>data/fastq/SRR7609467.fastq.gz</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="va">$ls_options</span> data/meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="va">$input_file</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>-rw-r--r-- 1 jelmer jelmer 8.3M Aug 16 13:45 data/fastq/SRR7609467.fastq.gz</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">ls_options</span><span class="op">=</span><span class="st">"-lh"</span>            <span class="co"># (We'll talk about the quotes that are used here later)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="va">$ls_options</span> data/meta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>total 4.0K
 -rw-r--r-- 1 jelmer jelmer 583 Aug 16 10:36 meta.tsv</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span>data/fastq/SRR7609467.fastq.gz</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="va">$input_file</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>-rw-r--r-- 1 jelmer jelmer 8.3M Aug 16 13:45 data/fastq/SRR7609467.fastq.gz</code></pre>
-</div>
-</div>
+<p><br></p>
 </section>
-<section id="rules-for-naming-variables" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="rules-for-naming-variables"><span class="header-section-number">2.2</span> Rules for naming variables</h3>
+<section id="rules-and-tips-for-naming-variables" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="rules-and-tips-for-naming-variables"><span class="header-section-number">2.2</span> Rules and tips for naming variables</h3>
 <p>Variable names:</p>
 <ul>
 <li><strong>Can</strong> contain letters, numbers, and underscores</li>
 <li><strong>Cannot</strong> contain spaces, periods, or other special symbols</li>
 <li><strong>Cannot start</strong> with a number</li>
 </ul>
+<p>Try to make your variable names descriptive, like <code>$input_file</code> and <code>$ls_options</code> above, as opposed to say <code>$x</code> and <code>$bla</code>.</p>
+<p>There are multiple ways of distinguishing words in the absence of spaces, such as <code>$inputFile</code> and <code>$input_file</code>: I prefer the latter, which is called “snake case”, and I always use lowercase.</p>
+<p><br></p>
 </section>
-<section id="command-substitution" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="command-substitution"><span class="header-section-number">2.3</span> Command substitution</h3>
-<p>If you want to store the result of a command in a variable, you can use a construct called “<strong>command substitution</strong>” by wrapping the command inside <code>$()</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (date +%F will return the date in YYYY-MM-DD format)</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span> +%F<span class="va">)</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">## Let's check:</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$today</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>2022-08-17</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a file with our $today variable:</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README_<span class="va">$today</span>.txt</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the name of our newly created file:</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> README_<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>README_2022-08-17.txt</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a filename that we'll use in the next few commands:</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span>data/meta/meta.tsv</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># `wc -l` will count the number of lines</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Using `&lt;` (input redirection) is a trick to avoid the filename from being printed </span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="va">nlines</span><span class="op">=</span><span class="va">$(</span><span class="fu">wc</span> <span class="at">-l</span> <span class="op">&lt;</span> <span class="va">$input_file)</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We can directly use the variables in our quoted echo statement:</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"The file </span><span class="va">$input_file</span><span class="st"> has </span><span class="va">$nlines</span><span class="st"> lines"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>The file data/meta/meta.tsv has 13 lines</code></pre>
-</div>
-</div>
-<p>Among many other uses, command substitution is handy when you want your script to report some results, or when a next step in the script depends on a previous result.</p>
-</section>
-<section id="environment-variables" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="environment-variables"><span class="header-section-number">2.4</span> Environment variables</h3>
+<section id="environment-variables" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="environment-variables"><span class="header-section-number">2.3</span> Environment variables</h3>
 <p>There are also <strong>predefined variables</strong> in the Unix shell: that is, variables that exist in your environment by default. These so-called “environment variables” are always spelled in all-caps:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Environment variable $USER contains your user name </span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$USER</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Environment variable $USER contains your user name </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$USER</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>jelmer</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Environment variable $HOME contains the path to your home directory</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$HOME</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Environment variable $HOME contains the path to your home directory</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$HOME</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bash-out">
 <p>/users/PAS0471/jelmer</p>
 </div>
 <p>Environment variables can provide useful information. We’ll see them again when we talk about the Slurm compute job scheduler.</p>
+<p><br></p>
 </section>
-<section id="quoting-variables" class="level3" data-number="2.5">
-<h3 data-number="2.5" class="anchored" data-anchor-id="quoting-variables"><span class="header-section-number">2.5</span> Quoting variables</h3>
-<p>Above, we learned that a variable name cannot contain spaces. But what happens if our variable’s <em>value</em> contains spaces?</p>
-<p>First off, when we try to <strong>assign</strong> the variable without using quotes, we get an error:</p>
+<section id="quoting-variables" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="quoting-variables"><span class="header-section-number">2.4</span> Quoting variables</h3>
+<p>Above, we learned that a variable name cannot contain spaces. But what happens if our variable’s <em>value</em> contains spaces? First off, when we try to <strong>assign</strong> the variable without using quotes, we get an error:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span>Thu, <span class="ex">Aug</span> 18</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span>Thu, <span class="ex">Aug</span> 18</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bash-out">
 <p>Aug: command not found</p>
@@ -457,27 +425,31 @@ Why do you think we got this error?
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Bash tried assign everything up to the first space (i.e., <code>Thu,</code>) to <code>today</code>. After that, since we used a space, it assumed the next word (<code>Aug</code>) was another command.</p>
+<p>Bash tried assign everything up to the first space (i.e., <code>Thu,</code>) to <code>today</code>. After that, since we used a space, it assumed the next word (<code>Aug</code>) was something else: specifically, another command.</p>
 </div>
 </div>
 </div>
 <p>But it works when we quote (with <em>double</em> quotes, <code>"..."</code>) the entire string that makes up the value:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span><span class="st">"Thu, Aug 18"</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$today</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span><span class="st">"Thu, Aug 18"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$today</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Thu, Aug 18</code></pre>
 </div>
 </div>
-<p>Now, let’s try to <strong>reference</strong> this variable in another context:</p>
+<hr>
+<p>Now, let’s try to <strong>reference</strong> this variable in another context. Note that the <strong><code>touch</code></strong> command can create new files, e.g.&nbsp;<code>touch a.txt</code> creates the file <code>a.txt</code>. So let’s try make a new file with today’s date:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README2_<span class="va">$today</span>.txt</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> README2_<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>README2_Thu,</code></pre>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README_<span class="va">$today</span>.txt</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="bash-out">
+<p>18.txt<br>
+Aug<br>
+README_Thu,</p>
 </div>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -485,41 +457,44 @@ Why do you think we got this error?
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-What went wrong here? How many files were created?
+What went wrong here?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The shell performed so-called <em>field splitting</em> using a space as a separator, splitting the value into three separate units – as a result, three files were created: <code>README2_Thu,</code> (listed above), as well as <code>Aug</code> and <code>18.txt</code>.</p>
-<p>The following code will list all these three files:</p>
+<p>The shell performed so-called <em>field splitting</em> using spaces as a separator, splitting the value into three separate units – as a result, three files were created.</p>
+</div>
+</div>
+</div>
+<p>Like with assignment, our problems can be avoided by <strong>quoting a variable</strong> when we reference it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `ls -t` will sort by last-modified date, and `head -n 3` prints the top 3</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Therefore, this will print the last 3 files that were created/modified</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-t</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>18.txt
-Aug
-README2_Thu,</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>Like with assignment, our problems can be avoided by <strong>quoting the variable</strong> when we reference it:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README3_<span class="st">"</span><span class="va">$today</span><span class="st">"</span>.txt</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> README3_<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README_<span class="st">"</span><span class="va">$today</span><span class="st">"</span>.txt</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># This will list the most recently modified file (ls -t sorts by last modified date):</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-t</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>README3_Thu, Aug 18.txt</code></pre>
+<pre class="bash-out"><code>README_Thu, Aug 18.txt</code></pre>
 </div>
 </div>
-<hr>
+<p><strong>It is good practice to quote variables</strong> when you reference them: it never hurts, and avoids unexpected surprises.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonus: Where does a variable name end?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Another issue we can run into when we don’t quote variables is that we can’t explicitly define where a variable name ends within a longer string of text:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> README_<span class="va">$today_final</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> README_<span class="va">$today_final</span>.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -548,53 +523,54 @@ What went wrong here? (Hint: check the coloring highlighting above)
 </div>
 <p>Quoting solves this issue, too:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> README_<span class="st">"</span><span class="va">$today</span><span class="st">"</span>_final.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> README_<span class="st">"</span><span class="va">$today</span><span class="st">"</span>_final.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>README_Thu, Aug 18_final.txt</code></pre>
 </div>
 </div>
-<hr>
-<p>All in all, <strong>it is good practice to quote variables</strong> when you reference them: it never hurts, and avoids unexpected surprises.</p>
+</div>
+</div>
+</div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Bonus: More on quoting – and double vs.&nbsp;single quotes
+Bonus: Quoting as “escaping” special meaning – and double vs.&nbsp;single quotes
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>By double-quoting a variable, we are essentially escaping (or “turning off”) the default special meaning of the <em>space as a separator</em>, and are asking the shell to interpret it as a <em>literal space</em>.</p>
 <p>Similarly, we are escaping other “special characters”, such as globbing wildcards, with double quotes. Compare:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="pp">*</span>     <span class="co"># This will echo/list all files in the current working dir (!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>18.txt Aug data headtail.sh line.sh printname.sh README_2022-08-17.txt README2_Thu, README3_Thu, Aug 18.txt sandbox scripts tmp.txt</code></pre>
+<pre class="bash-out"><code>18.txt Aug data README_Thu, README_Thu, Aug 18.txt sandbox scripts</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"*"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"*"</span>   <span class="co"># This will simply print the "*" character </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>*</code></pre>
 </div>
 </div>
-<p>However, as we also saw above, double quotes <em>do not</em> turn off the special meaning of <code>$</code> (i.e., denoting a string as a variable):</p>
+<p>However, as we saw above, double quotes <em>do not</em> turn off the special meaning of <code>$</code> (denoting a string as a variable):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$today</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$today</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Thu, Aug 18</code></pre>
 </div>
 </div>
-<p>…but <em>single quotes</em> will:</p>
+<p>…but <strong><em>single quotes</em></strong> will:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'$today'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'$today'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>$today</code></pre>
 </div>
@@ -604,6 +580,114 @@ Bonus: More on quoting – and double vs.&nbsp;single quotes
 </div>
 <p><br></p>
 </section>
+<section id="command-substitution" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="command-substitution"><span class="header-section-number">2.5</span> Command substitution</h3>
+<p>If you want to store the result of a command in a variable, you can use a construct called “<strong>command substitution</strong>” by wrapping the command inside <code>$()</code>.</p>
+<p>Let’s see an example. The <code>date</code> command will print the current date and time:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>Thu Aug 18 12:09:53 PM CEST 2022</code></pre>
+</div>
+</div>
+<p>If we try to store the date in a variable directly, it doesn’t work: the literal string “date” is stored, not the output of the command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span>date</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$today</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>date</code></pre>
+</div>
+</div>
+<p>That’s why we need command substitution with <code>$()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$today</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>Thu Aug 18 12:09:53 PM CEST 2022</code></pre>
+</div>
+</div>
+<hr>
+<p>In practice, you might use command substitution with <code>date</code> to include the current date in files. To do so, first, note that we can use <code>date +%F</code> to print the date in <code>YYYY-MM-DD</code> format, and omit the time:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span> +%F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>2022-08-18</code></pre>
+</div>
+</div>
+<p>Let’s use that in a command substitution — but a bit differently than before: we use the command substitution <code>$(date +%F)</code> <em>directly</em> in our <code>touch</code> command, rather than first assigning it to a variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a file with our $today variable:</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README_<span class="st">"</span><span class="va">$(</span><span class="fu">date</span> +%F<span class="va">)</span><span class="st">"</span>.txt</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the name of our newly created file:</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-t</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>README_2022-08-18.txt</code></pre>
+</div>
+</div>
+<p>Among many other uses, command substitution is handy when you want your script to report some results, or when a next step in the script depends on a previous result.</p>
+</section>
+<section id="on-your-own-command-substitution" class="level3 unnumbered exercise">
+<h3 class="unnumbered anchored" data-anchor-id="on-your-own-command-substitution">On Your Own: Command substitution</h3>
+<p>Say we wanted to store and report the number of lines in a file, which can be a good QC measure for FASTQ and other genomic data files.</p>
+<p><code>wc -l</code> gets you the number of lines, and you can use a trick to omit the filename:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> data/fastq/SRR7609472.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>30387 data/fastq/SRR7609472.fastq.gz</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use `&lt;` (input redirection) to omit the filename:</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> <span class="op">&lt;</span> data/fastq/SRR7609472.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>30387</code></pre>
+</div>
+</div>
+<p><strong>Use command substitution to store the output of the last command in a variable,</strong> <strong>and then use an <code>echo</code> command to print:</strong></p>
+<pre class="{bash-out}"><code>The file has 30387 lines</code></pre>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="va">nlines</span><span class="op">=</span><span class="va">$(</span><span class="fu">wc</span> <span class="at">-l</span> <span class="op">&lt;</span> data/fastq/SRR7609472.fastq.gz<span class="va">)</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"The file </span><span class="va">$nlines</span><span class="st"> lines"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>The file 30387 lines</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Let’s clean up our mess!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> README_<span class="pp">*</span> Aug 18.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="for-loops" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="for-loops"><span class="header-section-number">3</span> For loops</h2>
@@ -612,12 +696,12 @@ Bonus: More on quoting – and double vs.&nbsp;single quotes
 <p><code>for</code> loops <em>iterate</em> over a collection, such as a list of files: that is, they allow you to perform one or more actions for each element in the collection, one element at a time.</p>
 <section id="for-loop-syntax-and-mechanics" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="for-loop-syntax-and-mechanics"><span class="header-section-number">3.1</span> <code>for</code> loop syntax and mechanics</h3>
-<p>Let’s see a first example, where our collection is just a very short list of numbers (1, 2, and 3):</p>
+<p>Let’s see a first example, where our “collection” is just a very short list of numbers (<code>1</code>, <code>2</code>, and <code>3</code>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a_number <span class="kw">in</span> 1 2 3<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"In this iteration of the loop, the number is </span><span class="va">$a_number</span><span class="st">"</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"--------"</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a_number <span class="kw">in</span> 1 2 3<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"In this iteration of the loop, the number is </span><span class="va">$a_number</span><span class="st">"</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"--------"</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>In this iteration of the loop, the number is 1
 --------
@@ -659,96 +743,138 @@ In this iteration of the loop, the number is 3
 </tbody>
 </table>
 <div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Why the semicolon <code>;</code> before <code>do</code>?
+A semicolon <code>;</code> (as used before <code>do</code>) separates two commands on a single line
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A semicolon separates two commands written on a single line – for instance, instead of:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>…you could equivalently type:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results<span class="kw">;</span> <span class="bu">cd</span> results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> results<span class="kw">;</span> <span class="bu">cd</span> results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>;</code> in the <code>for</code> loop syntax has the same function, and as such, an alternative way to format a <code>for</code> loop is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a_number <span class="kw">in</span> 1 2 3</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"In this iteration of the loop, the number is </span><span class="va">$a_number</span><span class="st">"</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a_number <span class="kw">in</span> 1 2 3</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"In this iteration of the loop, the number is </span><span class="va">$a_number</span><span class="st">"</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>But that’s one line longer and a bit awkwardly asymmetric.</p>
 </div>
 </div>
 </div>
-<p>It is important to realize that the loop runs sequentially for each item in the collection, and will therefore run as many times as there are items in the collection.</p>
+<p>The aspect that is perhaps most difficult to understand is that in each iteration of the loop, one element in the collection (in the example above, either <code>1</code>, <code>2</code>, or <code>3</code>) <strong>is being assigned</strong> to the variable specified after <code>for</code> (in the example above, <code>a_number</code>).</p>
+<hr>
+<p>It is also important to realize that <strong>the loop runs sequentially for each item in the collection</strong>, and will run exactly as many times as there are items in the collection.</p>
 <p>The following example, where we let the computer sleep for 1 second before printing the date and time with the <code>date</code> command, demonstrates that the loop is being executed sequentially:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a_number <span class="kw">in</span> 1 2 3<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"In this iteration of the loop, the number is </span><span class="va">$a_number</span><span class="st">"</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#sleep 1s          # Let the computer sleep for 1 second</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">date</span>              <span class="co"># Print the date and time</span></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"--------"</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a_number <span class="kw">in</span> 1 2 3<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"In this iteration of the loop, the number is </span><span class="va">$a_number</span><span class="st">"</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sleep</span> 1s          <span class="co"># Let the computer sleep for 1 second</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">date</span>              <span class="co"># Print the date and time</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"--------"</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>In this iteration of the loop, the number is 1
-Wed Aug 17 06:39:01 PM CEST 2022
+Thu Aug 18 12:09:54 PM CEST 2022
 --------
 In this iteration of the loop, the number is 2
-Wed Aug 17 06:39:01 PM CEST 2022
+Thu Aug 18 12:09:55 PM CEST 2022
 --------
 In this iteration of the loop, the number is 3
-Wed Aug 17 06:39:01 PM CEST 2022
+Thu Aug 18 12:09:56 PM CEST 2022
 --------</code></pre>
 </div>
 </div>
-<p>The aspect that is perhaps most difficult to understand is that in each iteration of the loop, one element in the collection (in the example above, either <code>1</code>, <code>2</code>, or <code>3</code>) <strong>is being assigned</strong> to the variable specified after <code>for</code> (in the example above, <code>a_number</code>).</p>
-<p>When we specify the collection “manually”, like we did above with numbers, we separate the elements by a space, as this example also shows:</p>
+</section>
+<section id="on-your-own-a-simple-loop" class="level3 unnumbered exercise">
+<h3 class="unnumbered anchored" data-anchor-id="on-your-own-a-simple-loop">On Your Own: A simple loop</h3>
+<p>Create a loop that will print:</p>
+<pre class="{bash-out}"><code>morel is an Ohio mushroom  
+destroying_angel is an Ohio mushroom  
+eyelash_cup is an Ohio mushroom</code></pre>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Just like we looped over 3 numbers above (<code>1</code>, <code>2</code>, and <code>3</code>), you want to loop over the three mushroom names, <code>morel</code>, <code>destroying_angel</code>, and <code>eyelash_cup</code>.</p></li>
+<li><p>Notice that when we specify the collection “manually”, like we did above with numbers, the elements are simply separated by a space.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> mushroom <span class="kw">in</span> morel destroying_angel eyelash_cup<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"</span><span class="va">$mushroom</span><span class="st"> is an Ohio mushroom"</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> mushroom <span class="kw">in</span> morel destroying_angel eyelash_cup<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"</span><span class="va">$mushroom</span><span class="st"> is an Ohio mushroom"</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>morel is an Ohio mushroom
 destroying_angel is an Ohio mushroom
 eyelash_cup is an Ohio mushroom</code></pre>
 </div>
 </div>
+</div>
+</div>
+</div>
 </section>
+<p><br></p>
 <section id="looping-over-files-with-globbing" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="looping-over-files-with-globbing"><span class="header-section-number">3.2</span> Looping over files with globbing</h3>
 <p>In practice, we rarely manually list the collection of items we want to loop over. Instead, we commonly <strong>loop over files</strong> directly using <em>globbing</em>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We make sure we only select gzipped FASTQ files using the `*fastq.gz` glob</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> data/raw/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"File </span><span class="va">$fastq_file</span><span class="st"> has </span><span class="va">$(</span><span class="fu">wc</span> <span class="at">-l</span> <span class="op">&lt;</span> <span class="va">$fastq_file)</span><span class="st"> lines."</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># More processing...</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We make sure we only select gzipped FASTQ files using the `*fastq.gz` glob</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> data/raw/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"File </span><span class="va">$fastq_file</span><span class="st"> has </span><span class="va">$(</span><span class="fu">wc</span> <span class="at">-l</span> <span class="op">&lt;</span> <span class="va">$fastq_file)</span><span class="st"> lines."</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># More processing...</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>This technique is extremely useful</strong>, and I use it all the time. Take a moment to realize that we’re not doing a separate <code>ls</code> and storing the results: as mentioned, we can <em>directly</em> use a globbing pattern to select our files.</p>
 <p>If needed, you can use your globbing / wild card skills to narrow down the file selection:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perhaps we only want to select R1 files (forward reads): </span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> data/raw/<span class="pp">*</span>R1<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Some file processing...</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or only filenames starting with A or B:</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> data/raw/[AB]<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Some file processing...</span></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perhaps we only want to select R1 files (forward reads): </span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> data/raw/<span class="pp">*</span>R1<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Some file processing...</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Or only filenames starting with A or B:</span></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> data/raw/[AB]<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Some file processing...</span></span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -757,24 +883,24 @@ Bonus: Alternatives to looping with a glob
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>With genomics data, the routine of looping over an entire directory of files, or selections made with simple globbing patterns, should serve you very well.</p>
 <p>But in some cases, you may want to iterate only over a specific list of filenames (or partial filenames such as sample IDs) that represent a complex selection.</p>
 <ul>
 <li><p>If this is a <strong>short list</strong>, you could directly specify it in the loop:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sample <span class="kw">in</span> A1 B6 D3<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">R1</span><span class="op">=</span>data/fastq/<span class="st">"</span><span class="va">$sample</span><span class="st">"</span>_R1.fastq.gz</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">R2</span><span class="op">=</span>data/fastq/<span class="st">"</span><span class="va">$sample</span><span class="st">"</span>_R2.fastq.gz</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Some file processing...</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sample <span class="kw">in</span> A1 B6 D3<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">R1</span><span class="op">=</span>data/fastq/<span class="st">"</span><span class="va">$sample</span><span class="st">"</span>_R1.fastq.gz</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">R2</span><span class="op">=</span>data/fastq/<span class="st">"</span><span class="va">$sample</span><span class="st">"</span>_R2.fastq.gz</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Some file processing...</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>If it is a <strong>longer list</strong>, you could create a simple text file with one line per sample ID / filename, and use command substitution as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> <span class="va">$(</span><span class="fu">cat</span> file_of_filenames.txt<span class="va">)</span><span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Some file processing...</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> <span class="va">$(</span><span class="fu">cat</span> file_of_filenames.txt<span class="va">)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Some file processing...</span></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul>
 <p>In cases like this, <em>Bash arrays</em> (basically, variables that consist of multiple values, like a vector in R) or <em><code>while</code> loops</em> may provide more elegant solutions, but those are outside the scope of this introduction.</p>

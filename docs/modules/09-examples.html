@@ -17,6 +17,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -167,7 +230,17 @@ ul.task-list{list-style: none;}
    
   <ul>
   <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"> <span class="header-section-number">1</span> Setup</a></li>
-  <li><a href="#tba" id="toc-tba" class="nav-link" data-scroll-target="#tba"> <span class="header-section-number">2</span> TBA</a></li>
+  <li><a href="#a-script-to-run-fastqc" id="toc-a-script-to-run-fastqc" class="nav-link" data-scroll-target="#a-script-to-run-fastqc"> <span class="header-section-number">2</span> A script to run FastQC</a>
+  <ul class="collapse">
+  <li><a href="#fastqc-a-program-for-quality-control-of-fastq-files" id="toc-fastqc-a-program-for-quality-control-of-fastq-files" class="nav-link" data-scroll-target="#fastqc-a-program-for-quality-control-of-fastq-files"> <span class="header-section-number">2.1</span> FastQC: A program for quality control of FASTQ files</a></li>
+  <li><a href="#fastqc-syntax" id="toc-fastqc-syntax" class="nav-link" data-scroll-target="#fastqc-syntax"> <span class="header-section-number">2.2</span> FastQC syntax</a></li>
+  </ul></li>
+  <li><a href="#a-basic-fastqc-script" id="toc-a-basic-fastqc-script" class="nav-link" data-scroll-target="#a-basic-fastqc-script"> <span class="header-section-number">3</span> A basic FastQC script</a>
+  <ul class="collapse">
+  <li><a href="#running-our-script" id="toc-running-our-script" class="nav-link" data-scroll-target="#running-our-script"> <span class="header-section-number">3.1</span> Running our script</a></li>
+  <li><a href="#a-workflow-script" id="toc-a-workflow-script" class="nav-link" data-scroll-target="#a-workflow-script"> <span class="header-section-number">3.2</span> A “workflow” script</a></li>
+  <li><a href="#looping-over-all-our-files" id="toc-looping-over-all-our-files" class="nav-link" data-scroll-target="#looping-over-all-our-files"> <span class="header-section-number">3.3</span> Looping over all our files</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -218,26 +291,214 @@ Starting a VS Code session with an active terminal (click here)
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</li>
-<li>In the blue top bar, select <code>Interactive Apps</code> and then <code>Code Server</code>.</li>
-<li>In the form that appears:
+<li><p>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</p></li>
+<li><p>In the blue top bar, select <code>Interactive Apps</code> and then <code>Code Server</code>.</p></li>
+<li><p>In the form that appears:</p>
 <ul>
 <li>Enter <code>4</code> or more in the box <code>Number of hours</code></li>
 <li><strong>To avoid having to switch folders within VS Code</strong>, enter <code>/fs/ess/scratch/PAS2250/participants/&lt;your-folder&gt;</code> in the box <code>Working Directory</code> (replace <code>&lt;your-folder&gt;</code> by the actual name of your folder).</li>
 <li>Click <code>Launch</code>.</li>
 </ul></li>
-<li>On the next page, once the top bar of the box is green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</li>
-<li>Open a terminal: <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</li>
-<li>In the terminal, type <code>bash</code> and press <kbd>Enter</kbd>.</li>
-<li>Type <code>pwd</code> to check you are in <code>/fs/ess/scratch/PAS2250</code>. If not, click <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code> and enter <code>/fs/ess/scratch/PAS2250/&lt;your-folder&gt;</code> (replace <code>&lt;your-folder&gt;</code> by the actual name of your folder).</li>
+<li><p>On the next page, once the top bar of the box is green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</p></li>
+<li><p>Open a terminal: <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</p></li>
+<li><p>In the terminal, type <code>bash</code> and press <kbd>Enter</kbd>.</p></li>
+<li><p>Type <code>pwd</code> in the termain to check you are in <code>/fs/ess/scratch/PAS2250</code>.</p>
+<p>If not, click <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code> and enter <code>/fs/ess/scratch/PAS2250/&lt;your-folder&gt;</code>.</p></li>
 </ol>
 </div>
 </div>
 </div>
 <p><br></p>
 </section>
-<section id="tba" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="tba"><span class="header-section-number">2</span> TBA</h2>
+<section id="a-script-to-run-fastqc" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="a-script-to-run-fastqc"><span class="header-section-number">2</span> A script to run FastQC</h2>
+<section id="fastqc-a-program-for-quality-control-of-fastq-files" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="fastqc-a-program-for-quality-control-of-fastq-files"><span class="header-section-number">2.1</span> FastQC: A program for quality control of FASTQ files</h3>
+<p>FastQC produces visualizations and assessments of FASTQ files for statistics such as per-base quality (below) and adapter content.</p>
+<p align="center">
+<img src="img/fastqc_good.png" width="70%">
+</p>
+<p align="center">
+<img src="img/fastqc_bad.png" width="70%">
+</p>
+</section>
+<section id="fastqc-syntax" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="fastqc-syntax"><span class="header-section-number">2.2</span> FastQC syntax</h3>
+<p>To analyze one (optionally gzipped) FASTQ file with FastQC, the generalized syntax is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span><span class="op">=&lt;</span>output-dir<span class="op">&gt;</span> <span class="op">&lt;</span>fastq-file<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For instance:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span><span class="op">=</span>results/fastqc data/fastq/SRR7609467.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="a-basic-fastqc-script" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="a-basic-fastqc-script"><span class="header-section-number">3</span> A basic FastQC script</h2>
+<p>Open a new file in the <code>VS Code</code> editor (&nbsp; <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>New File</code>) and save it as <code>fastqc.sh</code> within the newly created <code>scripts</code> dir.</p>
+<p>Here is what a basic script to run FastQC non-interactively could look like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-e</span> <span class="at">-u</span> <span class="at">-o</span> pipefail</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span><span class="st">"</span><span class="va">$1</span><span class="st">"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="va">output_dir</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Input FASTQ file:   </span><span class="va">$input_file</span><span class="st">"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Output dir:         </span><span class="va">$output_dir</span><span class="st">"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span><span class="op">=</span><span class="st">"</span><span class="va">$output_dir</span><span class="st">"</span> <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Done with script </span><span class="va">$0</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>But we’ll add two things to be able to run this script smoothly as a batch job at OSC:</p>
+<ul>
+<li><p>Loading the program:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Adding <code>sbatch</code> options</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=PAS2250</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --time=15</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --output=slurm-fastqc-%j.out</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
+<p>Finally, let’s also add another useful feature — a line to make the output directory in case it doesn’t yet exist:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">$output_dir</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+The <code>-p</code> option for <code>mkdir</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Explain</p>
+</div>
+</div>
+<p>Our script now looks as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=PAS2250</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --time=15</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --output=slurm-fastqc-%j.out</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-e</span> <span class="at">-u</span> <span class="at">-o</span> pipefail</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span><span class="st">"</span><span class="va">$1</span><span class="st">"</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="va">output_dir</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Input FASTQ file:   </span><span class="va">$input_file</span><span class="st">"</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Output dir:         </span><span class="va">$output_dir</span><span class="st">"</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">$output_dir</span><span class="st">"</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span><span class="op">=</span><span class="st">"</span><span class="va">$output_dir</span><span class="st">"</span> <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Done with script </span><span class="va">$0</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="running-our-script" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="running-our-script"><span class="header-section-number">3.1</span> Running our script</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> scripts/fastqc.sh data/fastq/SRR7609467.fastq.gz results/fastqc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="bash-out">
+<p>Submitted batch job 2451088</p>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Where does our output go?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Output that would have been printed to screen if had run the script directly: in the Slurm log file <code>slurm-fastqc-&lt;job-nr&gt;.out</code></p></li>
+<li><p>FastQC’s main output files (one HTML and one ZIP per file): to whichever output directory we specified.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Let’s take a look at the queue - FINISH</p></li>
+<li><p>Let’s take a look at the Slurm log file - FINISH</p></li>
+<li><p>Let’s take a look at the FastQC output files in <code>results/fastqc</code> - FINISH</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="a-workflow-script" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="a-workflow-script"><span class="header-section-number">3.2</span> A “workflow” script</h3>
+<p>So far, we’ve been typing our commands to run or submit scripts directly in the terminal.</p>
+<p>It’s better to save these sorts of commands. Additionally, now that we will start writing loops to submit many jobs at a time: loops are not that easy to directly type in the terminal to begin with.</p>
+<p>Therefore, we will now create a new file for the purpose of documenting the steps that we are taking and the scripts that we are submitting.</p>
+<p>It’s easiest to also save this as a shell script (<code>.sh</code>) extension, even though it is not like the other scripts — for instance, once we’ve added multiple batch job steps, we won’t be able to just <em>run</em> the script as is, without adding all sorts of bells and whistles.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Why wouldn’t it work to just run such a “script”?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>FINISH</p>
+</div>
+</div>
+</div>
+<p>I usually call a file/script like this <code>workflow.sh</code>, as it’s meant to….</p>
+<p>So let’s go ahead and open a new text file and then saving it as <code>workflow.sh</code>.</p>
+</section>
+<section id="looping-over-all-our-files" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="looping-over-all-our-files"><span class="header-section-number">3.3</span> Looping over all our files</h3>
+<p>The script that we wrote above will run FastQC for a single FASTQ file. Now, we will write a loop that iterates over all of our FASTQ files (only 8 in this case, but could be 100s just the same), and <strong>submits a batch job for each of them.</strong></p>
+<p>Let’s type the following into our <code>workflow.sh</code> script, and then copy-and-paste it into the terminal to run the loop:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> data/fastq/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">scripts/fastqc.sh</span> <span class="st">"</span><span class="va">$fastq_file</span><span class="st">"</span> results/fastqc</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="bash-out">
+<p>Submitted batch job 2451089<br>
+Submitted batch job 2451090<br>
+Submitted batch job 2451091<br>
+Submitted batch job 2451092<br>
+Submitted batch job 2451093<br>
+Submitted batch job 2451094<br>
+Submitted batch job 2451095<br>
+Submitted batch job 2451096</p>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the interest of space, we are not adding many <code>echo</code> statements etc…</p>
+</div>
+</div>
+<p><br><br></p>
+<hr>
+<hr>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -257,6 +518,7 @@ Keyboard shortcut to run shell commands from the editor
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

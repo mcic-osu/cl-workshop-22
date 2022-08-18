@@ -320,18 +320,19 @@ Starting a VS Code session with an active terminal (click here)
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</li>
-<li>In the blue top bar, select <code>Interactive Apps</code> and then <code>Code Server</code>.</li>
-<li>In the form that appears:
+<li><p>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</p></li>
+<li><p>In the blue top bar, select <code>Interactive Apps</code> and then <code>Code Server</code>.</p></li>
+<li><p>In the form that appears:</p>
 <ul>
 <li>Enter <code>4</code> or more in the box <code>Number of hours</code></li>
 <li><strong>To avoid having to switch folders within VS Code</strong>, enter <code>/fs/ess/scratch/PAS2250/participants/&lt;your-folder&gt;</code> in the box <code>Working Directory</code> (replace <code>&lt;your-folder&gt;</code> by the actual name of your folder).</li>
 <li>Click <code>Launch</code>.</li>
 </ul></li>
-<li>On the next page, once the top bar of the box is green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</li>
-<li>Open a terminal: <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</li>
-<li>In the terminal, type <code>bash</code> and press <kbd>Enter</kbd>.</li>
-<li>Type <code>pwd</code> to check you are in <code>/fs/ess/scratch/PAS2250</code>. If not, click <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code> and enter <code>/fs/ess/scratch/PAS2250/&lt;your-folder&gt;</code> (replace <code>&lt;your-folder&gt;</code> by the actual name of your folder).</li>
+<li><p>On the next page, once the top bar of the box is green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</p></li>
+<li><p>Open a terminal: <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</p></li>
+<li><p>In the terminal, type <code>bash</code> and press <kbd>Enter</kbd>.</p></li>
+<li><p>Type <code>pwd</code> in the termain to check you are in <code>/fs/ess/scratch/PAS2250</code>.</p>
+<p>If not, click <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code> and enter <code>/fs/ess/scratch/PAS2250/&lt;your-folder&gt;</code>.</p></li>
 </ol>
 </div>
 </div>
@@ -435,7 +436,7 @@ Tip
 <p>Whereas we used Slurm’s <code>srun</code> command to start an interactive shell job, we use its <strong><code>sbatch</code></strong> command to submit a script.</p>
 <p>Recall from the Bash scripting module that we can run a Bash script as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> printname.sh Jane Doe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printname.sh Jane Doe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>First name: Jane
 Last name: Doe</code></pre>

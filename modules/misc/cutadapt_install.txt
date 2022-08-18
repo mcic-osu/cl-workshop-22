@@ -1,0 +1,100 @@
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 4.10.3
+  latest version: 4.13.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /fs/project/PAS0471/jelmer/conda/cutadapt-TMP
+
+  added / updated specs:
+    - cutadapt=4.1
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    cutadapt-4.1               |  py310h1425a21_1         211 KB  bioconda
+    dnaio-0.9.1                |  py310h1425a21_1          80 KB  bioconda
+    libsqlite-3.39.2           |       h753d276_1         789 KB  conda-forge
+    openssl-3.0.5              |       h166bdaf_1         2.8 MB  conda-forge
+    pip-22.2.2                 |     pyhd8ed1ab_0         1.5 MB  conda-forge
+    python-isal-1.0.1          |  py310h5764c6d_0          47 KB  conda-forge
+    setuptools-65.0.2          |  py310hff52083_0         1.4 MB  conda-forge
+    sqlite-3.39.2              |       h4ff8645_1         788 KB  conda-forge
+    tzdata-2022c               |       h191b570_0         119 KB  conda-forge
+    xopen-1.6.0                |  py310hff52083_0          27 KB  conda-forge
+    xz-5.2.6                   |       h166bdaf_0         409 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         8.1 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h7f98852_4
+  ca-certificates    conda-forge/linux-64::ca-certificates-2022.6.15-ha878542_0
+  cutadapt           bioconda/linux-64::cutadapt-4.1-py310h1425a21_1
+  dnaio              bioconda/linux-64::dnaio-0.9.1-py310h1425a21_1
+  isa-l              conda-forge/linux-64::isa-l-2.30.0-ha770c72_4
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.36.1-hea4e1c9_2
+  libffi             conda-forge/linux-64::libffi-3.4.2-h7f98852_5
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-12.1.0-h8d9b700_16
+  libgomp            conda-forge/linux-64::libgomp-12.1.0-h8d9b700_16
+  libnsl             conda-forge/linux-64::libnsl-2.0.0-h7f98852_0
+  libsqlite          conda-forge/linux-64::libsqlite-3.39.2-h753d276_1
+  libuuid            conda-forge/linux-64::libuuid-2.32.1-h7f98852_1000
+  libzlib            conda-forge/linux-64::libzlib-1.2.12-h166bdaf_2
+  ncurses            conda-forge/linux-64::ncurses-6.3-h27087fc_1
+  openssl            conda-forge/linux-64::openssl-3.0.5-h166bdaf_1
+  pbzip2             conda-forge/linux-64::pbzip2-1.1.13-0
+  pigz               conda-forge/linux-64::pigz-2.6-h27826a3_0
+  pip                conda-forge/noarch::pip-22.2.2-pyhd8ed1ab_0
+  python             conda-forge/linux-64::python-3.10.5-ha86cf86_0_cpython
+  python-isal        conda-forge/linux-64::python-isal-1.0.1-py310h5764c6d_0
+  python_abi         conda-forge/linux-64::python_abi-3.10-2_cp310
+  readline           conda-forge/linux-64::readline-8.1.2-h0f457ee_0
+  setuptools         conda-forge/linux-64::setuptools-65.0.2-py310hff52083_0
+  sqlite             conda-forge/linux-64::sqlite-3.39.2-h4ff8645_1
+  tk                 conda-forge/linux-64::tk-8.6.12-h27826a3_0
+  tzdata             conda-forge/noarch::tzdata-2022c-h191b570_0
+  wheel              conda-forge/noarch::wheel-0.37.1-pyhd8ed1ab_0
+  xopen              conda-forge/linux-64::xopen-1.6.0-py310hff52083_0
+  xz                 conda-forge/linux-64::xz-5.2.6-h166bdaf_0
+  zlib               conda-forge/linux-64::zlib-1.2.12-h166bdaf_2
+
+
+
+Downloading and Extracting Packages
+sqlite-3.39.2        | 788 KB    | ################################################################################################################################################################### | 100% 
+xz-5.2.6             | 409 KB    | ################################################################################################################################################################### | 100% 
+cutadapt-4.1         | 211 KB    | ################################################################################################################################################################### | 100% 
+xopen-1.6.0          | 27 KB     | ################################################################################################################################################################### | 100% 
+libsqlite-3.39.2     | 789 KB    | ################################################################################################################################################################### | 100% 
+dnaio-0.9.1          | 80 KB     | ################################################################################################################################################################### | 100% 
+python-isal-1.0.1    | 47 KB     | ################################################################################################################################################################### | 100% 
+setuptools-65.0.2    | 1.4 MB    | ################################################################################################################################################################### | 100% 
+pip-22.2.2           | 1.5 MB    | ################################################################################################################################################################### | 100% 
+tzdata-2022c         | 119 KB    | ################################################################################################################################################################### | 100% 
+openssl-3.0.5        | 2.8 MB    | ################################################################################################################################################################### | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate cutadapt-4.1
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate

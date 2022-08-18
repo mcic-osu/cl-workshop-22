@@ -46,8 +46,7 @@ it should be straightforward to rerun much of our project workflow:
 3. In the form that appears:
    - Enter `4` or more in the box `Number of hours`
    - **To avoid having to switch folders within VS Code**,
-     enter `/fs/ess/scratch/PAS2250/participants/<your-folder>`
-     in the box `Working Directory`
+     enter `/fs/ess/scratch/PAS2250/participants/<your-folder>` in the box `Working Directory`
      (replace `<your-folder>` by the actual name of your folder).
    - Click `Launch`.
 4. On the next page,
@@ -55,11 +54,11 @@ it should be straightforward to rerun much of our project workflow:
    click `Connect to VS Code`.
 5. Open a terminal: {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
 6. In the terminal, type `bash` and press <kbd>Enter</kbd>.
-7. Type `pwd` to check you are in `/fs/ess/scratch/PAS2250`.
+7. Type `pwd` in the termain to check you are in `/fs/ess/scratch/PAS2250`.
+   
    If not, click
    {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`
-   and enter `/fs/ess/scratch/PAS2250/<your-folder>`
-   (replace `<your-folder>` by the actual name of your folder).
+   and enter `/fs/ess/scratch/PAS2250/<your-folder>`.
 
 :::
 
@@ -121,16 +120,16 @@ rm -rf $tmpdir/*      # DON'T TRY THIS!
 In both examples, there is a similar typo: `temp` vs. `tmp`,
 which means that we are referencing a (likely) non-existent variable.
 
-_In the first example_,
-`rm "$tmp_prefix"*` would have been interpreted as `rm *`,
-because the non-existent variable is simply ignored.
-Therefore, we would have **removed all files in the current working directory**.
+- In the first example,
+  `rm "$tmp_prefix"*` would have been interpreted as `rm *`,
+  because the non-existent variable is simply ignored.
+  Therefore, we would have **removed all files in the current working directory**.
 
-_In the second example_, along similar lines,
-`rm -rf $tmpdir/*` would have been interpreted as `rm -rf /*`.
-Horrifyingly, this would **attempt to remove the entire filesystem**
-(recall that a leading `/` in a path is a computer's root directory).[^1]
-(`-r` makes the removal _recursive_ and `-f` makes _forces_ removal).
+- In the second example, along similar lines,
+  `rm -rf $tmpdir/*` would have been interpreted as `rm -rf /*`.
+  Horrifyingly, this would **attempt to remove the entire filesystem**
+  (recall that a leading `/` in a path is a computer's root directory).[^1]
+  (`-r` makes the removal _recursive_ and `-f` makes _forces_ removal).
 
 [^1]: But note that at OSC,
 you would not be able to remove anything you're not supposed to,
@@ -180,7 +179,7 @@ set -ueo pipefail         # (For in a script - don't run in the terminal)
 
 ### Our header lines as a rudimentary script
 
-{{< fa user-edit >}} Let's go ahead and start a script with the header lines
+Let's go ahead and start a script with the header lines
 that we have so far discussed.
 
 - Inside your personal directory within `/fs/ess/scratch/PAS2250/participants`,
@@ -195,8 +194,7 @@ that we have so far discussed.
   ## Shell scripts, including Bash scripts, most commonly have the extension `.sh`
   :::
   
-- Type the following lines in that script
-  (please type instead of copy-pasting):
+- Type the following lines in that script:
   
   ```{bash, eval=FALSE}
   #!/bin/bash
@@ -220,9 +218,8 @@ bash scripts/printname.sh
 ```
 
 Doing this won't print anything to screen (or file).
-This makes sense because our script doesn't have any output,
-and as we've seen before with Bash, no output can be a good sign because it
-means that no errors were encountered.
+That makes sense because our script doesn't have any output &mdash;
+no output can be a good sign because it means that no errors were encountered.
 
 <br>
 
@@ -292,11 +289,10 @@ Arguments passed to a script are _merely made available_ in placeholder variable
 those variables, nothing else happens. 
 :::
 
-{{< fa user-edit >}} Let's add code to our `printname.sh` script to "process"
-any first and last name that are passed to it as command-line arguments.
-First, our small script will simply `echo` the placeholder variables,
-so that we can see what happens.
-We'll add two `echo` commands so that it now reads:
+Let's add code to our `printname.sh` script to "process"
+any first and last name that are passed to the script as command-line arguments.
+For now, our script will simply `echo` the placeholder variables,
+so that we can see what happens:
 
 ```{bash, eval=FALSE}
 #!/bin/bash
@@ -325,13 +321,13 @@ bash scripts/printname.sh John Doe
 ```
 
 :::{.exercise}
-#### On Your Own: Command-line arguments {-}
+### On Your Own: Command-line arguments {-}
 
-In each case below, think about what might happen before you run the script.
-If you didn't make a successful predictions, try to figure out what happened
-instead.
+In each case below, **think about what might happen before you run the script**.
+Then, run it, and if you didn't make a successful prediction,
+try to figure out what happened instead.
 
-1. Run the script without passing arguments to it.
+1. Run the script (`scripts/printname.sh`) without passing arguments to it.
 
 2. Deactivate ("comment out") the line with `set` settings
    by inserting a `#` as the first character.
@@ -340,7 +336,8 @@ instead.
 3. Double-quote `John Doe` when you run the script,
    i.e. run `bash scripts/printname.sh "John Doe"`
 
-4. Remove the `#` you inserted in the script in step 2 above.
+To get back to where we were,
+remove the `#` you inserted in the script in step 2 above.
 
 :::{.callout-tip collapse="true"}
 ## Solutions
@@ -376,7 +373,7 @@ _EOF
 bash scripts/printname.sh
 ```
 
-The `set` line should read:
+Being commented out, the `set` line should read:
 
 ```{bash, eval=FALSE}
 #set -ueo pipefail
@@ -438,18 +435,18 @@ in which you use the wrong variable in the wrong place.
 
 :::{.exercise}
 
-#### On Your Own: A script to print a specific line {-}
+### On Your Own: A script to print a specific line {-}
 
 Write a script that prints a specific line (identified by line number)
 from a file.
 
-- Save the script as `scripts/printline.sh`
+- Open a new file and save it as `scripts/printline.sh`
 - Start with the _shebang_ and `set` lines
 - Your script takes two arguments: a file name (`$1`) and a line number (`$2`) 
 - Copy the `$1` and `$2` variables to descriptively named variables
 - To print a specific line,
   think how you might combine `head` and `tail` to do this.
-  If you're at a loss, feel free to check out the solution below.
+  If you're at a loss, feel free to check out the top solution box.
 - Test the script by printing line 4 from `data/meta/meta.tsv`.
 
 :::{.callout-tip collapse="true"}
@@ -554,6 +551,8 @@ Next, let's run our `headtail.sh` script:
 bash scripts/headtail.sh data/meta/meta.tsv
 ```
 
+<br>
+
 ### Redirecting output to a file
 
 So far, the output of our scripts was printed to screen, e.g.:
@@ -574,19 +573,20 @@ to a file using `>` (write/overwrite) and `>>` (append) when we run shell comman
 
 When working with genomics data,
 we commonly have files as input, and new/modified files as output.
-So let's practice with this and modify our `headtail.sh` script so that it
-writes output to a file.
+Let's practice with this and
+**modify our `headtail.sh` script so that it writes output to a file.**
 
 We'll make the following changes:
 
-- We will have the script accept a second argument: the output file name.
-  Of course, we _could_ also simply write the output to a predefined
-  ("hardcoded") file name such as `out.txt`,
-  but in general, it's better practice to keep this flexible via an argument.
+- We will have the script accept a second argument: the output file name[^8].
   
 - We will redirect the output of our `head`, `echo`, and `tail` commands to
-  the output file. We'll have to append (`>>`) in the last two cases.
+  the output file. We'll have to append (using `>>`) in the last two commands.
 
+[^8]: Of course, we _could_ also simply write the output to a predefined
+      ("hardcoded") file name such as `out.txt`,
+      but in general, it's better practice to keep this flexible via an argument.
+  
 ```{bash, eval=FALSE}
 #!/bin/bash
 set -ueo pipefail
@@ -600,7 +600,6 @@ tail -n 2 "$input_file" >> "$output_file"
 
 # (Note: this is a script. Don't enter this directly in your terminal.)
 ```
-
 
 ```{bash, eval=TRUE, echo=FALSE}
 cat > scripts/headtail.sh <<'_EOF'
@@ -635,30 +634,35 @@ ls -lh sandbox/samples_headtail.txt
 cat sandbox/samples_headtail.txt
 ```
 
+<br>
+
 ### Report what's happening
 
 It is often useful to have your scripts "report" or "log" what is going on.
 Let's keep thinking about a script that has file(s) as the main output,
 but instead of having no output printed to screen at all,
 we'll print some logging output to screen.
-For instance: what is the date and time, which arguments were passed to the
-script, what are the output files, and perhaps even summaries of the output.
-All of this can help with troubleshooting.[^3]
+For instance:
 
+- What is the date and time
+- Which arguments were passed to the script
+- What are the output files
+- Perhaps even summaries of the output.
+
+All of this can help with troubleshooting and record-keeping.[^3]
 Let's try this with our `headtail.sh` script.
 
-[^3]: Additionally, we'll see in the upcoming `SLURM` module that we when
-submit scripts to the OSC queue (rather than running them directly),
-the output of scripts that is normally printed to screen,
-will instead go to a sort of "log" file.
-So, your script's reporting will end up in this file, 
-which will help with your record keeping.
+[^3]: We'll see in the upcoming `SLURM` module that we when
+      submit scripts to the OSC queue (rather than running them directly),
+      the output of scripts that is normally printed to screen,
+      will instead go to a sort of "log" file.
+      So, your script's reporting will end up in this file.
 
 ```{bash, eval=FALSE}
 #!/bin/bash
 set -ueo pipefail
 
-## Process command-line arguments
+## Copy placeholder variables
 input_file=$1
 output_file=$2
 
@@ -693,13 +697,12 @@ A couple of notes about the lines that were added to the script above:
   (and the command-line arguments more generally) can be particularly useful
   for troubleshooting
 
-- Printing a "marker line" like `Done with script`,
-  indicating that the end of the script was reached,
-  is handy because due to our `set` settings,
+- We printed a "marker line" like `Done with script`,
+  indicating that the end of the script was reached.
+  This is handy due to our `set` settings:
   seeing this line printed means that no errors were encountered.
 
-- Because our script grew so much,
-  I also added some comment headers like "Initial logging" to make the script
+- I also added some comment headers like "Initial logging" to make the script
   easier to read, and such comments can be made more extensive to really explain
   what is being done.
 
@@ -708,7 +711,7 @@ cat > scripts/headtail.sh <<'_EOF'
 #!/bin/bash
 set -ueo pipefail
 
-## Process command-line arguments
+## Copy placeholder variables
 input_file=$1
 output_file=$2
 
@@ -744,17 +747,107 @@ but is usually not sensible when working with genomics data).
 Let's take a look, though, to make sure the script worked:
 
 ```{bash, eval=TRUE}
-cat sandbox/tmp.txt
+cat sandbox/tmp.txt      # "cat" prints all of a file's contents
 ```
 
 :::{.callout-tip}
-
-The reporting (`echo`-ing) may have started to seem silly for our
-litle script, but fairly extensive reporting
-(as well as testing, which is outside the scope of this workshop)
+## `echo`, `echo`
+The extensive reporting (`echo`-ing) may have seemed silly for our little script,
+but fairly extensive reporting
+(as well as testing, but that's outside the scope of this workshop)
 can be very useful &mdash; and will be eventually a time-saver.
   
 This is especially true for long-running scripts,
 or scripts that you often reuse and perhaps share with others.
+:::
 
+:::{.exercise}
+### On Your Own: A fanciful script {-}
+
+Modify your `printline.sh` script to:
+
+- Redirect output to a file
+- This output file should not be "hardcoded" in the script,
+  but its name should be passed as an argument to the script,
+  like we did above with `headtail.sh`
+- Add a bit of reporting &mdash; `echo` statements, `date`, etc,
+  along the lines of what we did above with `headtail.sh`
+- Add some comments to describe what the code in the script is doing
+
+:::{.callout-note collapse="true"}
+## The original `printline.sh` script
+
+<br>
+
+```{bash, eval=TRUE, echo=FALSE}
+cat scripts/printline.sh
+```
+:::
+
+:::{.callout-tip collapse="true"}
+## (One possible) solution
+
+```{bash, eval=TRUE, echo=FALSE}
+cat > scripts/printline.sh <<'_EOF'
+#!/bin/bash
+set -ueo pipefail
+
+## Copy placeholder variables
+input_file=$1
+output_file=$2
+line_nr=$3
+
+## Initial logging 
+echo "Starting script $0"           # Print name of script
+date                                # Print date & time
+echo "Input file:   $input_file"
+echo "Output file:  $output_file"
+echo "Line number:  $line_nr"
+echo                                # Print empty line to separate initial & final logging
+
+## Print 1 specific line from the input file and redirect to an output file
+head -n "$line_nr" "$input_file" | tail -n 1 > $output_file
+
+## Final logging
+echo "Listing the output file:"
+ls -lh "$output_file"
+echo "Done with script $0"
+date
+_EOF
+```
+
+```{bash, eval=FALSE}
+#!/bin/bash
+set -ueo pipefail
+
+## Copy placeholder variables
+input_file=$1
+output_file=$2
+line_nr=$3
+
+## Initial logging 
+echo "Starting script $0"           # Print name of script
+date                                # Print date & time
+echo "Input file:   $input_file"
+echo "Output file:  $output_file"
+echo "Line number:  $line_nr"
+echo                                # Print empty line to separate initial & final logging
+
+## Print 1 specific line from the input file and redirect to an output file
+head -n "$line_nr" "$input_file" | tail -n 1 > $output_file
+
+## Final logging
+echo "Listing the output file:"
+ls -lh "$output_file"
+echo "Done with script $0"
+date
+```
+
+To run the script with the additional argument:
+
+```{bash, eval=TRUE}
+bash scripts/printline.sh data/meta/meta.tsv sandbox/meta_line.tsv 4
+```
+
+:::
 :::

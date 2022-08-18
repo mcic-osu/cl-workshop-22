@@ -11,10 +11,6 @@ knitr::opts_chunk$set(eval = FALSE,
                       class.output = "bash-out")
 ```
 
-:::{.callout-warning}
-PAGE STILL UNDER CONSTRUCTION
-:::
-
 -----
 
 So far, we have only used commands that are available in any Unix shell. 
@@ -44,11 +40,11 @@ We will cover those topics in this module.
    click `Connect to VS Code`.
 5. Open a terminal: {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
 6. In the terminal, type `bash` and press <kbd>Enter</kbd>.
-7. Type `pwd` to check you are in `/fs/ess/scratch/PAS2250`.
+7. Type `pwd` in the termain to check you are in `/fs/ess/scratch/PAS2250`.
+   
    If not, click
    {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`
-   and enter `/fs/ess/scratch/PAS2250/<your-folder>`
-   (replace `<your-folder>` by the actual name of your folder).
+   and enter `/fs/ess/scratch/PAS2250/<your-folder>`.
 
 :::
 
@@ -329,15 +325,34 @@ in a similar manner as with the `Lmod` system --
 but the key difference is that we can create and manage these environments
 ourselves.
 
-:::{.callout-note}
-## What's in an environment?
+:::{.callout-note collapse="true"}
+## Use one environment per program (as here) or one per research project
 
-One environment per software, or one per project
+Below are two reasonable ways to organize your conda environments,
+and their advantages:
 
-Note that even when you install a single program, many things are usually
-installed: dependencies
+- Have one environment per program (my preference)
+  - Easier to keep an overview of what you have installed
+  - No need to reinstall the same program across different projects
+  - Less risk of running into problems with your environment due to mutually
+    incompatible software and complicated dependency situations
+
+- Have one environment per research project
+  - You just need to activate that one environment when you're working on
+    your project.
+  - Easier when you need to share your entire project with someone else
+    (or yourself) on a different (super)computer.
+
+Its **not** recommended to simply install all programs across all projects in
+one environment.
+
+A side note is that even when you want to install a single program,
+multiple programs _are_ in fact nearly always installed:
+the programs that your target program depends on ("dependencies").
 
 :::
+
+<br>
 
 ### Loading the (mini)conda module
 
@@ -353,12 +368,14 @@ Therefore, we first need to use a `module load` command to make it available:
 module load miniconda3
 ```
 
+<br>
+
 ### One-time conda configuration
 
 We will also do some one-time configuration,
-which will set the conda "channels" (basically, software repositories)
+which will set the **conda "channels"** (basically, software repositories)
 that we want to use when we install software.
-This config also includes setting relative priorities among the channels,
+This config also includes setting relative _priorities_ among channels,
 since one software package may be available from multiple channels.
 
 Like with `module` commands, conda commands consist of two parts,
@@ -376,6 +393,14 @@ Let's check whether this configuration step worked:
 conda config --get channels
 ```
 
+:::{.bash-out}
+--add channels 'defaults' &nbsp; &nbsp; &nbsp;   # lowest priority  
+--add channels 'bioconda'  
+--add channels 'conda-forge' &nbsp; &nbsp; &nbsp;   # highest priority
+:::
+
+<br>
+
 ### Creating an environment for `cutadapt`
 
 To practice using conda,
@@ -392,7 +417,7 @@ Here is the command to create a new environment and install `cutadapt`
 into that environment:
 
 ```{bash, eval=FALSE}
-conda create -y -n cutadapt -c bioconda cutadapt
+conda create -y -n cutadapt -c bioconda cutadapt   # Don't run this
 ```
 
 Let's break the above command down:
@@ -421,8 +446,7 @@ Let's break the above command down:
   (note that there's no option like `-s` before it):
   we put any software package(s) we want to install at the end of the command.
 
-:::{.callout-note}
-## Specifying a version
+#### Specifying a version {-}
 
 If we want to be explicit about the version we want to install,
 we can add the version after `=` following the package name.
@@ -432,28 +456,27 @@ We do that below, and we also include the version in the environment name:
 conda create -y -n cutadapt-4.1 -c bioconda cutadapt=4.1
 ```
 
-{{< fa user-edit >}} **_Let's run the command above and see if we can install `cutadapt`_**
 
+:::{.bash-out}
+Collecting package metadata (current_repodata.json): done  
+Solving environment:
 :::
 
-### Creating an environment for _any_ program 
+{{< fa user-edit >}} **_Let's run the command above and see if we can install `cutadapt`_**
 
-Minor variations on the `conda create` command above can be used to install
-almost any program for which is conda package is available.
+:::{.callout-note collapse="true"}
+## See the full output when I ran this command
+```{bash,eval=TRUE}
+cat misc/cutadapt_install.txt
+```
+:::
 
-However, you may be wondering how we would know:
-
-- Whether the program is available and what its conda package's name is
-- Which versions are available
-- Which conda channel we should use
-
-ADD...
+<br>
 
 ### Activating conda environments
 
 Whereas we use the term "load" for `Lmod` modules,
-we use "activate" to the same effect for conda environments.
-
+we use **"activate"** to the same effect for conda environments.
 Oddly enough, the most foolproof way to activate a conda environment is to
 use `source activate` rather than the expected `conda activate` &mdash;
 for instance:
@@ -477,10 +500,72 @@ we should be able to actually use the program.
 To test this, we'll again simply run it with a `--help` option:
 
 ```{bash, eval=FALSE}
-cutadapt --help
+cutadapt --help | head     # I'm piping into head to avoid pages worth of output 
 ```
 
+:::{.bash-out}
+cutadapt version 4.1
+
+Copyright (C) 2010-2022 Marcel Martin <marcel.martin@scilifelab.se>
+
+cutadapt removes adapter sequences from high-throughput sequencing reads.
+
+Usage:  
+&nbsp; &nbsp; &nbsp; &nbsp; cutadapt -a ADAPTER [options] [-o output.fastq] input.fastq
+
+For paired-end reads:
+:::
+
 <br>
+
+### Creating an environment for _any_ program 
+
+Minor variations on the `conda create` command above can be used to install
+almost any program for which is conda package is available.
+
+However, you may be wondering how we would know:
+
+- Whether the program is available and what its conda package's name is
+- Which conda channel we should use
+- Which versions are available
+
+My strategy to finding these things out is to simply Google the program name
+together with "conda", e.g. `cutadapt conda`.
+
+Let's see that in action:
+
+<p align="center">
+<img src=img/conda_google.png width="85%">
+</p>
+
+<br>
+
+<p align="center">
+<img src=img/conda_website.png width="85%">
+</p>
+
+I always take the top of the two example installation commands as a template,
+which is `conda install -c bioconda cutadapt` here.
+
+You may notice the `install` subcommand, which we haven't yet seen.
+This would install Cutadapt into _the currently activated conda environment_.
+Since our strategy here (and my general strategy) to create a new environment
+for each program,
+we would therefore replace `install` by `create -y -n <env-name>`,
+such that our full command (without version specification) again becomes:
+
+```{bash}
+conda create -y -n cutadapt -c bioconda cutadapt
+```
+
+To see which **version** will be installed by default,
+and to see which older versions are available:
+
+<p align="center">
+<img src=img/conda_website_version.png width="70%">
+</p>
+
+For almost any other program, this works exactly the same!
 
 ### Lines to add to your scripts
 
@@ -522,21 +607,24 @@ errors.
 :::
 
 :::{.callout-note}
-## Install once, load always
+## Install once, load/activate always
 
 - Provided you don't need to switch versions,
-  you only need to install a program once.
-  This is true also at OSC and also when using conda
-  (your environments won't disappear unless you delete them).
+  **you only need to install a program once**.
+  This is true also at OSC and also when using conda:
+  your environments won't disappear unless you delete them.
 
 - In every single "session" that you want to use a program via an `Lmod` module
-  or conda environment, you ...
-
+  or a conda environment,
+  you need to load/activate the program.
+  So the line(s) to do so should always be in your script for that program.
 :::
 
 <br>
+<br>
 
 -----
+
 -----
 
 ## Addendum: a few other useful conda commands

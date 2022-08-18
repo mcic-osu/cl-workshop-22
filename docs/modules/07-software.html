@@ -242,12 +242,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#loading-the-miniconda-module" id="toc-loading-the-miniconda-module" class="nav-link" data-scroll-target="#loading-the-miniconda-module"> <span class="header-section-number">5.1</span> Loading the (mini)conda module</a></li>
   <li><a href="#one-time-conda-configuration" id="toc-one-time-conda-configuration" class="nav-link" data-scroll-target="#one-time-conda-configuration"> <span class="header-section-number">5.2</span> One-time conda configuration</a></li>
   <li><a href="#creating-an-environment-for-cutadapt" id="toc-creating-an-environment-for-cutadapt" class="nav-link" data-scroll-target="#creating-an-environment-for-cutadapt"> <span class="header-section-number">5.3</span> Creating an environment for <code>cutadapt</code></a></li>
-  <li><a href="#creating-an-environment-for-any-program" id="toc-creating-an-environment-for-any-program" class="nav-link" data-scroll-target="#creating-an-environment-for-any-program"> <span class="header-section-number">5.4</span> Creating an environment for <em>any</em> program</a></li>
-  <li><a href="#activating-conda-environments" id="toc-activating-conda-environments" class="nav-link" data-scroll-target="#activating-conda-environments"> <span class="header-section-number">5.5</span> Activating conda environments</a></li>
+  <li><a href="#activating-conda-environments" id="toc-activating-conda-environments" class="nav-link" data-scroll-target="#activating-conda-environments"> <span class="header-section-number">5.4</span> Activating conda environments</a></li>
+  <li><a href="#creating-an-environment-for-any-program" id="toc-creating-an-environment-for-any-program" class="nav-link" data-scroll-target="#creating-an-environment-for-any-program"> <span class="header-section-number">5.5</span> Creating an environment for <em>any</em> program</a></li>
   <li><a href="#lines-to-add-to-your-scripts" id="toc-lines-to-add-to-your-scripts" class="nav-link" data-scroll-target="#lines-to-add-to-your-scripts"> <span class="header-section-number">5.6</span> Lines to add to your scripts</a></li>
   </ul></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"> <span class="header-section-number">6</span> —–</a></li>
-  <li><a href="#addendum-a-few-other-useful-conda-commands" id="toc-addendum-a-few-other-useful-conda-commands" class="nav-link" data-scroll-target="#addendum-a-few-other-useful-conda-commands"> <span class="header-section-number">7</span> Addendum: a few other useful conda commands</a></li>
+  <li><a href="#addendum-a-few-other-useful-conda-commands" id="toc-addendum-a-few-other-useful-conda-commands" class="nav-link" data-scroll-target="#addendum-a-few-other-useful-conda-commands"> <span class="header-section-number">6</span> Addendum: a few other useful conda commands</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -279,26 +278,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>PAGE STILL UNDER CONSTRUCTION</p>
-</div>
-</div>
 <hr>
 <p>So far, we have only used commands that are available in any Unix shell. But to actually analyze genomics data sets, we also need to use specialized bioinformatics software.</p>
 <p>Most software that is already installed at OSC must nevertheless be “loaded” (“activated”) before we can use it; and if our software of choice is not installed, we have to do so ourselves. We will cover those topics in this module.</p>
 <section id="setup" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="setup"><span class="header-section-number">1</span> Setup</h2>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -307,21 +293,22 @@ Starting a VS Code session with an active terminal (click here)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</li>
-<li>In the blue top bar, select <code>Interactive Apps</code> and then <code>Code Server</code>.</li>
-<li>In the form that appears:
+<li><p>Log in to OSC at <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a>.</p></li>
+<li><p>In the blue top bar, select <code>Interactive Apps</code> and then <code>Code Server</code>.</p></li>
+<li><p>In the form that appears:</p>
 <ul>
 <li>Enter <code>4</code> or more in the box <code>Number of hours</code></li>
 <li><strong>To avoid having to switch folders within VS Code</strong>, enter <code>/fs/ess/scratch/PAS2250/participants/&lt;your-folder&gt;</code> in the box <code>Working Directory</code> (replace <code>&lt;your-folder&gt;</code> by the actual name of your folder).</li>
 <li>Click <code>Launch</code>.</li>
 </ul></li>
-<li>On the next page, once the top bar of the box is green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</li>
-<li>Open a terminal: <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</li>
-<li>In the terminal, type <code>bash</code> and press <kbd>Enter</kbd>.</li>
-<li>Type <code>pwd</code> to check you are in <code>/fs/ess/scratch/PAS2250</code>. If not, click <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code> and enter <code>/fs/ess/scratch/PAS2250/&lt;your-folder&gt;</code> (replace <code>&lt;your-folder&gt;</code> by the actual name of your folder).</li>
+<li><p>On the next page, once the top bar of the box is green and says <code>Runnning</code>, click <code>Connect to VS Code</code>.</p></li>
+<li><p>Open a terminal: <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; <code>Terminal</code> =&gt; <code>New Terminal</code>.</p></li>
+<li><p>In the terminal, type <code>bash</code> and press <kbd>Enter</kbd>.</p></li>
+<li><p>Type <code>pwd</code> in the termain to check you are in <code>/fs/ess/scratch/PAS2250</code>.</p>
+<p>If not, click <i class="fa-solid fa-bars" aria-hidden="true"></i> &nbsp; =&gt; &nbsp; <code>File</code> &nbsp; =&gt; &nbsp; <code>Open Folder</code> and enter <code>/fs/ess/scratch/PAS2250/&lt;your-folder&gt;</code>.</p></li>
 </ol>
 </div>
 </div>
@@ -456,7 +443,7 @@ Help!
 </div>
 <p>There is only one version available (<code>0.11.8</code>), which means that <code>module load fastqc</code> and <code>module load fastqc/0.11.8</code> would each load that same version.</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -465,7 +452,7 @@ What might still be an argument to specify the version when we load FastQC?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>When we use it inside a script:</p>
 <ul>
@@ -529,19 +516,37 @@ When to use containers instead of Conda
 <h2 data-number="5" class="anchored" data-anchor-id="using-conda"><span class="header-section-number">5</span> Using conda</h2>
 <p>Conda creates so-called <strong>environments</strong> in which you can install one or more software packages. As mentioned above, these environments are activated and deactivated in a similar manner as with the <code>Lmod</code> system – but the key difference is that we can create and manage these environments ourselves.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-What’s in an environment?
+Use one environment per program (as here) or one per research project
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>One environment per software, or one per project</p>
-<p>Note that even when you install a single program, many things are usually installed: dependencies</p>
+<p>Below are two reasonable ways to organize your conda environments, and their advantages:</p>
+<ul>
+<li>Have one environment per program (my preference)
+<ul>
+<li>Easier to keep an overview of what you have installed</li>
+<li>No need to reinstall the same program across different projects</li>
+<li>Less risk of running into problems with your environment due to mutually incompatible software and complicated dependency situations</li>
+</ul></li>
+<li>Have one environment per research project
+<ul>
+<li>You just need to activate that one environment when you’re working on your project.</li>
+<li>Easier when you need to share your entire project with someone else (or yourself) on a different (super)computer.</li>
+</ul></li>
+</ul>
+<p>Its <strong>not</strong> recommended to simply install all programs across all projects in one environment.</p>
+<p>A side note is that even when you want to install a single program, multiple programs <em>are</em> in fact nearly always installed: the programs that your target program depends on (“dependencies”).</p>
 </div>
 </div>
+</div>
+<p><br></p>
 <section id="loading-the-miniconda-module" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="loading-the-miniconda-module"><span class="header-section-number">5.1</span> Loading the (mini)conda module</h3>
 <p>While it is also fairly straightforward to install conda for yourself <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, we will use OSC’s system-wide installation of conda in this workshop. Therefore, we first need to use a <code>module load</code> command to make it available:</p>
@@ -549,10 +554,11 @@ What’s in an environment?
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (The most common installation of conda is actually called "miniconda")</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load miniconda3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
 </section>
 <section id="one-time-conda-configuration" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="one-time-conda-configuration"><span class="header-section-number">5.2</span> One-time conda configuration</h3>
-<p>We will also do some one-time configuration, which will set the conda “channels” (basically, software repositories) that we want to use when we install software. This config also includes setting relative priorities among the channels, since one software package may be available from multiple channels.</p>
+<p>We will also do some one-time configuration, which will set the <strong>conda “channels”</strong> (basically, software repositories) that we want to use when we install software. This config also includes setting relative <em>priorities</em> among channels, since one software package may be available from multiple channels.</p>
 <p>Like with <code>module</code> commands, conda commands consist of two parts, the conda command itself and a subcommand, such as <code>config</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels defaults     <span class="co"># Added first =&gt; lowest priority</span></span>
@@ -563,6 +569,12 @@ What’s in an environment?
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--get</span> channels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="bash-out">
+<p>–add channels ‘defaults’ &nbsp; &nbsp; &nbsp; # lowest priority<br>
+–add channels ‘bioconda’<br>
+–add channels ‘conda-forge’ &nbsp; &nbsp; &nbsp; # highest priority</p>
+</div>
+<p><br></p>
 </section>
 <section id="creating-an-environment-for-cutadapt" class="level3" data-number="5.3">
 <h3 data-number="5.3" class="anchored" data-anchor-id="creating-an-environment-for-cutadapt"><span class="header-section-number">5.3</span> Creating an environment for <code>cutadapt</code></h3>
@@ -570,7 +582,7 @@ What’s in an environment?
 <p><code>cutadapt</code> is a commonly used program to remove adapters or primers from sequence reads in <code>FASTQ</code> files; in particular, it is ubiquitous for primer removal in (e.g.&nbsp;16S rRNA) microbiome metabarcoding studies. But there is no <code>Lmod</code> module on OSC for it, so if we want to use, our best option is to resort to conda.</p>
 <p>Here is the command to create a new environment and install <code>cutadapt</code> into that environment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> cutadapt <span class="at">-c</span> bioconda cutadapt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> cutadapt <span class="at">-c</span> bioconda cutadapt   <span class="co"># Don't run this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s break the above command down:</p>
 <ul>
@@ -580,41 +592,145 @@ What’s in an environment?
 <li><p>Following the <strong><code>-c</code></strong> option, we can specify a channel from which we want to install, so <strong><code>-c bioconda</code></strong> indicates we want to use the <code>bioconda</code> channel. (Given that we’ve done some config above, this is not always necessary, but it can be good to be explicit.)</p></li>
 <li><p>The <strong><code>cutadapt</code></strong> at the end of the line simply tells conda to install the package of that name. This is a “<em>positional</em>” argument to the command (note that there’s no option like <code>-s</code> before it): we put any software package(s) we want to install at the end of the command.</p></li>
 </ul>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Specifying a version
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="specifying-a-version" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="specifying-a-version">Specifying a version</h4>
 <p>If we want to be explicit about the version we want to install, we can add the version after <code>=</code> following the package name. We do that below, and we also include the version in the environment name:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> cutadapt-4.1 <span class="at">-c</span> bioconda cutadapt=4.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="bash-out">
+<p>Collecting package metadata (current_repodata.json): done<br>
+Solving environment:</p>
+</div>
 <p><i class="fa-solid fa-user-edit" aria-hidden="true"></i> <strong><em>Let’s run the command above and see if we can install <code>cutadapt</code></em></strong></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-caption-container flex-fill">
+See the full output when I ran this command
 </div>
-</section>
-<section id="creating-an-environment-for-any-program" class="level3" data-number="5.4">
-<h3 data-number="5.4" class="anchored" data-anchor-id="creating-an-environment-for-any-program"><span class="header-section-number">5.4</span> Creating an environment for <em>any</em> program</h3>
-<p>Minor variations on the <code>conda create</code> command above can be used to install almost any program for which is conda package is available.</p>
-<p>However, you may be wondering how we would know:</p>
-<ul>
-<li>Whether the program is available and what its conda package’s name is</li>
-<li>Which versions are available</li>
-<li>Which conda channel we should use</li>
-</ul>
-<p>ADD…</p>
-</section>
-<section id="activating-conda-environments" class="level3" data-number="5.5">
-<h3 data-number="5.5" class="anchored" data-anchor-id="activating-conda-environments"><span class="header-section-number">5.5</span> Activating conda environments</h3>
-<p>Whereas we use the term “load” for <code>Lmod</code> modules, we use “activate” to the same effect for conda environments.</p>
-<p>Oddly enough, the most foolproof way to activate a conda environment is to use <code>source activate</code> rather than the expected <code>conda activate</code> — for instance:</p>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate cutadapt-4.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> misc/cutadapt_install.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre class="bash-out"><code>Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+  current version: 4.10.3
+  latest version: 4.13.0
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /fs/project/PAS0471/jelmer/conda/cutadapt-TMP
+
+  added / updated specs:
+    - cutadapt=4.1
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    cutadapt-4.1               |  py310h1425a21_1         211 KB  bioconda
+    dnaio-0.9.1                |  py310h1425a21_1          80 KB  bioconda
+    libsqlite-3.39.2           |       h753d276_1         789 KB  conda-forge
+    openssl-3.0.5              |       h166bdaf_1         2.8 MB  conda-forge
+    pip-22.2.2                 |     pyhd8ed1ab_0         1.5 MB  conda-forge
+    python-isal-1.0.1          |  py310h5764c6d_0          47 KB  conda-forge
+    setuptools-65.0.2          |  py310hff52083_0         1.4 MB  conda-forge
+    sqlite-3.39.2              |       h4ff8645_1         788 KB  conda-forge
+    tzdata-2022c               |       h191b570_0         119 KB  conda-forge
+    xopen-1.6.0                |  py310hff52083_0          27 KB  conda-forge
+    xz-5.2.6                   |       h166bdaf_0         409 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         8.1 MB
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-h7f98852_4
+  ca-certificates    conda-forge/linux-64::ca-certificates-2022.6.15-ha878542_0
+  cutadapt           bioconda/linux-64::cutadapt-4.1-py310h1425a21_1
+  dnaio              bioconda/linux-64::dnaio-0.9.1-py310h1425a21_1
+  isa-l              conda-forge/linux-64::isa-l-2.30.0-ha770c72_4
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.36.1-hea4e1c9_2
+  libffi             conda-forge/linux-64::libffi-3.4.2-h7f98852_5
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-12.1.0-h8d9b700_16
+  libgomp            conda-forge/linux-64::libgomp-12.1.0-h8d9b700_16
+  libnsl             conda-forge/linux-64::libnsl-2.0.0-h7f98852_0
+  libsqlite          conda-forge/linux-64::libsqlite-3.39.2-h753d276_1
+  libuuid            conda-forge/linux-64::libuuid-2.32.1-h7f98852_1000
+  libzlib            conda-forge/linux-64::libzlib-1.2.12-h166bdaf_2
+  ncurses            conda-forge/linux-64::ncurses-6.3-h27087fc_1
+  openssl            conda-forge/linux-64::openssl-3.0.5-h166bdaf_1
+  pbzip2             conda-forge/linux-64::pbzip2-1.1.13-0
+  pigz               conda-forge/linux-64::pigz-2.6-h27826a3_0
+  pip                conda-forge/noarch::pip-22.2.2-pyhd8ed1ab_0
+  python             conda-forge/linux-64::python-3.10.5-ha86cf86_0_cpython
+  python-isal        conda-forge/linux-64::python-isal-1.0.1-py310h5764c6d_0
+  python_abi         conda-forge/linux-64::python_abi-3.10-2_cp310
+  readline           conda-forge/linux-64::readline-8.1.2-h0f457ee_0
+  setuptools         conda-forge/linux-64::setuptools-65.0.2-py310hff52083_0
+  sqlite             conda-forge/linux-64::sqlite-3.39.2-h4ff8645_1
+  tk                 conda-forge/linux-64::tk-8.6.12-h27826a3_0
+  tzdata             conda-forge/noarch::tzdata-2022c-h191b570_0
+  wheel              conda-forge/noarch::wheel-0.37.1-pyhd8ed1ab_0
+  xopen              conda-forge/linux-64::xopen-1.6.0-py310hff52083_0
+  xz                 conda-forge/linux-64::xz-5.2.6-h166bdaf_0
+  zlib               conda-forge/linux-64::zlib-1.2.12-h166bdaf_2
+
+
+
+Downloading and Extracting Packages
+sqlite-3.39.2        | 788 KB    | ################################################################################################################################################################### | 100% 
+xz-5.2.6             | 409 KB    | ################################################################################################################################################################### | 100% 
+cutadapt-4.1         | 211 KB    | ################################################################################################################################################################### | 100% 
+xopen-1.6.0          | 27 KB     | ################################################################################################################################################################### | 100% 
+libsqlite-3.39.2     | 789 KB    | ################################################################################################################################################################### | 100% 
+dnaio-0.9.1          | 80 KB     | ################################################################################################################################################################### | 100% 
+python-isal-1.0.1    | 47 KB     | ################################################################################################################################################################### | 100% 
+setuptools-65.0.2    | 1.4 MB    | ################################################################################################################################################################### | 100% 
+pip-22.2.2           | 1.5 MB    | ################################################################################################################################################################### | 100% 
+tzdata-2022c         | 119 KB    | ################################################################################################################################################################### | 100% 
+openssl-3.0.5        | 2.8 MB    | ################################################################################################################################################################### | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate cutadapt-4.1
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="activating-conda-environments" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="activating-conda-environments"><span class="header-section-number">5.4</span> Activating conda environments</h3>
+<p>Whereas we use the term “load” for <code>Lmod</code> modules, we use <strong>“activate”</strong> to the same effect for conda environments. Oddly enough, the most foolproof way to activate a conda environment is to use <code>source activate</code> rather than the expected <code>conda activate</code> — for instance:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate cutadapt-4.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bash-out">
 <p>(cutadapt-4.1) [jelmer@pitzer-login03 PAS2250]$</p>
@@ -634,30 +750,67 @@ Environment indicator
 </div>
 <p>After we have activated the <code>cutadapt</code> environment, we should be able to actually use the program. To test this, we’ll again simply run it with a <code>--help</code> option:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cutadapt</span> <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cutadapt</span> <span class="at">--help</span> <span class="kw">|</span> <span class="fu">head</span>     <span class="co"># I'm piping into head to avoid pages worth of output </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="bash-out">
+<p>cutadapt version 4.1</p>
+<p>Copyright (C) 2010-2022 Marcel Martin <a href="mailto:marcel.martin@scilifelab.se" class="email">marcel.martin@scilifelab.se</a></p>
+<p>cutadapt removes adapter sequences from high-throughput sequencing reads.</p>
+<p>Usage:<br>
+&nbsp; &nbsp; &nbsp; &nbsp; cutadapt -a ADAPTER [options] [-o output.fastq] input.fastq</p>
+<p>For paired-end reads:</p>
 </div>
 <p><br></p>
+</section>
+<section id="creating-an-environment-for-any-program" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="creating-an-environment-for-any-program"><span class="header-section-number">5.5</span> Creating an environment for <em>any</em> program</h3>
+<p>Minor variations on the <code>conda create</code> command above can be used to install almost any program for which is conda package is available.</p>
+<p>However, you may be wondering how we would know:</p>
+<ul>
+<li>Whether the program is available and what its conda package’s name is</li>
+<li>Which conda channel we should use</li>
+<li>Which versions are available</li>
+</ul>
+<p>My strategy to finding these things out is to simply Google the program name together with “conda”, e.g.&nbsp;<code>cutadapt conda</code>.</p>
+<p>Let’s see that in action:</p>
+<p align="center">
+<img src="img/conda_google.png" width="85%">
+</p>
+<p><br></p>
+<p align="center">
+<img src="img/conda_website.png" width="85%">
+</p>
+<p>I always take the top of the two example installation commands as a template, which is <code>conda install -c bioconda cutadapt</code> here.</p>
+<p>You may notice the <code>install</code> subcommand, which we haven’t yet seen. This would install Cutadapt into <em>the currently activated conda environment</em>. Since our strategy here (and my general strategy) to create a new environment for each program, we would therefore replace <code>install</code> by <code>create -y -n &lt;env-name&gt;</code>, such that our full command (without version specification) again becomes:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> cutadapt <span class="at">-c</span> bioconda cutadapt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To see which <strong>version</strong> will be installed by default, and to see which older versions are available:</p>
+<p align="center">
+<img src="img/conda_website_version.png" width="70%">
+</p>
+<p>For almost any other program, this works exactly the same!</p>
 </section>
 <section id="lines-to-add-to-your-scripts" class="level3" data-number="5.6">
 <h3 data-number="5.6" class="anchored" data-anchor-id="lines-to-add-to-your-scripts"><span class="header-section-number">5.6</span> Lines to add to your scripts</h3>
 <p>While you’ll typically want to do installation interactively and only need to do to it once (see note below), you should always include the necessary code to load/activate your programs in your shell scripts.</p>
 <p>When your program is available as an <code>Lmod</code> module, this simply entails a <code>module load</code> call — e.g., for <code>fastqc</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When your program is available in a conda environment, this entails a <code>module load</code> command to load conda itself, followed by a <code>source activate</code> command to load the relevant conda environment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Load software</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load miniconda3</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate cutadapt-4.1</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Strict/safe Bash settings </span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Load software</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load miniconda3</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate cutadapt-4.1</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Strict/safe Bash settings </span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -678,45 +831,44 @@ Warning
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Install once, load always
+Install once, load/activate always
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Provided you don’t need to switch versions, you only need to install a program once. This is true also at OSC and also when using conda (your environments won’t disappear unless you delete them).</p></li>
-<li><p>In every single “session” that you want to use a program via an <code>Lmod</code> module or conda environment, you …</p></li>
+<li><p>Provided you don’t need to switch versions, <strong>you only need to install a program once</strong>. This is true also at OSC and also when using conda: your environments won’t disappear unless you delete them.</p></li>
+<li><p>In every single “session” that you want to use a program via an <code>Lmod</code> module or a conda environment, you need to load/activate the program. So the line(s) to do so should always be in your script for that program.</p></li>
 </ul>
 </div>
 </div>
-<p><br></p>
+<p><br> <br></p>
+<hr>
+<hr>
 </section>
 </section>
-<section id="section" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="section"><span class="header-section-number">6</span> —–</h2>
-</section>
-<section id="addendum-a-few-other-useful-conda-commands" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="addendum-a-few-other-useful-conda-commands"><span class="header-section-number">7</span> Addendum: a few other useful conda commands</h2>
+<section id="addendum-a-few-other-useful-conda-commands" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="addendum-a-few-other-useful-conda-commands"><span class="header-section-number">6</span> Addendum: a few other useful conda commands</h2>
 <ul>
 <li><p>Deactivate the currently active conda environment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>Activate one environment and then “stack” an <em>additional</em> environment (a regular <code>conda activate</code> command would <em>switch</em> environments):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate cutadapt         <span class="co"># Now, the env "cutadapt" is active</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="at">--stack</span> multiqc   <span class="co"># Now, both "cutadapt" and "multiqc" are active</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate cutadapt         <span class="co"># Now, the env "cutadapt" is active</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="at">--stack</span> multiqc   <span class="co"># Now, both "cutadapt" and "multiqc" are active</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>Remove an environment entirely:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> cutadapt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> cutadapt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>List all your conda environments:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>List all packages (programs) installed in an environment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> list <span class="at">-n</span> cutadapt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> list <span class="at">-n</span> cutadapt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul>
 

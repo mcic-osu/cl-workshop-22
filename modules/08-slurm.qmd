@@ -63,11 +63,11 @@ and are requested and managed in a very similar way to batch jobs.
    click `Connect to VS Code`.
 5. Open a terminal: {{< fa bars >}} &nbsp; => `Terminal` => `New Terminal`.
 6. In the terminal, type `bash` and press <kbd>Enter</kbd>.
-7. Type `pwd` to check you are in `/fs/ess/scratch/PAS2250`.
+7. Type `pwd` in the termain to check you are in `/fs/ess/scratch/PAS2250`.
+   
    If not, click
    {{< fa bars >}} &nbsp; => &nbsp; `File` &nbsp; => &nbsp; `Open Folder`
-   and enter `/fs/ess/scratch/PAS2250/<your-folder>`
-   (replace `<your-folder>` by the actual name of your folder).
+   and enter `/fs/ess/scratch/PAS2250/<your-folder>`.
 
 :::
 
@@ -212,7 +212,7 @@ we use its **`sbatch`** command to submit a script.
 Recall from the Bash scripting module that we can run a Bash script as follows:
 
 ```{bash, eval=TRUE}
-bash printname.sh Jane Doe
+bash scripts/printname.sh Jane Doe
 ```
 
 :::{.callout-caution collapse="true"}
