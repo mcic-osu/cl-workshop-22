@@ -1,6 +1,6 @@
 ---
-title: "Variables and Loops"
-pagetitle: "Variables and Loops"
+title: "Variables, Globbing, and Loops"
+pagetitle: "Variables, Globbing, and Loops"
 highlight-style: github
 number-sections: true
 knitr:
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(eval = FALSE,
 
 -----
 
-In this module, we will cover two topics that are good to know about
+In this module, we will cover a few topics that are good to know about
 before you start writing and running shell scripts:
 
 - Using **variables** will allow you to run scripts flexibly,
@@ -26,7 +26,12 @@ before you start writing and running shell scripts:
   specifically, we will later use them to submit many scripts at the same time,
   one per input file or sample.
 
-More generally, these are fundamental and ubiquitous programming concepts.
+- We'll be selecting files with wildcards --**"globbing"**--
+  to loop over FASTQ files.
+
+These are valuable skills in general --
+globbing is an essential technique in the Unix shell, 
+and variables and for loops ubiquitous programming concepts.
 
 <br>
 
@@ -448,10 +453,130 @@ rm README_* Aug 18.txt
 
 <br>
 
+## Globbing with Shell wildcard expansion
+
+_Shell wildcard expansion_ is a very useful technique to select files.
+Selecting files with wildcard expansion is called _globbing_.
+
+### Shell wildcards
+
+In the term "wildcard expansion",
+_wildcard_ refers to a few symbols that have a special meaning:
+specifically, they match certain characters in file names.
+We'll see below what _expansion_ refers to. 
+
+Here, we'll only talk about the most-used wildcard, `*`, in detail.
+But for the sake of completeness, I list them all below:
+
+|Wildcard                 | Matches |
+|--|-------|
+| **`*`**                 | Any number of any character, including nothing |
+| **`?`**                 | Any single character 
+| **`[]`** and **`[^]`**  | One `[]` or everything except one (`[^]`) of the "character set" within brackets  
+
+<br>
+
+### The `*` wildcard and wildcard expansion
+
+A a first example of using `*`, to match all files in a directory:
+
+```{bash, eval=TRUE}
+ls data/fastq/*
+```
+
+Of course `ls data/fastq` would have shown the same files,
+but what happens under the hood is different:
+
+- `ls data/fastq` &mdash;
+  The `ls` command detects and lists all files in the directory
+- `ls data/fastq/*` &mdash;
+  The wildcard `*` is _expanded_ to all matching files,
+  (in this case, all the files in this directory),
+  and _then_ that list of files is passed to `ls`.
+  This command is therefore equivalent to running:
+  
+  ```{bash}
+  ls data/fastq/SRR7609467.fastq.gz data/fastq/SRR7609468.fastq.gz data/fastq/SRR7609469.fastq.gz data/fastq/SRR7609470.fastq.gz data/fastq/SRR7609471.fastq.gz data/fastq/SRR7609472.fastq.gz data/fastq/SRR7609473.fastq.gz data/fastq/SRR7609474.fastq.gz data/fastq/SRR7609475.fastq.gz data/fastq/SRR7609476.fastq.gz data/fastq/SRR7609477.fastq.gz data/fastq/SRR7609478.fastq.gz
+  ```
+
+To see this,
+note that **we don't need to use `ls` at all** to get a listing of these files!
+
+```{bash, eval=TRUE}
+echo data/fastq/*
+```
+
+-----
+
+A few more examples:
+
+```{bash, eval=TRUE}
+# This will still list all 12 FASTQ files --
+# can be a good pattern to use to make sure you're not selecting other types of files 
+ls data/fastq/*fastq.gz
+```
+
+```{bash, eval=TRUE}
+# Only select the ...67.fastq.gz, ...68.fastq.gz, and ...69.fastq.gz files 
+ls data/fastq/SRR760946*fastq.gz
+```
+
+:::{.callout-caution collapse="true"}
+## What pattern would you use if you wanted to select all gzipped (`.fastq.gz`) and plain FASTQ files (`.fastq`) at the same time?
+
+```{bash, eval=FALSE}
+ls data/fastq/SRR760946*.fastq*
+```
+
+The second `*` will match filenames with nothing after `.fastq`
+as well as file names with characters after `.fastq`, such as `.gz`.
+:::
+
+<br>
+
+### Common uses
+
+What can we use this for, other than listing matching files?
+Below, we'll use globbing to select files to loop over.
+Even more commonly, we can use this to move (`mv`), copy (`cp`),
+or remove (`rm`) multiple files at once. For example:
+  
+```{bash, eval=TRUE}
+cp data/fastq/SRR760946* .     # Copy 3 FASTQ files to your working dir 
+ls *fastq.gz                   # Check if they're here
+```
+
+```{bash, eval=FALSE}
+rm *fastq.gz                  # Remove all FASTQ files in your working dir
+ls *fastq.gz                  # Check if they're here
+```
+
+```{bash, eval=TRUE, echo=FALSE}
+rm *fastq.gz
+```
+
+:::{.bash-out}
+ls: cannot access '*fastq.gz': No such file or directory
+:::
+
+:::{.callout-warning collapse="true"}
+## Don't confuse shell wildcards with _regular expressions_!
+
+For those of you who know some regular expressions:
+these are conceptually similar to wildcards,
+but the `*` and `?` symbols don't have the same meaning,
+and there are way fewer shell wildcards than regular expression symbols.
+
+In particular, note that `.` is not a shell wildcard and thus represents
+a literal period.
+:::
+
+<br>
+
 ## For loops
 
 Loops are a universal element of programming languages,
-and are extremely useful to repeat operations,
+and are used to repeat operations,
 such as when you want to run the same script or command for multiple files.
 
 **Here, we'll only cover what is by far the most common type of loop:
@@ -531,7 +656,7 @@ demonstrates that the loop is being executed sequentially:
 ```{bash, eval=TRUE}
 for a_number in 1 2 3; do
     echo "In this iteration of the loop, the number is $a_number"
-    sleep 1s          # Let the computer sleep for 1 second
+    #sleep 1s          # Let the computer sleep for 1 second
     date              # Print the date and time
     echo "--------"
 done
