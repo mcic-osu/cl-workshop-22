@@ -172,15 +172,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <a class="dropdown-item" href="../modules/06-scripts.html">
  <span class="dropdown-text">6. Shell Scripting</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../modules/07-software.html">
- <span class="dropdown-text">7. Software at OSC</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-3" role="button" data-bs-toggle="dropdown" aria-expanded="false">Day 3</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-3">    
+        <li>
+    <a class="dropdown-item" href="../modules/07-software.html">
+ <span class="dropdown-text">7. Software at OSC</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../modules/08-slurm.html">
  <span class="dropdown-text">8. Compute Jobs with Slurm</span></a>
@@ -339,10 +339,11 @@ Starting a VS Code session with an active terminal (click here)
 <p>Such a line starts with <strong><code>#!</code></strong>, basically marking it as a special type of comment. After that, we provide the location to the relevant program: in our case Bash, which is located at <code>/bin/bash</code> on Linux and Mac computers.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Adding a shebang line is good practice in general, and is necessary when we want to submit our script to OSC’s Slurm queue, which we’ll do tomorrow.</p>
+<p><br></p>
 </section>
 <section id="bash-script-settings" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="bash-script-settings"><span class="header-section-number">2.2</span> Bash script settings</h3>
-<p>Another line that is good practice to add to your Bash scripts changes some default settings to safer alternatives. Two Bash default settings are bad ideas inside scripts:</p>
+<p>Another line that is good practice to add to your Bash scripts changes some default settings to safer alternatives. The following two Bash default settings are bad ideas inside scripts:</p>
 <p><em>First</em>, and as we’ve seen in the previous module, Bash does not complain when you <strong>reference a variable that does not exist</strong> (in other words, it does not consider that an error).</p>
 <p>In scripts, this can lead to all sorts of downstream problems, because you very likely tried and failed to do something with an actual variable. Even more problematically, it can lead to potentially very destructive file removal:</p>
 <div class="cell">
@@ -393,6 +394,7 @@ The comments above specified the <em>intent</em> we had. What would have actuall
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail         <span class="co"># (For in a script - don't run in the terminal)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
 </section>
 <section id="our-header-lines-as-a-rudimentary-script" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="our-header-lines-as-a-rudimentary-script"><span class="header-section-number">2.3</span> Our header lines as a rudimentary script</h3>
@@ -413,19 +415,17 @@ Shell scripts, including Bash scripts, most commonly have the extension <code>.s
 
 </div>
 </div></li>
-<li><p>Type the following lines in that script:</p>
+<li><p>Type the following lines in that script (not in your terminal!):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># (Note: this is a partial script. Don't enter this directly in your terminal.)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul>
 <p>Already now, we could <em>run</em> (execute) the script. One way of doing this is calling the <code>bash</code> command followed by the name of the script<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printname.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Doing this won’t print anything to screen (or file). That makes sense because our script doesn’t have any output — no output can be a good sign because it means that no errors were encountered.</p>
+<p>Doing this won’t print anything to screen (or file). Since our script doesn’t have any output, that makes sense — no output can be a good sign, because it means that no errors were encountered.</p>
 <p><br></p>
 </section>
 </section>
@@ -445,7 +445,7 @@ Shell scripts, including Bash scripts, most commonly have the extension <code>.s
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass 2 filenames as arguments to ls, separated by spaces:</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> data/sampleA.fastq.gz data/sampleB.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let’s see what this would look like with our <code>printname.sh</code> script and a fictional script <code>fastqc.sh</code> (to run the FastQC program – we’ll make such a script later):</p>
+<p>Let’s see what this would look like with our <code>printname.sh</code> script and a fictional script <code>fastqc.sh</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run scripts without any arguments:</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh                            <span class="co"># (Fictional script)</span></span>
@@ -455,7 +455,8 @@ Shell scripts, including Bash scripts, most commonly have the extension <code>.s
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh data/sampleA.fastq.gz      <span class="co"># 1 argument, a filename</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printname.sh John Doe        <span class="co"># 2 arguments, strings representing names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In the next section, we’ll see what happens when we pass arguments to a script on the command line (in short: <em>command-line arguments</em>).</p>
+<p>In the next section, we’ll see what happens when we pass arguments to a script on the command line.</p>
+<p><br></p>
 </section>
 <section id="placeholder-variables" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="placeholder-variables"><span class="header-section-number">3.2</span> Placeholder variables</h3>
@@ -577,6 +578,7 @@ Last name: </code></pre>
 </div>
 </div>
 </section>
+<p><br></p>
 <section id="descriptive-variable-names" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="descriptive-variable-names"><span class="header-section-number">3.3</span> Descriptive variable names</h3>
 <p>While you can use the <code>$1</code>-style placeholder variables throughout your script, I find it very useful to copy them to more descriptively named variables as follows:</p>
@@ -759,7 +761,7 @@ SRR7609474  inland  treatment   3   55728624    78.80</code></pre>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that the file exists and was just modified:</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> sandbox/samples_headtail.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>-rw-rw-r-- 1 jelmer jelmer 197 Aug 18 12:10 sandbox/samples_headtail.txt</code></pre>
+<pre class="bash-out"><code>-rw-rw-r-- 1 jelmer jelmer 197 Aug 18 17:13 sandbox/samples_headtail.txt</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -828,14 +830,14 @@ SRR7609474  inland  treatment   3   55728624    78.80</code></pre>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/headtail.sh data/meta/meta.tsv sandbox/tmp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Starting script scripts/headtail.sh
-Thu Aug 18 12:10:27 PM CEST 2022
+Thu Aug 18 05:13:41 PM CEST 2022
 Input file:   data/meta/meta.tsv
 Output file:  sandbox/tmp.txt
 
 Listing the output file:
--rw-rw-r-- 1 jelmer jelmer 197 Aug 18 12:10 sandbox/tmp.txt
+-rw-rw-r-- 1 jelmer jelmer 197 Aug 18 17:13 sandbox/tmp.txt
 Done with script scripts/headtail.sh
-Thu Aug 18 12:10:27 PM CEST 2022</code></pre>
+Thu Aug 18 05:13:41 PM CEST 2022</code></pre>
 </div>
 </div>
 <p>The script printed some details for the output file, but not its contents (that would have worked here, but is usually not sensible when working with genomics data). Let’s take a look, though, to make sure the script worked:</p>
@@ -946,15 +948,15 @@ head -n "$line_nr" "$input_file" | tail -n 1</code></pre>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printline.sh data/meta/meta.tsv sandbox/meta_line.tsv 4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Starting script scripts/printline.sh
-Thu Aug 18 12:10:27 PM CEST 2022
+Thu Aug 18 05:13:41 PM CEST 2022
 Input file:   data/meta/meta.tsv
 Output file:  sandbox/meta_line.tsv
 Line number:  4
 
 Listing the output file:
--rw-rw-r-- 1 jelmer jelmer 42 Aug 18 12:10 sandbox/meta_line.tsv
+-rw-rw-r-- 1 jelmer jelmer 42 Aug 18 17:13 sandbox/meta_line.tsv
 Done with script scripts/printline.sh
-Thu Aug 18 12:10:27 PM CEST 2022</code></pre>
+Thu Aug 18 05:13:41 PM CEST 2022</code></pre>
 </div>
 </div>
 </div>

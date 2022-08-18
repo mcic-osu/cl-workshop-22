@@ -86,11 +86,13 @@ Adding a shebang line is good practice in general,
 and is necessary when we want to submit our script to OSC's Slurm queue,
 which we'll do tomorrow.
 
+<br>
+
 ### Bash script settings
 
 Another line that is good practice to add to your Bash scripts changes some
 default settings to safer alternatives.
-Two Bash default settings are bad ideas inside scripts:
+The following two Bash default settings are bad ideas inside scripts:
 
 _First_, and as we've seen in the previous module,
 Bash does not complain when you
@@ -177,6 +179,8 @@ Or even more concisely:
 set -ueo pipefail         # (For in a script - don't run in the terminal)
 ```
 
+<br>
+
 ### Our header lines as a rudimentary script
 
 Let's go ahead and start a script with the header lines
@@ -194,13 +198,11 @@ that we have so far discussed.
   ## Shell scripts, including Bash scripts, most commonly have the extension `.sh`
   :::
   
-- Type the following lines in that script:
+- Type the following lines in that script (not in your terminal!):
   
   ```{bash, eval=FALSE}
   #!/bin/bash
   set -ueo pipefail
-  
-  # (Note: this is a partial script. Don't enter this directly in your terminal.)
   ```
 
 Already now, we could _run_ (execute) the script.
@@ -218,8 +220,8 @@ bash scripts/printname.sh
 ```
 
 Doing this won't print anything to screen (or file).
-That makes sense because our script doesn't have any output &mdash;
-no output can be a good sign because it means that no errors were encountered.
+Since our script doesn't have any output, that makes sense &mdash;
+no output can be a good sign, because it means that no errors were encountered.
 
 <br>
 
@@ -244,8 +246,7 @@ ls data/sampleA.fastq.gz data/sampleB.fastq.gz
 ```
 
 Let's see what this would look like with our `printname.sh` script
-and a fictional script `fastqc.sh`
-(to run the FastQC program -- we'll make such a script later):
+and a fictional script `fastqc.sh`:
 
 ```{bash, eval=FALSE}
 # Run scripts without any arguments:
@@ -258,7 +259,9 @@ bash scripts/printname.sh John Doe        # 2 arguments, strings representing na
 ```
 
 In the next section, we'll see what happens when we pass arguments to a script
-on the command line (in short: _command-line arguments_).
+on the command line.
+
+<br>
 
 ### Placeholder variables
 
@@ -398,8 +401,9 @@ _EOF
 ```
 
 :::
-
 :::
+
+<br>
 
 ### Descriptive variable names
 

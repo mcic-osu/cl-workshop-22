@@ -29,7 +29,7 @@ before you start writing and running shell scripts:
 - We'll be selecting files with wildcards --**"globbing"**--
   to loop over FASTQ files.
 
-These are valuable skills in general --
+These are valuable skills in general &mdash;
 globbing is an essential technique in the Unix shell, 
 and variables and for loops ubiquitous programming concepts.
 
@@ -87,12 +87,19 @@ nlines=200
 ```
 
 :::{.callout-warning}
-## Be aware that there can be no spaces around the equals sign (`=`)!
+## Be aware: don't put spaces around the equals sign (`=`)!
 :::
 
 **To _reference_ a variable** (i.e., to access its value),
 you need to put a dollar sign `$` in front of its name.
 We'll use the `echo` command to review the values that our variables contain:
+
+:::{.callout-note}
+## `echo` simply prints back ("echoes") whatever you tell it to
+```{bash, eval=TRUE}
+echo Hello!
+```
+:::
 
 ```{bash, echo=TRUE, eval=FALSE}
 echo $treatment
@@ -144,31 +151,6 @@ like `$input_file` and `$ls_options` above, as opposed to say `$x` and `$bla`.
 There are multiple ways of distinguishing words in the absence of spaces,
 such as `$inputFile` and `$input_file`:
 I prefer the latter, which is called "snake case", and I always use lowercase.
-
-<br>
-
-### Environment variables
-
-There are also **predefined variables** in the Unix shell:
-that is, variables that exist in your environment by default.
-These so-called "environment variables" are always spelled in all-caps:
-
-```{bash, eval=TRUE}
-# Environment variable $USER contains your user name 
-echo $USER
-```
-
-```{bash, eval=FALSE}
-# Environment variable $HOME contains the path to your home directory
-echo $HOME
-```
-
-:::{.bash-out}
-/users/PAS0471/jelmer
-:::
-
-Environment variables can provide useful information.
-We'll see them again when we talk about the Slurm compute job scheduler.
 
 <br>
 
@@ -257,7 +239,7 @@ ls -t | head -n 1
 it never hurts, and avoids unexpected surprises.
 
 :::{.callout-note collapse="true"}
-## Bonus: Where does a variable name end?
+## At-home reading: Where does a variable name end?
 
 Another issue we can run into when we don't quote variables
 is that we can't explicitly define where a variable name ends
@@ -303,7 +285,7 @@ echo README_"$today"_final.txt
 :::
 
 :::{.callout-note collapse="true"}
-## Bonus: Quoting as "escaping" special meaning -- and double vs. single quotes
+## At-home reading: Quoting as "escaping" special meaning -- and double vs. single quotes
 
 By double-quoting a variable,
 we are essentially escaping (or "turning off")
@@ -440,15 +422,43 @@ nlines=$(wc -l < data/fastq/SRR7609472.fastq.gz)
 echo "The file $nlines lines"
 ```
 
+**Note:** You don't have to quote variables _inside_ a quoted `echo` call,
+since it's, well, already quoted.
+If you _also_ quote the variables, you will in fact _unquote_ it,
+although that shouldn't pose a problem inside echo statements.
+
 :::
 :::
 
-:::{.callout-warning}
-## Let's clean up our mess!
+<br>
 
-````{bash, eval=FALSE}
-rm README_* Aug 18.txt
+### At-home reading: Environment variables
+
+:::{.callout-note collapse="true"}
+## Environment variable basics
+
+There are also **predefined variables** in the Unix shell:
+that is, variables that exist in your environment by default.
+These so-called "environment variables" are always spelled in all-caps:
+
+```{bash, eval=TRUE}
+# Environment variable $USER contains your user name 
+echo $USER
 ```
+
+```{bash, eval=FALSE}
+# Environment variable $HOME contains the path to your home directory
+echo $HOME
+```
+
+:::{.bash-out}
+/users/PAS0471/jelmer
+:::
+
+Environment variables can provide useful information.
+They can especially come in handy in in scripts submitted to the 
+Slurm compute job scheduler.
+
 :::
 
 <br>
@@ -534,7 +544,7 @@ as well as file names with characters after `.fastq`, such as `.gz`.
 
 <br>
 
-### Common uses
+### Common uses of globbing
 
 What can we use this for, other than listing matching files?
 Below, we'll use globbing to select files to loop over.
@@ -558,6 +568,15 @@ rm *fastq.gz
 :::{.bash-out}
 ls: cannot access '*fastq.gz': No such file or directory
 :::
+
+Finally,
+let's use globbing to remove the mess of files we made when learning about
+variables:
+
+````{bash, eval=FALSE}
+rm README_*
+rm Aug 18.txt
+```
 
 :::{.callout-warning collapse="true"}
 ## Don't confuse shell wildcards with _regular expressions_!
@@ -656,7 +675,7 @@ demonstrates that the loop is being executed sequentially:
 ```{bash, eval=TRUE}
 for a_number in 1 2 3; do
     echo "In this iteration of the loop, the number is $a_number"
-    #sleep 1s          # Let the computer sleep for 1 second
+    sleep 1s          # Let the computer sleep for 1 second
     date              # Print the date and time
     echo "--------"
 done
@@ -734,7 +753,7 @@ done
 ```
 
 :::{.callout-note  collapse="true"}
-## Bonus: Alternatives to looping with a glob
+## At-home reading: Alternatives to looping with a glob
 
 With genomics data,
 the routine of looping over an entire directory of files,
