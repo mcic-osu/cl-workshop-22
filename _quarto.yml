@@ -31,13 +31,13 @@ website:
       - text: "Day 2"
         menu:
           - href: modules/05-vars-loops.qmd
-            text: 5. Variables and Loops
+            text: 5. Variables, Globbing, and Loops
           - href: modules/06-scripts.qmd
             text: 6. Shell Scripting
-          - href: modules/07-software.qmd
-            text: 7. Software at OSC
       - text: "Day 3"
         menu:
+          - href: modules/07-software.qmd
+            text: 7. Software at OSC
           - href: modules/08-slurm.qmd
             text: 8. Compute Jobs with Slurm
           - href: modules/09-examples.qmd
