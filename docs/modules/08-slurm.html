@@ -240,16 +240,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#adding-sbatch-options-in-scripts" id="toc-adding-sbatch-options-in-scripts" class="nav-link" data-scroll-target="#adding-sbatch-options-in-scripts"> <span class="header-section-number">3.2</span> Adding <code>sbatch</code> options in scripts</a></li>
   <li><a href="#where-does-the-output-go" id="toc-where-does-the-output-go" class="nav-link" data-scroll-target="#where-does-the-output-go"> <span class="header-section-number">3.3</span> Where does the output go?</a></li>
   </ul></li>
-  <li><a href="#common-sbatch-options" id="toc-common-sbatch-options" class="nav-link" data-scroll-target="#common-sbatch-options"> <span class="header-section-number">4</span> Common <code>sbatch</code> options</a>
+  <li><a href="#monitoring-batch-jobs" id="toc-monitoring-batch-jobs" class="nav-link" data-scroll-target="#monitoring-batch-jobs"> <span class="header-section-number">4</span> Monitoring batch jobs</a></li>
+  <li><a href="#common-sbatch-options" id="toc-common-sbatch-options" class="nav-link" data-scroll-target="#common-sbatch-options"> <span class="header-section-number">5</span> Common <code>sbatch</code> options</a>
   <ul class="collapse">
-  <li><a href="#account-the-osc-project" id="toc-account-the-osc-project" class="nav-link" data-scroll-target="#account-the-osc-project"> <span class="header-section-number">4.1</span> <code>--account</code>: The OSC project</a></li>
-  <li><a href="#time-time-limit-wall-time" id="toc-time-time-limit-wall-time" class="nav-link" data-scroll-target="#time-time-limit-wall-time"> <span class="header-section-number">4.2</span> <code>--time</code>: Time limit (“wall time”)</a></li>
-  <li><a href="#mem-ram-memory" id="toc-mem-ram-memory" class="nav-link" data-scroll-target="#mem-ram-memory"> <span class="header-section-number">4.3</span> <code>--mem</code>: RAM memory</a></li>
-  <li><a href="#cores-nodes-and-tasks" id="toc-cores-nodes-and-tasks" class="nav-link" data-scroll-target="#cores-nodes-and-tasks"> <span class="header-section-number">4.4</span> Cores (&amp; nodes and tasks)</a></li>
-  <li><a href="#output-slurm-log-files" id="toc-output-slurm-log-files" class="nav-link" data-scroll-target="#output-slurm-log-files"> <span class="header-section-number">4.5</span> <code>--output</code>: Slurm log files</a></li>
-  <li><a href="#other-sbatch-options" id="toc-other-sbatch-options" class="nav-link" data-scroll-target="#other-sbatch-options"> <span class="header-section-number">4.6</span> Other <code>sbatch</code> options</a></li>
+  <li><a href="#account-the-osc-project" id="toc-account-the-osc-project" class="nav-link" data-scroll-target="#account-the-osc-project"> <span class="header-section-number">5.1</span> <code>--account</code>: The OSC project</a></li>
+  <li><a href="#time-time-limit-wall-time" id="toc-time-time-limit-wall-time" class="nav-link" data-scroll-target="#time-time-limit-wall-time"> <span class="header-section-number">5.2</span> <code>--time</code>: Time limit (“wall time”)</a></li>
+  <li><a href="#mem-ram-memory" id="toc-mem-ram-memory" class="nav-link" data-scroll-target="#mem-ram-memory"> <span class="header-section-number">5.3</span> <code>--mem</code>: RAM memory</a></li>
+  <li><a href="#cores-nodes-and-tasks" id="toc-cores-nodes-and-tasks" class="nav-link" data-scroll-target="#cores-nodes-and-tasks"> <span class="header-section-number">5.4</span> Cores (&amp; nodes and tasks)</a></li>
+  <li><a href="#output-slurm-log-files" id="toc-output-slurm-log-files" class="nav-link" data-scroll-target="#output-slurm-log-files"> <span class="header-section-number">5.5</span> <code>--output</code>: Slurm log files</a></li>
   </ul></li>
-  <li><a href="#addendum-table-with-all-discussed-sbatch-options" id="toc-addendum-table-with-all-discussed-sbatch-options" class="nav-link" data-scroll-target="#addendum-table-with-all-discussed-sbatch-options"> <span class="header-section-number">5</span> Addendum: Table with all discussed <code>sbatch</code> options</a></li>
+  <li><a href="#addendum-table-with-sbatch-options" id="toc-addendum-table-with-sbatch-options" class="nav-link" data-scroll-target="#addendum-table-with-sbatch-options"> <span class="header-section-number">6</span> Addendum: Table with <code>sbatch</code> options</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -412,7 +412,7 @@ Tip
 </section>
 <section id="intro-to-batch-jobs" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="intro-to-batch-jobs"><span class="header-section-number">3</span> Intro to batch jobs</h2>
-<p>When requesting batch jobs, we are asking the Slurm scheduler to <em>run a script</em> on a compute node. For this reason, we can also refer to it as “submitting a script (to the queue)”.</p>
+<p>When requesting <em>batch jobs</em>, we are asking the Slurm scheduler to <strong>run a script on a compute node</strong>. For this reason, we can also refer to it as “submitting a script (to the queue)”.</p>
 <p>In contrast to interactive shell jobs, we stay in our current shell on a login node when submitting a script, and cannot really interact with the process on the compute node, other than:</p>
 <ul>
 <li><strong>Output from the script that would normally be printed to screen ends up in</strong> <strong>a file</strong>.</li>
@@ -424,7 +424,7 @@ Tip
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Scripts in other languages
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -433,8 +433,7 @@ Tip
 </div>
 <section id="the-sbatch-command" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="the-sbatch-command"><span class="header-section-number">3.1</span> The <code>sbatch</code> command</h3>
-<p>Whereas we used Slurm’s <code>srun</code> command to start an interactive shell job, we use its <strong><code>sbatch</code></strong> command to submit a script.</p>
-<p>Recall from the Bash scripting module that we can run a Bash script as follows:</p>
+<p>Whereas we used Slurm’s <code>srun</code> command to start an interactive shell job, we use its <strong><code>sbatch</code> command to submit a script</strong>. Recall from the Bash scripting module that we can run a Bash script as follows:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printname.sh Jane Doe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -507,6 +506,7 @@ srun: error: Unable to allocate resources: Unspecified error</p>
 </div>
 </div>
 </div>
+<p><br></p>
 </section>
 <section id="adding-sbatch-options-in-scripts" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="adding-sbatch-options-in-scripts"><span class="header-section-number">3.2</span> Adding <code>sbatch</code> options in scripts</h3>
@@ -520,27 +520,14 @@ srun: error: Unable to allocate resources: Unspecified error</p>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After having added this to the script, we <em>can</em> successfully run our earlier <code>sbatch</code> command without options:</p>
+<p>After having added this to the script, we <em>can</em> run our earlier <code>sbatch</code> command without options:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> printname.sh Jane Doe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bash-out">
 <p>Submitted batch job 12431942</p>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Running a script with <code>#SBATCH</code> in other contexts
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Because <code>#SBATCH</code> lines are special <em>comment</em> lines, they will simply be ignored and not throw any errors when you run a script that contains them in other contexts: when not running them as a batch job at OSC, or even when running them on a computer without Slurm installed.</p>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -553,6 +540,20 @@ Running a script with <code>#SBATCH</code> in other contexts
 <p>Any <code>sbatch</code> option provided on the command line will override the equivalent option provided inside the script. This is sensible: we can provide “defaults” inside the script, and change one or more of those when needed on the command line.</p>
 </div>
 </div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Running a script with <code>#SBATCH</code> in other contexts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because <code>#SBATCH</code> lines are special <em>comment</em> lines, they will simply be ignored and not throw any errors when you run a script that contains them in other contexts: when not running them as a batch job at OSC, or even when running them on a computer without Slurm installed.</p>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="where-does-the-output-go" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="where-does-the-output-go"><span class="header-section-number">3.3</span> Where does the output go?</h3>
@@ -574,6 +575,7 @@ Any idea why we might not want batch job output printed to screen, even if we co
 </div>
 </div>
 </div>
+<p><strong>TODO: LOOK AT SLURM FILE CONTENTS</strong></p>
 <p>It’s important to conceptually distinguish two broad types of output that a script may have:</p>
 <ul>
 <li><p>Output that is <strong>printed to screen</strong> when we directly run a script, such as what was produced by our <code>echo</code> statements, by any errors that may occur, and possibly by a program that we run in the script.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> As we saw, this output ends up in the <strong>Slurm log file</strong> when we submit the script as a batch job.</p></li>
@@ -585,24 +587,33 @@ Any idea why we might not want batch job output printed to screen, even if we co
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+The working directory stays the same
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Both interactive and batch jobs start in the directory that they were submitted from: that is, your working directory will remain the same.</p>
+<p>Batch jobs start in the directory that they were submitted from: that is, your working directory remains the same.</p>
 </div>
 </div>
 <p><br></p>
 </section>
 </section>
-<section id="common-sbatch-options" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="common-sbatch-options"><span class="header-section-number">4</span> Common <code>sbatch</code> options</h2>
-<section id="account-the-osc-project" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="account-the-osc-project"><span class="header-section-number">4.1</span> <code>--account</code>: The OSC project</h3>
+<section id="monitoring-batch-jobs" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="monitoring-batch-jobs"><span class="header-section-number">4</span> Monitoring batch jobs</h2>
+<p>Use script that sleeps for a while</p>
+<ul>
+<li><p><code>squeue</code></p></li>
+<li><p><code>scancel</code></p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="common-sbatch-options" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="common-sbatch-options"><span class="header-section-number">5</span> Common <code>sbatch</code> options</h2>
+<section id="account-the-osc-project" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="account-the-osc-project"><span class="header-section-number">5.1</span> <code>--account</code>: The OSC project</h3>
 <p>As seen above. <em>Always</em> specify the project when submitting a batch job.</p>
 </section>
-<section id="time-time-limit-wall-time" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="time-time-limit-wall-time"><span class="header-section-number">4.2</span> <code>--time</code>: Time limit (“wall time”)</h3>
+<section id="time-time-limit-wall-time" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="time-time-limit-wall-time"><span class="header-section-number">5.2</span> <code>--time</code>: Time limit (“wall time”)</h3>
 <p>Specify the maximum amount of time your job will run for. Wall time is a term meant to distinguish it from, say “core hours”: if a job runs for 2 hour and used 8 cores, the wall time was 2 hours and the number of core hours was 2 x 8 = 16.</p>
 <ul>
 <li>Your job gets killed as soon as it hits the specified time limit!</li>
@@ -634,19 +645,19 @@ Tip
 </div>
 </div>
 </section>
-<section id="mem-ram-memory" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="mem-ram-memory"><span class="header-section-number">4.3</span> <code>--mem</code>: RAM memory</h3>
+<section id="mem-ram-memory" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="mem-ram-memory"><span class="header-section-number">5.3</span> <code>--mem</code>: RAM memory</h3>
 <p>Specify a maximum amount of RAM (Random Access Memory) that your job can use.</p>
 <ul>
 <li>The default unit is MB (MegaBytes) — use “G” for GB.</li>
 <li>The default amount is 4 GB per core that you reserve (see below).</li>
-<li>Like with the time limit, your job gets killed when it hits the memory limit. But this is not that common so I would usually not specify unless the program I’m running reports that it needs a lot of memory, or I got “out-of-memory” errors when trying to run the script before.</li>
+<li>Like with the time limit, your job gets killed when it hits the memory limit. But this is not that common, so I usually don’t specify it — unless the program reports needing lots of memory, or I got “out-of-memory” errors when trying to run the script before.</li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --mem=20G</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="cores-nodes-and-tasks" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="cores-nodes-and-tasks"><span class="header-section-number">4.4</span> Cores (&amp; nodes and tasks)</h3>
+<section id="cores-nodes-and-tasks" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="cores-nodes-and-tasks"><span class="header-section-number">5.4</span> Cores (&amp; nodes and tasks)</h3>
 <p>Specify the number of nodes (≈ computers), cores, or “tasks” (processes). These are separate but related options, and this is where things can get confusing!</p>
 <ul>
 <li>Slurm for the most part uses “<strong>core</strong>” and “<strong>CPU</strong>” interchangeably<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. More generally, “<strong>thread</strong>” is <em>also</em> commonly used interchangeably with core/CPU<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</li>
@@ -666,7 +677,7 @@ Uncommon cases
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Only ask for <strong>&gt;1 node</strong> when you have explicit parallelization with something like “MPI”, which is uncommon in bioinformatics.</li>
+<li>Only ask for <strong>&gt;1 node</strong> when a program is parallelized with e.g.&nbsp;“MPI”, which is uncommon in bioinformatics.</li>
 <li>For jobs with multiple processes (tasks), use <code>--ntasks=n</code> or <code>--ntasks-per-node=n</code>.</li>
 </ul>
 </div>
@@ -688,7 +699,7 @@ Uncommon cases
 </thead>
 <tbody>
 <tr class="odd">
-<td>Nr. of cores/CPUs/threads (per task)</td>
+<td><strong>Nr. of cores/CPUs/threads (per task)</strong></td>
 <td><code>-c 1</code></td>
 <td><code>--cpus-per-task=1</code></td>
 <td style="text-align: center;">1</td>
@@ -717,10 +728,23 @@ Uncommon cases
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task=2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Short and long options
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TODO</p>
+</div>
+</div>
 </section>
-<section id="output-slurm-log-files" class="level3" data-number="4.5">
-<h3 data-number="4.5" class="anchored" data-anchor-id="output-slurm-log-files"><span class="header-section-number">4.5</span> <code>--output</code>: Slurm log files</h3>
-<p>As we saw above, by default, all output from a script that would normally<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> be printed to screen will end up in Slurm log file when we submit the script as a batch job. This file will be created in the directory from which you submitted the script, and will be called <code>slurm-&lt;job-number&gt;.out</code>, e.g.&nbsp;<code>slurm-12431942.out</code>.</p>
+<section id="output-slurm-log-files" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="output-slurm-log-files"><span class="header-section-number">5.5</span> <code>--output</code>: Slurm log files</h3>
+<p>As we saw above, by default, all output from a script that would normally<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> be printed to screen will end up in a Slurm log file when we submit the script as a batch job. This file will be created in the directory from which you submitted the script, and will be called <code>slurm-&lt;job-number&gt;.out</code>, e.g.&nbsp;<code>slurm-12431942.out</code>.</p>
 <p>But it is possible to change the name of this file. For instance, it can be useful to include the name of the program that the script runs, so that it’s easier to recognize this file later.</p>
 <p>We can do this with the <code>--output</code> option, e.g.&nbsp;<code>--output=slurm-fastqc.out</code> if we were running FastQC.</p>
 <p>However, you’ll generally want to keep the batch job number in the file name too<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. Since we won’t know the batch job number in advance, we need a trick here and that is to use <strong><code>%j</code>, which represents the batch job number</strong>:</p>
@@ -729,63 +753,30 @@ Uncommon cases
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --output=slurm-fastqc-%j.out</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-<code>stdout</code> and <code>stderr</code>
+At-home reading: <code>stdout</code> and <code>stderr</code>
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>By default, two output streams “standard output” (<code>stdout</code>) and “standard error” (<code>stderr</code>) all end up in the same Slurm log file, but it is also possible to separate them into two separate files.</p>
+<p>By default, two output streams “standard output” (<code>stdout</code>) and “standard error” (<code>stderr</code>) are printed to screen and therefore also both end up in the same Slurm log file, but it is possible to separate them into different files.</p>
 <p>Because <code>stderr</code>, as you might have guessed, often contains error messages, it could be useful to have those in a separate file. You can make that happen with the <code>--error</code> option, e.g.&nbsp;<code>--error=slurm-fastqc-%j.err</code>.</p>
-<p>However, reality is more messy: some programs print their main output not to a file but to standard out, and their logging output, errors and regular messages alike, to standard error. Yet other programs use <code>stdout</code> or <code>stderr</code> for <em>all</em> messages. I therefore usually only use <code>--output</code>.</p>
+<p>However, reality is more messy: some programs print their main output not to a file but to standard out, and their logging output, errors and regular messages alike, to standard error. Yet other programs use <code>stdout</code> or <code>stderr</code> for <em>all</em> messages.</p>
+<p><strong>I therefore usually only specify <code>--output</code>, such that both streams</strong> <strong>end up in that file.</strong></p>
 </div>
 </div>
-</section>
-<section id="other-sbatch-options" class="level3" data-number="4.6">
-<h3 data-number="4.6" class="anchored" data-anchor-id="other-sbatch-options"><span class="header-section-number">4.6</span> Other <code>sbatch</code> options</h3>
-<p>Here are some other <code>sbatch</code> options that can be useful in certain cases:</p>
-<table class="table">
-<colgroup>
-<col style="width: 44%">
-<col style="width: 55%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Resource/use</th>
-<th>long option</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Job name (displayed in the queue)</td>
-<td><code>--job-name=fastqc</code></td>
-</tr>
-<tr class="even">
-<td>Partition (=queue type)</td>
-<td><code>--partition=longserial</code> (long jobs) <br> <code>--partition=hugemem</code> (jobs needing lots of memory)</td>
-</tr>
-<tr class="odd">
-<td>Get email when job starts, ends, fails, <br> or all of the above</td>
-<td><code>--mail-type=START</code> <br> <code>--mail-type=END</code> <br> <code>--mail-type=FAIL</code> <br> <code>--mail-type=ALL</code></td>
-</tr>
-<tr class="even">
-<td>Let job begin at/after specific time</td>
-<td><code>--begin=2021-02-01T12:00:00</code></td>
-</tr>
-<tr class="odd">
-<td>Let job begin after other job is done</td>
-<td><code>--dependency=afterany:123456</code></td>
-</tr>
-</tbody>
-</table>
+</div>
 <p><br></p>
 </section>
 </section>
-<section id="addendum-table-with-all-discussed-sbatch-options" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="addendum-table-with-all-discussed-sbatch-options"><span class="header-section-number">5</span> Addendum: Table with all discussed <code>sbatch</code> options</h2>
+<section id="addendum-table-with-sbatch-options" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="addendum-table-with-sbatch-options"><span class="header-section-number">6</span> Addendum: Table with <code>sbatch</code> options</h2>
+<p>This includes all the discussed options, and a couple more useful ones:</p>
 <table class="table">
 <colgroup>
 <col style="width: 40%">
@@ -865,7 +856,7 @@ Uncommon cases
 <tr class="odd">
 <td>Partition (=queue type)</td>
 <td>-</td>
-<td><code>--partition=longserial</code> (long jobs) <br> <code>--partition=hugemem</code> (jobs needing lots of memory)</td>
+<td><code>--partition=longserial</code> <br> <code>--partition=hugemem</code></td>
 <td style="text-align: center;"></td>
 </tr>
 <tr class="even">

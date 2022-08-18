@@ -79,7 +79,7 @@ We also need to understand variables to work with loops and with scripts.
 use the syntax `variable=value`:
 
 ```{bash}
-# Assign the value "low" to the variable "treatment":
+# Assign the value "beach" to the variable "location":
 location=beach
 
 # Assign the value "200" to the variable "nlines":
@@ -102,12 +102,12 @@ echo Hello!
 :::
 
 ```{bash, echo=TRUE, eval=FALSE}
-echo $treatment
+echo $location
 ```
 
 ```{bash, echo=FALSE, eval=TRUE}
-treatment=low
-echo $treatment
+location=beach
+echo $location
 ```
 
 ```{bash, echo=TRUE, eval=FALSE}

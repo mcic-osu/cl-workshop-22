@@ -18,7 +18,7 @@ But to actually analyze genomics data sets, we also need to use specialized
 bioinformatics software.
 
 Most software that is already installed at OSC must nevertheless be "loaded"
-("activated") before we can use it;
+("activated") before we can use it &mdash;
 and if our software of choice is not installed, we have to do so ourselves.
 We will cover those topics in this module.
 
@@ -68,7 +68,8 @@ with default options:
 fastqc sampleA.fastq.gz       # Don't run
 ```
 
-So, what we have learned in the previous modules can easily be applied to run
+So, with all the scaffolding we have learned in the previous modules,
+we only need to make small modifications to have our scripts run
 command-line programs.
 But, we first need to load and/or install these programs.
 
@@ -102,7 +103,8 @@ and of mutually incompatible software on a single system.)
 
 The OSC website has a
 [list of software that has been installed at OSC](<https://www.osc.edu/resources/available_software/software_list>).
-You can also search for available software in the shell:
+You can also search for available software in the shell
+using two subtly different commands:
   
   - `module spider` lists modules that are installed.
   - `module avail` lists modules that *can be directly loaded*,
@@ -110,7 +112,7 @@ You can also search for available software in the shell:
     (i.e., depending on which other software has been loaded).
 
 Simply running `module spider` or `module avail` would spit out complete lists
-&mdash; more usefully, we can provide search terms as arguments
+&mdash; more usefully, we can add **search terms** as arguments
 to these commands:
 
 ```{bash, eval=FALSE}
@@ -147,34 +149,45 @@ a version (see examples below).
 
 :::
 
+<br>
+
 ### Loading software
 
 All other `Lmod` software functionality is also accessed using `module`
 "subcommands" (we call `module` the command and e.g. `spider` the subcommand).
-For instance, to load and unload software:
+For instance, to load a module:
   
 ```{bash, eval=FALSE}
 # Load a module:
 module load python              # Load the default version
-module load python/3.7-2019.10  # Load a specific version
-
-# Unload a module:
-module unload python
+module load python/3.7-2019.10  # Load a specific version (copy from module spider output)
 ```
 
 To check which modules have been loaded
-(the list will include modules that have been loaded automatically):
+(the list includes automatically loaded modules):
   
 ```{bash, eval=FALSE}
 module list
 ```
 
 :::{.bash-out}
-
 Currently Loaded Modules:  
 &nbsp; &nbsp; 1) xalt/latest &nbsp; &nbsp; &nbsp; 2) gcc-compatibility/8.4.0 &nbsp; &nbsp; &nbsp; 3) intel/19.0.5 &nbsp; &nbsp; &nbsp; 4) mvapich2/2.3.3 &nbsp; &nbsp; &nbsp; 5) modules/sp2020
-  
 :::
+
+:::{.callout-note}
+## Unloading modules
+
+Occasionally useful when running into conflicting (mutually incompatible)
+modules:
+
+```{bash}
+module unload python        # Unload a module
+module purge                # Unload all modules
+```
+:::
+
+<br>
 
 ### A practical example
 
@@ -239,7 +252,7 @@ module load fastqc/0.11.8
 After we have loaded the module, we can retry our `--help` attempt: 
 
 ```{bash, eval=FALSE}
-fastqc --help
+fastqc --help | head     # I'm piping into head to avoid pages worth of output 
 ```
 
 :::{.bash-out}
@@ -251,9 +264,8 @@ SYNOPSIS
         fastqc seqfile1 seqfile2 .. seqfileN
 
     fastqc [-o output dir] [--(no)extract] [-f fastq|bam|sam] 
-           [-c contaminant file] seqfile1 .. seqfileN
+           [-c contaminant file] seqfile1 .. seqfileN  
            
-[...and much more]
 :::
 
 <br>
@@ -262,7 +274,7 @@ SYNOPSIS
 
 It's not too uncommon that software you need for your project
 is not installed at OSC,
-or that you need a more recent version of the software than those available.
+or that you need a more recent version of the software than is available.
 The main options available to you in such a case are to:
 
 - **"Manually" install the software**, which in the best case involves
@@ -277,16 +289,16 @@ The main options available to you in such a case are to:
   or in case of commonly used software, might be willing to perform a
   system-wide installation (that is, making it available through `module`). 
 
-- Use **`conda`**, which creates *software environments* 
+- Use **`Apptainer` / `Singularity` "containers"**.
+  Containers are self-contained software environments that include operating
+  systems, akin to mini virtual machines.
+  
+- Use **`conda`**, which creates software environments
   that are activated like in the `module` system.
 
-- Use **`Apptainer` / `Singularity` "containers"**.
-  Containers are software environments that are more self-contained,
-  akin to mini virtual machines.
-
 Conda and containers are useful not only at OSC,
-where they bypass issues with dependencies and administrator privileges,
-but more generally, for reproducible and portable software environments.
+where they **bypass issues with dependencies and administrator privileges**,
+**but more generally, for reproducible and portable software environments**.
 They also allow you to easily maintain distinct "environments",
 each with a different version of the same software,
 or with mutually incompatible software.
@@ -325,7 +337,7 @@ in a similar manner as with the `Lmod` system --
 but the key difference is that we can create and manage these environments
 ourselves.
 
-:::{.callout-note collapse="true"}
+:::{.callout-important collapse="true"}
 ## Use one environment per program (as here) or one per research project
 
 Below are two reasonable ways to organize your conda environments,
@@ -345,6 +357,8 @@ and their advantages:
 
 Its **not** recommended to simply install all programs across all projects in
 one environment.
+This doesn't benefit reproducibility and your environment is likely to
+sooner or later stop functioning properly.
 
 A side note is that even when you want to install a single program,
 multiple programs _are_ in fact nearly always installed:
@@ -401,16 +415,16 @@ conda config --get channels
 
 <br>
 
-### Creating an environment for `cutadapt`
+### Example: Creating an environment for `cutadapt`
 
 To practice using conda,
 we will now create a conda environment with the program `cutadapt` installed.
 
 `cutadapt` is a commonly used program to remove adapters or primers from
-sequence reads in `FASTQ` files;
+sequence reads in `FASTQ` files &mdash;
 in particular, it is ubiquitous for primer removal in (e.g. 16S rRNA) microbiome
 metabarcoding studies.
-But there is no `Lmod` module on OSC for it, so if we want to use,
+But there is no `Lmod` module on OSC for it, so if we want to use it,
 our best option is to resort to conda.
 
 Here is the command to create a new environment and install `cutadapt`
@@ -450,23 +464,25 @@ Let's break the above command down:
 
 If we want to be explicit about the version we want to install,
 we can add the version after `=` following the package name.
-We do that below, and we also include the version in the environment name:
+We do that below, and we also include the version in the environment name.
+
+{{< fa user-edit >}} **_Let's run the command above and see if we can install `cutadapt`_**
 
 ```{bash, eval=FALSE}
 conda create -y -n cutadapt-4.1 -c bioconda cutadapt=4.1
 ```
-
 
 :::{.bash-out}
 Collecting package metadata (current_repodata.json): done  
 Solving environment:
 :::
 
-{{< fa user-edit >}} **_Let's run the command above and see if we can install `cutadapt`_**
-
 :::{.callout-note collapse="true"}
 ## See the full output when I ran this command
-```{bash,eval=TRUE}
+
+<br>
+
+```{bash, eval=TRUE, echo=FALSE}
 cat misc/cutadapt_install.txt
 ```
 :::
@@ -476,7 +492,7 @@ cat misc/cutadapt_install.txt
 ### Activating conda environments
 
 Whereas we use the term "load" for `Lmod` modules,
-we use **"activate"** to the same effect for conda environments.
+we use **"activate"** for conda environments &mdash; it means the same thing. 
 Oddly enough, the most foolproof way to activate a conda environment is to
 use `source activate` rather than the expected `conda activate` &mdash;
 for instance:
@@ -522,7 +538,6 @@ For paired-end reads:
 
 Minor variations on the `conda create` command above can be used to install
 almost any program for which is conda package is available.
-
 However, you may be wondering how we would know:
 
 - Whether the program is available and what its conda package's name is
@@ -540,19 +555,22 @@ Let's see that in action:
 
 <br>
 
+We click on that first link (it should always be the first Google hit):
+
 <p align="center">
 <img src=img/conda_website.png width="85%">
 </p>
 
 I always take the top of the two example installation commands as a template,
-which is `conda install -c bioconda cutadapt` here.
+here: `conda install -c bioconda cutadapt`
 
 You may notice the `install` subcommand, which we haven't yet seen.
 This would install Cutadapt into _the currently activated conda environment_.
-Since our strategy here (and my general strategy) to create a new environment
-for each program,
-we would therefore replace `install` by `create -y -n <env-name>`,
-such that our full command (without version specification) again becomes:
+Since our strategy here --and my general strategy-- is to create a new
+environment each time you're installing a program,
+the all-in-one command is to replace `install` by `create -y -n <env-name>`.
+
+Then, our full command (without version specification) again becomes:
 
 ```{bash}
 conda create -y -n cutadapt -c bioconda cutadapt
@@ -567,14 +585,14 @@ and to see which older versions are available:
 
 For almost any other program, this works exactly the same!
 
-### Lines to add to your scripts
+### Lines to add to your Bash script
 
 While you'll typically want to do installation interactively
 and only need to do to it once (see note below),
 you should always include the necessary code to load/activate your programs
 in your shell scripts.
 
-When your program is available as an `Lmod` module,
+When your program is in an `Lmod` module,
 this simply entails a `module load` call &mdash;
 e.g., for `fastqc`:
 
@@ -582,6 +600,7 @@ e.g., for `fastqc`:
 #!/bin/bash
 set -ueo pipefail
 
+# Load software
 module load fastqc
 ```
 
@@ -592,18 +611,18 @@ followed by a  `source activate` command to load the relevant conda environment:
 ```{bash, eval=FALSE}
 #!/bin/bash
 
-## Load software
+# Load software
 module load miniconda3
 source activate cutadapt-4.1
 
-## Strict/safe Bash settings 
+# Strict/safe Bash settings 
 set -ueo pipefail
 ```
 
 :::{.callout-warning}
 We've moved the `set -ueo pipefail` line _below_ the `source activate` command,
-because the conda activation procedure may otherwise throw "unbound variable"
-errors.
+because the conda activation procedure can sometims throw "unbound variable"
+errors otherwise.
 :::
 
 :::{.callout-note}

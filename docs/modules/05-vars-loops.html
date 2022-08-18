@@ -323,7 +323,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="2.1" class="anchored" data-anchor-id="assigning-and-referencing-variables"><span class="header-section-number">2.1</span> Assigning and referencing variables</h3>
 <p><strong>To <em>assign</em> a value to a variable in Bash</strong> (in short: to assign a variable), use the syntax <code>variable=value</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the value "low" to the variable "treatment":</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the value "beach" to the variable "location":</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">location</span><span class="op">=</span>beach</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the value "200" to the variable "nlines":</span></span>
@@ -362,11 +362,11 @@ Be aware: don’t put spaces around the equals sign (<code>=</code>)!
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$treatment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$location</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>low</code></pre>
+<pre class="bash-out"><code>beach</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -592,7 +592,7 @@ At-home reading: Quoting as “escaping” special meaning – and double vs.&nb
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>Thu Aug 18 05:42:50 PM CEST 2022</code></pre>
+<pre class="bash-out"><code>Thu Aug 18 09:12:05 PM CEST 2022</code></pre>
 </div>
 </div>
 <p>If we try to store the date in a variable directly, it doesn’t work: the literal string “date” is stored, not the output of the command:</p>
@@ -608,7 +608,7 @@ At-home reading: Quoting as “escaping” special meaning – and double vs.&nb
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$today</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>Thu Aug 18 05:42:50 PM CEST 2022</code></pre>
+<pre class="bash-out"><code>Thu Aug 18 09:12:05 PM CEST 2022</code></pre>
 </div>
 </div>
 <hr>
@@ -981,13 +981,13 @@ A semicolon <code>;</code> (as used before <code>do</code>) separates two comman
 <span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>In this iteration of the loop, the number is 1
-Thu Aug 18 05:42:52 PM CEST 2022
+Thu Aug 18 09:12:06 PM CEST 2022
 --------
 In this iteration of the loop, the number is 2
-Thu Aug 18 05:42:53 PM CEST 2022
+Thu Aug 18 09:12:07 PM CEST 2022
 --------
 In this iteration of the loop, the number is 3
-Thu Aug 18 05:42:54 PM CEST 2022
+Thu Aug 18 09:12:08 PM CEST 2022
 --------</code></pre>
 </div>
 </div>

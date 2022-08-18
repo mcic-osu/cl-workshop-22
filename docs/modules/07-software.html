@@ -241,10 +241,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#loading-the-miniconda-module" id="toc-loading-the-miniconda-module" class="nav-link" data-scroll-target="#loading-the-miniconda-module"> <span class="header-section-number">5.1</span> Loading the (mini)conda module</a></li>
   <li><a href="#one-time-conda-configuration" id="toc-one-time-conda-configuration" class="nav-link" data-scroll-target="#one-time-conda-configuration"> <span class="header-section-number">5.2</span> One-time conda configuration</a></li>
-  <li><a href="#creating-an-environment-for-cutadapt" id="toc-creating-an-environment-for-cutadapt" class="nav-link" data-scroll-target="#creating-an-environment-for-cutadapt"> <span class="header-section-number">5.3</span> Creating an environment for <code>cutadapt</code></a></li>
+  <li><a href="#example-creating-an-environment-for-cutadapt" id="toc-example-creating-an-environment-for-cutadapt" class="nav-link" data-scroll-target="#example-creating-an-environment-for-cutadapt"> <span class="header-section-number">5.3</span> Example: Creating an environment for <code>cutadapt</code></a></li>
   <li><a href="#activating-conda-environments" id="toc-activating-conda-environments" class="nav-link" data-scroll-target="#activating-conda-environments"> <span class="header-section-number">5.4</span> Activating conda environments</a></li>
   <li><a href="#creating-an-environment-for-any-program" id="toc-creating-an-environment-for-any-program" class="nav-link" data-scroll-target="#creating-an-environment-for-any-program"> <span class="header-section-number">5.5</span> Creating an environment for <em>any</em> program</a></li>
-  <li><a href="#lines-to-add-to-your-scripts" id="toc-lines-to-add-to-your-scripts" class="nav-link" data-scroll-target="#lines-to-add-to-your-scripts"> <span class="header-section-number">5.6</span> Lines to add to your scripts</a></li>
+  <li><a href="#lines-to-add-to-your-bash-script" id="toc-lines-to-add-to-your-bash-script" class="nav-link" data-scroll-target="#lines-to-add-to-your-bash-script"> <span class="header-section-number">5.6</span> Lines to add to your Bash script</a></li>
   </ul></li>
   <li><a href="#addendum-a-few-other-useful-conda-commands" id="toc-addendum-a-few-other-useful-conda-commands" class="nav-link" data-scroll-target="#addendum-a-few-other-useful-conda-commands"> <span class="header-section-number">6</span> Addendum: a few other useful conda commands</a></li>
   </ul>
@@ -280,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <hr>
 <p>So far, we have only used commands that are available in any Unix shell. But to actually analyze genomics data sets, we also need to use specialized bioinformatics software.</p>
-<p>Most software that is already installed at OSC must nevertheless be “loaded” (“activated”) before we can use it; and if our software of choice is not installed, we have to do so ourselves. We will cover those topics in this module.</p>
+<p>Most software that is already installed at OSC must nevertheless be “loaded” (“activated”) before we can use it — and if our software of choice is not installed, we have to do so ourselves. We will cover those topics in this module.</p>
 <section id="setup" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="setup"><span class="header-section-number">1</span> Setup</h2>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -322,7 +322,7 @@ Starting a VS Code session with an active terminal (click here)
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> sampleA.fastq.gz       <span class="co"># Don't run</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>So, what we have learned in the previous modules can easily be applied to run command-line programs. But, we first need to load and/or install these programs.</p>
+<p>So, with all the scaffolding we have learned in the previous modules, we only need to make small modifications to have our scripts run command-line programs. But, we first need to load and/or install these programs.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -349,12 +349,12 @@ Running inside a script or interactively
 (That may seem like a drag, but on the upside, this practice enables the use of different versions of the same software, and of mutually incompatible software on a single system.)</p>
 <section id="checking-for-available-software" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="checking-for-available-software"><span class="header-section-number">3.1</span> Checking for available software</h3>
-<p>The OSC website has a <a href="https://www.osc.edu/resources/available_software/software_list">list of software that has been installed at OSC</a>. You can also search for available software in the shell:</p>
+<p>The OSC website has a <a href="https://www.osc.edu/resources/available_software/software_list">list of software that has been installed at OSC</a>. You can also search for available software in the shell using two subtly different commands:</p>
 <ul>
 <li><code>module spider</code> lists modules that are installed.</li>
 <li><code>module avail</code> lists modules that <em>can be directly loaded</em>, given the current environment (i.e., depending on which other software has been loaded).</li>
 </ul>
-<p>Simply running <code>module spider</code> or <code>module avail</code> would spit out complete lists — more usefully, we can provide search terms as arguments to these commands:</p>
+<p>Simply running <code>module spider</code> or <code>module avail</code> would spit out complete lists — more usefully, we can add <strong>search terms</strong> as arguments to these commands:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> spider python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -390,19 +390,17 @@ Running inside a script or interactively
 <p>The <code>(D)</code> in the output above marks the default version of the program; that is, the version of the program that would be loaded if we don’t specify a version (see examples below).</p>
 </div>
 </div>
+<p><br></p>
 </section>
 <section id="loading-software" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="loading-software"><span class="header-section-number">3.2</span> Loading software</h3>
-<p>All other <code>Lmod</code> software functionality is also accessed using <code>module</code> “subcommands” (we call <code>module</code> the command and e.g.&nbsp;<code>spider</code> the subcommand). For instance, to load and unload software:</p>
+<p>All other <code>Lmod</code> software functionality is also accessed using <code>module</code> “subcommands” (we call <code>module</code> the command and e.g.&nbsp;<code>spider</code> the subcommand). For instance, to load a module:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load a module:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python              <span class="co"># Load the default version</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python/3.7-2019.10  <span class="co"># Load a specific version</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Unload a module:</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load python/3.7-2019.10  <span class="co"># Load a specific version (copy from module spider output)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To check which modules have been loaded (the list will include modules that have been loaded automatically):</p>
+<p>To check which modules have been loaded (the list includes automatically loaded modules):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -410,13 +408,31 @@ Running inside a script or interactively
 <p>Currently Loaded Modules:<br>
 &nbsp; &nbsp; 1) xalt/latest &nbsp; &nbsp; &nbsp; 2) gcc-compatibility/8.4.0 &nbsp; &nbsp; &nbsp; 3) intel/19.0.5 &nbsp; &nbsp; &nbsp; 4) mvapich2/2.3.3 &nbsp; &nbsp; &nbsp; 5) modules/sp2020</p>
 </div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Unloading modules
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Occasionally useful when running into conflicting (mutually incompatible) modules:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> unload python        <span class="co"># Unload a module</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> purge                <span class="co"># Unload all modules</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="a-practical-example" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="a-practical-example"><span class="header-section-number">3.3</span> A practical example</h3>
 <p>Let’s load a <em>very</em> commonly used bioinformatics program that we will also use in examples later on: FastQC. FastQC performs quality control (hence: “QC”) on FASTQ files.</p>
 <p>First, let’s test that we indeed <em>cannot</em> currently use <code>fastqc</code> by running <code>fastqc</code> with the <code>--help</code> flag:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bash-out">
 <p>bash: fastqc: command not found</p>
@@ -436,14 +452,14 @@ Help!
 </div>
 <p>Next, let’s check whether FastQC is available at OSC, and if so, in which versions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail fastqc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> avail fastqc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bash-out">
 <p>fastqc/0.11.8</p>
 </div>
 <p>There is only one version available (<code>0.11.8</code>), which means that <code>module load fastqc</code> and <code>module load fastqc/0.11.8</code> would each load that same version.</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -452,7 +468,7 @@ What might still be an argument to specify the version when we load FastQC?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>When we use it inside a script:</p>
 <ul>
@@ -464,11 +480,11 @@ What might still be an argument to specify the version when we load FastQC?
 </div>
 <p>Let’s load the FastQC module:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.11.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.11.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>After we have loaded the module, we can retry our <code>--help</code> attempt:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--help</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--help</span> <span class="kw">|</span> <span class="fu">head</span>     <span class="co"># I'm piping into head to avoid pages worth of output </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bash-out">
 <pre><code>        FastQC - A high throughput sequence QC analysis tool</code></pre>
@@ -476,23 +492,22 @@ What might still be an argument to specify the version when we load FastQC?
 <pre><code>    fastqc seqfile1 seqfile2 .. seqfileN
 
 fastqc [-o output dir] [--(no)extract] [-f fastq|bam|sam] 
-       [-c contaminant file] seqfile1 .. seqfileN
+       [-c contaminant file] seqfile1 .. seqfileN  
        </code></pre>
-<p>[…and much more]</p>
 </div>
 <p><br></p>
 </section>
 </section>
 <section id="when-software-isnt-installed-at-osc" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="when-software-isnt-installed-at-osc"><span class="header-section-number">4</span> When software isn’t installed at OSC</h2>
-<p>It’s not too uncommon that software you need for your project is not installed at OSC, or that you need a more recent version of the software than those available. The main options available to you in such a case are to:</p>
+<p>It’s not too uncommon that software you need for your project is not installed at OSC, or that you need a more recent version of the software than is available. The main options available to you in such a case are to:</p>
 <ul>
 <li><p><strong>“Manually” install the software</strong>, which in the best case involves downloading a directly functioning binary (executable), but more commonly requires you to “compile” (build) the program. This is sometimes straightforward but can also become extremely tricky, especially at OSC where you don’t have “administrator privileges”<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> at OSC and will often have difficulties with “dependencies”<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p></li>
 <li><p>Send an <strong>email to <a href="mailto:oschelp@osc.edu">OSC Help</a></strong>. They might be able to help you with your installation, or in case of commonly used software, might be willing to perform a system-wide installation (that is, making it available through <code>module</code>).</p></li>
-<li><p>Use <strong><code>conda</code></strong>, which creates <em>software environments</em> that are activated like in the <code>module</code> system.</p></li>
-<li><p>Use <strong><code>Apptainer</code> / <code>Singularity</code> “containers”</strong>. Containers are software environments that are more self-contained, akin to mini virtual machines.</p></li>
+<li><p>Use <strong><code>Apptainer</code> / <code>Singularity</code> “containers”</strong>. Containers are self-contained software environments that include operating systems, akin to mini virtual machines.</p></li>
+<li><p>Use <strong><code>conda</code></strong>, which creates software environments that are activated like in the <code>module</code> system.</p></li>
 </ul>
-<p>Conda and containers are useful not only at OSC, where they bypass issues with dependencies and administrator privileges, but more generally, for reproducible and portable software environments. They also allow you to easily maintain distinct “environments”, each with a different version of the same software, or with mutually incompatible software.</p>
+<p>Conda and containers are useful not only at OSC, where they <strong>bypass issues with dependencies and administrator privileges</strong>, <strong>but more generally, for reproducible and portable software environments</strong>. They also allow you to easily maintain distinct “environments”, each with a different version of the same software, or with mutually incompatible software.</p>
 <p>We will teach conda here because it is easier to learn and use than containers, and because nearly all open-source bioinformatics software is available as a conda package.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -515,8 +530,8 @@ When to use containers instead of Conda
 <section id="using-conda" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="using-conda"><span class="header-section-number">5</span> Using conda</h2>
 <p>Conda creates so-called <strong>environments</strong> in which you can install one or more software packages. As mentioned above, these environments are activated and deactivated in a similar manner as with the <code>Lmod</code> system – but the key difference is that we can create and manage these environments ourselves.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -525,7 +540,7 @@ Use one environment per program (as here) or one per research project
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Below are two reasonable ways to organize your conda environments, and their advantages:</p>
 <ul>
@@ -541,7 +556,7 @@ Use one environment per program (as here) or one per research project
 <li>Easier when you need to share your entire project with someone else (or yourself) on a different (super)computer.</li>
 </ul></li>
 </ul>
-<p>Its <strong>not</strong> recommended to simply install all programs across all projects in one environment.</p>
+<p>Its <strong>not</strong> recommended to simply install all programs across all projects in one environment. This doesn’t benefit reproducibility and your environment is likely to sooner or later stop functioning properly.</p>
 <p>A side note is that even when you want to install a single program, multiple programs <em>are</em> in fact nearly always installed: the programs that your target program depends on (“dependencies”).</p>
 </div>
 </div>
@@ -551,8 +566,8 @@ Use one environment per program (as here) or one per research project
 <h3 data-number="5.1" class="anchored" data-anchor-id="loading-the-miniconda-module"><span class="header-section-number">5.1</span> Loading the (mini)conda module</h3>
 <p>While it is also fairly straightforward to install conda for yourself <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, we will use OSC’s system-wide installation of conda in this workshop. Therefore, we first need to use a <code>module load</code> command to make it available:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (The most common installation of conda is actually called "miniconda")</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load miniconda3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (The most common installation of conda is actually called "miniconda")</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load miniconda3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
@@ -561,13 +576,13 @@ Use one environment per program (as here) or one per research project
 <p>We will also do some one-time configuration, which will set the <strong>conda “channels”</strong> (basically, software repositories) that we want to use when we install software. This config also includes setting relative <em>priorities</em> among channels, since one software package may be available from multiple channels.</p>
 <p>Like with <code>module</code> commands, conda commands consist of two parts, the conda command itself and a subcommand, such as <code>config</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels defaults     <span class="co"># Added first =&gt; lowest priority</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels bioconda</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels conda-forge  <span class="co"># Added last =&gt; highest priority</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels defaults     <span class="co"># Added first =&gt; lowest priority</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels bioconda</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--add</span> channels conda-forge  <span class="co"># Added last =&gt; highest priority</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s check whether this configuration step worked:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--get</span> channels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> config <span class="at">--get</span> channels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bash-out">
 <p>–add channels ‘defaults’ &nbsp; &nbsp; &nbsp; # lowest priority<br>
@@ -576,13 +591,13 @@ Use one environment per program (as here) or one per research project
 </div>
 <p><br></p>
 </section>
-<section id="creating-an-environment-for-cutadapt" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="creating-an-environment-for-cutadapt"><span class="header-section-number">5.3</span> Creating an environment for <code>cutadapt</code></h3>
+<section id="example-creating-an-environment-for-cutadapt" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="example-creating-an-environment-for-cutadapt"><span class="header-section-number">5.3</span> Example: Creating an environment for <code>cutadapt</code></h3>
 <p>To practice using conda, we will now create a conda environment with the program <code>cutadapt</code> installed.</p>
-<p><code>cutadapt</code> is a commonly used program to remove adapters or primers from sequence reads in <code>FASTQ</code> files; in particular, it is ubiquitous for primer removal in (e.g.&nbsp;16S rRNA) microbiome metabarcoding studies. But there is no <code>Lmod</code> module on OSC for it, so if we want to use, our best option is to resort to conda.</p>
+<p><code>cutadapt</code> is a commonly used program to remove adapters or primers from sequence reads in <code>FASTQ</code> files — in particular, it is ubiquitous for primer removal in (e.g.&nbsp;16S rRNA) microbiome metabarcoding studies. But there is no <code>Lmod</code> module on OSC for it, so if we want to use it, our best option is to resort to conda.</p>
 <p>Here is the command to create a new environment and install <code>cutadapt</code> into that environment:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> cutadapt <span class="at">-c</span> bioconda cutadapt   <span class="co"># Don't run this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> cutadapt <span class="at">-c</span> bioconda cutadapt   <span class="co"># Don't run this</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s break the above command down:</p>
 <ul>
@@ -594,17 +609,17 @@ Use one environment per program (as here) or one per research project
 </ul>
 <section id="specifying-a-version" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="specifying-a-version">Specifying a version</h4>
-<p>If we want to be explicit about the version we want to install, we can add the version after <code>=</code> following the package name. We do that below, and we also include the version in the environment name:</p>
+<p>If we want to be explicit about the version we want to install, we can add the version after <code>=</code> following the package name. We do that below, and we also include the version in the environment name.</p>
+<p><i class="fa-solid fa-user-edit" aria-hidden="true"></i> <strong><em>Let’s run the command above and see if we can install <code>cutadapt</code></em></strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> cutadapt-4.1 <span class="at">-c</span> bioconda cutadapt=4.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> cutadapt-4.1 <span class="at">-c</span> bioconda cutadapt=4.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="bash-out">
 <p>Collecting package metadata (current_repodata.json): done<br>
 Solving environment:</p>
 </div>
-<p><i class="fa-solid fa-user-edit" aria-hidden="true"></i> <strong><em>Let’s run the command above and see if we can install <code>cutadapt</code></em></strong></p>
 <div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -613,10 +628,10 @@ See the full output when I ran this command
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> misc/cutadapt_install.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -728,7 +743,7 @@ Executing transaction: done
 </section>
 <section id="activating-conda-environments" class="level3" data-number="5.4">
 <h3 data-number="5.4" class="anchored" data-anchor-id="activating-conda-environments"><span class="header-section-number">5.4</span> Activating conda environments</h3>
-<p>Whereas we use the term “load” for <code>Lmod</code> modules, we use <strong>“activate”</strong> to the same effect for conda environments. Oddly enough, the most foolproof way to activate a conda environment is to use <code>source activate</code> rather than the expected <code>conda activate</code> — for instance:</p>
+<p>Whereas we use the term “load” for <code>Lmod</code> modules, we use <strong>“activate”</strong> for conda environments — it means the same thing. Oddly enough, the most foolproof way to activate a conda environment is to use <code>source activate</code> rather than the expected <code>conda activate</code> — for instance:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate cutadapt-4.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -764,8 +779,7 @@ Environment indicator
 </section>
 <section id="creating-an-environment-for-any-program" class="level3" data-number="5.5">
 <h3 data-number="5.5" class="anchored" data-anchor-id="creating-an-environment-for-any-program"><span class="header-section-number">5.5</span> Creating an environment for <em>any</em> program</h3>
-<p>Minor variations on the <code>conda create</code> command above can be used to install almost any program for which is conda package is available.</p>
-<p>However, you may be wondering how we would know:</p>
+<p>Minor variations on the <code>conda create</code> command above can be used to install almost any program for which is conda package is available. However, you may be wondering how we would know:</p>
 <ul>
 <li>Whether the program is available and what its conda package’s name is</li>
 <li>Which conda channel we should use</li>
@@ -777,11 +791,13 @@ Environment indicator
 <img src="img/conda_google.png" width="85%">
 </p>
 <p><br></p>
+<p>We click on that first link (it should always be the first Google hit):</p>
 <p align="center">
 <img src="img/conda_website.png" width="85%">
 </p>
-<p>I always take the top of the two example installation commands as a template, which is <code>conda install -c bioconda cutadapt</code> here.</p>
-<p>You may notice the <code>install</code> subcommand, which we haven’t yet seen. This would install Cutadapt into <em>the currently activated conda environment</em>. Since our strategy here (and my general strategy) to create a new environment for each program, we would therefore replace <code>install</code> by <code>create -y -n &lt;env-name&gt;</code>, such that our full command (without version specification) again becomes:</p>
+<p>I always take the top of the two example installation commands as a template, here: <code>conda install -c bioconda cutadapt</code></p>
+<p>You may notice the <code>install</code> subcommand, which we haven’t yet seen. This would install Cutadapt into <em>the currently activated conda environment</em>. Since our strategy here –and my general strategy– is to create a new environment each time you’re installing a program, the all-in-one command is to replace <code>install</code> by <code>create -y -n &lt;env-name&gt;</code>.</p>
+<p>Then, our full command (without version specification) again becomes:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-y</span> <span class="at">-n</span> cutadapt <span class="at">-c</span> bioconda cutadapt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -791,25 +807,26 @@ Environment indicator
 </p>
 <p>For almost any other program, this works exactly the same!</p>
 </section>
-<section id="lines-to-add-to-your-scripts" class="level3" data-number="5.6">
-<h3 data-number="5.6" class="anchored" data-anchor-id="lines-to-add-to-your-scripts"><span class="header-section-number">5.6</span> Lines to add to your scripts</h3>
+<section id="lines-to-add-to-your-bash-script" class="level3" data-number="5.6">
+<h3 data-number="5.6" class="anchored" data-anchor-id="lines-to-add-to-your-bash-script"><span class="header-section-number">5.6</span> Lines to add to your Bash script</h3>
 <p>While you’ll typically want to do installation interactively and only need to do to it once (see note below), you should always include the necessary code to load/activate your programs in your shell scripts.</p>
-<p>When your program is available as an <code>Lmod</code> module, this simply entails a <code>module load</code> call — e.g., for <code>fastqc</code>:</p>
+<p>When your program is in an <code>Lmod</code> module, this simply entails a <code>module load</code> call — e.g., for <code>fastqc</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load software</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When your program is available in a conda environment, this entails a <code>module load</code> command to load conda itself, followed by a <code>source activate</code> command to load the relevant conda environment:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Load software</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load software</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load miniconda3</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> activate cutadapt-4.1</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co">## Strict/safe Bash settings </span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Strict/safe Bash settings </span></span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-ueo</span> pipefail</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-warning callout callout-style-default callout-captioned">
@@ -822,7 +839,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We’ve moved the <code>set -ueo pipefail</code> line <em>below</em> the <code>source activate</code> command, because the conda activation procedure may otherwise throw “unbound variable” errors.</p>
+<p>We’ve moved the <code>set -ueo pipefail</code> line <em>below</em> the <code>source activate</code> command, because the conda activation procedure can sometims throw “unbound variable” errors otherwise.</p>
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">

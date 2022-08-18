@@ -184,8 +184,8 @@ For clarity, we'll try to stick to long format options during this workshop.
 
 ## Intro to batch jobs
 
-When requesting batch jobs,
-we are asking the Slurm scheduler to _run a script_ on a compute node.
+When requesting _batch jobs_,
+we are asking the Slurm scheduler to **run a script on a compute node**.
 For this reason,
 we can also refer to it as "submitting a script (to the queue)".
 
@@ -200,6 +200,7 @@ and cannot really interact with the process on the compute node, other than:
   which will revoke the compute node reservation and stop the ongoing process.
 
 :::{.callout-tip}
+## Scripts in other languages
 The script that we submit can be in different languages but typically,
 including in all examples in this workshop, they are shell (Bash) scripts.
 :::
@@ -207,8 +208,7 @@ including in all examples in this workshop, they are shell (Bash) scripts.
 ### The `sbatch` command
 
 Whereas we used Slurm's `srun` command to start an interactive shell job,
-we use its **`sbatch`** command to submit a script.
-
+we use its **`sbatch` command to submit a script**.
 Recall from the Bash scripting module that we can run a Bash script as follows:
 
 ```{bash, eval=TRUE}
@@ -279,6 +279,8 @@ sbatch --account=PAS2250 printname.sh Jane Doe  # Both sbatch option and script 
 
 :::
 
+<br>
+
 ### Adding `sbatch` options in scripts
 
 Instead of specifying Slurm/`sbatch` options on the command-line when we submit
@@ -308,7 +310,7 @@ set -ueo pipefail
 ```
 
 After having added this to the script,
-we _can_ successfully run our earlier `sbatch` command without options:
+we _can_ run our earlier `sbatch` command without options:
 
 ```{bash}
 sbatch printname.sh Jane Doe
@@ -318,7 +320,15 @@ sbatch printname.sh Jane Doe
 Submitted batch job 12431942
 :::
 
-:::{.callout-tip}
+:::{.callout-note}
+## `sbatch` option precedence
+Any `sbatch` option provided on the command line will override the equivalent
+option provided inside the script.
+This is sensible: we can provide "defaults" inside the script,
+and change one or more of those when needed on the command line.
+:::
+
+:::{.callout-note}
 ## Running a script with `#SBATCH` in other contexts
 Because `#SBATCH` lines are special _comment_ lines,
 they will simply be ignored and not throw any errors when you run a script that
@@ -326,13 +336,7 @@ contains them in other contexts: when not running them as a batch job at OSC,
 or even when running them on a computer without Slurm installed.
 :::
 
-:::{.callout-tip}
-## `sbatch` option precedence
-Any `sbatch` option provided on the command line will override the equivalent
-option provided inside the script.
-This is sensible: we can provide "defaults" inside the script,
-and change one or more of those when needed on the command line.
-:::
+<br>
 
 ### Where does the output go?
 
@@ -354,6 +358,8 @@ If the output from all those scripts ends up on your screen,
 things become a big mess, and you have no lasting record of what happened.
 :::
 
+**TODO: LOOK AT SLURM FILE CONTENTS**
+
 It's important to conceptually distinguish two broad types of output
 that a script may have:
 
@@ -373,9 +379,21 @@ that a script may have:
       as we briefly touch on below: "standard output" and "standard error".
 
 :::{.callout-tip}
-Both interactive and batch jobs start in the directory that they were submitted
-from: that is, your working directory will remain the same.
+## The working directory stays the same
+Batch jobs start in the directory that they were submitted
+from: that is, your working directory remains the same.
 :::
+
+<br>
+
+## Monitoring batch jobs
+
+Use script that sleeps for a while
+
+- `squeue`
+
+- `scancel`
+
 
 <br>
 
@@ -420,8 +438,8 @@ Specify a maximum amount of RAM (Random Access Memory) that your job can use.
 - The default unit is MB (MegaBytes) &mdash; use "G" for GB.
 - The default amount is 4 GB per core that you reserve (see below).
 - Like with the time limit, your job gets killed when it hits the memory limit.
-  But this is not that common so I would usually not specify unless the
-  program I'm running reports that it needs a lot of memory,
+  But this is not that common, so I usually don't specify it &mdash;
+  unless the program reports needing lots of memory,
   or I got "out-of-memory" errors when trying to run the script before.
 
 ```sh
@@ -454,15 +472,15 @@ and this is where things can get confusing!
 :::{.callout-note}
 ## Uncommon cases
 
-- Only ask for **>1 node** when you have explicit parallelization with
-  something like "MPI", which is uncommon in bioinformatics.
+- Only ask for **>1 node** when a program is parallelized with
+  e.g. "MPI", which is uncommon in bioinformatics.
 - For jobs with multiple processes (tasks),
   use `--ntasks=n` or `--ntasks-per-node=n`.
 :::  
 
 | Resource/use                  | short    | long                    | default
 |-------------------------------|----------|-------------------------|:--------:| 
-| Nr. of cores/CPUs/threads (per task)    | `-c 1`   | `--cpus-per-task=1`     | 1
+| **Nr. of cores/CPUs/threads (per task)**    | `-c 1`   | `--cpus-per-task=1`     | 1
 | Nr. of "tasks" (processes) | `-n 1`   | `--ntasks=1`            | 1
 | Nr. of tasks per node      | -        | `--ntasks-per-node=1`   | 1
 | Nr. of nodes               | `-N 1`   | `--nodes=1`             | 1
@@ -472,10 +490,15 @@ and this is where things can get confusing!
 #SBATCH --cpus-per-task=2
 ```
 
+:::{.callout-note}
+## Short and long options
+TODO
+:::
+
 ### `--output`: Slurm log files
 
 As we saw above, by default, all output from a script that would normally[^4]
-be printed to screen will end up in Slurm log file when we submit the script
+be printed to screen will end up in a Slurm log file when we submit the script
 as a batch job.
 This file will be created in the directory from which you submitted the script,
 and will be called `slurm-<job-number>.out`, e.g. `slurm-12431942.out`.
@@ -503,12 +526,13 @@ we need a trick here and that is to use
 [^5]: For instance, we might be running the FastQC script multiple times,
       and otherwise those would all have the same name and be overwritten.
       
-:::{.callout-note}
-## `stdout` and `stderr`
+:::{.callout-note collapse="true"}
+## At-home reading: `stdout` and `stderr`
 
 By default, two output streams "standard output" (`stdout`) and
-"standard error" (`stderr`) all end up in the same Slurm log file,
-but it is also possible to separate them into two separate files.
+"standard error" (`stderr`) are printed to screen and therefore also
+both end up in the same Slurm log file,
+but it is possible to separate them into different files.
 
 Because `stderr`, as you might have guessed, often contains error messages,
 it could be useful to have those in a separate file.
@@ -519,28 +543,18 @@ However, reality is more messy:
 some programs print their main output not to a file but to standard out,
 and their logging output, errors and regular messages alike, to standard error.
 Yet other programs use `stdout` or `stderr` for _all_ messages.
-I therefore usually only use `--output`.
+
+**I therefore usually only specify `--output`, such that both streams**
+**end up in that file.**
 
 :::
 
 
-### Other `sbatch` options
-
-Here are some other `sbatch` options that can be useful in certain cases:
-
-| Resource/use                         | long option
-|--------|----------|
-| Job name (displayed in the queue)    |  `--job-name=fastqc`
-| Partition (=queue type)              | `--partition=longserial` (long jobs) <br> `--partition=hugemem` (jobs needing lots of memory)
-| Get email when job starts, ends, fails, <br> or all of the above | `--mail-type=START` <br> `--mail-type=END` <br> `--mail-type=FAIL` <br> `--mail-type=ALL`
-| Let job begin at/after specific time | `--begin=2021-02-01T12:00:00`
-| Let job begin after other job is done | `--dependency=afterany:123456`
-
-
-
 <br>
 
-## Addendum: Table with all discussed `sbatch` options
+## Addendum: Table with `sbatch` options
+
+This includes all the discussed options, and a couple more useful ones:
 
 | Resource/use                  | short      | long                 | default
 |-------------------------------|------------|----------------------|:---------:|
@@ -554,7 +568,7 @@ Here are some other `sbatch` options that can be useful in certain cases:
 | Log output file (%j = job number)    | `-o`       |  `--output=slurm-fastqc-%j.out`
 | Error output (*stderr*)              | `-e`       | `--error=slurm-fastqc-%j.err`
 | Job name (displayed in the queue)    | -        | `--job-name=fastqc`
-| Partition (=queue type)              | -        | `--partition=longserial` (long jobs) <br> `--partition=hugemem` (jobs needing lots of memory)
+| Partition (=queue type)              | -        | `--partition=longserial` <br> `--partition=hugemem`
 | Get email when job starts, ends, fails, <br> or all of the above | -        | `--mail-type=START` <br> `--mail-type=END` <br> `--mail-type=FAIL` <br> `--mail-type=ALL`
 | Let job begin at/after specific time | -        | `--begin=2021-02-01T12:00:00`
 | Let job begin after other job is done | -      | `--dependency=afterany:123456`
