@@ -1,5 +1,6 @@
 ---
 title: "Using Software at OSC"
+subtitle: "Loading existing modules and installing and using software with conda" 
 pagetitle: "Software at OSC"
 highlight-style: github
 number-sections: true

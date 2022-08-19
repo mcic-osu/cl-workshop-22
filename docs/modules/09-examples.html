@@ -246,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#adapting-our-scripting-workflow-to-run-other-command-line-programs" id="toc-adapting-our-scripting-workflow-to-run-other-command-line-programs" class="nav-link" data-scroll-target="#adapting-our-scripting-workflow-to-run-other-command-line-programs"> <span class="header-section-number">4</span> Adapting our scripting workflow to run other command-line programs</a>
   <ul class="collapse">
   <li><a href="#on-your-own-run-another-program" id="toc-on-your-own-run-another-program" class="nav-link" data-scroll-target="#on-your-own-run-another-program">On Your Own: Run another program</a></li>
-  <li><a href="#commands-to-loadinstall-and-run-other-software" id="toc-commands-to-loadinstall-and-run-other-software" class="nav-link" data-scroll-target="#commands-to-loadinstall-and-run-other-software">Commands to load/install and run other software:</a></li>
+  <li><a href="#fa-info-circle-commands-to-loadinstall-and-run-other-software" id="toc-fa-info-circle-commands-to-loadinstall-and-run-other-software" class="nav-link" data-scroll-target="#fa-info-circle-commands-to-loadinstall-and-run-other-software"><i class="fa-solid fa-info-circle" aria-hidden="true"></i> Commands to load/install and run other software:</a></li>
   <li><a href="#multiqc" id="toc-multiqc" class="nav-link" data-scroll-target="#multiqc"> <span class="header-section-number">4.1</span> MultiQC</a></li>
   <li><a href="#trimmomatic" id="toc-trimmomatic" class="nav-link" data-scroll-target="#trimmomatic"> <span class="header-section-number">4.2</span> Trimmomatic</a></li>
   <li><a href="#star" id="toc-star" class="nav-link" data-scroll-target="#star"> <span class="header-section-number">4.3</span> STAR</a></li>
@@ -711,9 +711,12 @@ Submitted batch job 2451096</p>
 <h2 data-number="4" class="anchored" data-anchor-id="adapting-our-scripting-workflow-to-run-other-command-line-programs"><span class="header-section-number">4</span> Adapting our scripting workflow to run other command-line programs</h2>
 <section id="on-your-own-run-another-program" class="level3 unnumbered exercise">
 <h3 class="unnumbered anchored" data-anchor-id="on-your-own-run-another-program">On Your Own: Run another program</h3>
+<p>Using the techniques you’ve learned in this workshop, and especially, using our FastQC script as a template, try to run another command-line genomics program.</p>
+<p>We below, we provide basically complete command-lines for three programs: MultiQC (summarizing FastQC output into one file), Trimmomatic (quality trimming and removing adapaters), and STAR (mapping files to a reference genome).</p>
+<p>You can also try another program that you’ve been wanting to use.</p>
 </section>
-<section id="commands-to-loadinstall-and-run-other-software" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="commands-to-loadinstall-and-run-other-software">Commands to load/install and run other software:</h3>
+<section id="fa-info-circle-commands-to-loadinstall-and-run-other-software" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fa-info-circle-commands-to-loadinstall-and-run-other-software"><i class="fa-solid fa-info-circle" aria-hidden="true"></i> Commands to load/install and run other software:</h3>
 </section>
 <section id="multiqc" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="multiqc"><span class="header-section-number">4.1</span> MultiQC</h3>
@@ -814,19 +817,6 @@ Avoid long lines with <code>\</code>
 </section>
 <section id="star" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="star"><span class="header-section-number">4.3</span> STAR</h3>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The code below is a bit rough!</p>
-</div>
-</div>
 <section id="load-the-osc-module-1" class="level4" data-number="4.3.1">
 <h4 data-number="4.3.1" class="anchored" data-anchor-id="load-the-osc-module-1"><span class="header-section-number">4.3.1</span> Load the OSC module</h4>
 <div class="cell">
