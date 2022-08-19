@@ -761,7 +761,7 @@ SRR7609474  inland  treatment   3   55728624    78.80</code></pre>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check that the file exists and was just modified:</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> sandbox/samples_headtail.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>-rw-rw-r-- 1 jelmer jelmer 197 Aug 18 17:13 sandbox/samples_headtail.txt</code></pre>
+<pre class="bash-out"><code>-rw-rw-r-- 1 jelmer jelmer 197 Aug 19 18:49 sandbox/samples_headtail.txt</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -830,14 +830,14 @@ SRR7609474  inland  treatment   3   55728624    78.80</code></pre>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/headtail.sh data/meta/meta.tsv sandbox/tmp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Starting script scripts/headtail.sh
-Thu Aug 18 05:13:41 PM CEST 2022
+Fri Aug 19 06:49:16 PM CEST 2022
 Input file:   data/meta/meta.tsv
 Output file:  sandbox/tmp.txt
 
 Listing the output file:
--rw-rw-r-- 1 jelmer jelmer 197 Aug 18 17:13 sandbox/tmp.txt
+-rw-rw-r-- 1 jelmer jelmer 197 Aug 19 18:49 sandbox/tmp.txt
 Done with script scripts/headtail.sh
-Thu Aug 18 05:13:41 PM CEST 2022</code></pre>
+Fri Aug 19 06:49:16 PM CEST 2022</code></pre>
 </div>
 </div>
 <p>The script printed some details for the output file, but not its contents (that would have worked here, but is usually not sensible when working with genomics data). Let’s take a look, though, to make sure the script worked:</p>
@@ -948,15 +948,15 @@ head -n "$line_nr" "$input_file" | tail -n 1</code></pre>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printline.sh data/meta/meta.tsv sandbox/meta_line.tsv 4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>Starting script scripts/printline.sh
-Thu Aug 18 05:13:41 PM CEST 2022
+Fri Aug 19 06:49:16 PM CEST 2022
 Input file:   data/meta/meta.tsv
 Output file:  sandbox/meta_line.tsv
 Line number:  4
 
 Listing the output file:
--rw-rw-r-- 1 jelmer jelmer 42 Aug 18 17:13 sandbox/meta_line.tsv
+-rw-rw-r-- 1 jelmer jelmer 42 Aug 19 18:49 sandbox/meta_line.tsv
 Done with script scripts/printline.sh
-Thu Aug 18 05:13:41 PM CEST 2022</code></pre>
+Fri Aug 19 06:49:16 PM CEST 2022</code></pre>
 </div>
 </div>
 </div>

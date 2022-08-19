@@ -231,7 +231,7 @@ which means that `module load fastqc` and `module load fastqc/0.11.8` would
 each load that same version.
 
 :::{.callout-caution collapse="true"}
-## What might still be an argument to specify the version when we load FastQC?
+## What might still be a reason to specify the version when we load FastQC?
 
 When we use it inside a script:
 
