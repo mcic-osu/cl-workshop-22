@@ -397,7 +397,7 @@ and then copy-and-paste it into the terminal to run the loop:
 
 ```{bash}
 for fastq_file in data/fastq/*fastq.gz; do
-    scripts/fastqc.sh "$fastq_file" results/fastqc
+    sbatch scripts/fastqc.sh "$fastq_file" results/fastqc
 done
 ```
 
