@@ -187,11 +187,11 @@ in a script:
   ```{bash}
   mkdir newdir1/newdir2
   #> mkdir: cannot create directory ‘newdir1/newdir2’: No such file or directory
-  ````
+  ```
 
   ```{bash}
   mkdir -p newdir1/newdir2    # This successfully creates both directories
-  ````
+  ```
 
 - If the directory already exists, it won't do anything and won't return an error
   (which would lead the script to abort at that point with our `set` settings).
@@ -199,11 +199,11 @@ in a script:
   ```{bash}
   mkdir newdir1/newdir2
   #> mkdir: cannot create directory ‘newdir1/newdir2’: File exists
-  ````
+  ```
 
   ```{bash}
   mkdir -p newdir1/newdir2   # This does nothing since the dirs already exist
-  ````
+  ```
 :::
 
 Our script now looks as follows:
@@ -555,6 +555,7 @@ command one a new line, so we don't get extremely long lines!
 #### Load the OSC module
 
 ```{bash}
+module load gnu/10.3.0
 module load star/2.7.9a
 ```
 
@@ -570,6 +571,7 @@ gunzip reference/Pvul.fa.gz
 #SBATCH --cpus-per-task=8
 
 # Load the module
+module load gnu/10.3.0
 module load star/2.7.9a
 
 # Copy the placeholder variables

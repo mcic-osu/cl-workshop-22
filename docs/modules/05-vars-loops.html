@@ -592,7 +592,7 @@ At-home reading: Quoting as “escaping” special meaning – and double vs.&nb
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>Fri Aug 19 06:50:00 PM CEST 2022</code></pre>
+<pre class="bash-out"><code>Fri Aug 19 06:57:32 PM CEST 2022</code></pre>
 </div>
 </div>
 <p>If we try to store the date in a variable directly, it doesn’t work: the literal string “date” is stored, not the output of the command:</p>
@@ -608,7 +608,7 @@ At-home reading: Quoting as “escaping” special meaning – and double vs.&nb
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$today</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>Fri Aug 19 06:50:00 PM CEST 2022</code></pre>
+<pre class="bash-out"><code>Fri Aug 19 06:57:32 PM CEST 2022</code></pre>
 </div>
 </div>
 <hr>
@@ -981,13 +981,13 @@ A semicolon <code>;</code> (as used before <code>do</code>) separates two comman
 <span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>In this iteration of the loop, the number is 1
-Fri Aug 19 06:50:02 PM CEST 2022
+Fri Aug 19 06:57:33 PM CEST 2022
 --------
 In this iteration of the loop, the number is 2
-Fri Aug 19 06:50:03 PM CEST 2022
+Fri Aug 19 06:57:34 PM CEST 2022
 --------
 In this iteration of the loop, the number is 3
-Fri Aug 19 06:50:04 PM CEST 2022
+Fri Aug 19 06:57:35 PM CEST 2022
 --------</code></pre>
 </div>
 </div>
