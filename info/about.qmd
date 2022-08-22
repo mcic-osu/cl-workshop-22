@@ -9,11 +9,15 @@ with analyzing genomic datasets.
 
 It will be taught in-person with video-linking at the Wooster and
 Columbus Ohio State campuses, and it is also possible to join online through Zoom.
+
 We will have an instructor at each campus: 
 Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the
 Wooster campus,
 and Mike Sovic from the Center for Applied Plant Sciences (CAPS)
 at the Columbus campus.
+We will also have two graduate student TAs:
+Menuka Bhandari (Center for Food Animal Health) and
+Camila Perdoncini Carvalho (Plant Pathology).
 
 The workshop will be highly hands-on and take place across three afternoons:  
 _Wed, Aug 17 - Fri, Aug 19, 2022_.

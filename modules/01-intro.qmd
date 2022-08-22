@@ -181,12 +181,12 @@ p_genomics <- signup %>%
 ### Instructors
 
 - **Jelmer Poelstra**, Molecular and Cellular Imaging Center (MCIC), Wooster
-- **Mike Sovic**, Center for Applied Plant Sciences (CAPS), Wooster
+- **Mike Sovic**, Center for Applied Plant Sciences (CAPS), Columbus
 
-A special mention goes out to _Menuka Bhandari_ who is managing the Selby
-in-person room. Menuka is also knowledgeable about the workshop material
-and may be able to help you if you need/prefer someone in the room itself
-for a certain question.
+### Teaching assistants
+
+- **Menuka Bhandari**, Center for Food Animal Health, Wooster
+- **Camila Perdoncini Carvalho**, Plant Pathology, Wooster
 
 ### Participants
 
