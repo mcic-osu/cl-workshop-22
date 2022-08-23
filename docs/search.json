@@ -432,5 +432,26 @@
     "title": "Workshop Notes",
     "section": "2 Things that came up during the workshop",
     "text": "2 Things that came up during the workshop\n\n2.1 OSC Help\nOSC website with help: https://osc.edu, especially:\n\nGetting Started\nHOWTOs for specific tasks, such as transferring files with Globus\n\n\n\n\n2.2 A few shell keyboard shortcuts\n\nCtrl + C to cancel a running process. It can also get you out of situations where you unexpectedly aren’t getting your prompt back, such as when you’ve forgotten to close a quote.\nCtrl + D to exit your current shell (same as the command exit). For example, this will close your terminal if you’re on a login node, and send your shell back to a login node if you’re on an interactive compute node.\nCtrl + R: Remember that the shell keeps a record of all of the commands you’ve run and that you can use the up arrow to scroll back through these. Alternatively, this keyboard shortcut allows you to search for text within those commands.\n\n\n\n\n2.3 Viewing (small) text files\nA nice trick to get columns lined up when viewing tab-separated files in the terminal is to use the command column:\n\ncolumn -t data/meta/meta.tsv\n\n\n\n\nAlso, don’t forget that you can simply open such files in the VS Code editor!\nMoreover, the “Rainbow CSV” VS Code extension will help to easily distinguish columns in comma-and tab-separated files (.csv & .tsv file, though note that these are often just saved as .txt, too).\n\n\n\n\n\n\n2.4 Shellcheck\nThe Shellcheck extension is a very useful VS Code extension that checks the code in your shell script for things like: unused variables, referencing non-existent variables, syntax errors, wrong or suboptimal coding practices, and so on. See these two screenshots for an illustration of the functionality:\n\n\n\n\n\n\n\n\n\n\n\n\nVS Code extensions\n\n\n\nTo find and install VS Code extensions, click the Extension icon in the Activity Bar (narrow side bar): see this page.\n\n\n\n\n\n\n\n\nWarning\n\n\n\nIn VS Code on OnDemand, Shellcheck sometimes fails to install. It should certainly work if you install VS Code on your computer, though!\n\n\n\n\n\n2.5 File permissions\n\n# Give execute permissions to all files in the folder \"myfolder\"\nchmod +x myfolder/*\n  \n# Give execute permissions to all shell scripts in the folder \"myfolder\"\nchmod +x myfolder/*sh\n  \n# For folders, people need _execute_ permissions to enter them.\n# If you want others to be able to see and copy all your files in a certain folder:\nchmod -R +X myfolder\n\nFore more, see this file permission tutorial."
+  },
+  {
+    "objectID": "info/notes.html#want-to-learn-r",
+    "href": "info/notes.html#want-to-learn-r",
+    "title": "Workshop Notes",
+    "section": "3 Want to learn R?",
+    "text": "3 Want to learn R?\nSign up for the OSU Code Club!"
+  },
+  {
+    "objectID": "info/notes.html#want-to-learn-r-sign-up-for-osu-code-cub",
+    "href": "info/notes.html#want-to-learn-r-sign-up-for-osu-code-cub",
+    "title": "Workshop Notes",
+    "section": "3 Want to learn R? Sign up for OSU Code Cub!",
+    "text": "3 Want to learn R? Sign up for OSU Code Cub!\nSign up for the OSU Code Club!"
+  },
+  {
+    "objectID": "info/notes.html#want-to-learn-r-sign-up-for-osu-code-club",
+    "href": "info/notes.html#want-to-learn-r-sign-up-for-osu-code-club",
+    "title": "Workshop Notes",
+    "section": "3 Want to learn R? Sign up for OSU Code Club!",
+    "text": "3 Want to learn R? Sign up for OSU Code Club!\nSign up for OSU Code Club here!\nWe will restart Code Club in September for the fall semester, working our way through the book R for Data Science."
   }
 ]

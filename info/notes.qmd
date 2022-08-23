@@ -145,3 +145,12 @@ chmod -R +X myfolder
 ```
   
 Fore more, see [this file permission tutorial](https://www.guru99.com/file-permissions.html).
+
+<br>
+
+## Want to learn R? Sign up for OSU Code Club!
+
+[Sign up for OSU Code Club here!](https://biodash.github.io/codeclub-about/)
+
+We will restart Code Club in September for the fall semester,
+working our way through the book [R for Data Science](https://r4ds.had.co.nz/).
