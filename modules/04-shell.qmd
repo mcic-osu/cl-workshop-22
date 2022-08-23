@@ -466,6 +466,13 @@ The `zcat` function prints human-readable contents of a gzip-compressed file to 
 
 Much better -- this is what the raw RNAseq data look like!
 
+:::{.callout-warning}
+To get the number of lines (= number sequences x 4 -- see below)
+for a gzipped FASTQ file,
+it's important to use  `zcat x.fastq.gz | wc -l` instead of `wc -l x.fastq.gz`,
+because the compressed file does not have the same number of lines!
+:::
+
 ### FASTQ Format
 
 If you're not familiar with it, FASTQ is a very common format for genomic data files. The raw data produced by a high-throughput sequencer will almost certainly be returned to you in this format. These are plain text files, and each sequence that is read by the sequencer is represented by 4 lines:

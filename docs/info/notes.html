@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jelmer Poelstra">
 
-<title>Command line workshop ’22 - General Workshop Info &amp; Signing Up</title>
+<title>Workshop Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,6 +16,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -125,9 +189,6 @@ ul.task-list{list-style: none;}
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="../info/workshop-notes.qmd">Workshop notes</a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
@@ -140,6 +201,10 @@ ul.task-list{list-style: none;}
         <li>
     <a class="dropdown-item" href="../info/about.html">
  <span class="dropdown-text">General Workshop Info / Signing Up</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../info/workshop-notes.qmd">
+ <span class="dropdown-text">Post-Workshop Notes</span></a>
   </li>  
     </ul>
   </li>
@@ -161,13 +226,15 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#contents-of-the-workshop" id="toc-contents-of-the-workshop" class="nav-link" data-scroll-target="#contents-of-the-workshop">Contents of the workshop</a>
+  <li><a href="#copy-workshop-files-to-your-home-directory" id="toc-copy-workshop-files-to-your-home-directory" class="nav-link active" data-scroll-target="#copy-workshop-files-to-your-home-directory"> <span class="header-section-number">1</span> Copy workshop files to your home directory</a></li>
+  <li><a href="#things-that-came-up-during-the-workshop" id="toc-things-that-came-up-during-the-workshop" class="nav-link" data-scroll-target="#things-that-came-up-during-the-workshop"> <span class="header-section-number">2</span> Things that came up during the workshop</a>
   <ul class="collapse">
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
-  <li><a href="#some-more-background" id="toc-some-more-background" class="nav-link" data-scroll-target="#some-more-background">Some more background</a></li>
+  <li><a href="#osc-help" id="toc-osc-help" class="nav-link" data-scroll-target="#osc-help"> <span class="header-section-number">2.1</span> OSC Help</a></li>
+  <li><a href="#a-few-shell-keyboard-shortcuts" id="toc-a-few-shell-keyboard-shortcuts" class="nav-link" data-scroll-target="#a-few-shell-keyboard-shortcuts"> <span class="header-section-number">2.2</span> A few shell keyboard shortcuts</a></li>
+  <li><a href="#viewing-small-text-files" id="toc-viewing-small-text-files" class="nav-link" data-scroll-target="#viewing-small-text-files"> <span class="header-section-number">2.3</span> Viewing (small) text files</a></li>
+  <li><a href="#shellcheck" id="toc-shellcheck" class="nav-link" data-scroll-target="#shellcheck"> <span class="header-section-number">2.4</span> Shellcheck</a></li>
+  <li><a href="#file-permissions" id="toc-file-permissions" class="nav-link" data-scroll-target="#file-permissions"> <span class="header-section-number">2.5</span> File permissions</a></li>
   </ul></li>
-  <li><a href="#sign-up" id="toc-sign-up" class="nav-link" data-scroll-target="#sign-up">Sign up!</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/mcic-osu/cl-workshop-22/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -176,13 +243,20 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">General Workshop Info &amp; Signing Up</h1>
+<h1 class="title">Workshop Notes</h1>
+<p class="subtitle lead">Copying your workshop files – and some topics that came up while teaching the workshop</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jelmer Poelstra </p>
+          </div>
+  </div>
     
     
   </div>
@@ -190,53 +264,115 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This workshop is geared towards people who would like to get started with analyzing genomic datasets.</p>
-<p>It will be taught in-person with video-linking at the Wooster and Columbus Ohio State campuses, and it is also possible to join online through Zoom.</p>
-<p>We will have an instructor at each campus: Jelmer Poelstra from the Molecular and Cellular Imaging Center (MCIC) at the Wooster campus, and Mike Sovic from the Center for Applied Plant Sciences (CAPS) at the Columbus campus. We will also have two graduate student TAs: Menuka Bhandari (Center for Food Animal Health) and Camila Perdoncini Carvalho (Plant Pathology).</p>
-<p>The workshop will be highly hands-on and take place across three afternoons:<br>
-<em>Wed, Aug 17 - Fri, Aug 19, 2022</em>.</p>
+<div class="cell">
+
+</div>
+<hr>
+<p><br></p>
+<section id="copy-workshop-files-to-your-home-directory" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="copy-workshop-files-to-your-home-directory"><span class="header-section-number">1</span> Copy workshop files to your home directory</h2>
+<p>Remember that the <code>PAS2250</code> directory, where we put our files during the workshop, is a scratch directory: those files will eventually be automatically deleted.</p>
+<p>The command below would copy the files you created and copied during the workshop to a directory (folder) in your home directory called <code>2022-08_command-line-workshop</code>. In the command, replace <code>&lt;your-folder&gt;</code> by the actual name of your folder.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /fs/ess/scratch/PAS2250/participants/<span class="op">&lt;</span>your-folder<span class="op">&gt;</span> ~/2022-08_command-line-workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For instance:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /fs/ess/scratch/PAS2250/participants/mike ~/2022-08_command-line-workshop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that <strong><code>~</code></strong> is a shortcut to your home directory (you can do <code>echo ~</code> to check this).</p>
+<p><br></p>
+</section>
+<section id="things-that-came-up-during-the-workshop" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="things-that-came-up-during-the-workshop"><span class="header-section-number">2</span> Things that came up during the workshop</h2>
+<section id="osc-help" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="osc-help"><span class="header-section-number">2.1</span> OSC Help</h3>
+<p><strong>OSC website with help</strong>: <a href="https://osc.edu" class="uri">https://osc.edu</a>, especially:</p>
 <ul>
-<li>Anyone affiliated with The Ohio State University or Wooster USDA can attend</li>
-<li>Attendance is free</li>
-<li>No prior experience with coding or genomic data is required</li>
-<li>You will need to bring a laptop and don’t need to install anything prior to or during the workshop</li>
-<li>We will work with example genomics data but if you have any, you are also welcome to bring your own data.</li>
+<li><a href="https://www.osc.edu/resources/getting_started">Getting Started</a></li>
+<li><a href="https://www.osc.edu/resources/getting_started/howto">HOWTOs for specific tasks, such as transferring files with Globus</a></li>
 </ul>
-<p>See below for information about the contents of the workshop and to sign up.<br>
-For questions, please <a href="mailto:poelstra.1@osu.edu">email Jelmer</a>.</p>
+<p><br></p>
 </section>
-<section id="contents-of-the-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="contents-of-the-workshop">Contents of the workshop</h2>
-<p>The focus of the workshop is on building general skills for analyzing genomics data, such as <em>RNAseq</em>, <em>metabarcoding</em>, <em>metagenomic shotgun sequencing</em>, or <em>whole-genome sequencing</em>. These skills boil down to the ability to write small shell scripts that run command-line programs and submit these scripts to a compute cluster – in our case, at the Ohio Supercomputer Center (OSC).</p>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
+<section id="a-few-shell-keyboard-shortcuts" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="a-few-shell-keyboard-shortcuts"><span class="header-section-number">2.2</span> A few shell keyboard shortcuts</h3>
 <ul>
-<li>Introduction to the Ohio Supercomputer Center (OSC)</li>
-<li>Using the <code>VS Code</code> text editor at OSC</li>
-<li>Introduction to the Unix shell (= the terminal / command line)</li>
-<li>Basics of shell scripts</li>
-<li>Software at OSC with <em>modules</em> &amp; <code>Conda</code></li>
-<li>Submitting your scripts using the <code>SLURM</code> scheduler</li>
-<li>Putting it all together: practical examples of running analysis jobs at OSC</li>
+<li><p><kbd>Ctrl</kbd> + <kbd>C</kbd> to cancel a running process. It can also get you out of situations where you unexpectedly aren’t getting your prompt back, such as when you’ve forgotten to close a quote.</p></li>
+<li><p><kbd>Ctrl</kbd> + <kbd>D</kbd> to exit your current shell (same as the command <code>exit</code>). For example, this will close your terminal if you’re on a login node, and send your shell back to a login node if you’re on an interactive compute node.</p></li>
+<li><p><kbd>Ctrl</kbd> + <kbd>R</kbd>: Remember that the shell keeps a record of all of the commands you’ve run and that you can use the up arrow to scroll back through these. Alternatively, this keyboard shortcut allows you to search for text within those commands.</p></li>
 </ul>
-<p>The modules will be a mixture of lectures that include “participatory live-coding” (with the instructor slowly demonstrating and participants expected to follow along for themselves) and exercises.</p>
+<p><br></p>
 </section>
-<section id="some-more-background" class="level3">
-<h3 class="anchored" data-anchor-id="some-more-background">Some more background</h3>
-<p>Command-line programs are preferred for many of the steps to analyze genomic sequencing data, such as those involving quality control, trimming or adapter removal, and assembly or mapping. Other features of such datasets are that they tend to contain <em>a lot</em> of data, and that many analysis steps can be done independently for each sample. It therefore pays off -or may be necessary- to run your analyses not on a laptop or desktop, but at a supercomputer like OSC.</p>
-<p>Being able to run your analysis with command-line programs at OSC involves a number of skills that may seem overwhelming at first. Fortunately, learning the basics of these skills does not take a lot of time, and will enable you to be up-and-running with working on your own genomic data! Keep in mind that these days, excellent programs are available for almost any genomics analysis, so you do not need to be able to code it all up from scratch. You will just need to know how to efficiently run such programs, which is what this workshop aims to teach you.</p>
+<section id="viewing-small-text-files" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="viewing-small-text-files"><span class="header-section-number">2.3</span> Viewing (small) text files</h3>
+<p>A nice trick to get <strong>columns lined up when viewing tab-separated files in the terminal</strong> is to use the command <code>column</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">column</span> <span class="at">-t</span> data/meta/meta.tsv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p align="center">
+<img src="img/column.png" width="70%">
+</p>
+<p>Also, don’t forget that you can simply open such files in the VS Code editor!</p>
+<p>Moreover, the “<em>Rainbow CSV</em>” VS Code extension will help to easily distinguish columns in comma-and tab-separated files (<code>.csv</code> &amp; <code>.tsv</code> file, though note that these are often just saved as <code>.txt</code>, too).</p>
+<p align="center">
+<img src="img/rainbow_csv.png" width="70%">
+</p>
+<p><br></p>
 </section>
+<section id="shellcheck" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="shellcheck"><span class="header-section-number">2.4</span> Shellcheck</h3>
+<p>The <strong>Shellcheck extension</strong> is a very useful VS Code extension that checks the code in your shell script for things like: unused variables, referencing non-existent variables, syntax errors, wrong or suboptimal coding practices, and so on. See these two screenshots for an illustration of the functionality:</p>
+<p align="center">
+<img src="img/shellcheck-1.png" width="60%">
+</p>
+<p align="center">
+<img src="img/shellcheck-2.png" width="60%">
+</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+VS Code extensions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To find and install VS Code extensions, click the Extension icon in the Activity Bar (narrow side bar): <a href="../modules/03-vscode.html#getting-started-with-vs-code">see this page</a>.</p>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In VS Code on OnDemand, Shellcheck sometimes fails to install. It should certainly work if you <a href="../modules/03-vscode.html#at-home-bonus-local-installation">install VS Code on your computer</a>, though!</p>
+</div>
+</div>
+<p><br></p>
 </section>
-<section id="sign-up" class="level2">
-<h2 class="anchored" data-anchor-id="sign-up">Sign up!</h2>
-<p>To apply to attend the workshop, please fill out the form below. There is no real selection procedure: we accept anyone who is at OSU/USDA and signs up before we have reached the maximum number of participants.</p>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScEyRqHKPZXteXE-1nDSz2ahJYK3PwxN47bsIx2XkGSj_wB9A/viewform?embedded=true" width="800" height="1847" frameborder="0" marginheight="0" marginwidth="0">
-Loading…
-</iframe>
+<section id="file-permissions" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="file-permissions"><span class="header-section-number">2.5</span> File permissions</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Give execute permissions to all files in the folder "myfolder"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x myfolder/<span class="pp">*</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Give execute permissions to all shell scripts in the folder "myfolder"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x myfolder/<span class="pp">*</span>sh</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For folders, people need _execute_ permissions to enter them.</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># If you want others to be able to see and copy all your files in a certain folder:</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> <span class="at">-R</span> +X myfolder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Fore more, see <a href="https://www.guru99.com/file-permissions.html">this file permission tutorial</a>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

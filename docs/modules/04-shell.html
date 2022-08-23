@@ -189,6 +189,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../info/workshop-notes.qmd">Workshop notes</a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
@@ -201,10 +204,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li>
     <a class="dropdown-item" href="../info/about.html">
  <span class="dropdown-text">General Workshop Info / Signing Up</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../info/glossary.html">
- <span class="dropdown-text">Glossary</span></a>
   </li>  
     </ul>
   </li>
@@ -690,6 +689,19 @@ Solutions (click here)
 <img src="img/head4.png" width="80%">
 </p>
 <p>Much better – this is what the raw RNAseq data look like!</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To get the number of lines (= number sequences x 4 – see below) for a gzipped FASTQ file, it’s important to use <code>zcat x.fastq.gz | wc -l</code> instead of <code>wc -l x.fastq.gz</code>, because the compressed file does not have the same number of lines!</p>
+</div>
+</div>
 </section>
 <section id="fastq-format" class="level3" data-number="4.5">
 <h3 data-number="4.5" class="anchored" data-anchor-id="fastq-format"><span class="header-section-number">4.5</span> FASTQ Format</h3>

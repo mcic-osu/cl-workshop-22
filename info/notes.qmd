@@ -1,0 +1,147 @@
+---
+title: "Workshop Notes"
+subtitle: "Copying your workshop files -- and some topics that came up while teaching the workshop"
+pagetitle: "Workshop Notes"
+highlight-style: github
+number-sections: true
+author: Jelmer Poelstra
+---
+
+```{r knitr_options, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE,
+                      class.output = "bash-out")
+```
+
+----
+
+<br>
+
+## Copy workshop files to your home directory
+
+Remember that the `PAS2250` directory, where we put our files during the workshop,
+is a scratch directory: those files will eventually be automatically deleted.
+
+The command below would copy the files you created and copied during the workshop
+to a directory (folder) in your home directory called `2022-08_command-line-workshop`.
+In the command, replace `<your-folder>` by the actual name of your folder.
+
+```{bash}
+cp -r /fs/ess/scratch/PAS2250/participants/<your-folder> ~/2022-08_command-line-workshop
+```
+
+For instance:
+
+```{bash}
+cp -r /fs/ess/scratch/PAS2250/participants/mike ~/2022-08_command-line-workshop
+```
+
+Note that **`~`** is a shortcut to your home directory
+(you can do `echo ~` to check this).
+
+<br>
+
+## Things that came up during the workshop
+
+### OSC Help
+
+**OSC website with help**: <https://osc.edu>, especially:
+
+- [Getting Started](https://www.osc.edu/resources/getting_started)
+- [HOWTOs for specific tasks, such as transferring files with Globus](https://www.osc.edu/resources/getting_started/howto)
+
+<br>
+
+### A few shell keyboard shortcuts
+
+  - <kbd>Ctrl</kbd> + <kbd>C</kbd> to cancel a running process.
+    It can also get you out of situations where you unexpectedly aren’t getting
+    your prompt back, such as when you’ve forgotten to close a quote.
+    
+  - <kbd>Ctrl</kbd> + <kbd>D</kbd> to exit your current shell 
+    (same as the command `exit`).
+    For example, this will close your terminal if you're on a login node,
+    and send your shell back to a login node if you're on an interactive compute
+    node.
+
+  - <kbd>Ctrl</kbd> + <kbd>R</kbd>:
+    Remember that the shell keeps a record of all of the commands you’ve run and
+    that you can use the up arrow to scroll back through these.
+    Alternatively, this keyboard shortcut allows you to search for text within
+    those commands.
+
+<br>
+
+### Viewing (small) text files
+
+A nice trick to get
+**columns lined up when viewing tab-separated files in the terminal**
+is to use the command `column`:
+
+```{bash}
+column -t data/meta/meta.tsv
+```
+
+<p align="center">
+<img src=img/column.png width="70%">
+</p>
+
+Also, don't forget that you can simply open such files in the VS Code editor! 
+  
+Moreover, the "_Rainbow CSV_" VS Code extension will help to easily distinguish
+columns in comma-and tab-separated files
+(`.csv` & `.tsv` file, though note that these are often just saved as `.txt`,
+too).
+
+<p align="center">
+<img src=img/rainbow_csv.png width="70%">
+</p>
+
+<br>
+
+### Shellcheck
+
+The **Shellcheck extension** is a very useful VS Code extension that
+checks the code in your shell script for things like:
+unused variables, referencing non-existent variables, syntax errors,
+wrong or suboptimal coding practices, and so on.
+See these two screenshots for an illustration of the functionality:
+  
+<p align="center">
+<img src=img/shellcheck-1.png width="60%">
+</p>
+  
+<p align="center">
+<img src=img/shellcheck-2.png width="60%">
+</p>
+
+:::{.callout-note}
+## VS Code extensions
+To find and install VS Code extensions,
+click the Extension icon in the Activity Bar (narrow side bar):
+[see this page](../modules/03-vscode.qmd#getting-started-with-vs-code).
+:::
+
+:::{.callout-warning}
+In VS Code on OnDemand, Shellcheck sometimes fails to install.
+It should certainly work if you
+[install VS Code on your computer](../modules/03-vscode.qmd#at-home-bonus-local-installation),
+though!
+:::
+
+<br>
+
+### File permissions
+
+```{bash}
+# Give execute permissions to all files in the folder "myfolder"
+chmod +x myfolder/*
+  
+# Give execute permissions to all shell scripts in the folder "myfolder"
+chmod +x myfolder/*sh
+  
+# For folders, people need _execute_ permissions to enter them.
+# If you want others to be able to see and copy all your files in a certain folder:
+chmod -R +X myfolder
+```
+  
+Fore more, see [this file permission tutorial](https://www.guru99.com/file-permissions.html).
