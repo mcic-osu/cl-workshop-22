@@ -4,7 +4,9 @@ subtitle: "Copying your workshop files -- and some topics that came up while tea
 pagetitle: "Workshop Notes"
 highlight-style: github
 number-sections: true
-author: Jelmer Poelstra
+author:
+  - Jelmer Poelstra
+  - Mike Sovic
 ---
 
 ```{r knitr_options, echo=FALSE}
@@ -109,14 +111,20 @@ checks the code in your shell script for things like:
 unused variables, referencing non-existent variables, syntax errors,
 wrong or suboptimal coding practices, and so on.
 See these two screenshots for an illustration of the functionality:
-  
+
+<figure>
 <p align="center">
-<img src=img/shellcheck-1.png width="60%">
+<img src=img/shellcheck-1.png width="65%">
+<figcaption align="center">Above: Shellcheck warns that the variable `$output_dir`, <br> which we have assigned, is not referenced anywhere in the script <br> (notice the typo further down).</figcaption>
 </p>
+</figure>
   
+<figure>
 <p align="center">
-<img src=img/shellcheck-2.png width="60%">
+<img src=img/shellcheck-2.png width="65%">
+<figcaption align="center">Above: Shellcheck warns that the variable `$outpt_dir`, <br> which we reference because of a typo, <br> has not been assigned elsewhere in the script.</figcaption>
 </p>
+</figure>
 
 :::{.callout-note}
 ## VS Code extensions

@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jelmer Poelstra">
+<meta name="author" content="Mike Sovic">
 
 <title>Workshop Notes</title>
 <style>
@@ -253,9 +254,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
              <p>Jelmer Poelstra </p>
+             <p>Mike Sovic </p>
           </div>
   </div>
     
@@ -324,12 +326,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="shellcheck" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="shellcheck"><span class="header-section-number">2.4</span> Shellcheck</h3>
 <p>The <strong>Shellcheck extension</strong> is a very useful VS Code extension that checks the code in your shell script for things like: unused variables, referencing non-existent variables, syntax errors, wrong or suboptimal coding practices, and so on. See these two screenshots for an illustration of the functionality:</p>
+<figure class="figure">
 <p align="center">
-<img src="img/shellcheck-1.png" width="60%">
-</p>
+<img src="img/shellcheck-1.png" width="65%" class="figure-img">
+</p><figcaption align="center" class="figure-caption">
+Above: Shellcheck warns that the variable <code>$output_dir</code>, <br> which we have assigned, is not referenced anywhere in the script <br> (notice the typo further down).
+</figcaption>
+<p></p>
+</figure>
+<figure class="figure">
 <p align="center">
-<img src="img/shellcheck-2.png" width="60%">
-</p>
+<img src="img/shellcheck-2.png" width="65%" class="figure-img">
+</p><figcaption align="center" class="figure-caption">
+Above: Shellcheck warns that the variable <code>$outpt_dir</code>, <br> which we reference because of a typo, <br> has not been assigned elsewhere in the script.
+</figcaption>
+<p></p>
+</figure>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
