@@ -16,7 +16,7 @@ website:
           - href: info/about.qmd
             text: General Workshop Info / Signing Up
           - text: "Post-Workshop Notes"
-            href: info/workshop-notes.qmd
+            href: info/notes.qmd
     left:
       - text: "Day 1"
         menu:
