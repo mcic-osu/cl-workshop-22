@@ -48,6 +48,10 @@ Note that **`~`** is a shortcut to your home directory
 
 - [Getting Started](https://www.osc.edu/resources/getting_started)
 - [HOWTOs for specific tasks, such as transferring files with Globus](https://www.osc.edu/resources/getting_started/howto)
+- [Applying for an OSC project](https://www.osc.edu/supercomputing/support/account)
+  This is typically done by a PI.
+  (Note also that the portal for account and project management is on a third
+  OSC site: <https://my.osc.edu>.)
 
 <br>
 
