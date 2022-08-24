@@ -592,7 +592,7 @@ At-home reading: Quoting as “escaping” special meaning – and double vs.&nb
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>Tue Aug 23 12:23:08 PM CEST 2022</code></pre>
+<pre class="bash-out"><code>Wed Aug 24 08:59:02 PM CEST 2022</code></pre>
 </div>
 </div>
 <p>If we try to store the date in a variable directly, it doesn’t work: the literal string “date” is stored, not the output of the command:</p>
@@ -608,7 +608,7 @@ At-home reading: Quoting as “escaping” special meaning – and double vs.&nb
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="va">today</span><span class="op">=</span><span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$today</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>Tue Aug 23 12:23:08 PM CEST 2022</code></pre>
+<pre class="bash-out"><code>Wed Aug 24 08:59:02 PM CEST 2022</code></pre>
 </div>
 </div>
 <hr>
@@ -616,7 +616,7 @@ At-home reading: Quoting as “escaping” special meaning – and double vs.&nb
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span> +%F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>2022-08-23</code></pre>
+<pre class="bash-out"><code>2022-08-24</code></pre>
 </div>
 </div>
 <p>Let’s use that in a command substitution — but a bit differently than before: we use the command substitution <code>$(date +%F)</code> <em>directly</em> in our <code>touch</code> command, rather than first assigning it to a variable:</p>
@@ -629,7 +629,7 @@ At-home reading: Quoting as “escaping” special meaning – and double vs.&nb
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre class="bash-out"><code>README_2022-08-23.txt</code></pre>
+<pre class="bash-out"><code>README_2022-08-24.txt</code></pre>
 </div>
 </div>
 <p>Among many other uses, command substitution is handy when you want your script to report some results, or when a next step in the script depends on a previous result.</p>
@@ -981,13 +981,13 @@ A semicolon <code>;</code> (as used before <code>do</code>) separates two comman
 <span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="bash-out"><code>In this iteration of the loop, the number is 1
-Tue Aug 23 12:23:10 PM CEST 2022
+Wed Aug 24 08:59:03 PM CEST 2022
 --------
 In this iteration of the loop, the number is 2
-Tue Aug 23 12:23:11 PM CEST 2022
+Wed Aug 24 08:59:04 PM CEST 2022
 --------
 In this iteration of the loop, the number is 3
-Tue Aug 23 12:23:12 PM CEST 2022
+Wed Aug 24 08:59:05 PM CEST 2022
 --------</code></pre>
 </div>
 </div>

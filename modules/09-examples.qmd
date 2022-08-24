@@ -536,7 +536,8 @@ output_fastq=$2   # Output file directory and name to your choosing
 adapter_file=/fs/ess/scratch/PAS2250/jelmer/mcic-scripts/trim/adapters.fa
 
 # Run Trimmomatic
-trimmomatic PE \
+# (note that the OSC module makes the environment variable $TRIMMOMATIC available)
+java -jar "$TRIMMOMATIC" SE \
   "$input_fastq" "$output_fastq" \
   ILLUMINACLIP:"$adapter_file":2:30:10 \
   LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
